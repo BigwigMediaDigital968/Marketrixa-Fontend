@@ -1,26 +1,106 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors from Logo */
+  --brand-orange: #f26522;
+  --brand-black: #000000;
+  --brand-white: #ffffff;
+
+  /* Accent Colors for Premium Feel */
+  --accent-gray: #1a1a1a;
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+
+  /* Animation Timings */
+  --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer base {
+  body {
+    @apply bg-gradient-to-b from-black via-zinc-950 to-black text-white selection:bg-[#F26522] selection:text-white;
+    font-feature-settings: "palt" 1;
+    overflow-x: hidden;
+  }
+
+  /* h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold tracking-tight;
+    background: linear-gradient(to bottom right, #ffffff 30%, #a1a1a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  } */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  /* Premium Glass Card */
+  .premium-card {
+    @apply relative overflow-hidden rounded-2xl border border-[--glass-border] bg-[--glass-bg] backdrop-blur-md;
+    transition: var(--transition-smooth);
+  }
+
+  .premium-card:hover {
+    @apply border-[#F26522]/30;
+    background: rgba(242, 101, 34, 0.05);
+    transform: translateY(-5px);
+  }
+
+  /* Brand Action Button */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-300 rounded-full bg-[#F26522] hover:bg-[#D94E1A] hover:shadow-[0_0_25px_rgba(242,101,34,0.4)] active:scale-95;
+  }
+
+  /* Animated Border Effect */
+  .animate-border {
+    position: relative;
+  }
+
+  .animate-border::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--brand-orange);
+    transition: width 0.4s ease;
+  }
+
+  .animate-border:hover::after {
+    width: 100%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Background Noise Texture for extra depth */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='https://www.google.com/search?q=http://www.w3.org/2000/svg%27%253E%253Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brand-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-orange);
+}
+
+/* Custom Grid Background */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
