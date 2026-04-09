@@ -22,7 +22,7 @@
     overflow-x: hidden;
   }
 
-  /* h1,
+  h1,
   h2,
   h3,
   h4 {
@@ -30,7 +30,7 @@
     background: linear-gradient(to bottom right, #ffffff 30%, #a1a1a1 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  } */
+  }
 }
 
 @layer components {

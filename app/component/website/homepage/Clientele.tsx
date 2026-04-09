@@ -10,8 +10,8 @@ const clients = [
     logo: "https://images.bergerpaints.com/2026-04/navbigimg.png?VersionId=b80.eXgvjci3eKfun6EYkAaScxmG9uNl&format=webp&width=640&quality=75",
   },
   {
-    name: "Mitsubishi Electric",
-    logo: "https://react-icons.github.io/react-icons/",
+    name: "BigWig Media Digital",
+    logo: "/bigwig-logo.webp",
   },
   {
     name: "Omaxe",

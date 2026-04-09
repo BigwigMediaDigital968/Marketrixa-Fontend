@@ -69,7 +69,7 @@ export default function Hero() {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-20 text-center px-6 max-w-5xl">
+      <div className="relative z-20 text-center px-6 max-w-5xl pt-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

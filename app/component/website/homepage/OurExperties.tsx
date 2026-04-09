@@ -15,12 +15,12 @@ const EXPERTISE_DATA = [
     color: "#F26522",
   },
   {
-    id: "branding",
-    title: "Branding & Design",
+    id: "social",
+    title: "Social Media Marketing",
     description:
-      "Crafting visual identities that resonate. We build brand guidelines, logos, and visual assets that stay in your customers' minds.",
+      "Driving engagement where your audience lives. Our strategies maximize ROI through targeted ads and viral content cycles.",
     image:
-      "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=1000",
+      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1000",
     color: "#F26522",
   },
   {
@@ -33,12 +33,12 @@ const EXPERTISE_DATA = [
     color: "#F26522",
   },
   {
-    id: "social",
-    title: "Social Media Marketing",
+    id: "branding",
+    title: "Branding & Design",
     description:
-      "Driving engagement where your audience lives. Our strategies maximize ROI through targeted ads and viral content cycles.",
+      "Crafting visual identities that resonate. We build brand guidelines, logos, and visual assets that stay in your customers' minds.",
     image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1000",
+      "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=1000",
     color: "#F26522",
   },
 ];
