@@ -21,7 +21,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Influencer", href: "#" },
-    { name: "About Us", href: "#", hasDropdown: true },
+    { name: "About Us", href: "/about", hasDropdown: true },
     { name: "News & Awards", href: "#" },
     { name: "Services", href: "#", hasDropdown: true },
     { name: "Clients", href: "#", hasDropdown: true },
