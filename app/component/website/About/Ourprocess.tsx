@@ -65,7 +65,7 @@ const steps: StepProps[] = [
 
 export default function Strategy() {
   return (
-    <section className="bg-[#0a0a0a] py-24 px-6 relative overflow-hidden">
+    <section className="glass py-24 px-6 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#F26522]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#F26522]/5 rounded-full blur-[100px] pointer-events-none" />

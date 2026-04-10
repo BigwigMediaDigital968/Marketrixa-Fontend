@@ -52,7 +52,7 @@ const blogPosts: BlogPost[] = [
 
 export default function Blogs() {
   return (
-    <section className="bg-[#0a0a0a] py-24 px-6 relative overflow-hidden">
+    <section className="glass py-24 px-6 relative overflow-hidden">
       {/* Decorative Background */}
       <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-[0.03] pointer-events-none" />
 

@@ -55,7 +55,7 @@ export default function Clientele() {
   }, []);
 
   return (
-    <section className="bg-black py-24 px-6 relative overflow-hidden">
+    <section className="glass py-24 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           {/* Left Side Content */}

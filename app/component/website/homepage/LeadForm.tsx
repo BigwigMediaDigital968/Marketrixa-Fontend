@@ -41,7 +41,7 @@ export default function LeadForm() {
   };
 
   return (
-    <section className="bg-black py-24 px-6 min-h-[700px] flex items-center overflow-hidden">
+    <section className="glass py-24 px-6 min-h-[700px] flex items-center overflow-hidden">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Content Column */}

@@ -56,7 +56,7 @@ const itemVariants = {
 
 export default function Stats() {
   return (
-    <section className="relative bg-black py-24 px-6 overflow-hidden">
+    <section className="relative glass py-24 px-6 overflow-hidden">
       {/* Decorative background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl max-h-96 bg-[#F26522]/5 blur-[120px] rounded-full pointer-events-none" />
 

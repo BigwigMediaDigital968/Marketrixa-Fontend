@@ -76,7 +76,7 @@ const Counter = ({ value, suffix }: CounterProps) => {
 
 export default function AboutStats() {
   return (
-    <section className="relative bg-[#0a0a0a] py-24 overflow-hidden">
+    <section className="relative glass py-24 overflow-hidden">
       {/* Animated Wave Background */}
       <div className="absolute bottom-0 left-0 w-full leading-[0] pointer-events-none opacity-20">
         <svg

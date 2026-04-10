@@ -47,7 +47,7 @@ export default function OurExpertise() {
   const [activeTab, setActiveTab] = useState(EXPERTISE_DATA[0]);
 
   return (
-    <section className="bg-black py-24 px-6 md:px-12 overflow-hidden">
+    <section className="glass py-24 px-6 md:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">

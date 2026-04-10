@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X, ArrowUpRight, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import Popup from "./Popup";
 
 const MENU_DETAILS = {
   Services: [
@@ -117,7 +118,7 @@ type MenuKey = keyof typeof MENU_DETAILS;
 const navLinks: { name: string; href: string; key?: MenuKey }[] = [
   { name: "About Us", href: "/about", key: "About" },
   { name: "Portfolio", href: "#" },
-  { name: "Services", href: "#", key: "Services" },
+  { name: "Services", href: "/services", key: "Services" },
   { name: "Clients", href: "#" },
   { name: "Industry", href: "#" },
   { name: "International", href: "#" },
@@ -130,6 +131,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<MenuKey | null>(null);
   const [hoveredItem, setHoveredItem] = useState<MenuItem | null>(null);
   const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   const items = activeDropdown ? MENU_DETAILS[activeDropdown] : [];
   const columns = chunkArray(items, Math.ceil(items.length / 3));
@@ -180,8 +182,8 @@ export default function Navbar() {
       <nav
         className={`sticky top-0 w-full z-[110] transition-all duration-300 ${
           isScrolled || activeDropdown
-            ? "bg-black/98 backdrop-blur-xl shadow-2xl shadow-black/40 border-b border-white/5"
-            : "bg-black/90 backdrop-blur-md"
+            ? "bg-black/58 backdrop-blur-xl shadow-2xl shadow-black/40 border-b border-white/5"
+            : "bg-black/48 backdrop-blur-md"
         }`}
         onMouseLeave={handleNavLeave}
       >
@@ -241,16 +243,10 @@ export default function Navbar() {
 
           {/* Right actions */}
           <div className="flex items-center gap-3">
-            {/* Phone CTA - tablet+ */}
-            {/* <a
-              href="tel:+911234567890"
-              className="hidden md:flex lg:hidden xl:flex items-center gap-2 text-white/60 hover:text-white text-xs font-bold tracking-wider transition-colors"
+            <button
+              onClick={() => setShowPopup(true)}
+              className="hidden lg:flex items-center gap-2 bg-[#F26522] hover:bg-[#e55a1a] text-black text-[10px] xl:text-[11px] font-black uppercase tracking-widest px-5 py-2.5 rounded-full transition-all duration-200 active:scale-95 shadow-lg shadow-[#F26522]/20 cursor-pointer"
             >
-              <Phone size={13} className="text-[#F26522]" />
-              <span>+91 12345 67890</span>
-            </a> */}
-
-            <button className="hidden lg:flex items-center gap-2 bg-[#F26522] hover:bg-[#e55a1a] text-black text-[10px] xl:text-[11px] font-black uppercase tracking-widest px-5 py-2.5 rounded-full transition-all duration-200 active:scale-95 shadow-lg shadow-[#F26522]/20">
               Get Started
               <ArrowUpRight size={13} />
             </button>
@@ -274,7 +270,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute top-full left-0 w-full bg-[#080808] border-b border-white/10 shadow-2xl shadow-black/60 z-[100]"
+              className="absolute top-full left-0 w-full bg-linear-to-br from-[#0b0f1a] via-[#1a1410] to-[#0f172a] border-b border-white/10 shadow-2xl shadow-black/60 z-100"
               onMouseEnter={handleDropdownEnter}
               onMouseLeave={handleNavLeave}
             >
@@ -306,7 +302,7 @@ export default function Navbar() {
                                 className={`group flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
                                   isActive
                                     ? "text-white bg-white/6"
-                                    : "text-white/30 hover:text-white/70 hover:bg-white/3"
+                                    : "text-white/70 hover:text-white/70 hover:bg-white/3"
                                 }`}
                               >
                                 <span className="flex items-center gap-2.5 min-w-0">
@@ -527,7 +523,7 @@ export default function Navbar() {
                 </a>
                 <button
                   className="w-full bg-[#F26522] hover:bg-[#e55a1a] text-black font-black py-4 rounded-xl uppercase tracking-widest text-sm transition-all active:scale-[0.98] shadow-lg shadow-[#F26522]/20"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => setShowPopup(true)}
                 >
                   Get Started
                 </button>
@@ -536,6 +532,8 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
+
+      <Popup isOpen={showPopup} onClose={() => setShowPopup(false)} />
     </>
   );
 }

@@ -89,7 +89,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="bg-black py-24 px-6 relative overflow-hidden min-h-[800px] flex items-center">
+    <section className="glass py-24 px-6 relative overflow-hidden min-h-[800px] flex items-center">
       {/* Background Typography Decoration */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="pointer-events-none absolute inset-0 z-5 bg-linear-to-r from-black/80 via-black/50 to-transparent" />

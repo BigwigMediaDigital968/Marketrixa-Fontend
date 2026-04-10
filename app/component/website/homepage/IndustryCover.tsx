@@ -58,7 +58,7 @@ export default function Industry() {
   };
 
   return (
-    <section className="bg-[#0a0a0a] py-20 px-6 overflow-hidden">
+    <section className="glass py-20 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">

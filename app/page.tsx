@@ -1,22 +1,22 @@
 import Image from "next/image";
 import Navbar from "./component/website/Navbar";
 import Hero from "./component/website/homepage/Hero";
-import OurExpertise from "./component/website/homepage/OurExperties";
 import Stats from "./component/website/homepage/Stats";
 import ServiceGrid from "./component/website/homepage/ServiceGrid";
-import Footer from "./component/Footer";
+import Footer from "./component/website/Footer";
 import Clientele from "./component/website/homepage/Clientele";
 import Testimonials from "./component/website/homepage/Testimonial";
 import LeadForm from "./component/website/homepage/LeadForm";
 import Industry from "./component/website/homepage/IndustryCover";
 import Blogs from "./component/website/homepage/Blogs";
+import ServiceCardCarousel from "./component/website/homepage/ServiceCardCrousel";
 
 export default function Home() {
   return (
     <main>
       <Navbar />
       <Hero />
-      <OurExpertise />
+      <ServiceCardCarousel />
       <Stats />
       <ServiceGrid />
       <Clientele />

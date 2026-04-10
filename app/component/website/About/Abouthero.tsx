@@ -124,7 +124,7 @@ export default function AboutHero() {
   const slide = slides[currentIndex];
 
   return (
-    <section className="relative bg-black py-20 lg:pt-44 overflow-hidden flex items-center min-h-[90vh]">
+    <section className="relative glass py-20 lg:pt-30 overflow-hidden flex items-center min-h-[90vh]">
       {/* Background glow blobs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#F26522]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#F26522]/10 rounded-full blur-[100px] pointer-events-none" />
