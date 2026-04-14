@@ -223,10 +223,7 @@ export default function TechStack() {
           padding: 80px 0 90px;
           position: relative;
           overflow: hidden;
-          font-family: 'Poppins', sans-serif;
         }
-
-        
 
         /* inner */
         .ts-inner {
@@ -251,7 +248,6 @@ export default function TechStack() {
           color: #f26522; margin-bottom: 18px;
         }
         .ts-title {
-          font-family: 'Syne', sans-serif;
           font-size: clamp(1.9rem, 3.5vw, 3rem);
           font-weight: 800; color: #fff;
           line-height: 1.1; margin-bottom: 14px;

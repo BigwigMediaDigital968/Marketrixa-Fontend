@@ -11,6 +11,7 @@ import Industry from "./component/website/homepage/IndustryCover";
 import Blogs from "./component/website/homepage/Blogs";
 import ServiceCardCarousel from "./component/website/homepage/ServiceCardCrousel";
 import Partnership from "./component/website/homepage/Partnership";
+import CTASection from "./component/website/CTASection";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <ServiceCardCarousel />
       <Stats />
       <ServiceGrid />
+      <CTASection />
       <Clientele />
       <Industry />
       <LeadForm />

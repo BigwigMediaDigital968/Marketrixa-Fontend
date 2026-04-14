@@ -25,12 +25,11 @@ interface PopupProps {
 }
 
 const SERVICES = [
-  "Digital Marketing",
   "Web Development",
-  "Branding & Design",
-  "Video Production",
   "SEO & Growth",
   "Social Media",
+  "Branding & Design",
+  "Video Production",
 ];
 
 const TRUST_PILLS = [

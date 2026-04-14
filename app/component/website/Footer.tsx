@@ -100,20 +100,47 @@ export default function Footer() {
     {
       title: "Services",
       links: [
-        "Digital Marketing",
-        "Web Development",
-        "Branding & Design",
-        "Social Media",
-        "Video Production",
+        { title: "Digital Marketing", href: "/services/digital-marketing" },
+        { title: "Web Development", href: "/services/web-development" },
+        { title: "Branding & Design", href: "/services/branding-design" },
+        { title: "Social Media", href: "/services/social-media" },
+        { title: "Video Production", href: "/services/video-production" },
       ],
     },
     {
       title: "Company",
-      links: ["About Us", "Our Clients", "News & Awards", "Careers", "Contact"],
+      links: [
+        {
+          title: "About Us",
+          href: "/about",
+        },
+        {
+          title: "Our Clients",
+          href: "/clients",
+        },
+        {
+          title: "News & Awards",
+          href: "/news",
+        },
+        {
+          title: "Careers",
+          href: "/careers",
+        },
+        {
+          title: "Contact",
+          href: "/contact",
+        },
+      ],
     },
     {
       title: "Resources",
-      links: ["Case Studies", "Blog", "Privacy Policy", "Terms of Service"],
+      links: [
+        { title: "Case Studies", href: "/case-studies" },
+        { title: "Blog", href: "/blogs" },
+        { title: "Privacy Policy", href: "/privacy-policy" },
+        { title: "Terms of Service", href: "/terms-of-service" },
+        { title: "Sitemap", href: "/sitemap" },
+      ],
     },
   ];
 
@@ -289,14 +316,15 @@ export default function Footer() {
               <h4 className="text-white font-bold uppercase tracking-widest text-xs">
                 {column.title}
               </h4>
+
               <ul className="space-y-4">
                 {column.links.map((link, lIdx) => (
                   <li key={lIdx}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="text-white/80 hover:text-[#F26522] transition-colors text-sm font-medium"
                     >
-                      {link}
+                      {link.title}
                     </a>
                   </li>
                 ))}

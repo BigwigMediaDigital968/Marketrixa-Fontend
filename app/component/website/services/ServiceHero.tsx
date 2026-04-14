@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Popup from "../Popup";
 
-const TITLES = ["Digital Marketing", "Growth Strategy", "Brand Elevation"];
+const TITLES = ["Digital Innovation", "Growth Strategy", "Brand Elevation"];
 
 const STATS = [
   { icon: "◎", value: "1000+", label: "Projects Delivered" },

@@ -119,9 +119,9 @@ const navLinks: { name: string; href: string; key?: MenuKey }[] = [
   { name: "About Us", href: "#", key: "About" },
   { name: "Portfolio", href: "#" },
   { name: "Services", href: "/services", key: "Services" },
-  { name: "Clients", href: "#" },
-  { name: "Industry", href: "#" },
+  { name: "Industry", href: "/industry" },
   { name: "International", href: "#" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {

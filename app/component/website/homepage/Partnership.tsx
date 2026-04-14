@@ -407,13 +407,13 @@ export default function Partnership() {
   return (
     <section className="overflow-hidden" style={{ background: "#0a1628" }}>
       {/* Header */}
-      <div className="flex flex-wrap items-center gap-4 md:gap-6 px-6 md:px-28 py-10 md:py-12">
+      <div className="flex flex-wrap items-center gap-4 md:gap-6 px-6 md:px-28 py-6">
         <span className="text-[#F26522] uppercase tracking-[0.35em] text-[11px] font-medium whitespace-nowrap">
-          Our Network
+          trusted
         </span>
         <div className="hidden md:block flex-1 h-px bg-white/10" />
         <h2 className="text-[clamp(28px,4vw,52px)] font-black text-white tracking-tight whitespace-nowrap">
-          BUSINESS <span className="text-[#F26522]">PARTNERS</span>
+          PARTNERSHIPS <span className="text-[#F26522]">WITH</span>
         </h2>
       </div>
 
