@@ -116,7 +116,7 @@ type MenuItem = {
 type MenuKey = keyof typeof MENU_DETAILS;
 
 const navLinks: { name: string; href: string; key?: MenuKey }[] = [
-  { name: "About Us", href: "/about", key: "About" },
+  { name: "About Us", href: "#", key: "About" },
   { name: "Portfolio", href: "#" },
   { name: "Services", href: "/services", key: "Services" },
   { name: "Clients", href: "#" },

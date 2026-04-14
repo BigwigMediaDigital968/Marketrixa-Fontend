@@ -127,13 +127,13 @@ export default function Footer() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter leading-none mb-6">
-              LET'S WORK <br />
-              <span className="text-[#F26522]">TOGETHER.</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tighter leading-none mb-6">
+              LET’S BUILD <br />
+              <span className="text-[#F26522]">SOMETHING BIGGER.</span>
             </h2>
             <p className="text-gray-500 text-lg max-w-md mb-8">
-              Ready to take your brand to the next level? Our experts are just
-              one click away.
+              Your brand has more potential. Let’s unlock it together with the
+              right strategy and execution
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <button className="btn-primary flex items-center gap-3 group px-8 py-4 bg-[#F26522] text-black font-bold rounded-full hover:bg-white transition-all cursor-pointer">

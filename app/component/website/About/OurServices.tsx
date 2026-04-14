@@ -30,7 +30,7 @@ const steps: StepProps[] = [
     number: "01",
     title: "Branding",
     description:
-      "Crafting powerful brand identities that create lasting impressions and build trust.",
+      "Create a compelling brand image that differentiates your brand in highly competitive markets.",
     icon: <Palette className="w-6 h-6" />, // import from lucide-react
     color: "#FBBF24",
     link: "/services/branding",
@@ -39,7 +39,7 @@ const steps: StepProps[] = [
     number: "02",
     title: "Digital Marketing",
     description:
-      "Comprehensive digital strategies to grow your online presence and drive conversions.",
+      "Data-backed strategies crafted to boost your brand's visibility and generate qualified leads.",
     icon: <Globe className="w-6 h-6" />,
     color: "#A855F7",
     link: "/services/digital-marketing",
@@ -48,7 +48,7 @@ const steps: StepProps[] = [
     number: "03",
     title: "Web & Mobile App Development",
     description:
-      "Building high-performance websites and scalable mobile applications with modern technologies, seamless UX, and business-focused functionality.",
+      "High-performing websites and mobile apps that can be scaled up to meet increasing demands.",
     icon: <Code className="w-6 h-6" />,
     color: "#2cc2a7",
     link: "/services/web-app-development",
@@ -57,7 +57,7 @@ const steps: StepProps[] = [
     number: "04",
     title: "Online Marketing",
     description:
-      "Multi-channel online marketing to maximize reach across platforms and audiences.",
+      "Multi-channel marketing strategies that expand your reach and improve overall brand performance.",
     icon: <Megaphone className="w-6 h-6" />,
     color: "#3B82F6",
     link: "/services/online-marketing",
@@ -66,7 +66,7 @@ const steps: StepProps[] = [
     number: "05",
     title: "Search Engine Marketing",
     description:
-      "Paid advertising strategies on search engines to drive instant traffic and leads.",
+      "Targeted paid campaigns that deliver instant traffic and strong ROI across search platforms.",
     icon: <Search className="w-6 h-6" />,
     color: "#f26522",
     link: "/services/sem",
@@ -75,7 +75,7 @@ const steps: StepProps[] = [
     number: "06",
     title: "Paid Marketing",
     description:
-      "High-ROI paid campaigns across Google, Meta, and other ad platforms.",
+      "Performance-focused ad campaigns across Google, Meta, and other platforms to maximize conversions and revenue.",
     icon: <DollarSign className="w-6 h-6" />,
     color: "#EF4444",
     link: "/services/paid-marketing",
@@ -84,7 +84,7 @@ const steps: StepProps[] = [
     number: "07",
     title: "Search Engine Optimization",
     description:
-      "Improve organic rankings and visibility with advanced SEO strategies.",
+      "Advanced SEO strategies that improve rankings, increase organic traffic, and strengthen long-term visibility.",
     icon: <TrendingUp className="w-6 h-6" />,
     color: "#34D399",
     link: "/services/seo",
@@ -93,7 +93,7 @@ const steps: StepProps[] = [
     number: "08",
     title: "Social Media Marketing",
     description:
-      "Engage and grow your audience with impactful social media campaigns.",
+      "Engaging social media campaigns that grow your audience and boost brand engagement.",
     icon: <Share2 className="w-6 h-6" />,
     color: "#FBBF24",
     link: "/services/social-media",
@@ -128,11 +128,11 @@ export default function OurServices() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-gray-500 max-w-xl mx-auto text-lg font-light"
+            className="text-gray-500 max-w-2xl mx-auto pt-3 text-lg font-light"
           >
-            A complete suite of digital services crafted to build powerful
-            brands, accelerate growth, and create seamless user experiences
-            across web and mobile platforms.
+            End to end digital services designed to help brands scale faster,
+            strengthen their presence, and deliver smooth user experiences
+            across web and mobile ecosystems.
           </motion.p>
         </div>
 

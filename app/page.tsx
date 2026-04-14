@@ -10,12 +10,14 @@ import LeadForm from "./component/website/homepage/LeadForm";
 import Industry from "./component/website/homepage/IndustryCover";
 import Blogs from "./component/website/homepage/Blogs";
 import ServiceCardCarousel from "./component/website/homepage/ServiceCardCrousel";
+import Partnership from "./component/website/homepage/Partnership";
 
 export default function Home() {
   return (
     <main>
       <Navbar />
       <Hero />
+      <Partnership />
       <ServiceCardCarousel />
       <Stats />
       <ServiceGrid />

@@ -7,7 +7,7 @@ import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 const slides = [
   {
     id: 1,
-    badge: "About Our Agency",
+    badge: "Get Your Brand on Page One",
     title: (
       <>
         Rank Your Website <br />
@@ -16,7 +16,7 @@ const slides = [
       </>
     ),
     description:
-      "If your ultimate business goal is to generate numerous leads quickly, you've come to the right place. Marketrixa is a leading digital marketing agency rendering success-proven business solutions worldwide.",
+      "We assist companies in increasing their exposure, finding the right leads and reaching their digital goals in a measurable way. MarketRixa is a performance driven digital marketing agency delivering proven growth strategies for brands worldwide.",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
     stats: { value: "#1", label: "Google Rank" },

@@ -239,7 +239,6 @@ export default function ServiceCards() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap');
 
         .sc-section {
           position: relative;
@@ -311,7 +310,6 @@ export default function ServiceCards() {
           50% { transform:scale(1.6); opacity:0.5; }
         }
         .sc-h2 {
-          font-family: 'Cormorant Garamond', serif;
           font-size: clamp(2.2rem, 5vw, 3.8rem);
           font-weight: 700;
           color: #fff;
@@ -613,7 +611,7 @@ export default function ServiceCards() {
               Your Brand Forward
             </h2>
             <p className="sc-h2-sub">
-              Tap a card to explore — or let the showcase do the talking.
+              Tap a card to explore or let the showcase do the talking.
             </p>
           </motion.div>
 

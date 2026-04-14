@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
-import { Users, Briefcase, Award, Globe } from "lucide-react";
+import { Users, Laptop, Smile, GraduationCap } from "lucide-react";
 
 interface StatItem {
   id: number;
@@ -15,31 +15,31 @@ interface StatItem {
 const stats: StatItem[] = [
   {
     id: 1,
-    label: "Happy Clients",
-    value: 1200,
+    label: "Years of Experience",
+    value: 3,
     suffix: "+",
-    icon: <Users className="w-8 h-8" />,
+    icon: <GraduationCap className="w-8 h-8" />, // 🎓 experience / expertise
   },
   {
     id: 2,
-    label: "Projects Completed",
-    value: 850,
+    label: "Websites Developed",
+    value: 100,
     suffix: "+",
-    icon: <Briefcase className="w-8 h-8" />,
+    icon: <Laptop className="w-8 h-8" />, // 💻 development work
   },
   {
     id: 3,
-    label: "Awards Won",
-    value: 45,
+    label: "Happy clients",
+    value: 50,
     suffix: "+",
-    icon: <Award className="w-8 h-8" />,
+    icon: <Smile className="w-8 h-8" />, // 😊 satisfaction
   },
   {
     id: 4,
-    label: "Global Reach",
-    value: 15,
-    suffix: " Countries",
-    icon: <Globe className="w-8 h-8" />,
+    label: "Skilled Digital Experts",
+    value: 400,
+    suffix: "+",
+    icon: <Users className="w-8 h-8" />, // 👥 team / experts
   },
 ];
 

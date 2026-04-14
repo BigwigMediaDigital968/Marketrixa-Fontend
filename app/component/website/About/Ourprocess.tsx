@@ -23,42 +23,42 @@ const steps: StepProps[] = [
     number: "01",
     title: "Market Research",
     description:
-      "We deep dive into your industry, competitors, and audience behavior to gather actionable data points.",
+      "We do a deep dive into your market and assess how your target audience behaves to find great ideas for action.",
     icon: <Search className="w-6 h-6" />,
   },
   {
     number: "02",
     title: "Strategy Planning",
     description:
-      "Creating a roadmap focused on your specific KPIs and business goals for sustainable growth.",
+      "A clear, KPI-driven roadmap designed to align with your business goals and growth targets.",
     icon: <Target className="w-6 h-6" />,
   },
   {
     number: "03",
     title: "Creative Concept",
     description:
-      "Developing disruptive visual and narrative concepts that capture attention and build brand equity.",
+      "Unique and impactful ideas that capture attention and strengthen brand identity.",
     icon: <Lightbulb className="w-6 h-6" />,
   },
   {
     number: "04",
     title: "Execution",
     description:
-      "Deploying high-impact campaigns across relevant digital channels with precision and speed.",
+      "Fast and precise campaign deployment across the right digital channels for maximum impact.",
     icon: <Zap className="w-6 h-6" />,
   },
   {
     number: "05",
     title: "Optimization",
     description:
-      "Continuous A/B testing and data analysis to refine performance and maximize your marketing ROI.",
+      "Ongoing testing and performance tracking to improve results and maximize ROI.",
     icon: <BarChart3 className="w-6 h-6" />,
   },
   {
     number: "06",
     title: "Scale Up",
     description:
-      "Expanding successful strategies to reach wider audiences and dominate your market niche.",
+      "Expanding successful campaigns to reach larger audiences and dominate your market.",
     icon: <Rocket className="w-6 h-6" />,
   },
 ];
@@ -97,8 +97,8 @@ export default function Strategy() {
             transition={{ delay: 0.2 }}
             className="text-gray-400 max-w-2xl mx-auto text-lg"
           >
-            We don't believe in guesswork. Our methodology is built on data,
-            driven by creativity, and refined by constant optimization.
+            Using insights and strategies we create marketing systems that
+            produce steady growth.
           </motion.p>
         </div>
 
@@ -146,14 +146,15 @@ export default function Strategy() {
         >
           <div>
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-              Ready to grow your brand?
+              Let’s Build Your Growth Plan
             </h3>
             <p className="text-gray-400">
-              Let's build a custom strategy for your business.
+              Build a tailor-made plan to increase your visibility, drive more
+              leads, and attain better results over time.
             </p>
           </div>
           <button className="whitespace-nowrap bg-[#F26522] hover:bg-white text-black font-bold px-10 py-5 rounded-full transition-all transform active:scale-95 shadow-[0_10px_30px_rgba(242,101,34,0.3)] cursor-pointer">
-            Schedule a Strategy Call
+            Book a Strategy Call
           </button>
         </motion.div>
       </div>

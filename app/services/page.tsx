@@ -1,8 +1,12 @@
+import FAQ from "../component/website/FAQ";
 import Footer from "../component/website/Footer";
 import ServiceCards from "../component/website/homepage/ServiceCardFlip";
 import Navbar from "../component/website/Navbar";
 import CoreServices from "../component/website/services/CoreService";
+import DigitalMarketingTools from "../component/website/services/DigitalMarketigtools";
 import ServiceHero from "../component/website/services/ServiceHero";
+import TechStack from "../component/website/services/TechStack";
+import { serviceFAQs } from "../data/faqData";
 
 export default function ServicePage() {
   return (
@@ -11,7 +15,14 @@ export default function ServicePage() {
         <Navbar />
         <ServiceHero />
         <CoreServices />
-        <ServiceCards />
+        {/* <ServiceCards /> */}
+        <DigitalMarketingTools />
+        <TechStack />
+        <FAQ
+          eyebrow="Got questions?"
+          title="Frequently Asked Questions"
+          items={serviceFAQs}
+        />
         <Footer />
       </main>
     </>
