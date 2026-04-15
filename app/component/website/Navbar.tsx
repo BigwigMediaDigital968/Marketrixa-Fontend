@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X, ArrowUpRight, Phone } from "lucide-react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import Popup from "./Popup";
@@ -116,11 +117,11 @@ type MenuItem = {
 type MenuKey = keyof typeof MENU_DETAILS;
 
 const navLinks: { name: string; href: string; key?: MenuKey }[] = [
-  { name: "About Us", href: "#", key: "About" },
-  { name: "Portfolio", href: "#" },
+  { name: "About Us", href: "/about", key: "About" },
+  { name: "Portfolio", href: "/portfolio" },
   { name: "Services", href: "/services", key: "Services" },
   { name: "Industry", href: "/industry" },
-  { name: "International", href: "#" },
+  { name: "International", href: "/international" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -132,9 +133,15 @@ export default function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<MenuItem | null>(null);
   const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [showPopup, setShowPopup] = useState(false);
+  const pathname = usePathname();
 
   const items = activeDropdown ? MENU_DETAILS[activeDropdown] : [];
   const columns = chunkArray(items, Math.ceil(items.length / 3));
+
+  const isActiveRoute = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -149,6 +156,10 @@ export default function Navbar() {
       document.body.style.overflow = "";
     };
   }, [mobileMenuOpen]);
+
+  const isSubRouteActive = (href: string) => {
+    return pathname === href || pathname.startsWith(href + "/");
+  };
 
   const handleNavEnter = (key?: MenuKey) => {
     if (leaveTimer.current) clearTimeout(leaveTimer.current);
@@ -170,6 +181,41 @@ export default function Navbar() {
   const handleDropdownEnter = () => {
     if (leaveTimer.current) clearTimeout(leaveTimer.current);
   };
+
+  const getActiveMenuFromPath = (): MenuKey | null => {
+    if (pathname.startsWith("/services")) return "Services";
+    if (pathname.startsWith("/about")) return "About";
+    return null;
+  };
+
+  useEffect(() => {
+    const activeMenu = getActiveMenuFromPath();
+
+    if (activeMenu) {
+      setActiveDropdown(activeMenu);
+
+      // Also set correct hovered item
+      const activeItem = MENU_DETAILS[activeMenu].find((item) =>
+        isSubRouteActive(item.href),
+      );
+
+      if (activeItem) {
+        setHoveredItem(activeItem);
+      }
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    if (activeDropdown) {
+      const activeItem = MENU_DETAILS[activeDropdown].find((item) =>
+        isSubRouteActive(item.href),
+      );
+
+      if (activeItem) {
+        setHoveredItem(activeItem);
+      }
+    }
+  }, [pathname, activeDropdown]);
 
   return (
     <>
@@ -213,7 +259,7 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   className={`flex items-center gap-1.5 px-5 py-2.5 rounded-full text-[11px] xl:text-[12px] uppercase tracking-[0.18em] font-medium transition-all duration-200 border ${
-                    activeDropdown === link.key
+                    isActiveRoute(link.href) || activeDropdown === link.key
                       ? "text-[#F26522] bg-[#F26522]/10 border-[#F26522]/40 shadow-[0_0_12px_rgba(242,101,34,0.15)]"
                       : "text-white bg-[#1a1f3a]/80 border-white/10 hover:bg-[#1e2442] hover:border-white/20 hover:text-white"
                   }`}
@@ -223,7 +269,7 @@ export default function Navbar() {
                     <ChevronDown
                       size={11}
                       className={`transition-transform duration-300 flex-shrink-0 ${
-                        activeDropdown === link.key
+                        isActiveRoute(link.href) || activeDropdown === link.key
                           ? "rotate-180 text-[#F26522]"
                           : "text-white/40"
                       }`}
@@ -231,7 +277,7 @@ export default function Navbar() {
                   )}
                 </a>
                 {/* Active indicator dot */}
-                {activeDropdown === link.key && (
+                {(isActiveRoute(link.href) || activeDropdown === link.key) && (
                   <motion.div
                     layoutId="nav-indicator"
                     className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#F26522]"
@@ -291,18 +337,20 @@ export default function Navbar() {
                     {columns.map((col, colIndex) => (
                       <ul key={colIndex} className="space-y-0.5">
                         {col.map((item) => {
-                          const isActive = hoveredItem?.name === item.name;
+                          const isActive =
+                            hoveredItem?.name === item.name ||
+                            isSubRouteActive(item.href);
                           return (
                             <li key={item.name}>
-                              <a
+                              <Link
                                 href={item.href}
                                 onMouseEnter={() =>
                                   setHoveredItem(item as MenuItem)
                                 }
                                 className={`group flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
                                   isActive
-                                    ? "text-white bg-white/6"
-                                    : "text-white/70 hover:text-white/70 hover:bg-white/3"
+                                    ? "text-white bg-white/8 border-l-2 border-[#F26522]"
+                                    : "text-white/70 hover:text-white hover:bg-white/3"
                                 }`}
                               >
                                 <span className="flex items-center gap-2.5 min-w-0">
@@ -323,7 +371,7 @@ export default function Navbar() {
                                       : "opacity-0 group-hover:opacity-40"
                                   }`}
                                 />
-                              </a>
+                              </Link>
                             </li>
                           );
                         })}
@@ -450,7 +498,7 @@ export default function Navbar() {
                   >
                     <div
                       className={`flex items-center justify-between rounded-xl px-4 py-3.5 mb-1 cursor-pointer transition-colors ${
-                        mobileDropdown === link.key
+                        isActiveRoute(link.href) || mobileDropdown === link.key
                           ? "bg-[#F26522]/10 text-[#F26522]"
                           : "text-white hover:bg-white/5"
                       }`}

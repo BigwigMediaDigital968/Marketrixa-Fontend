@@ -136,27 +136,6 @@ export default function Strategy() {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom CTA Area */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="mt-20 p-8 md:p-12 rounded-[2.5rem] bg-gradient-to-r from-[#F26522]/20 to-transparent border border-[#F26522]/20 flex flex-col md:flex-row items-center justify-between gap-8"
-        >
-          <div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-              Let’s Build Your Growth Plan
-            </h3>
-            <p className="text-gray-400">
-              Build a tailor-made plan to increase your visibility, drive more
-              leads, and attain better results over time.
-            </p>
-          </div>
-          <button className="whitespace-nowrap bg-[#F26522] hover:bg-white text-black font-bold px-10 py-5 rounded-full transition-all transform active:scale-95 shadow-[0_10px_30px_rgba(242,101,34,0.3)] cursor-pointer">
-            Book a Strategy Call
-          </button>
-        </motion.div>
       </div>
     </section>
   );

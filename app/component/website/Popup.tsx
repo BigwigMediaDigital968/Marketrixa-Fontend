@@ -106,12 +106,20 @@ export default function Popup({ isOpen, onClose }: PopupProps) {
   return (
     <>
       <style>{`
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
 
-        .popup-overlay {
-          position: fixed; inset: 0; z-index: 200;
-          display: flex; align-items: center; justify-content: center;
-          padding: 16px;
-        }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px;
+}
         .popup-backdrop {
           position: absolute; inset: 0;
           background: rgba(4,4,10,0.82);
@@ -119,19 +127,24 @@ export default function Popup({ isOpen, onClose }: PopupProps) {
           -webkit-backdrop-filter: blur(10px);
         }
         .popup-modal {
-          position: relative;
-          width: 100%; max-width: 880px;
-          max-height: 92svh;
-          display: flex;
-          border-radius: 28px;
-          overflow: hidden;
-          box-shadow:
-            0 0 0 1px rgba(255,255,255,0.07),
-            0 40px 100px rgba(0,0,0,0.6),
-            0 0 80px rgba(242,101,34,0.08);
-          background: #080b14;
-          font-family: 'DM Sans', sans-serif;
-        }
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+  max-height: 92vh; /* change from svh → vh for better consistency */
+
+  display: flex;
+  border-radius: 28px;
+  overflow: hidden;
+
+  margin: auto; /* ensures centering fallback */
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.07),
+    0 40px 100px rgba(0,0,0,0.6),
+    0 0 80px rgba(242,101,34,0.08);
+
+  background: #080b14;
+}
 
         /* ── LEFT PANEL ── */
         .popup-left {

@@ -60,7 +60,7 @@ const LocationSection = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start"
+        className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-stretch"
       >
         {/* LEFT: The Image Portal (L: 7/12) */}
         <motion.div
@@ -69,7 +69,7 @@ const LocationSection = () => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10">
+          <div className="relative h-full rounded-3xl overflow-hidden border border-white/10">
             <motion.img
               animate={{ scale: isHovered ? 1.05 : 1 }}
               transition={{ duration: 0.6 }}
@@ -121,7 +121,7 @@ const LocationSection = () => {
                   className="text-transparent border-t-2 border-white/10 pt-2"
                   style={{ WebkitTextStroke: "1px white" }}
                 >
-                  Sanctuary
+                  innovation Hub
                 </span>
               </h2>
             </motion.div>
