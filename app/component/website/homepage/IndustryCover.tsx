@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface IndustryCardProps {
   title: string;
@@ -45,6 +46,7 @@ const industries: IndustryCardProps[] = [
 
 export default function Industry() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -68,7 +70,7 @@ export default function Industry() {
               whileInView={{ opacity: 1, x: 0 }}
               className="text-[#F26522] font-bold tracking-widest uppercase text-sm mb-4"
             >
-              Industries We Cater
+              Industries We Serve
             </motion.h4>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -83,13 +85,14 @@ export default function Industry() {
               whileInView={{ opacity: 1 }}
               className="text-gray-400 text-lg leading-relaxed"
             >
-              Our digital marketing solutions meet the needs of various
-              industries. With advanced techniques, our agency helps in
-              Healthcare, Finance, Education, Retail, and more to enhance
-              engagement and drive growth.
+              We specialize in the implementation of customized digital
+              strategies that help businesses thrive in various industries like
+              healthcare, finance, education, retail and many more. We empower
+              brands to connect, interact, and grow with accuracy.
             </motion.p>
 
             <motion.button
+              onClick={() => router.push("/industry")}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="mt-8 bg-[#F26522] text-black font-bold py-4 px-8 rounded-full flex items-center gap-2 transition-all hover:bg-white cursor-pointer"

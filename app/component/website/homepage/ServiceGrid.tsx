@@ -126,7 +126,7 @@ export default function ServiceGrid() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold text-white mb-4"
           >
-            Services we <span className="text-[#F26522]">Offer</span>
+            What Services We <span className="text-[#F26522]">Offer</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

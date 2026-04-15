@@ -2,169 +2,251 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight, Award, Globe, Users } from "lucide-react";
 
 const clients = [
   {
-    name: "Berger",
-    logo: "https://images.bergerpaints.com/2026-04/navbigimg.png?VersionId=b80.eXgvjci3eKfun6EYkAaScxmG9uNl&format=webp&width=640&quality=75",
+    name: "Crown Point Estates",
+    logo: "/cpe-logo.webp",
+    industry: "Real Estate",
   },
   {
     name: "BigWig Media Digital",
     logo: "/bigwig-logo.webp",
+    industry: "Digital Media",
   },
   {
-    name: "Omaxe",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/2/20/Omaxe_Logo.png",
+    name: "Mondus Properties",
+    logo: "https://www.mondusproperties.ae/assets/logo%20mondus%20new%20(4)-TMoOETTP.gif",
+    industry: "Luxury Living",
   },
   {
-    name: "JBM Group",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/JBM_Group_logo.svg/1200px-JBM_Group_logo.svg.png",
+    name: "Billion Dollar FX",
+    logo: "https://res.cloudinary.com/dqrlkbsdq/image/upload/v1764826680/bdfx_zvjbi6.gif",
+    industry: "FinTech",
   },
   {
     name: "Apple",
     logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+    industry: "Technology",
   },
   {
     name: "Metso",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Metso_Outotec_logo.svg/2560px-Metso_Outotec_logo.svg.png",
+    industry: "Industrial",
   },
   {
     name: "Dunkin Donuts",
     logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Dunkin%27_Donuts_logo.svg/1200px-Dunkin%27_Donuts_logo.svg.png",
+    industry: "F&B",
   },
   {
     name: "Adani",
     logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/Adani_Group_logo.svg/1200px-Adani_Group_logo.svg.png",
+    industry: "Infrastructure",
   },
   {
     name: "Dalmia",
     logo: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a8/Dalmia_Bharat_Group_logo.svg/1200px-Dalmia_Bharat_Group_logo.svg.png",
+    industry: "Manufacturing",
   },
+];
+
+const stats = [
+  { label: "Global Partners", value: "200+", icon: <Globe size={16} /> },
+  { label: "Industry Awards", value: "14", icon: <Award size={16} /> },
+  { label: "Retained Clients", value: "94%", icon: <Users size={16} /> },
 ];
 
 export default function Clientele() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
 
-  // Continuous loop to highlight logos one by one
   useEffect(() => {
+    if (isHovering) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % clients.length);
-    }, 2500); // Changes every 2.5 seconds
+    }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isHovering]);
 
   return (
-    <section className="glass py-24 px-6 relative overflow-hidden">
+    <section className="py-32 px-6 relative overflow-hidden">
+      {/* Background Architectural Elements */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          {/* Left Side Content */}
-          <div className="lg:col-span-5 space-y-8 lg:order-2">
+        <div className="flex flex-col lg:flex-row gap-20 items-stretch">
+          {/* Left Column: Context & Narrative */}
+          <div className="lg:w-[40%] flex flex-col justify-between py-4">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              className="space-y-10"
             >
-              <span className="text-[#F26522] text-sm font-bold tracking-widest uppercase border-b border-[#F26522] pb-1">
-                Clientele List
-              </span>
-              <h2 className="text-2xl md:text-4xl font-bold text-white mt-8 leading-tight">
-                Not just clients, they <br />
-                are <span className="text-[#F26522]">more like partners</span>
-              </h2>
-              <p className="text-gray-500 text-lg max-w-md mt-8">
-                For us, every client relationship is a partnership. We listen,
-                understand, and work closely to create outcomes that matter.
-                It’s this shared commitment that turns simple interactions into
-                long-term collaborations.
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-[1px] bg-[#F26522]" />
+                  <span className="text-[#F26522] text-xs font-black tracking-[0.3em] uppercase">
+                    Brands We Work With
+                  </span>
+                </div>
+                <h2 className="text-3xl md:text-5xl font-black text-white leading-tight tracking-tighter">
+                  Built on partnerships, <br />
+                  <span className="text-[#F26522] italic">
+                    not projects.
+                  </span>{" "}
+                  <br />
+                </h2>
+              </div>
+
+              <p className="text-gray-400 text-lg leading-relaxed max-w-sm font-light">
+                We believe great results come from strong relationships. That’s
+                why we listen, align, and grow together with every brand we work
+                with.
               </p>
 
-              <div className="pt-10">
-                <button className="group flex items-center gap-4 text-white font-semibold px-8 py-4 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all duration-500 cursor-pointer">
-                  News & Awards
-                  <div className="w-8 h-8 rounded-full bg-[#F26522] flex items-center justify-center text-black group-hover:scale-110 transition-transform">
-                    <ArrowRight size={16} />
+              {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
+                {stats.map((stat, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-white/10 transition-colors"
+                  >
+                    <div className="text-[#F26522]">{stat.icon}</div>
+                    <div>
+                      <div className="text-white font-bold text-xl leading-none">
+                        {stat.value}
+                      </div>
+                      <div className="text-gray-500 text-[10px] uppercase tracking-wider font-semibold mt-1">
+                        {stat.label}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div> */}
+
+              <div className="pt-6">
+                <button className="group relative inline-flex items-center gap-6 text-white overflow-hidden cursor-pointer">
+                  <span className="text-sm font-bold tracking-widest uppercase group-hover:text-[#F26522] transition-colors">
+                    View Case Studies
+                  </span>
+                  <div className="relative flex items-center justify-center w-12 h-12 rounded-full border border-white/70 group-hover:border-[#F26522] transition-colors duration-500">
+                    <ArrowUpRight
+                      size={18}
+                      className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
+                    />
                   </div>
                 </button>
               </div>
             </motion.div>
           </div>
 
-          {/* Right Side Grid */}
-          <div className="lg:col-span-7 relative lg:order-1">
-            {/* Grid background lines */}
-            <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 pointer-events-none opacity-10">
-              <div className="border-r border-b border-dashed border-white"></div>
-              <div className="border-r border-b border-dashed border-white"></div>
-              <div className="border-b border-dashed border-white"></div>
-              <div className="border-r border-b border-dashed border-white"></div>
-              <div className="border-r border-b border-dashed border-white"></div>
-              <div className="border-b border-dashed border-white"></div>
-              <div className="border-r border-dashed border-white"></div>
-              <div className="border-r border-dashed border-white"></div>
-              <div></div>
-            </div>
-
-            {/* Logos Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 relative z-10">
+          {/* Right Column: Interactive Grid */}
+          <div
+            className="lg:w-[60%] relative"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+          >
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-white/5 border border-white/5 rounded-3xl overflow-hidden shadow-2xl shadow-black/50">
               {clients.map((client, index) => {
                 const isActive = activeIndex === index;
 
                 return (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
+                    onClick={() => setActiveIndex(index)}
                     className={`
-                      relative flex items-center justify-center p-8 md:p-12 
-                      border-white/5 group transition-all duration-700
-                      ${index % 3 !== 2 ? "md:border-r" : ""} 
-                      ${index < 6 ? "md:border-b" : ""}
-                      border-b md:border-b-0
-                      ${isActive ? "bg-[#F26522]/5" : "bg-transparent"}
+                      relative flex flex-col items-center justify-center h-32 sm:h-48 p-12
+                      transition-all duration-500 cursor-pointer overflow-hidden group
+                      ${isActive ? "bg-transparent" : "bg-[#0A0A0A] hover:bg-[#0F0F0F]"}
                     `}
                   >
-                    {/* Active Highlight Ring (Visible only when isActive) */}
-                    {isActive && (
+                    {/* Active Background Sweep */}
+                    <AnimatePresence>
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeTab"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="absolute inset-0 bg-gradient-to-br from-[#F26522]/10 via-transparent to-transparent pointer-events-none"
+                        />
+                      )}
+                    </AnimatePresence>
+
+                    {/* Industrial Grid Corner Lines (Subtle) */}
+                    <div className="absolute top-4 left-4 w-2 h-2 border-t border-l border-white/10" />
+                    <div className="absolute bottom-4 right-4 w-2 h-2 border-b border-r border-white/10" />
+
+                    {/* Logo Wrapper */}
+                    <div className="relative z-10 w-full h-full flex flex-col items-center justify-center gap-6">
                       <motion.div
-                        layoutId="activeGlow"
-                        className="absolute inset-0 border border-[#F26522]/30 z-0"
+                        animate={{
+                          scale: isActive ? 1.15 : 1,
+                          y: isActive ? -10 : 0,
+                        }}
                         transition={{
                           type: "spring",
-                          bounce: 0.2,
-                          duration: 0.6,
+                          stiffness: 300,
+                          damping: 20,
                         }}
-                      />
-                    )}
+                        className="relative"
+                      >
+                        <motion.img
+                          src={client.logo}
+                          alt={client.name}
+                          animate={{
+                            filter: isActive
+                              ? "grayscale(0%) brightness(1.2) drop-shadow(0 0 15px rgba(242,101,34,0.3))"
+                              : "grayscale(100%) brightness(0.7) opacity(0.4)",
+                          }}
+                          className="max-h-10 md:max-h-14 max-w-[120px] md:max-w-[160px] w-auto object-contain transition-all duration-700"
+                        />
+                      </motion.div>
 
-                    <motion.img
-                      src={client.logo}
-                      alt={client.name}
-                      animate={{
-                        scale: isActive ? 1.5 : 1,
-                        filter:
-                          isActive || activeIndex === -1
-                            ? "brightness(1) grayscale(0%) opacity(1)"
-                            : "brightness(0) invert(1) opacity(0.3) grayscale(100%)",
-                      }}
-                      transition={{ duration: 0.8, ease: "circOut" }}
-                      className="max-h-12 w-auto object-contain relative z-10"
-                    />
+                      {/* Brand Metadata (Reveals on active/hover) */}
+                      <AnimatePresence>
+                        {isActive && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 5 }}
+                            className="text-center"
+                          >
+                            <div className="text-white text-xs font-bold tracking-tight truncate max-w-full">
+                              {client.name}
+                            </div>
+                            <div className="text-[#F26522] text-[9px] uppercase tracking-widest mt-1 font-black opacity-80">
+                              {client.industry}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
 
-                    {/* Subtle glow behind active logo */}
+                    {/* Bottom Progress Bar for Active Logo */}
                     {isActive && (
                       <motion.div
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1.5 }}
-                        className="absolute w-12 h-12 bg-[#F26522]/20 blur-2xl rounded-full z-0"
+                        layoutId="progress"
+                        className="absolute bottom-0 left-0 h-[2px] bg-[#F26522] z-20"
+                        initial={{ width: 0 }}
+                        animate={{ width: "100%" }}
+                        transition={{ duration: 3, ease: "linear" }}
                       />
                     )}
                   </motion.div>
                 );
               })}
             </div>
+
+            {/* Ambient Lighting Overlay */}
+            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-[#F26522]/5 blur-[120px] rounded-full pointer-events-none" />
           </div>
         </div>
       </div>

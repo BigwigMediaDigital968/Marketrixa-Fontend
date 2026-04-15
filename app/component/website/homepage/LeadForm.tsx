@@ -21,9 +21,9 @@ export default function LeadForm() {
     fullName: "",
     email: "",
     phone: "",
-    countryCode: "+1",
+    countryCode: "+91",
     companyName: "",
-    employees: "",
+    service: "",
     note: "",
   });
 
@@ -60,14 +60,13 @@ export default function LeadForm() {
 
             {/* Heading with Fixed Highlight Visibility */}
             <h2 className="text-3xl md:text-5xl font-bold text-[#F26522] leading-[1.2]">
-              Book a free live demo tailored to <br />
-              <span className="italic">your business</span>
-              <br /> needs
+              Build. Scale. <br />
+              <span className="italic">Dominate Your Space</span>
             </h2>
 
             <p className="text-gray-400 text-lg max-w-lg leading-relaxed">
-              Schedule a session with one of our digital marketing experts to
-              see how Marketrixa can help you reach your business goals.
+              Fill the form and our experts will connect with you within 24
+              hours with a strategy built only for your business.
             </p>
 
             {/* Social Proof */}
@@ -203,17 +202,44 @@ export default function LeadForm() {
                         </div>
 
                         <div className="flex gap-3">
-                          <select
-                            name="countryCode"
-                            value={formData.countryCode}
-                            onChange={handleChange}
-                            className="w-28 bg-black/50 border border-white/10 rounded-2xl py-4 px-2 text-white focus:border-[#F26522] outline-none cursor-pointer"
-                          >
-                            <option value="+1">🇺🇸 +1</option>
-                            <option value="+44">🇬🇧 +44</option>
-                            <option value="+91">🇮🇳 +91</option>
-                            <option value="+971">🇦🇪 +971</option>
-                          </select>
+                          <div className="relative w-28">
+                            <select
+                              name="countryCode"
+                              value={formData.countryCode}
+                              onChange={handleChange}
+                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-3 pr-10 text-white focus:border-[#F26522] hover:border-white/20 transition-all outline-none appearance-none cursor-pointer backdrop-blur-md text-sm"
+                            >
+                              <option value="+91" className="bg-[#111]">
+                                🇮🇳 +91
+                              </option>
+                              <option value="+1" className="bg-[#111]">
+                                🇺🇸 +1
+                              </option>
+                              <option value="+44" className="bg-[#111]">
+                                🇬🇧 +44
+                              </option>
+                              <option value="+971" className="bg-[#111]">
+                                🇦🇪 +971
+                              </option>
+                            </select>
+
+                            {/* Custom Arrow */}
+                            <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-white/50">
+                              <svg
+                                className="w-3.5 h-3.5"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M19 9l-7 7-7-7"
+                                />
+                              </svg>
+                            </div>
+                          </div>
                           <div className="relative flex-grow">
                             <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
                             <input
@@ -275,29 +301,62 @@ export default function LeadForm() {
 
                         <div className="relative">
                           <Users className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
-                          <select
-                            name="employees"
-                            required
-                            value={formData.employees}
-                            onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none appearance-none cursor-pointer"
-                          >
-                            <option value="" disabled className="bg-[#111]">
-                              # of Employees
-                            </option>
-                            <option value="1-10" className="bg-[#111]">
-                              1-10 Employees
-                            </option>
-                            <option value="11-50" className="bg-[#111]">
-                              11-50 Employees
-                            </option>
-                            <option value="51-200" className="bg-[#111]">
-                              51-200 Employees
-                            </option>
-                            <option value="200+" className="bg-[#111]">
-                              200+ Employees
-                            </option>
-                          </select>
+                          <div className="relative">
+                            {/* Select */}
+                            <select
+                              name="service"
+                              required
+                              value={formData.service}
+                              onChange={handleChange}
+                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-5 pr-12 text-white focus:border-[#F26522] hover:border-white/20 transition-all outline-none appearance-none cursor-pointer backdrop-blur-md"
+                            >
+                              <option
+                                value=""
+                                disabled
+                                className="bg-[#111] text-gray-500"
+                              >
+                                Service You Need
+                              </option>
+                              <option
+                                value="Website Development"
+                                className="bg-[#111]"
+                              >
+                                Website Development
+                              </option>
+                              <option value="SEO" className="bg-[#111]">
+                                SEO
+                              </option>
+                              <option
+                                value="Social Media"
+                                className="bg-[#111]"
+                              >
+                                Social Media
+                              </option>
+                              <option
+                                value="Performance Marketing"
+                                className="bg-[#111]"
+                              >
+                                Performance Marketing
+                              </option>
+                            </select>
+
+                            {/* Custom Arrow */}
+                            <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-white/50">
+                              <svg
+                                className="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M19 9l-7 7-7-7"
+                                />
+                              </svg>
+                            </div>
+                          </div>
                           <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
                             <ArrowRight size={16} className="rotate-90" />
                           </div>

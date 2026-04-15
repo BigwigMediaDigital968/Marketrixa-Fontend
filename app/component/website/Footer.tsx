@@ -158,14 +158,15 @@ export default function Footer() {
             >
               {/* LEFT CONTENT */}
               <div>
-                <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tighter leading-none mb-6">
-                  LET’S BUILD <br />
-                  <span className="text-[#F26522]">SOMETHING BIGGER.</span>
+                <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tighter uppercase leading-none mb-6">
+                  Let’s Work &
+                  <br />
+                  <span className="text-[#F26522]">Earn Together.</span>
                 </h2>
 
                 <p className="text-gray-500 text-lg max-w-md">
-                  Your brand has more potential. Let’s unlock it together with
-                  the right strategy and execution
+                  Work with a team that focuses on performance, strategy, and
+                  measurable success. Build My Brand | Book a Free Consultation
                 </p>
               </div>
 

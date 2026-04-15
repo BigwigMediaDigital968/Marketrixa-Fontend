@@ -9,8 +9,9 @@ import {
   useTransform,
 } from "framer-motion";
 import { Play } from "lucide-react";
+import { useRouter } from "next/navigation";
 
-const PHRASES = ["Web Apps", "Innovative Strategies", "Impressive Growth"];
+const PHRASES = ["Focused on Growth", "Driving Results", "Chasing Scale"];
 
 /* ── Magnetic cursor hook ── */
 function useMagnet(strength = 0.35) {
@@ -196,6 +197,7 @@ const STATS = [
 
 export default function Hero() {
   const magnet = useMagnet(0.3);
+  const router = useRouter();
 
   return (
     <>
@@ -360,7 +362,7 @@ export default function Hero() {
 
         /* H1 */
         .hero-h1 {
-          font-size: clamp(2.6rem, 6.5vw, 4.0rem);
+          font-size: clamp(2.6rem, 6.5vw, 3.0rem);
           font-weight: 800;
           line-height: 1.08;
           letter-spacing: -0.03em;
@@ -401,7 +403,7 @@ export default function Hero() {
           font-size: clamp(1rem, 2vw, 1.18rem);
           color: rgba(255,255,255,0.50);
           line-height: 1.75;
-          max-width: 760px;
+          max-width: 660px;
           margin: 0 auto 44px;
           font-weight: 300;
         }
@@ -631,7 +633,7 @@ export default function Hero() {
               <div className="badge-dot">
                 <div className="badge-pulse" />
               </div>
-              Digital Marketing Excellence
+              Global innovation Excellence
             </div>
           </motion.div>
 
@@ -646,7 +648,7 @@ export default function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <span className="h1-line">The Future of</span>
+            <span className="h1-line">Built for Brands That Want More</span>
             <span className="h1-accent">
               <Typewriter />
             </span>
@@ -663,9 +665,8 @@ export default function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            Marketrixa fuses data-driven strategy with disruptive creativity -
-            transforming your digital presence into a market-dominating force
-            that generates measurable, compounding returns.
+            MarketRixa brings together performance marketing and creative
+            intelligence to drive consistent growth.
           </motion.p>
 
           {/* CTAs */}
@@ -680,6 +681,7 @@ export default function Hero() {
             }}
           >
             <motion.button
+              onClick={() => router.push("/contact")}
               ref={magnet.ref}
               onMouseMove={magnet.onMove}
               onMouseLeave={magnet.onLeave}

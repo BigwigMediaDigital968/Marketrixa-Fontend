@@ -56,7 +56,7 @@ const SeoHero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] w-full overflow-hidden flex items-center pt-24 pb-12">
+    <section className="relative min-h-[90vh] w-full overflow-hidden flex items-center pt-16 pb-12">
       {/* Brand Background Decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#F26522]/10 to-transparent pointer-events-none" />
       <div className="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full" />

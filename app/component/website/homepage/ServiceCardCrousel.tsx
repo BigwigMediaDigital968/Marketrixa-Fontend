@@ -19,26 +19,26 @@ const SERVICES: Service[] = [
     title: "Website\nDevelopment",
     label: "Web Dev",
     description:
-      "Custom, high-performance websites designed to elevate your brand and drive measurable business growth.",
+      "Build conversion-focused websites designed to perform and scale your business.",
     bgImage: "/service-card.png",
     href: "/services/web-development-service",
   },
   {
     id: 2,
-    title: "Social Media\nMarketing",
+    title: "Social Media Optimisation",
     label: "SMM",
     description:
-      "Strategic social media campaigns that boost engagement, build brand presence, and convert audiences into loyal customers.",
+      "Strengthen your brand presence with strategies that boost engagement.",
     bgImage:
       "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?q=80&w=1170",
     href: "/services/community-building",
   },
   {
     id: 3,
-    title: "SEO &\nGrowth",
+    title: "Search Engine Optimisation",
     label: "SEO",
     description:
-      "Data-driven SEO strategies to improve rankings, increase organic traffic, and accelerate long-term digital growth.",
+      "Improve your visibility on search engines that drive consistent growth.",
     bgImage: "https://images.unsplash.com/photo-1599658880436-c61792e70672",
     href: "/services/brand-narratives",
   },
@@ -47,7 +47,7 @@ const SERVICES: Service[] = [
     title: "Performance Marketing",
     label: "Design",
     description:
-      "Creative and visually compelling designs that communicate your brand identity with clarity and impact.",
+      "Run data-driven campaigns focused on generating leads and increasing revenue.",
     bgImage:
       "https://images.unsplash.com/photo-1770970716469-4b32abc0a577?q=80&w=880",
     href: "/services/creative-direction",

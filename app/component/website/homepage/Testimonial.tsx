@@ -7,64 +7,64 @@ import { Quote, ArrowLeft, ArrowRight, Star } from "lucide-react";
 const TESTIMONIALS = [
   {
     id: 1,
-    name: "Alex Thompson",
+    name: "Raj Sharma",
     role: "CEO, TechFlow",
     content:
-      "Marketrixa didn't just run ads; they built a digital ecosystem for us. Our conversion rate tripled within three months of the campaign launch.",
+      "What stood out was the strategy. MarketRixa created a full digital ecosystem that delivered real results. We saw 3x growth in conversions in just a few months.",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
     rating: 5,
   },
   {
     id: 2,
-    name: "Sarah Jenkins",
+    name: "Neha Kapoor",
     role: "Marketing Director, Bloom",
     content:
-      "The level of creativity they bring to video production is unmatched. They captured our brand's soul in a 60-second reel that went viral.",
+      "MarketRixa went beyond execution. They built a scalable system for our brand. Within three months, our conversion rate saw a significant jump.",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200",
     rating: 5,
   },
   {
     id: 3,
-    name: "Michael Chen",
+    name: "Siddharth Jain",
     role: "Founder, Zenith",
     content:
-      "Seamless communication and data-driven results. They are not an agency; they are our extended growth team.",
+      "This was more than marketing. MarketRixa built a system that worked. Conversions tripled in just three months.",
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200",
     rating: 4,
   },
-  {
-    id: 4,
-    name: "Elena Rodriguez",
-    role: "Operations, Global Logistics",
-    content:
-      "Their SEO strategy is pure magic. We went from page 10 to the top 3 spots for our most competitive keywords in record time.",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200",
-    rating: 5,
-  },
-  {
-    id: 5,
-    name: "David Smith",
-    role: "Product Lead, Innovate",
-    content:
-      "Building a website is easy, but building a brand identity is hard. Marketrixa mastered both for our latest product launch.",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200",
-    rating: 5,
-  },
-  {
-    id: 6,
-    name: "Jessica Wu",
-    role: "CMO, Nexus",
-    content:
-      "I've worked with dozens of agencies, but none have the 'Marketrixa' touch. They find the gap in the market and fill it beautifully.",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200",
-    rating: 5,
-  },
+  // {
+  //   id: 4,
+  //   name: "Elena Rodriguez",
+  //   role: "Operations, Global Logistics",
+  //   content:
+  //     "Their SEO strategy is pure magic. We went from page 10 to the top 3 spots for our most competitive keywords in record time.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200",
+  //   rating: 5,
+  // },
+  // {
+  //   id: 5,
+  //   name: "David Smith",
+  //   role: "Product Lead, Innovate",
+  //   content:
+  //     "Building a website is easy, but building a brand identity is hard. Marketrixa mastered both for our latest product launch.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200",
+  //   rating: 5,
+  // },
+  // {
+  //   id: 6,
+  //   name: "Jessica Wu",
+  //   role: "CMO, Nexus",
+  //   content:
+  //     "I've worked with dozens of agencies, but none have the 'Marketrixa' touch. They find the gap in the market and fill it beautifully.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200",
+  //   rating: 5,
+  // },
 ];
 
 export default function Testimonials() {
@@ -121,7 +121,7 @@ export default function Testimonials() {
               <div className="flex items-center gap-4">
                 <div className="h-[1px] w-12 bg-[#F26522]" />
                 <span className="text-[#F26522] uppercase tracking-[0.3em] text-xs font-bold">
-                  Client Success
+                  Client Success Stories
                 </span>
               </div>
 

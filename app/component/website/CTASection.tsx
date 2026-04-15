@@ -155,21 +155,22 @@ const CTASection: React.FC = () => {
               <div className="flex items-center gap-3">
                 <div className="w-8 h-[2px] bg-[#F26522]" />
                 <span className="text-[#F26522] font-bold tracking-[0.3em] uppercase text-xs">
-                  Get in Touch
+                  Start Your Growth Journey
                 </span>
               </div>
 
               <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-[1.1]">
-                READY TO <br />
+                Still Guessing Your Marketing?
+                <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F26522] to-orange-400">
-                  GROW YOUR BUSINESS?
+                  Let’s change that.
                 </span>
               </h2>
 
               <p className="text-neutral-400 text-lg md:text-xl max-w-md leading-relaxed">
-                Unlock your brand's full potential with our bespoke digital
-                solutions. The next chapter of your growth starts with a single
-                click.
+                Book a demo and turn confusion into clear growth. Connect with
+                our digital experts and explore strategies designed to achieve
+                your business goals.
               </p>
             </div>
 
@@ -219,7 +220,7 @@ const CTASection: React.FC = () => {
               className="absolute -bottom-8 left-1/2 -translate-x-1/2 md:left-12 md:translate-x-0 bg-black border border-neutral-800 p-6 backdrop-blur-md z-30 min-w-[250px]"
             >
               <div className="flex items-center gap-4">
-                <div className="text-[#F26522] font-black text-4xl">10+</div>
+                <div className="text-[#F26522] font-black text-4xl">3+</div>
                 <div className="text-[10px] text-neutral-400 uppercase font-bold tracking-[0.2em] leading-tight">
                   Years of Digital <br /> Excellence
                 </div>
