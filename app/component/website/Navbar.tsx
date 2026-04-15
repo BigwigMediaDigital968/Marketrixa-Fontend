@@ -30,7 +30,7 @@ const MENU_DETAILS = {
     },
     {
       name: "SEO Marketing",
-      href: "/services/seo",
+      href: "/services/seo-service",
       img: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&q=80&w=800",
       tag: "SEO",
     },
@@ -118,7 +118,7 @@ type MenuKey = keyof typeof MENU_DETAILS;
 
 const navLinks: { name: string; href: string; key?: MenuKey }[] = [
   { name: "About Us", href: "/about", key: "About" },
-  { name: "Portfolio", href: "/portfolio" },
+  // { name: "Portfolio", href: "/portfolio" },
   { name: "Services", href: "/services", key: "Services" },
   { name: "Industry", href: "/industry" },
   { name: "International", href: "/international" },
@@ -206,8 +206,10 @@ export default function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
-    if (activeDropdown) {
-      const activeItem = MENU_DETAILS[activeDropdown].find((item) =>
+    const activeMenu = getActiveMenuFromPath();
+
+    if (activeMenu) {
+      const activeItem = MENU_DETAILS[activeMenu].find((item) =>
         isSubRouteActive(item.href),
       );
 
@@ -215,7 +217,10 @@ export default function Navbar() {
         setHoveredItem(activeItem);
       }
     }
-  }, [pathname, activeDropdown]);
+
+    // ❗ Always close dropdown on route change
+    setActiveDropdown(null);
+  }, [pathname]);
 
   return (
     <>
@@ -344,6 +349,9 @@ export default function Navbar() {
                             <li key={item.name}>
                               <Link
                                 href={item.href}
+                                onClick={() => {
+                                  setActiveDropdown(null);
+                                }}
                                 onMouseEnter={() =>
                                   setHoveredItem(item as MenuItem)
                                 }

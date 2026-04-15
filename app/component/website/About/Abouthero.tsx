@@ -3,6 +3,9 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { link } from "fs";
 
 const slides = [
   {
@@ -17,9 +20,9 @@ const slides = [
     ),
     description:
       "We assist companies in increasing their exposure, finding the right leads and reaching their digital goals in a measurable way. MarketRixa is a performance driven digital marketing agency delivering proven growth strategies for brands worldwide.",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
+    image: "/img-1.png",
     stats: { value: "#1", label: "Google Rank" },
+    link: "/services/seo",
   },
   {
     id: 2,
@@ -33,9 +36,9 @@ const slides = [
     ),
     description:
       "Did you try every potential aspect but couldn't make it for your business? It's high time you think of the one-time investment with Marketrixa. We're exceedingly experienced in serving real success.",
-    image:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200",
+    image: "/img-2.png",
     stats: { value: "10x", label: "Growth Factor" },
+    link: "/about",
   },
   {
     id: 3,
@@ -49,9 +52,9 @@ const slides = [
     ),
     description:
       "We empower your digital marketing website to get desired engagement, sales, and overall revenue across different platforms. From lead generation to brand awareness, we do it all for you.",
-    image:
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200",
+    image: "/img-3.png",
     stats: { value: "99%", label: "Client Success" },
+    link: "/services",
   },
 ];
 
@@ -168,11 +171,21 @@ export default function AboutHero() {
 
                 {/* CTA */}
                 <div className="pt-4">
-                  <button className="group relative px-8 py-4 bg-[#F26522] text-black font-black uppercase tracking-tighter text-sm rounded-full overflow-hidden transition-all hover:pr-12">
-                    <span className="relative z-10">Learn More</span>
-                    <ArrowUpRight className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 w-5 h-5" />
-                    <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                  </button>
+                  <Link
+                    href={slide.link}
+                    className="group relative inline-flex items-center justify-center px-8 py-4 bg-[#F26522] text-black font-black uppercase tracking-tighter text-sm rounded-full overflow-hidden transition-all duration-300 hover:pr-12 active:scale-95"
+                  >
+                    {/* Hover overlay */}
+                    <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0" />
+
+                    {/* Text */}
+                    <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+                      Learn More
+                    </span>
+
+                    {/* Arrow */}
+                    <ArrowUpRight className="absolute right-4 top-1/2 -translate-y-1/2 translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 w-5 h-5 text-black z-20" />
+                  </Link>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -180,7 +193,7 @@ export default function AboutHero() {
 
           {/* ── IMAGE COLUMN — slides in from side ── */}
           <div
-            className="w-full lg:w-1/2 relative"
+            className="w-full mt-10 lg:w-1/2 relative"
             style={{ minHeight: "380px" }}
           >
             <AnimatePresence initial={false} custom={direction} mode="wait">
@@ -195,12 +208,17 @@ export default function AboutHero() {
                 className="absolute inset-0 z-10"
               >
                 <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl shadow-orange-500/10 h-full">
-                  <div className="aspect-[4/3] bg-[#111] relative overflow-hidden h-full">
-                    <img
+                  <div className="relative overflow-hidden h-full">
+                    <Image
                       src={slide.image}
                       alt={slide.badge}
-                      className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                      quality={100}
+                      priority
                     />
+
                     {/* Stats badge */}
                     <motion.div
                       animate={{ y: [0, -8, 0] }}
@@ -231,7 +249,7 @@ export default function AboutHero() {
         <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 pointer-events-none flex justify-between px-2 lg:-mx-20 z-20">
           <button
             onClick={prevSlide}
-            className="pointer-events-auto p-4 rounded-full border border-white/10 text-white bg-black/20 backdrop-blur-sm hover:bg-[#F26522] hover:text-black transition-all group active:scale-90"
+            className="pointer-events-auto p-4 rounded-full border border-white/10 text-white bg-black/20 backdrop-blur-sm hover:bg-[#F26522] hover:text-black transition-all group active:scale-90 cursor-pointer"
             aria-label="Previous slide"
           >
             <ArrowLeft
@@ -241,7 +259,7 @@ export default function AboutHero() {
           </button>
           <button
             onClick={nextSlide}
-            className="pointer-events-auto p-4 rounded-full border border-white/10 text-white bg-black/20 backdrop-blur-sm hover:bg-[#F26522] hover:text-black transition-all group active:scale-90"
+            className="pointer-events-auto p-4 rounded-full border border-white/10 text-white bg-black/20 backdrop-blur-sm hover:bg-[#F26522] hover:text-black transition-all group active:scale-90 cursor-pointer"
             aria-label="Next slide"
           >
             <ArrowRight
@@ -257,7 +275,7 @@ export default function AboutHero() {
             <button
               key={idx}
               onClick={() => goTo(idx, idx > currentIndex ? 1 : -1)}
-              className="group py-4 px-1"
+              className="group py-4 px-1 cursor-pointer"
               aria-label={`Go to slide ${idx + 1}`}
             >
               <div
