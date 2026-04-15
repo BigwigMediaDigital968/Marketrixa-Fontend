@@ -29,24 +29,6 @@ interface StepProps {
 const steps: StepProps[] = [
   {
     number: "01",
-    title: "Branding",
-    description:
-      "Create a compelling brand image that differentiates your brand in highly competitive markets.",
-    icon: <Palette className="w-6 h-6" />, // import from lucide-react
-    color: "#FBBF24",
-    link: "/services/branding",
-  },
-  {
-    number: "02",
-    title: "Digital Marketing",
-    description:
-      "Data-backed strategies crafted to boost your brand's visibility and generate qualified leads.",
-    icon: <Globe className="w-6 h-6" />,
-    color: "#A855F7",
-    link: "/services/digital-marketing",
-  },
-  {
-    number: "03",
     title: "Web & Mobile App Development",
     description:
       "High-performing websites and mobile apps that can be scaled up to meet increasing demands.",
@@ -55,16 +37,7 @@ const steps: StepProps[] = [
     link: "/services/web-app-development",
   },
   {
-    number: "04",
-    title: "Online Marketing",
-    description:
-      "Multi-channel marketing strategies that expand your reach and improve overall brand performance.",
-    icon: <Megaphone className="w-6 h-6" />,
-    color: "#3B82F6",
-    link: "/services/online-marketing",
-  },
-  {
-    number: "05",
+    number: "02",
     title: "Search Engine Marketing",
     description:
       "Targeted paid campaigns that deliver instant traffic and strong ROI across search platforms.",
@@ -72,17 +45,27 @@ const steps: StepProps[] = [
     color: "#f26522",
     link: "/services/sem",
   },
+
   {
-    number: "06",
-    title: "Paid Marketing",
+    number: "03",
+    title: "Social Media Marketing",
     description:
-      "Performance-focused ad campaigns across Google, Meta, and other platforms to maximize conversions and revenue.",
-    icon: <DollarSign className="w-6 h-6" />,
-    color: "#EF4444",
-    link: "/services/paid-marketing",
+      "Engaging social media campaigns that grow your audience and boost brand engagement.",
+    icon: <Share2 className="w-6 h-6" />,
+    color: "#FBBF24",
+    link: "/services/social-media",
   },
   {
-    number: "07",
+    number: "04",
+    title: "Performance Marketing",
+    description:
+      "Data-backed strategies crafted to boost your brand's performance and generate qualified leads.",
+    icon: <Globe className="w-6 h-6" />,
+    color: "#A855F7",
+    link: "/services/digital-marketing",
+  },
+  {
+    number: "05",
     title: "Search Engine Optimization",
     description:
       "Advanced SEO strategies that improve rankings, increase organic traffic, and strengthen long-term visibility.",
@@ -91,20 +74,40 @@ const steps: StepProps[] = [
     link: "/services/seo",
   },
   {
-    number: "08",
-    title: "Social Media Marketing",
+    number: "06",
+    title: "Branding",
     description:
-      "Engaging social media campaigns that grow your audience and boost brand engagement.",
-    icon: <Share2 className="w-6 h-6" />,
+      "Create a compelling brand image that differentiates your brand in highly competitive markets.",
+    icon: <Palette className="w-6 h-6" />,
     color: "#FBBF24",
-    link: "/services/social-media",
+    link: "/services/branding",
+  },
+
+  {
+    number: "07",
+    title: "Online Marketing",
+    description:
+      "Multi-channel marketing strategies that expand your reach and improve overall brand performance.",
+    icon: <Megaphone className="w-6 h-6" />,
+    color: "#3B82F6",
+    link: "/services/online-marketing",
+  },
+
+  {
+    number: "08",
+    title: "Paid Marketing",
+    description:
+      "Performance-focused ad campaigns across Google, Meta, and other platforms to maximize conversions and revenue.",
+    icon: <DollarSign className="w-6 h-6" />,
+    color: "#EF4444",
+    link: "/services/paid-marketing",
   },
 ];
 export default function OurServices() {
   const [showPopup, setShowPopup] = React.useState(false);
   return (
     <>
-      <section className="py-32 px-6 relative overflow-hidden">
+      <section className="py-22 px-6 relative overflow-hidden">
         {/* Background Decorative Glows */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(242,101,34,0.03)_0%,transparent_70%)] pointer-events-none" />
 
@@ -123,7 +126,7 @@ export default function OurServices() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tighter"
+              className="text-3xl md:text-6xl font-black text-white mb-6 tracking-tighter"
             >
               The Service <span className="text-[#F26522]">Tree</span>
             </motion.h2>
