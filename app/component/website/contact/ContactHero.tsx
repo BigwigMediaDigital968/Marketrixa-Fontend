@@ -1,28 +1,66 @@
 "use client";
 import { useState } from "react";
 import { motion, Variants } from "framer-motion";
-import { Send, Phone, Mail } from "lucide-react";
+import { Send, Phone, Mail, AlertCircle } from "lucide-react";
 
 const ContactHero = () => {
   const brandOrange = "#F26522";
-  const [formState, setFormState] = useState("idle"); // idle, loading, success
+  const [formState, setFormState] = useState("idle"); // idle, loading, success, error
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    setFormState("loading");
-    // Simulate API call
-    setTimeout(() => setFormState("success"), 1500);
+  // 1. State for form fields matching your API
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "Market Entry Strategy",
+    message: "",
+  });
+
+  // Handle Input Changes
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Define variants with explicit type to avoid ease string mismatch
+  // 2. Updated Submit Handler with API Integration
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormState("loading");
+
+    try {
+      const response = await fetch("/api/leads", {
+        // Adjust path to your actual route file
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error("Failed to send message");
+
+      setFormState("success");
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "Market Entry Strategy",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Submission Error:", error);
+      setFormState("error");
+      setTimeout(() => setFormState("idle"), 4000);
+    }
+  };
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
     },
   };
 
@@ -31,10 +69,7 @@ const ContactHero = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut", // TypeScript now accepts this with Variants type
-      },
+      transition: { duration: 0.8, ease: "easeOut" },
     },
   };
 
@@ -47,7 +82,6 @@ const ContactHero = () => {
           alt="Contact Background"
           className="w-full h-full object-cover opacity-40"
         />
-        {/* Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
       </div>
@@ -58,7 +92,7 @@ const ContactHero = () => {
         animate="visible"
         className="relative z-10 max-w-[1280px] w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center"
       >
-        {/* Left Column: Heading & Content */}
+        {/* Left Column */}
         <div className="space-y-8">
           <motion.div
             variants={itemVariants}
@@ -100,16 +134,13 @@ const ContactHero = () => {
               <div className="p-3 rounded-full bg-white/5 group-hover:bg-[#F26522]/20 transition-colors">
                 <Mail className="w-5 h-5" style={{ color: brandOrange }} />
               </div>
-              <span className="text-lg font-medium">
-                hello@businessedge.com
-              </span>
+              <span className="text-lg font-medium">admin@marketrixa.com</span>
             </div>
           </motion.div>
         </div>
 
         {/* Right Column: Lead Form */}
         <motion.div variants={itemVariants} className="relative group">
-          {/* Decorative Glow */}
           <div
             className="absolute -inset-1 rounded-2xl blur-2xl opacity-20 transition duration-1000 group-hover:opacity-40"
             style={{ backgroundColor: brandOrange }}
@@ -127,7 +158,7 @@ const ContactHero = () => {
                 </p>
                 <button
                   onClick={() => setFormState("idle")}
-                  className="mt-6 text-sm uppercase tracking-widest font-bold underline"
+                  className="mt-6 text-sm uppercase tracking-widest font-bold underline cursor-pointer"
                   style={{ color: brandOrange }}
                 >
                   Send another
@@ -137,22 +168,28 @@ const ContactHero = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-widest font-bold text-gray-500">
+                    <label className="text-xs uppercase tracking-widest font-bold text-gray-100">
                       Full Name
                     </label>
                     <input
                       required
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       type="text"
                       placeholder="John Doe"
                       className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 focus:outline-none focus:border-[#F26522] transition-colors"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-widest font-bold text-gray-500">
+                    <label className="text-xs uppercase tracking-widest font-bold text-gray-100">
                       Email Address
                     </label>
                     <input
                       required
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       type="email"
                       placeholder="john@example.com"
                       className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 focus:outline-none focus:border-[#F26522] transition-colors"
@@ -160,24 +197,70 @@ const ContactHero = () => {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest font-bold text-gray-500">
-                    Subject
-                  </label>
-                  <select className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 focus:outline-none focus:border-[#F26522] transition-colors appearance-none">
-                    <option className="bg-black">Market Entry Strategy</option>
-                    <option className="bg-black">Performance Analytics</option>
-                    <option className="bg-black">Digital Infrastructure</option>
-                    <option className="bg-black">Other Inquiries</option>
-                  </select>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs uppercase tracking-widest font-bold text-gray-100">
+                      Phone Number
+                    </label>
+                    <input
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      type="tel"
+                      placeholder="+1 (555) 000-0000"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 focus:outline-none focus:border-[#F26522] transition-colors"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs uppercase tracking-widest font-bold text-gray-100">
+                      Subject / Service
+                    </label>
+                    <select
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 focus:outline-none focus:border-[#F26522] transition-colors appearance-none cursor-pointer"
+                    >
+                      <option
+                        className="bg-black"
+                        value="Market Entry Strategy"
+                      >
+                        Web Development
+                      </option>
+                      <option
+                        className="bg-black"
+                        value="Market Entry Strategy"
+                      >
+                        Market Entry Strategy
+                      </option>
+                      <option
+                        className="bg-black"
+                        value="Performance Analytics"
+                      >
+                        Performance Analytics
+                      </option>
+                      <option
+                        className="bg-black"
+                        value="Digital Infrastructure"
+                      >
+                        Digital Infrastructure
+                      </option>
+                      <option className="bg-black" value="Other Inquiries">
+                        Other Inquiries
+                      </option>
+                    </select>
+                  </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest font-bold text-gray-500">
+                  <label className="text-xs uppercase tracking-widest font-bold text-gray-100">
                     Message
                   </label>
                   <textarea
                     required
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     rows={4}
                     placeholder="Tell us about your project..."
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 focus:outline-none focus:border-[#F26522] transition-colors resize-none"
@@ -187,7 +270,7 @@ const ContactHero = () => {
                 <button
                   type="submit"
                   disabled={formState === "loading"}
-                  className="w-full py-5 rounded-lg font-black uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-3 transition-all active:scale-[0.98] cursor-pointer"
+                  className="w-full py-5 rounded-lg font-black uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-3 transition-all active:scale-[0.98] cursor-pointer disabled:opacity-70"
                   style={{
                     backgroundColor: brandOrange,
                     boxShadow: `0 10px 30px -10px ${brandOrange}66`,
@@ -195,6 +278,11 @@ const ContactHero = () => {
                 >
                   {formState === "loading" ? (
                     <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  ) : formState === "error" ? (
+                    <>
+                      <span>Error! Try Again</span>
+                      <AlertCircle className="w-4 h-4" />
+                    </>
                   ) : (
                     <>
                       <span>Send Message</span>

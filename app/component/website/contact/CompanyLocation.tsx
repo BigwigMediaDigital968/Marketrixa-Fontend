@@ -3,10 +3,12 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { MapPin, Clock, ArrowUpRight, Globe, Building2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const LocationSection = () => {
   const brandOrange = "#F26522";
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter();
 
   // Get current time to show if office is "Open"
   const now = new Date();
@@ -138,12 +140,15 @@ const LocationSection = () => {
                   <h4 className="text-sm font-bold uppercase tracking-widest text-gray-500">
                     Address
                   </h4>
-                  <p className="text-xl font-light leading-snug max-w-md">
-                    452 Innovation Blvd, <br />
-                    Suite 200, San Francisco <br />
-                    CA 94103, USA
+                  <p className="text-md font-light leading-snug max-w-md">
+                    201, 202 & 203 Second floor, <br />
+                    business world complex, <br />
+                    Deesa, Gujarat, India - 385535
                   </p>
                   <button
+                    onClick={() =>
+                      router.push("https://share.google/A0hRZROINV4yLZU0v")
+                    }
                     className="mt-4 flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold hover:gap-4 transition-all cursor-pointer"
                     style={{ color: brandOrange }}
                   >

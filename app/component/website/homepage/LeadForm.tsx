@@ -12,11 +12,13 @@ import {
   Users,
   MessageSquare,
   ChevronLeft,
+  Loader2,
 } from "lucide-react";
 
 export default function LeadForm() {
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -30,13 +32,48 @@ export default function LeadForm() {
   const handleNext = () => step < 2 && setStep(step + 1);
   const handlePrev = () => step > 1 && setStep(step - 1);
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate submission
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      // Map your local state to the API requirements
+      const payload = {
+        name: formData.fullName,
+        email: formData.email,
+        phone: `${formData.countryCode} ${formData.phone}`,
+        company: formData.companyName,
+        service: formData.service,
+        message: formData.note,
+      };
+
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        const errorData = await response.json();
+        console.error("Submission failed:", errorData.error);
+        // You could add a toast notification here
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleChange = (e: { target: { name: any; value: any } }) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -51,14 +88,12 @@ export default function LeadForm() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            {/* Brand Logo & Tagline */}
             <div className="flex flex-col gap-4">
               <p className="text-[#F26522] font-bold tracking-[0.2em] text-xs uppercase">
                 Let's connect
               </p>
             </div>
 
-            {/* Heading with Fixed Highlight Visibility */}
             <h2 className="text-3xl md:text-5xl font-bold text-[#F26522] leading-[1.2]">
               Build. Scale. <br />
               <span className="italic">Dominate Your Space</span>
@@ -151,8 +186,17 @@ export default function LeadForm() {
                       onClick={() => {
                         setIsSubmitted(false);
                         setStep(1);
+                        setFormData({
+                          fullName: "",
+                          email: "",
+                          phone: "",
+                          countryCode: "+91",
+                          companyName: "",
+                          service: "",
+                          note: "",
+                        });
                       }}
-                      className="mt-8 text-sm text-[#F26522] font-bold underline"
+                      className="mt-8 text-sm text-[#F26522] font-bold underline cursor-pointer"
                     >
                       Send another request
                     </button>
@@ -222,8 +266,6 @@ export default function LeadForm() {
                                 🇦🇪 +971
                               </option>
                             </select>
-
-                            {/* Custom Arrow */}
                             <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-white/50">
                               <svg
                                 className="w-3.5 h-3.5"
@@ -256,7 +298,7 @@ export default function LeadForm() {
                         <button
                           type="button"
                           onClick={handleNext}
-                          className="w-full bg-[#F26522] text-black font-black py-5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all mt-6 shadow-lg shadow-[#F26522]/10"
+                          className="w-full bg-[#F26522] text-black font-black py-5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all mt-6 shadow-lg shadow-[#F26522]/10 cursor-pointer"
                         >
                           NEXT STEP <ArrowRight size={20} />
                         </button>
@@ -295,20 +337,19 @@ export default function LeadForm() {
                             value={formData.companyName}
                             onChange={handleChange}
                             className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"
-                            placeholder="Company Name"
+                            placeholder="Company (website/name)"
                           />
                         </div>
 
                         <div className="relative">
-                          <Users className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
+                          <Users className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5 z-10" />
                           <div className="relative">
-                            {/* Select */}
                             <select
                               name="service"
                               required
                               value={formData.service}
                               onChange={handleChange}
-                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-5 pr-12 text-white focus:border-[#F26522] hover:border-white/20 transition-all outline-none appearance-none cursor-pointer backdrop-blur-md"
+                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-12 text-white focus:border-[#F26522] hover:border-white/20 transition-all outline-none appearance-none cursor-pointer backdrop-blur-md"
                             >
                               <option
                                 value=""
@@ -339,8 +380,6 @@ export default function LeadForm() {
                                 Performance Marketing
                               </option>
                             </select>
-
-                            {/* Custom Arrow */}
                             <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-white/50">
                               <svg
                                 className="w-4 h-4"
@@ -356,9 +395,6 @@ export default function LeadForm() {
                                 />
                               </svg>
                             </div>
-                          </div>
-                          <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
-                            <ArrowRight size={16} className="rotate-90" />
                           </div>
                         </div>
 
@@ -376,9 +412,19 @@ export default function LeadForm() {
 
                         <button
                           type="submit"
-                          className="w-full bg-[#F26522] text-black font-black py-5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all mt-6 shadow-lg shadow-[#F26522]/10"
+                          disabled={isSubmitting}
+                          className="w-full bg-[#F26522] disabled:opacity-70 disabled:cursor-not-allowed text-black font-black py-5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all mt-6 shadow-lg shadow-[#F26522]/10 cursor-pointer"
                         >
-                          SUBMIT REQUEST <CheckCircle2 size={20} />
+                          {isSubmitting ? (
+                            <>
+                              SUBMITTING...{" "}
+                              <Loader2 className="animate-spin" size={20} />
+                            </>
+                          ) : (
+                            <>
+                              SUBMIT REQUEST <CheckCircle2 size={20} />
+                            </>
+                          )}
                         </button>
                       </motion.div>
                     )}

@@ -26,19 +26,19 @@ const clients = [
     industry: "FinTech",
   },
   {
-    name: "Apple",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
-    industry: "Technology",
+    name: "Lalit Forex",
+    logo: "/lalit-logo.jpeg",
+    industry: "Treading",
   },
   {
-    name: "Metso",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Metso_Outotec_logo.svg/2560px-Metso_Outotec_logo.svg.png",
-    industry: "Industrial",
+    name: "KB Stocks Traders",
+    logo: "/stock-logo.png",
+    industry: "Trading",
   },
   {
-    name: "Dunkin Donuts",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Dunkin%27_Donuts_logo.svg/1200px-Dunkin%27_Donuts_logo.svg.png",
-    industry: "F&B",
+    name: "Lion Insurance",
+    logo: "/lion-logo.png",
+    industry: "Fintech",
   },
   {
     name: "Adani",
