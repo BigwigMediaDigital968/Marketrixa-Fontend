@@ -12,7 +12,7 @@ const MENU_DETAILS = {
   Services: [
     {
       name: "Website Development",
-      href: "/services/website-development",
+      href: "/services/website-development-service",
       img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
       tag: "Dev",
     },

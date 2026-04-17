@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Poppins } from "next/font/google";
 import "./globals.css";
+import WhatsappFloat from "./component/website/WhatsappFloat";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -30,7 +31,11 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${poppins.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+
+        <WhatsappFloat />
+      </body>
     </html>
   );
 }

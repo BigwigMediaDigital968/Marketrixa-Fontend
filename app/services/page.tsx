@@ -17,7 +17,7 @@ export default function ServicePage() {
         <Navbar />
         <ServiceHero />
         <CoreServices />
-        {/* <ServiceCards /> */}
+        <ServiceCards />
         <DigitalMarketingTools />
         <BusinessEdge />
         <TechStack />

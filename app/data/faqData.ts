@@ -112,3 +112,57 @@ export const industryFAQs: FAQItem[] = [
       "A well-designed website improves user experience, builds trust, and increases conversion rates. Fast loading speed, mobile responsiveness, and clear CTAs directly impact how visitors turn into customers, ultimately boosting sales and revenue.",
   },
 ];
+
+export const WebsiteFAQs: FAQItem[] = [
+  {
+    question: "Why do I need to hire a professional website design company?",
+    answer:
+      "Working with professionals ensures your website looks great, stays updated, and delivers real results.",
+  },
+  {
+    question:
+      "What criteria should I consider when selecting a web design company?",
+    answer:
+      "Find a team that has established a track record, a solid portfolio of work and a commitment to creating designs that drive results.",
+  },
+  {
+    question: "How much time does it normally take to create a website?",
+    answer:
+      "Depending on the work involved, websites are usually ready in a few weeks.",
+  },
+  {
+    question: "How much does a personalized website cost?",
+    answer:
+      "Based on the design, features, and functionalities, the final cost varies.",
+  },
+  {
+    question: "How do I get started with your services?",
+    answer:
+      "Simply let us know what you want, and our team will assist you at every step of the consultation and planning process.",
+  },
+  {
+    question: "What website design features do you work on?",
+    answer:
+      "We prioritize loading time, mobile optimized layout, user engagement, SEO optimization, and content layout conducive to conversion.",
+  },
+  {
+    question: "What is the best company for website design?",
+    answer:
+      "The best company is the one that truly comprehends your business objectives and achieves tangible digital results.",
+  },
+  {
+    question: "Do you offer support after the website launch?",
+    answer:
+      "Indeed, we provide regular website management, updates, and technical support to help websites run smoothly.",
+  },
+  {
+    question: "Can I update my site once it's live?",
+    answer:
+      "Absolutely, we develop intuitive systems so that you can easily control and refresh your content.",
+  },
+  {
+    question: "Why should I pick your agency for website design?",
+    answer:
+      "We bring together strategy, design and the latest technology to create websites that are stylish, scalable and performance-oriented.",
+  },
+];

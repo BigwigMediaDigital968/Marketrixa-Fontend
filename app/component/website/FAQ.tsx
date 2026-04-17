@@ -27,7 +27,7 @@ export default function FAQ({
 
   return (
     <section
-      className={`w-full px-5 py-16 md:py-24 ${className}`}
+      className={`w-full px-5 py-10 md:py-14 ${className}`}
       aria-label="Frequently asked questions"
     >
       <div className="max-w-[900px] mx-auto">

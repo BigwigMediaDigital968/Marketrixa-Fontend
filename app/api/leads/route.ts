@@ -11,7 +11,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 
-// ✅ POST: Create Lead
+// POST: Create Lead
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -43,7 +43,7 @@ export async function POST(request: Request) {
   }
 }
 
-// ✅ GET: Fetch Leads (sorted latest first)
+// GET: Fetch Leads (sorted latest first)
 export async function GET() {
   try {
     const leadsRef = collection(db, "leads");
@@ -63,7 +63,7 @@ export async function GET() {
   }
 }
 
-// ✅ PATCH: Update Lead Status
+// PATCH: Update Lead Status
 export async function PATCH(request: Request) {
   try {
     const body = await request.json();
