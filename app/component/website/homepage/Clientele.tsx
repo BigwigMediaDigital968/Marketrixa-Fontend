@@ -6,8 +6,8 @@ import { ArrowUpRight, Award, Globe, Users } from "lucide-react";
 
 const clients = [
   {
-    name: "Crown Point Estates",
-    logo: "/cpe-logo.webp",
+    name: "Granth Dream homes",
+    logo: "/granth-logo.png",
     industry: "Real Estate",
   },
   {
@@ -41,14 +41,14 @@ const clients = [
     industry: "Fintech",
   },
   {
-    name: "Adani",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/Adani_Group_logo.svg/1200px-Adani_Group_logo.svg.png",
-    industry: "Infrastructure",
+    name: "Integrated Logistics Network",
+    logo: "/iln-logo.webp",
+    industry: "Logostics",
   },
   {
-    name: "Dalmia",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a8/Dalmia_Bharat_Group_logo.svg/1200px-Dalmia_Bharat_Group_logo.svg.png",
-    industry: "Manufacturing",
+    name: "Destiny By Numberrs",
+    logo: "/dbn-logo.webp",
+    industry: "Astrology",
   },
 ];
 
@@ -71,7 +71,7 @@ export default function Clientele() {
   }, [isHovering]);
 
   return (
-    <section className="py-32 px-6 relative overflow-hidden">
+    <section className="py-14 px-6 relative overflow-hidden">
       {/* Background Architectural Elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -164,7 +164,11 @@ export default function Clientele() {
                     className={`
                       relative flex flex-col items-center justify-center h-32 sm:h-48 p-12
                       transition-all duration-500 cursor-pointer overflow-hidden group
-                      ${isActive ? "bg-transparent" : "bg-[#0A0A0A] hover:bg-[#0F0F0F]"}
+                      ${
+                        isActive
+                          ? "bg-transparent"
+                          : "bg-[#0A0A0A] hover:bg-[#0F0F0F]"
+                      }
                     `}
                   >
                     {/* Active Background Sweep */}

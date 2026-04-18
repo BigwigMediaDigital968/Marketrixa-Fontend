@@ -18,7 +18,7 @@ const MENU_DETAILS = {
     },
     {
       name: "Performance Marketing",
-      href: "/services/performance-marketing",
+      href: "/services/performance-marketing-service",
       img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
       tag: "Marketing",
     },
@@ -48,7 +48,7 @@ const MENU_DETAILS = {
     },
     {
       name: "Social Media Optimization",
-      href: "/services/smo",
+      href: "/services/social-media-marketing",
       img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
       tag: "Social",
     },
