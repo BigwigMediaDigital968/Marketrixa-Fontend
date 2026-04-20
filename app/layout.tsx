@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "Marketrixa | Scale Your Business with Smart Digital Solutions",
   description:
     "Marketrixa is a digital innovative agency delivering cutting-edge solutions in web development, branding, and online promotions to help businesses grow and stand out in the modern digital landscape.",
+  icons: {
+    icon: "/favicon.jpg",
+  },
 };
 
 export default function RootLayout({

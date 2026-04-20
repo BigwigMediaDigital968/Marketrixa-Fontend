@@ -325,3 +325,67 @@ export const PpcServiceFAQs: FAQItem[] = [
       "We focus on ROI-driven campaigns, smart targeting, and continuous optimization to maximize your ad performance.",
   },
 ];
+
+export const AffiliateFAQs: FAQItem[] = [
+  {
+    question: "What advantages does affiliate marketing offer?",
+    answer:
+      "Using affiliate marketing can significantly enhance your sales, broaden your audience, and provide detailed, performance-based results.",
+  },
+  {
+    question: "Is affiliate marketing a good investment?",
+    answer:
+      "Absolutely, since you are charged only for tangible outcomes like leads or sales, it becomes a very smart marketing channel.",
+  },
+  {
+    question: "What methods do you use to keep affiliate quality high?",
+    answer:
+      "We thoroughly screen and introduce affiliates in a way that they not only fit your brand but also generate authentic, highly motivated traffic to you.",
+  },
+  {
+    question:
+      "What tools do you use to track the success of affiliate marketing?",
+    answer:
+      "Sophisticated tracking technologies keep an eye on the number of clicks, successful transactions, and income to assess the effectiveness properly.",
+  },
+  {
+    question: "How do I select the best affiliates for my business?",
+    answer:
+      "We figure out which affiliates are the right fit for your niche audience and connect you to them for improving results.",
+  },
+  {
+    question: "Which industries can take advantage of affiliate marketing?",
+    answer:
+      "Affiliate marketing is compatible with most industries such as e-commerce, finance, education, SaaS etc.",
+  },
+  {
+    question: "What is an affiliate network?",
+    answer:
+      "An affiliate network is a platform that brings brands and affiliates together allowing them to form partnerships and track their performance.",
+  },
+  {
+    question: "How do I become an affiliate marketer?",
+    answer:
+      "With signing up for affiliate programs, advertising product(s) through your mediums, and receiving compensation based on your performance, you can become an affiliate marketer.",
+  },
+  {
+    question: "What is the income potential of affiliate marketing?",
+    answer:
+      "The level of income depends on the plan, niche, and work; however, it has the potential to develop into a very profitable and steady source of revenue.",
+  },
+  {
+    question: "Is affiliate marketing safe and reliable?",
+    answer:
+      "Yes, affiliate marketing is a very secure and reliable form of growth channel with proper tracking mechanisms and fraud prevention.",
+  },
+  {
+    question: "Can affiliate marketing be good for any business?",
+    answer:
+      "If the strategy is based on the audience and objectives of the business, most businesses can benefit.",
+  },
+  {
+    question: "What factors contribute to an affiliate program's success?",
+    answer:
+      "Successful affiliate programs are based on a combination of strong partnerships, attractive incentives, quality traffic, and ongoing optimization.",
+  },
+];
