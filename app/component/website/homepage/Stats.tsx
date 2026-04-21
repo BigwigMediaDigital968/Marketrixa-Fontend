@@ -30,7 +30,7 @@ const statItems = [
   {
     id: 4,
     label: "Skilled Digital Experts",
-    value: "400+",
+    value: "13+",
     icon: <Smile className="w-6 h-6" />,
   },
 ];
