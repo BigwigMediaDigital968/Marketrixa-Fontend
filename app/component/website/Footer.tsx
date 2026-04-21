@@ -18,9 +18,9 @@ export default function Footer() {
       links: [
         { title: "Web Development", href: "/services/web-development" },
         { title: "SEO Growth", href: "/services/SEO-service" },
-        { title: "Social Media", href: "/services/social-media-marketing" },
-        { title: "Branding & Design", href: "/services/branding-design" },
-        { title: "Video Production", href: "/services/video-production" },
+        { title: "Social Media", href: "/services" },
+        { title: "Branding & Design", href: "/services" },
+        { title: "Video Production", href: "/services" },
       ],
     },
     {
@@ -36,26 +36,26 @@ export default function Footer() {
         },
         {
           title: "Our Clients",
-          href: "/clients",
+          href: "#clients",
         },
-        {
-          title: "Careers",
-          href: "/careers",
-        },
+        // {
+        //   title: "Careers",
+        //   href: "/careers",
+        // },
         {
           title: "News & Awards",
-          href: "/news",
+          href: "/blogs",
         },
       ],
     },
     {
       title: "Resources",
       links: [
-        { title: "Case Studies", href: "/case-studies" },
+        // { title: "Case Studies", href: "/case-studies" },
         { title: "Blog", href: "/blogs" },
         { title: "Privacy Policy", href: "/privacy-policy" },
         { title: "Terms of Service", href: "/terms-of-service" },
-        { title: "Sitemap", href: "/sitemap" },
+        // { title: "Sitemap", href: "/sitemap" },
       ],
     },
   ];
@@ -153,7 +153,7 @@ export default function Footer() {
                   </div>
                   <div className="flex items-center gap-4">
                     <Phone size={18} className="text-[#F26522]" />
-                    <span className="text-sm">+1 (555) 000-MARK</span>
+                    <span className="text-sm">+91 7201907236</span>
                   </div>
                 </div>
 

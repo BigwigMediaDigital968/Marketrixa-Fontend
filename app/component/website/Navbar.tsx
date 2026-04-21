@@ -77,26 +77,26 @@ const MENU_DETAILS = {
       tag: "Email",
     },
   ],
-  About: [
-    {
-      name: "Know About Us",
-      href: "/about",
-      img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
-      tag: "Company",
-    },
-    {
-      name: "Team Marketrixa",
-      href: "#",
-      img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
-      tag: "People",
-    },
-    {
-      name: "Career",
-      href: "#",
-      img: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=800",
-      tag: "Jobs",
-    },
-  ],
+  // About: [
+  //   {
+  //     name: "Know About Us",
+  //     href: "/about",
+  //     img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
+  //     tag: "Company",
+  //   },
+  //   {
+  //     name: "Team Marketrixa",
+  //     href: "#",
+  //     img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+  //     tag: "People",
+  //   },
+  //   {
+  //     name: "Career",
+  //     href: "#",
+  //     img: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=800",
+  //     tag: "Jobs",
+  //   },
+  // ],
 };
 
 function chunkArray<T>(arr: T[], size: number): T[][] {
@@ -117,7 +117,11 @@ type MenuItem = {
 type MenuKey = keyof typeof MENU_DETAILS;
 
 const navLinks: { name: string; href: string; key?: MenuKey }[] = [
-  { name: "About Us", href: "/about", key: "About" },
+  {
+    name: "About Us",
+    href: "/about",
+    // key: "About"
+  },
   // { name: "Portfolio", href: "/portfolio" },
   { name: "Services", href: "/services", key: "Services" },
   { name: "Industry", href: "/industry" },
@@ -184,7 +188,7 @@ export default function Navbar() {
 
   const getActiveMenuFromPath = (): MenuKey | null => {
     if (pathname.startsWith("/services")) return "Services";
-    if (pathname.startsWith("/about")) return "About";
+    // if (pathname.startsWith("/about")) return "About";
     return null;
   };
 

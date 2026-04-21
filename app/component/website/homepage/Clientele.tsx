@@ -71,7 +71,7 @@ export default function Clientele() {
   }, [isHovering]);
 
   return (
-    <section className="py-14 px-6 relative overflow-hidden">
+    <section id="clients" className="py-14 px-6 relative overflow-hidden">
       {/* Background Architectural Elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />

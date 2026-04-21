@@ -693,7 +693,7 @@ export default function Hero() {
               <span className="btn-arrow">→</span>
             </motion.button>
 
-            <motion.button
+            {/* <motion.button
               className="btn-ghost-hero"
               whileHover={{ x: 3 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -702,32 +702,8 @@ export default function Hero() {
                 <Play size={14} fill="#f26522" stroke="none" />
               </span>
               Watch Our Stories
-            </motion.button>
+            </motion.button> */}
           </motion.div>
-
-          {/* Stats */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.58, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="stats-bar">
-              {STATS.map((s, i) => (
-                <motion.div
-                  key={s.label}
-                  className="stat-cell"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.65 + i * 0.08, duration: 0.5 }}
-                >
-                  <div className="stat-val">
-                    <Counter to={s.value} suffix={s.suffix} />
-                  </div>
-                  <div className="stat-lbl">{s.label}</div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div> */}
         </div>
 
         {/* Scroll hint */}

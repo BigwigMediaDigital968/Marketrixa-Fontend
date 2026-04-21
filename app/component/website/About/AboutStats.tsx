@@ -23,7 +23,7 @@ const stats: StatItem[] = [
   {
     id: 2,
     label: "Websites Developed",
-    value: 100,
+    value: 50,
     suffix: "+",
     icon: <Laptop className="w-8 h-8" />, // 💻 development work
   },
@@ -37,7 +37,7 @@ const stats: StatItem[] = [
   {
     id: 4,
     label: "Skilled Digital Experts",
-    value: 400,
+    value: 13,
     suffix: "+",
     icon: <Users className="w-8 h-8" />, // 👥 team / experts
   },
