@@ -6,6 +6,10 @@ import AffiliateOtherServices from "./component/AffiliateOtherServices";
 import AffiliateHero from "./component/Affiliatehero";
 import AffiliateAbout from "./component/AffiliateAbout";
 import AffiliateGrow from "./component/AffiliateGrow";
+import AffiliatePartner from "./component/AffiliatePartner";
+import AffiliateServices from "./component/AffiliateServices";
+import AffProcessBenifit from "./component/AffProcessBenifit";
+import WhyAffMarketrixs from "./component/WhyAffMarketrixs";
 
 export default function ServicePage() {
   return (
@@ -15,6 +19,10 @@ export default function ServicePage() {
         <AffiliateHero />
         <AffiliateAbout />
         <AffiliateGrow />
+        <AffiliatePartner />
+        <AffiliateServices />
+        <AffProcessBenifit />
+        <WhyAffMarketrixs />
 
         <AffiliateOtherServices />
 

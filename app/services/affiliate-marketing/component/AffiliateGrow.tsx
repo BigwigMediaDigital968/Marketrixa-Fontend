@@ -170,7 +170,7 @@ const AffiliateGrow = () => {
             ))}
           </div>
 
-          <p className="border border-amber-700 p-5 text-center text-black mb-5">
+          <p className="border border-amber-700 p-5 text-center text-black rounded-2xl mb-5 bg-gradient-to-br from-yellow-600 via-amber-500 to-yellow-800 backdrop-blur-sm">
             With a structured and data-led approach, we help turn affiliate
             marketing into a consistent and predictable growth channel for your
             business.
