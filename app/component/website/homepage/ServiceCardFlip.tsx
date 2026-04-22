@@ -4,65 +4,57 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, useMotionValue, useSpring, animate } from "framer-motion";
 import Link from "next/link";
 
-/* ─────────────────────────────────────────
-   IMAGE SIZE RECOMMENDATION (for devs):
-   ► Card image: 600 × 960 px  (portrait 5:8 ratio)
-   ► Format: WebP, compressed to ~80–120 KB each
-   ► Focal point: keep subject in upper 60% — bottom is overlaid
-   ► Background hero: 1920 × 1080 px, WebP ~200 KB
-───────────────────────────────────────── */
-
 const SERVICES = [
   {
     id: "web",
-    title: "Website\nDevelopment",
-    shortLabel: "Web Dev",
-    slug: "/services/web-development",
+    title: "Email Marketing",
+    shortLabel: "Email Service",
+    slug: "/services/email-marketing",
     // Replace with your actual image paths:
-    image: "/services/web-development.webp",
+    image: "/service/email-marketing.png",
     // Fallback gradient shown until real image loads:
     gradient: "linear-gradient(160deg, #0f1a2e 0%, #1a2d1a 60%, #0a0f1e 100%)",
   },
   {
-    id: "smm",
-    title: "Social Media\nMarketing",
-    shortLabel: "SMM",
-    slug: "/services/social-media",
-    image: "/services/social-media.webp",
+    id: "orm",
+    title: "Online Reputation Management",
+    shortLabel: "ORM Service",
+    slug: "/services/online-reputation-management",
+    image: "/service/orm-service.png",
     gradient: "linear-gradient(160deg, #1a0f0a 0%, #2d1a0f 60%, #1a0a0f 100%)",
   },
   {
-    id: "seo",
-    title: "SEO &\nGrowth",
-    shortLabel: "SEO",
-    slug: "/services/seo",
-    image: "/services/seo.webp",
+    id: "im",
+    title: "Influencer Marketing",
+    shortLabel: "IM Service",
+    slug: "/services/influencer-marketing",
+    image: "/service/influencer-marketing.png",
     gradient: "linear-gradient(160deg, #0a1a0f 0%, #1a2a10 60%, #0f1a0a 100%)",
   },
   {
-    id: "design",
-    title: "Graphic\nDesign",
-    shortLabel: "Design",
-    slug: "/services/design",
-    image: "/services/graphic-design.webp",
+    id: "aff",
+    title: "Affiliate Marketing",
+    shortLabel: "Affiliate Partner",
+    slug: "/services/affiliate-marketing",
+    image: "/service/affiliate-service.png",
     gradient: "linear-gradient(160deg, #1a0a1a 0%, #2a0f2a 60%, #0f0a1a 100%)",
   },
-  {
-    id: "video",
-    title: "Video\nProduction",
-    shortLabel: "Video",
-    slug: "/services/video",
-    image: "/services/video-production.webp",
-    gradient: "linear-gradient(160deg, #1a1a0a 0%, #2a1f0a 60%, #0f0f1a 100%)",
-  },
-  {
-    id: "content",
-    title: "Content\nMarketing",
-    shortLabel: "Content",
-    slug: "/services/content",
-    image: "/services/content-marketing.webp",
-    gradient: "linear-gradient(160deg, #0a0f1a 0%, #101a2a 60%, #0a1a15 100%)",
-  },
+  // {
+  //   id: "video",
+  //   title: "Video\nProduction",
+  //   shortLabel: "Video",
+  //   slug: "/services/video",
+  //   image: "/services/video-production.webp",
+  //   gradient: "linear-gradient(160deg, #1a1a0a 0%, #2a1f0a 60%, #0f0f1a 100%)",
+  // },
+  // {
+  //   id: "content",
+  //   title: "Content\nMarketing",
+  //   shortLabel: "Content",
+  //   slug: "/services/content",
+  //   image: "/services/content-marketing.webp",
+  //   gradient: "linear-gradient(160deg, #0a0f1a 0%, #101a2a 60%, #0a1a15 100%)",
+  // },
 ];
 
 const TOTAL = SERVICES.length;
@@ -657,7 +649,9 @@ export default function ServiceCards() {
                 {SERVICES.map((s, i) => (
                   <div
                     key={s.id}
-                    className={`sc-service-item${i === frontIdx ? " sc-item-active" : ""}`}
+                    className={`sc-service-item${
+                      i === frontIdx ? " sc-item-active" : ""
+                    }`}
                     onClick={() => {
                       const d = i > frontIdx ? 1 : -1;
                       setDir(d);
@@ -680,7 +674,9 @@ export default function ServiceCards() {
                   {SERVICES.map((s, i) => (
                     <div
                       key={s.id}
-                      className={`sc-nav-dot${i === frontIdx ? " sc-nav-dot-active" : ""}`}
+                      className={`sc-nav-dot${
+                        i === frontIdx ? " sc-nav-dot-active" : ""
+                      }`}
                       onClick={() => {
                         setFrontIdx(i);
                         startAuto();

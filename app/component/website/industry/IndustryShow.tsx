@@ -184,7 +184,9 @@ const IndustryShow: React.FC = () => {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
                 variants={blockVariants}
-                className={`relative flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-12 lg:gap-24 items-center`}
+                className={`relative flex flex-col ${
+                  isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+                } gap-12 lg:gap-24 items-center`}
               >
                 {/* 3D Image Card */}
                 <div className="w-full lg:w-1/2 group">

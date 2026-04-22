@@ -19,6 +19,11 @@ const industries: IndustryCardProps[] = [
       "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=800",
   },
   {
+    title: "University & College",
+    category: "Education",
+    image: "/education-industry.png",
+  },
+  {
     title: "Food & Beverages",
     category: "F&B",
     image:

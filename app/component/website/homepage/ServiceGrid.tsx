@@ -29,25 +29,25 @@ const services = [
     title: "Website Development",
     desc: "Build fast, scalable, and modern websites tailored to your business needs.",
     icon: <Code2 className="w-8 h-8" />,
-    href: "/services/website-development",
+    href: "/services/website-development-service",
   },
   {
     title: "Search Engine Optimization",
     desc: "Improve your search rankings and visibility to attract high-quality organic traffic.",
     icon: <Search className="w-8 h-8" />,
-    href: "/services/seo",
+    href: "/services/seo-service",
   },
   {
     title: "Performance Marketing",
     desc: "Drive measurable growth with data-driven campaigns focused on ROI and conversions.",
     icon: <TrendingUp className="w-8 h-8" />,
-    href: "/services/performance-marketing",
+    href: "/services/performance-marketing-service",
   },
   {
     title: "Graphic Designing & Video Editing",
     desc: "Create visually compelling designs and videos that capture attention and communicate effectively.",
     icon: <PenTool className="w-8 h-8" />,
-    href: "/services/design-video",
+    href: "/services/graphic-design-service",
   },
   {
     title: "Affiliate Marketing",
@@ -60,7 +60,7 @@ const services = [
     title: "Online Reputation Management",
     desc: "Monitor, manage, and enhance your brand’s reputation across digital platforms.",
     icon: <ShieldCheck className="w-8 h-8" />,
-    href: "/services/orm",
+    href: "/services/online-reputation-management",
   },
   {
     title: "Influencer Marketing",
@@ -72,7 +72,7 @@ const services = [
     title: "Social Media Optimization",
     desc: "Optimize your social profiles and content strategy for better reach and engagement.",
     icon: <ThumbsUp className="w-8 h-8" />,
-    href: "/services/smo",
+    href: "/services/social-media-marketing",
   },
 
   {

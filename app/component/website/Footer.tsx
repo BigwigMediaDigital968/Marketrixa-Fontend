@@ -18,9 +18,12 @@ export default function Footer() {
       links: [
         { title: "Web Development", href: "/services/web-development" },
         { title: "SEO Growth", href: "/services/SEO-service" },
-        { title: "Social Media", href: "/services" },
-        { title: "Branding & Design", href: "/services" },
-        { title: "Video Production", href: "/services" },
+        { title: "Social Media", href: "/services/social-media-marketing" },
+        { title: "Graphic Design", href: "/services/graphic-design-service" },
+        {
+          title: "Email Marketing",
+          href: "/services/email-marketing",
+        },
       ],
     },
     {

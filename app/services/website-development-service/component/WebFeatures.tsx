@@ -159,8 +159,7 @@ const WebFeatures = () => {
       description:
         "Create deeper connections with visitors through interactive features and personalized browsing experiences.",
       icon: <Layers size={32} />,
-      imageUrl:
-        "https://images.unsplash.com/photo-1551288049-bbbda5366392?auto=format&fit=crop&q=80&w=800",
+      imageUrl: "/dynamic-web-image.png",
     },
     {
       title: "Startup Website Design",

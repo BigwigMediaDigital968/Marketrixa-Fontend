@@ -17,52 +17,16 @@ const MENU_DETAILS = {
       tag: "Dev",
     },
     {
-      name: "Performance Marketing",
-      href: "/services/performance-marketing-service",
-      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
-      tag: "Marketing",
-    },
-    {
-      name: "Affiliate Marketing",
-      href: "/services/affiliate-marketing",
-      img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
-      tag: "Marketing",
-    },
-    {
-      name: "SEO Marketing",
+      name: "Search Engine Optimization",
       href: "/services/seo-service",
       img: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&q=80&w=800",
       tag: "SEO",
     },
     {
-      name: "ORM Services",
-      href: "/services/orm",
-      img: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=800",
-      tag: "Reputation",
-    },
-    {
-      name: "Influencer Marketing",
-      href: "/services/influencer-marketing",
-      img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=800",
-      tag: "Social",
-    },
-    {
-      name: "Social Media Optimization",
-      href: "/services/social-media-marketing",
-      img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
-      tag: "Social",
-    },
-    {
-      name: "Graphic Designing & Video",
-      href: "/services/design-video",
-      img: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800",
-      tag: "Creative",
-    },
-    {
-      name: "Content Marketing",
-      href: "/services/content-marketing",
-      img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=800",
-      tag: "Content",
+      name: "Performance Marketing",
+      href: "/services/performance-marketing-service",
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+      tag: "Marketing",
     },
     {
       name: "Social Media Marketing",
@@ -71,10 +35,48 @@ const MENU_DETAILS = {
       tag: "Social",
     },
     {
+      name: "Graphic Design",
+      href: "/services/graphic-design-service",
+      img: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800",
+      tag: "Creative",
+    },
+    {
+      name: "Social Media Optimization",
+      href: "/services/social-media-optimization",
+      img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
+      tag: "Social",
+    },
+    {
+      name: "Content Marketing",
+      href: "/services/content-marketing",
+      img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=800",
+      tag: "Content",
+    },
+
+    {
       name: "Email Marketing",
       href: "/services/email-marketing",
       img: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=800",
       tag: "Email",
+    },
+    {
+      name: "Affiliate Marketing",
+      href: "/services/affiliate-marketing",
+      img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
+      tag: "Marketing",
+    },
+
+    {
+      name: "ORM Services",
+      href: "/services/online-reputation-management",
+      img: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=800",
+      tag: "Reputation",
+    },
+    {
+      name: "Influencer Marketing",
+      href: "/services/influencer-marketing",
+      img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=800",
+      tag: "Social",
     },
   ],
   // About: [
@@ -300,7 +302,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setShowPopup(true)}
-              className="hidden lg:flex items-center gap-2 bg-[#F26522] hover:bg-[#e55a1a] text-black text-[10px] xl:text-[11px] font-black uppercase tracking-widest px-5 py-2.5 rounded-full transition-all duration-200 active:scale-95 shadow-lg shadow-[#F26522]/20 cursor-pointer"
+              className="hidden lg:flex items-center gap-2 bg-[#F26522] text-white text-[10px] xl:text-[11px] font-black uppercase tracking-widest px-5 py-2.5 rounded-full transition-all duration-200 active:scale-95 shadow-lg shadow-[#F26522]/20 cursor-pointer"
             >
               Get Started
               <ArrowUpRight size={13} />
@@ -308,7 +310,7 @@ export default function Navbar() {
 
             {/* Mobile menu toggle */}
             <button
-              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 hover:bg-white/15 text-white transition-colors"
+              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 hover:bg-white/15 text-white transition-colors cursor-pointer"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             >
@@ -493,7 +495,7 @@ export default function Navbar() {
                 </Link>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center w-9 h-9 rounded-lg bg-white/8 hover:bg-white/12 text-white/70 hover:text-white transition-colors"
+                  className="flex items-center justify-center w-9 h-9 rounded-lg bg-white/8 hover:bg-white/12 text-white/70 hover:text-white transition-colors cursor-pointer"
                 >
                   <X size={18} />
                 </button>
@@ -582,7 +584,7 @@ export default function Navbar() {
                   +91 12345 67890
                 </a>
                 <button
-                  className="w-full bg-[#F26522] hover:bg-[#e55a1a] text-black font-black py-4 rounded-xl uppercase tracking-widest text-sm transition-all active:scale-[0.98] shadow-lg shadow-[#F26522]/20"
+                  className="w-full bg-[#F26522] hover:bg-[#e55a1a] text-white py-4 rounded-xl uppercase tracking-widest text-sm transition-all active:scale-[0.98] shadow-lg shadow-[#F26522]/20"
                   onClick={() => setShowPopup(true)}
                 >
                   Get Started

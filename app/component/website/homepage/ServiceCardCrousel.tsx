@@ -16,12 +16,12 @@ type Service = {
 const SERVICES: Service[] = [
   {
     id: 1,
-    title: "Website\nDevelopment",
+    title: "Website Development",
     label: "Web Dev",
     description:
       "Build conversion-focused websites designed to perform and scale your business.",
     bgImage: "/service-card.png",
-    href: "/services/web-development-service",
+    href: "/services/website-development-service",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const SERVICES: Service[] = [
       "Strengthen your brand presence with strategies that boost engagement.",
     bgImage:
       "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?q=80&w=1170",
-    href: "/services/community-building",
+    href: "/services/social-media-marketing",
   },
   {
     id: 3,
@@ -40,26 +40,26 @@ const SERVICES: Service[] = [
     description:
       "Improve your visibility on search engines that drive consistent growth.",
     bgImage: "https://images.unsplash.com/photo-1599658880436-c61792e70672",
-    href: "/services/brand-narratives",
+    href: "/services/seo-service",
   },
   {
     id: 4,
     title: "Performance Marketing",
-    label: "Design",
+    label: "PPC",
     description:
       "Run data-driven campaigns focused on generating leads and increasing revenue.",
     bgImage:
       "https://images.unsplash.com/photo-1770970716469-4b32abc0a577?q=80&w=880",
-    href: "/services/creative-direction",
+    href: "/services/performance-marketing",
   },
   {
     id: 5,
-    title: "Video\nProduction",
-    label: "Video",
+    title: "Graphic Designing",
+    label: "Video & Graphics",
     description:
       "High-quality video content that tells your story, captures attention, and drives engagement across platforms.",
     bgImage: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d",
-    href: "/services/video-production",
+    href: "/services/graphic-design-service",
   },
   //   {
   //     id: 6,
@@ -466,7 +466,7 @@ export default function ServiceCardCarousel() {
           <button
             key={arrow}
             onClick={() => go(i === 0 ? -1 : 1)}
-            className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95"
+            className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer"
             style={{
               background: "rgba(255,255,255,0.06)",
               border: "1px solid rgba(255,255,255,0.12)",

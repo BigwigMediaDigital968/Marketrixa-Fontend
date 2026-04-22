@@ -7,13 +7,13 @@ import {
   TrendingUp,
   Search,
   Palette,
-  Video,
   FileText,
   ArrowRight,
   CheckCircle,
   ChevronRight,
   Sparkles,
 } from "lucide-react";
+import Link from "next/link";
 
 /* ─────────────────────────────────────────
    SERVICE DATA  — add more entries freely
@@ -34,6 +34,7 @@ const SERVICES = [
     ],
     tags: ["Next.js", "React", "Node.js", "Tailwind", "WordPress", "Webflow"],
     cta: "Build Your Digital Foundation",
+    link: "/services/website-development-service",
     accent: "#f26522",
   },
   {
@@ -58,6 +59,7 @@ const SERVICES = [
       "Pinterest",
     ],
     cta: "Amplify Your Social Reach",
+    link: "/services/social-media-marketing",
     accent: "#f26522",
   },
   {
@@ -82,6 +84,7 @@ const SERVICES = [
       "Analytics",
     ],
     cta: "Climb to Page One",
+    link: "/services/seo-service",
     accent: "#f26522",
   },
   {
@@ -99,30 +102,25 @@ const SERVICES = [
     ],
     tags: ["Branding", "Figma", "Illustrator", "Photoshop", "UI/UX", "Motion"],
     cta: "Elevate Your Visual Identity",
+    link: "/services/graphic-design-service",
     accent: "#f26522",
   },
   {
-    id: "video",
-    icon: <Video size={22} />,
-    label: "Video Production",
-    tagline: "Stories That Move People — Literally.",
+    id: "performance",
+    icon: <TrendingUp size={22} />,
+    label: "Performance Marketing",
+    tagline: "Data-Driven Ads That Deliver Real Results.",
     description:
-      "From concept to final cut, we produce cinematic brand films, social reels, product demos, and explainer videos that captivate audiences and communicate your value in seconds. Video is the highest-converting content format — we make it count.",
+      "We create and manage high-performance ad campaigns across Google, Meta, and other platforms to drive measurable growth. From lead generation to e-commerce sales, our strategies are built on data, optimization, and ROI — ensuring every rupee you spend works harder for your business.",
     highlights: [
-      "Brand & product films",
-      "Short-form social reels",
-      "Motion graphics & 2D/3D",
-      "Scriptwriting & storyboarding",
+      "Google Ads (Search, Display, YouTube)",
+      "Meta Ads (Facebook & Instagram)",
+      "Conversion tracking & analytics",
+      "A/B testing & campaign optimization",
     ],
-    tags: [
-      "Premiere Pro",
-      "After Effects",
-      "DaVinci",
-      "Reels",
-      "YouTube",
-      "OTT Ads",
-    ],
-    cta: "Start Your Production",
+    tags: ["Google Ads", "Meta Ads", "ROI", "CPC", "Leads", "Sales Funnel"],
+    cta: "Start Scaling Your Ads",
+    link: "/services/performance-marketing-service",
     accent: "#f26522",
   },
   {
@@ -147,6 +145,7 @@ const SERVICES = [
       "Scripts",
     ],
     cta: "Build Your Content Engine",
+    link: "/services/content-marketing",
     accent: "#f26522",
   },
 ];
@@ -264,12 +263,12 @@ function ServiceDetail({ service }: { service: (typeof SERVICES)[0] }) {
         </div>
 
         {/* CTA */}
-        <button className="svc-cta-btn">
+        <Link href={service.link} className="svc-cta-btn">
           {service.cta}
           <span className="svc-cta-arrow">
             <ArrowRight size={15} />
           </span>
-        </button>
+        </Link>
       </motion.div>
     </AnimatePresence>
   );

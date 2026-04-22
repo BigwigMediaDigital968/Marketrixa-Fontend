@@ -389,3 +389,129 @@ export const AffiliateFAQs: FAQItem[] = [
       "Successful affiliate programs are based on a combination of strong partnerships, attractive incentives, quality traffic, and ongoing optimization.",
   },
 ];
+
+export const ContentFAQs: FAQItem[] = [
+  {
+    question: "What is content marketing?",
+    answer:
+      "Content marketing is a strategic approach focused on creating and distributing valuable, relevant, and consistent content to attract and retain a clearly defined audience and drive profitable customer actions.",
+  },
+  {
+    question: "Why is content marketing important for my business?",
+    answer:
+      "Content marketing helps build brand awareness, establish authority, improve SEO rankings, and generate qualified leads by providing value to your audience instead of directly selling.",
+  },
+  {
+    question: "What types of content do you create?",
+    answer:
+      "We create a wide range of content including blog posts, website copy, social media content, videos, infographics, case studies, email newsletters, and more.",
+  },
+  {
+    question: "How does content marketing improve SEO?",
+    answer:
+      "High-quality content targets relevant keywords, increases website engagement, earns backlinks, and helps search engines understand your website, resulting in better rankings.",
+  },
+  {
+    question: "How long does it take to see results from content marketing?",
+    answer:
+      "Content marketing is a long-term strategy. Typically, noticeable results such as improved traffic and engagement can be seen within 3 to 6 months.",
+  },
+  {
+    question: "Do you create SEO-optimized content?",
+    answer:
+      "Yes, all our content is optimized for search engines using proper keyword research, on-page SEO techniques, and user-focused writing to maximize visibility and performance.",
+  },
+  {
+    question: "Can content marketing generate leads?",
+    answer:
+      "Absolutely. By providing valuable and targeted content, we attract potential customers, nurture them through the funnel, and convert them into leads and sales.",
+  },
+  {
+    question: "How do you measure content marketing success?",
+    answer:
+      "We track key metrics such as website traffic, engagement rate, keyword rankings, lead generation, and conversion rates to evaluate performance.",
+  },
+  {
+    question: "Do I need a blog for content marketing?",
+    answer:
+      "While not mandatory, having a blog significantly improves your content marketing strategy by providing a platform to publish valuable content and improve SEO.",
+  },
+  {
+    question: "Can you handle content strategy as well?",
+    answer:
+      "Yes, we develop a complete content strategy including audience research, content planning, topic clustering, and distribution to ensure maximum impact.",
+  },
+  {
+    question: "Is content marketing suitable for all industries?",
+    answer:
+      "Yes, content marketing works for almost every industry including e-commerce, healthcare, finance, education, SaaS, and local businesses.",
+  },
+  {
+    question: "How often should I publish content?",
+    answer:
+      "Consistency is key. Depending on your goals, we recommend publishing content weekly or bi-weekly to maintain engagement and growth.",
+  },
+];
+
+export const EmailMarketingFAQs: FAQItem[] = [
+  {
+    question: "What is email marketing?",
+    answer:
+      "Email marketing is a digital marketing strategy that involves sending targeted emails to a group of subscribers to promote products, share updates, and build strong customer relationships.",
+  },
+  {
+    question: "Why is email marketing important for businesses?",
+    answer:
+      "Email marketing offers a direct line of communication with your audience, delivers high ROI, and helps nurture leads, retain customers, and increase repeat sales.",
+  },
+  {
+    question: "What types of email campaigns do you create?",
+    answer:
+      "We create newsletters, promotional emails, drip campaigns, welcome sequences, abandoned cart emails, re-engagement campaigns, and more.",
+  },
+  {
+    question: "How do you build an email list?",
+    answer:
+      "We use ethical and effective methods such as lead magnets, website forms, landing pages, and opt-in campaigns to grow a high-quality subscriber list.",
+  },
+  {
+    question: "Do you provide email design and copywriting?",
+    answer:
+      "Yes, we handle both design and copywriting to create visually appealing and engaging emails that drive opens, clicks, and conversions.",
+  },
+  {
+    question: "How do you improve email open rates?",
+    answer:
+      "We optimize subject lines, personalize content, segment audiences, and test sending times to maximize open rates and engagement.",
+  },
+  {
+    question: "What tools do you use for email marketing?",
+    answer:
+      "We work with leading platforms such as Mailchimp, HubSpot, Klaviyo, and others depending on your business needs.",
+  },
+  {
+    question: "Can email marketing help increase sales?",
+    answer:
+      "Absolutely. Email marketing is one of the most effective channels for driving sales by nurturing leads and encouraging repeat purchases.",
+  },
+  {
+    question: "How do you measure email campaign performance?",
+    answer:
+      "We track metrics like open rate, click-through rate, conversion rate, bounce rate, and ROI to evaluate and optimize campaign performance.",
+  },
+  {
+    question: "Is email marketing suitable for small businesses?",
+    answer:
+      "Yes, email marketing is highly cost-effective and scalable, making it ideal for small businesses to connect with their audience and grow consistently.",
+  },
+  {
+    question: "How often should I send emails to my audience?",
+    answer:
+      "It depends on your business and audience, but generally, sending 1–4 emails per month helps maintain engagement without overwhelming subscribers.",
+  },
+  {
+    question: "Do you provide email automation services?",
+    answer:
+      "Yes, we set up automated workflows such as welcome series, lead nurturing, abandoned cart recovery, and follow-up sequences to maximize efficiency and results.",
+  },
+];

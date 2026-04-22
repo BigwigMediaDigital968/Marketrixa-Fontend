@@ -50,8 +50,7 @@ const features: FeatureItem[] = [
     fullDesc:
       "Easy-to-use navigations, a well-organized structure, and user-friendly layouts give visitors the ease of exploring the site and taking actions.",
     icon: <Users className="w-6 h-6" />,
-    imageUrl:
-      "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1000",
+    imageUrl: "/better-user-experience.png",
   },
   {
     id: "credibility",
@@ -70,8 +69,7 @@ const features: FeatureItem[] = [
     fullDesc:
       "Strategic design elements guide users effortlessly across pages, increasing engagement and time spent on the website, which naturally drives higher conversions.",
     icon: <BarChart3 className="w-6 h-6" />,
-    imageUrl:
-      "https://images.unsplash.com/photo-1551288049-bbbda5366392?auto=format&fit=crop&q=80&w=1000",
+    imageUrl: "/higher-engagement.png",
   },
 ];
 
