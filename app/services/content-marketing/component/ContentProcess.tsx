@@ -61,7 +61,7 @@ const steps: ProcessStep[] = [
 
 const ContentProcess: React.FC = () => {
   return (
-    <section className="relative py-24 bg-black overflow-hidden">
+    <section id="strategy" className="relative py-24 bg-black overflow-hidden">
       {/* Background Subtle Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-grid-pattern opacity-5 pointer-events-none" />
 
