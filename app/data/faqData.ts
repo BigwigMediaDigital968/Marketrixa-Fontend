@@ -515,3 +515,31 @@ export const EmailMarketingFAQs: FAQItem[] = [
       "Yes, we set up automated workflows such as welcome series, lead nurturing, abandoned cart recovery, and follow-up sequences to maximize efficiency and results.",
   },
 ];
+
+export const ORMFaqs: FAQItem[] = [
+  {
+    question: "What is ORM Service?",
+    answer:
+      "ORM Service stands for Online Reputation Management Service. It involves monitoring, managing, and improving how a business appears online.",
+  },
+  {
+    question: "How long does it take to see results from ORM?",
+    answer:
+      "Results depend on the current reputation and the level of improvement needed. Many businesses begin to notice positive changes within a few months.",
+  },
+  {
+    question: "Is ORM necessary for small businesses?",
+    answer:
+      "Yes. Small businesses benefit greatly from positive online reviews and strong digital presence. ORM helps build trust and attract new customers.",
+  },
+  {
+    question: "Can negative reviews be removed?",
+    answer:
+      "In some cases, reviews that violate platform guidelines can be removed. Otherwise, professional responses and positive content can reduce their impact.",
+  },
+  {
+    question: "Does Marketrixa provide ORM services only in Gujarat?",
+    answer:
+      "While Marketrixa is based in Gujarat, our ORM services are available to businesses across India.",
+  },
+];
