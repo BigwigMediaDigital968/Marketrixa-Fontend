@@ -46,11 +46,11 @@ const ContentHero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: E }}
-              className="text-3xl md:text-5xl font-bold leading-4 tracking-normal mb-8"
+              className="text-3xl md:text-5xl font-bold mb-8"
             >
               Turn Words into
               <br />
-              <span className="text-[#f26522]">Growth Engine.</span>
+              <span className="block text-[#f26522] mt-2">Growth Engine.</span>
             </motion.h1>
 
             <motion.p
