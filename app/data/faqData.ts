@@ -543,3 +543,31 @@ export const ORMFaqs: FAQItem[] = [
       "While Marketrixa is based in Gujarat, our ORM services are available to businesses across India.",
   },
 ];
+
+export const InfluencerFaqs: FAQItem[] = [
+  {
+    question: "What is influencer marketing?",
+    answer:
+      "Influencer marketing is a strategy where businesses collaborate with social media creators to promote products or services to their followers.",
+  },
+  {
+    question: "How do you choose the right influencer for a brand?",
+    answer:
+      "We evaluate audience demographics, engagement rates, content style, and brand compatibility before selecting influencers.",
+  },
+  {
+    question: "Which social media platforms are best for influencer marketing?",
+    answer:
+      "Popular platforms include Instagram, YouTube, Facebook, and LinkedIn. The best platform depends on your target audience and campaign goals.",
+  },
+  {
+    question: "How long does an influencer marketing campaign take?",
+    answer:
+      "Campaign duration varies depending on the objectives and content requirements. Some campaigns run for a few weeks, while others continue for several months.",
+  },
+  {
+    question: "Can small businesses benefit from influencer marketing?",
+    answer:
+      "Yes. Small businesses can achieve strong results by working with nano or micro influencers who have engaged local audiences.",
+  },
+];

@@ -34,16 +34,16 @@ const steps: StepProps[] = [
       "High-performing websites and mobile apps that can be scaled up to meet increasing demands.",
     icon: <Code className="w-6 h-6" />,
     color: "#2cc2a7",
-    link: "/services/web-app-development",
+    link: "/services/website-development-service",
   },
   {
     number: "02",
-    title: "Search Engine Marketing",
+    title: "Search Engine Optimization",
     description:
-      "Targeted paid campaigns that deliver instant traffic and strong ROI across search platforms.",
+      "Advanced SEO strategies that improve rankings, increase organic traffic, and strengthen long-term visibility.",
     icon: <Search className="w-6 h-6" />,
     color: "#f26522",
-    link: "/services/sem",
+    link: "/services/seo-service",
   },
 
   {
@@ -53,7 +53,7 @@ const steps: StepProps[] = [
       "Engaging social media campaigns that grow your audience and boost brand engagement.",
     icon: <Share2 className="w-6 h-6" />,
     color: "#FBBF24",
-    link: "/services/social-media",
+    link: "/services/social-media-marketing",
   },
   {
     number: "04",
@@ -62,45 +62,45 @@ const steps: StepProps[] = [
       "Data-backed strategies crafted to boost your brand's performance and generate qualified leads.",
     icon: <Globe className="w-6 h-6" />,
     color: "#A855F7",
-    link: "/services/digital-marketing",
+    link: "/services/performance-marketing-service",
   },
   {
     number: "05",
-    title: "Search Engine Optimization",
+    title: "Email Marketing",
     description:
-      "Advanced SEO strategies that improve rankings, increase organic traffic, and strengthen long-term visibility.",
+      "Build hyper-segmented automation flows that respect your audience's time while aggressively scaling your revenue through behavioral psychology.",
     icon: <TrendingUp className="w-6 h-6" />,
     color: "#34D399",
-    link: "/services/seo",
+    link: "/services/email-marketing",
   },
   {
     number: "06",
-    title: "Branding",
+    title: "Content Marketing",
     description:
-      "Create a compelling brand image that differentiates your brand in highly competitive markets.",
-    icon: <Palette className="w-6 h-6" />,
+      "From high-converting sales copy to technical documentation, our creators bridge the gap between your brand and your audience.",
+    icon: <DollarSign className="w-6 h-6" />,
     color: "#FBBF24",
-    link: "/services/branding",
+    link: "/services/content-marketing",
   },
 
   {
     number: "07",
-    title: "Online Marketing",
+    title: "Online Reputation Management",
     description:
-      "Multi-channel marketing strategies that expand your reach and improve overall brand performance.",
+      "We provides a complete ORM Service aimed at monitoring, managing, and enhancing how your brand is seen online.",
     icon: <Megaphone className="w-6 h-6" />,
     color: "#3B82F6",
-    link: "/services/online-marketing",
+    link: "/services/online-reputation-management",
   },
 
   {
     number: "08",
-    title: "Paid Marketing",
+    title: "Graphic Design",
     description:
-      "Performance-focused ad campaigns across Google, Meta, and other platforms to maximize conversions and revenue.",
-    icon: <DollarSign className="w-6 h-6" />,
+      "Creative graphic design and video editing agency in Gujarat dedicated to helping brands express their ideas through powerful visuals and professional storytelling.",
+    icon: <Palette className="w-6 h-6" />,
     color: "#EF4444",
-    link: "/services/paid-marketing",
+    link: "/services/graphic-design-service",
   },
 ];
 export default function OurServices() {
@@ -157,7 +157,9 @@ export default function OurServices() {
               {steps.map((step, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col md:flex-row items-center w-full mb-12 md:mb-24 ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
+                  className={`flex flex-col md:flex-row items-center w-full mb-12 md:mb-24 ${
+                    index % 2 === 0 ? "md:flex-row-reverse" : ""
+                  }`}
                 >
                   {/* Content Card Area */}
                   <motion.div
@@ -236,7 +238,9 @@ export default function OurServices() {
                       whileInView={{ width: "100%" }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.7 }}
-                      className={`absolute top-1/2 -translate-y-1/2 h-[1px] bg-white/20 ${index % 2 === 0 ? "right-1/2 mr-2" : "left-1/2 ml-2"}`}
+                      className={`absolute top-1/2 -translate-y-1/2 h-[1px] bg-white/20 ${
+                        index % 2 === 0 ? "right-1/2 mr-2" : "left-1/2 ml-2"
+                      }`}
                     />
                   </div>
 
