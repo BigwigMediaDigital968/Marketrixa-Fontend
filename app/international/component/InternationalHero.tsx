@@ -10,6 +10,7 @@ import {
   Zap,
   ChevronRight,
 } from "lucide-react";
+import Link from "next/link";
 
 const InternationalHero = () => {
   const [mounted, setMounted] = useState(false);
@@ -35,7 +36,7 @@ const InternationalHero = () => {
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           {/* Left Content: The Value Proposition */}
-          <div className="w-full lg:w-3/5 text-center lg:text-left">
+          <div className="w-full lg:w-3/5">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -52,12 +53,10 @@ const InternationalHero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-6xl xl:text-7xl font-black text-white leading-[1.05] mb-8 tracking-tighter"
+              className="text-3xl md:text-5xl font-black text-white leading-[1.05] mb-8 tracking-tighter"
             >
               SCALE YOUR BRAND <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f26522] via-[#ff8c52] to-[#f26522]">
-                BEYOND BORDERS.
-              </span>
+              <span className="text-[#f26522]">BEYOND BORDERS.</span>
             </motion.h1>
 
             <motion.p
@@ -71,51 +70,56 @@ const InternationalHero = () => {
               and cultural nuance to capture market share in 50+ countries.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-[#f26522] hover:bg-[#d9541a] text-white font-black rounded-2xl transition-all gap-3 group shadow-[0_20px_40px_rgba(242,101,34,0.2)] w-fit"
             >
-              <button className="w-full sm:w-auto px-10 py-5 bg-[#f26522] hover:bg-[#d9541a] text-white font-black rounded-2xl transition-all flex items-center justify-center gap-3 group shadow-[0_20px_40px_rgba(242,101,34,0.2)]">
-                START GLOBAL AUDIT
-                <ArrowUpRight
-                  size={20}
-                  className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                />
-              </button>
-
-              <button className="w-full sm:w-auto px-10 py-5 bg-white/5 hover:bg-white/10 text-white font-bold rounded-2xl border border-white/10 transition-all flex items-center justify-center gap-3">
-                VIEW OUR MARKETS
-                <ChevronRight size={18} />
-              </button>
-            </motion.div>
+              START GLOBAL AUDIT
+              <ArrowUpRight
+                size={20}
+                className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+              />
+            </Link>
 
             {/* Trusted By / Stats Section */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 border-t border-white/10 pt-10"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-10 pt-10 border-t border-white/10"
             >
-              <div>
-                <div className="text-3xl font-black text-white mb-1">50+</div>
-                <div className="text-xs text-gray-500 uppercase font-bold tracking-widest">
-                  Countries Managed
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {/* Stat 1 */}
+                <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md hover:bg-white/[0.06] transition-all duration-500">
+                  <div className="text-2xl md:text-3xl font-black text-white mb-2">
+                    100+
+                  </div>
+                  <div className="text-xs text-gray-400 uppercase font-bold tracking-[0.2em]">
+                    Campaigns Executed
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div className="text-3xl font-black text-[#f26522] mb-1">
-                  12M+
+
+                {/* Stat 2 */}
+                <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md hover:bg-white/[0.06] transition-all duration-500">
+                  <div className="text-2xl md:text-3xl font-black text-[#f26522] mb-2">
+                    3X
+                  </div>
+                  <div className="text-xs text-gray-400 uppercase font-bold tracking-[0.2em]">
+                    Avg Client Growth
+                  </div>
                 </div>
-                <div className="text-xs text-gray-500 uppercase font-bold tracking-widest">
-                  Monthly Users
-                </div>
-              </div>
-              <div className="col-span-2 md:col-span-1">
-                <div className="text-3xl font-black text-white mb-1">24/7</div>
-                <div className="text-xs text-gray-500 uppercase font-bold tracking-widest">
-                  Multilingual Ops
+
+                {/* Stat 3 */}
+                <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md hover:bg-white/[0.06] transition-all duration-500">
+                  <div className="text-xs text-gray-400 uppercase font-bold tracking-[0.2em]">
+                    Global Clients Across
+                  </div>
+                  <div className="text-2xl md:text-3xl font-black text-white my-2">
+                    10+
+                  </div>
+                  <div className="text-xs text-gray-400 uppercase font-bold tracking-[0.2em]">
+                    Countries
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -165,25 +169,25 @@ const InternationalHero = () => {
                   </div>
                 </div>
               </motion.div>
+            </motion.div>
 
-              <motion.div
-                initial={{ x: -50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.8 }}
-                className="absolute bottom-12 left-6 md:-left-8 bg-[#0a0a0a]/90 backdrop-blur-xl p-5 rounded-2xl border border-white/10 shadow-2xl"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-orange-500/20 rounded-xl">
-                    <Languages className="text-[#f26522]" size={20} />
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-gray-400 font-black uppercase">
-                      Local Latency
-                    </div>
-                    <div className="text-xl font-black text-white">-45ms</div>
-                  </div>
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="absolute bottom-12 left-6 md:-left-8 bg-[#0a0a0a]/90 backdrop-blur-xl p-5 rounded-2xl border border-white/10 shadow-2xl"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-orange-500/20 rounded-xl">
+                  <Languages className="text-[#f26522]" size={20} />
                 </div>
-              </motion.div>
+                <div>
+                  <div className="text-[10px] text-gray-400 font-black uppercase">
+                    Local Latency
+                  </div>
+                  <div className="text-xl font-black text-white">-45ms</div>
+                </div>
+              </div>
             </motion.div>
 
             {/* Background floating icons */}
