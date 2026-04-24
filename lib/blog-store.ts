@@ -1,4 +1,4 @@
-import { Blog, FAQGroup } from "@/app/types/blog";
+import { Blog, FAQ, FAQGroup } from "@/app/types/blog";
 
 // ─── In-memory store ────────────────────────────────────────────────
 // Replace with Prisma/Supabase/MongoDB calls in production
@@ -188,4 +188,53 @@ export function deleteFAQGroup(id: string): boolean {
   if (idx === -1) return false;
   faqGroups.splice(idx, 1);
   return true;
+}
+
+// ─── FAQ helpers used internally by blog routes ─────────────────────
+
+/** Find the FAQ group linked to a specific blog */
+export function getFAQGroupByBlogId(blogId: string): FAQGroup | undefined {
+  return faqGroups.find((g) => g.blogId === blogId);
+}
+
+/**
+ * Upsert an FAQ group tied to a blog.
+ * - If the blog already has an faqGroupId → update that group in-place.
+ * - Otherwise → create a new group and return it so the caller can
+ *   write faqGroupId back onto the blog record.
+ */
+export function upsertFAQGroupForBlog(
+  blogId: string,
+  existingGroupId: string | undefined,
+  data: { title: string; description?: string; faqs: FAQ[] },
+): FAQGroup {
+  const now = new Date().toISOString();
+
+  if (existingGroupId) {
+    const idx = faqGroups.findIndex((g) => g.id === existingGroupId);
+    if (idx !== -1) {
+      faqGroups[idx] = { ...faqGroups[idx], ...data, blogId, updatedAt: now };
+      return faqGroups[idx];
+    }
+  }
+
+  // Create fresh group
+  const group: FAQGroup = {
+    id: `faq_${Date.now()}`,
+    ...data,
+    blogId,
+    createdAt: now,
+    updatedAt: now,
+  };
+  faqGroups.push(group);
+  return group;
+}
+
+/**
+ * Remove the FAQ group that belongs to a blog (called on blog delete).
+ * Silent no-op if the blog had no FAQ group.
+ */
+export function deleteFAQGroupForBlog(blogId: string): void {
+  const idx = faqGroups.findIndex((g) => g.blogId === blogId);
+  if (idx !== -1) faqGroups.splice(idx, 1);
 }

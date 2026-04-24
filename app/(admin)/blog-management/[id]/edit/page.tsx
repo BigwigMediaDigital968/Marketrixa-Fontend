@@ -1,11 +1,30 @@
-import { notFound } from "next/navigation";
-import { getBlogById } from "@/lib/blog-store";
+// app/(admin)/blog-management/[id]/edit/page.tsx
 import BlogForm from "@/app/component/admin/blog/Blogform";
+import { notFound } from "next/navigation";
 
-export const metadata = { title: "Edit Blog Post | Marketrixa Admin" };
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
 
-export default function EditBlogPage({ params }: { params: { id: string } }) {
-  const blog = getBlogById(params.id);
-  if (!blog) notFound();
-  return <BlogForm mode="edit" initialData={blog} />;
+export default async function EditBlogPage({ params }: PageProps) {
+  const { id } = await params;
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/blogs/${id}`,
+    {
+      cache: "no-store",
+    },
+  );
+
+  if (!res.ok) notFound();
+
+  const { blog, faqGroup } = await res.json();
+
+  return (
+    <BlogForm
+      mode="edit"
+      initialData={blog}
+      initialFAQGroup={faqGroup ?? null}
+    />
+  );
 }

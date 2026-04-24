@@ -14,6 +14,7 @@ import {
   BookOpenText,
 } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function AdminLayout({
   children,
@@ -22,6 +23,8 @@ export default function AdminLayout({
 }) {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const pathname = usePathname();
 
   useEffect(() => {
     // Check for mock token
@@ -55,33 +58,28 @@ export default function AdminLayout({
     {
       name: "Dashboard",
       icon: <LayoutDashboard size={20} />,
-      active: true,
       link: "/dashboard",
     },
     {
       name: "Leads Management",
       icon: <Users size={20} />,
-      active: false,
       link: "/lead-management",
     },
     {
       name: "Blog Management",
       icon: <BookOpenText size={20} />,
-      active: false,
       link: "/blog-management",
     },
-    {
-      name: "Newsletter Management",
-      icon: <BookOpenText size={20} />,
-      active: false,
-      link: "/newsletter-management",
-    },
-    {
-      name: "Settings",
-      icon: <Settings size={20} />,
-      active: false,
-      link: "/settings",
-    },
+    // {
+    //   name: "Newsletter Management",
+    //   icon: <BookOpenText size={20} />,
+    //   link: "/newsletter-management",
+    // },
+    // {
+    //   name: "Settings",
+    //   icon: <Settings size={20} />,
+    //   link: "/settings",
+    // },
   ];
 
   return (
@@ -111,30 +109,40 @@ export default function AdminLayout({
 
         {/* Nav Links */}
         <nav className="flex-1 px-4 py-6 space-y-2">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.link}
-              className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group cursor-pointer ${
-                item.active
-                  ? "bg-[#F26522] text-black"
-                  : "text-gray-500 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              <div
-                className={
-                  item.active ? "text-black" : "group-hover:text-[#F26522]"
-                }
+          {navItems.map((item) => {
+            const isActive = pathname === item.link;
+
+            return (
+              <Link
+                key={item.name}
+                href={item.link}
+                className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group cursor-pointer ${
+                  isActive
+                    ? "bg-[#F26522] text-black shadow-lg shadow-[#F26522]/20"
+                    : "text-gray-500 hover:text-white hover:bg-white/5"
+                }`}
               >
-                {item.icon}
-              </div>
-              {isSidebarOpen && (
-                <span className="font-bold text-sm tracking-tight">
-                  {item.name}
-                </span>
-              )}
-            </Link>
-          ))}
+                <div
+                  className={
+                    isActive ? "text-black" : "group-hover:text-[#F26522]"
+                  }
+                >
+                  {item.icon}
+                </div>
+
+                {isSidebarOpen && (
+                  <span className="font-bold text-sm tracking-tight">
+                    {item.name}
+                  </span>
+                )}
+
+                {/* Active Indicator Line */}
+                {isActive && (
+                  <div className="ml-auto w-2 h-2 bg-white rounded-full" />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* User / Logout */}

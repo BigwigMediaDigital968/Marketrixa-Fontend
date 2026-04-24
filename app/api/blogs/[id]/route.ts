@@ -1,8 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getBlogById, updateBlog, deleteBlog } from "@/lib/blog-store";
+import {
+  getBlogById,
+  updateBlog,
+  deleteBlog,
+  getFAQGroupByBlogId,
+  upsertFAQGroupForBlog,
+  deleteFAQGroupForBlog,
+} from "@/lib/blog-store";
 
-// ✅ Updated type
-type Params = { params: Promise<{ id: string }> };
+// type Params = { params: Promise<{ id: string }> };
+
+type Params = { params: { id: string } };
 
 export async function GET(_req: NextRequest, { params }: Params) {
   const { id } = await params;
@@ -12,21 +20,55 @@ export async function GET(_req: NextRequest, { params }: Params) {
     return NextResponse.json({ error: "Blog not found" }, { status: 404 });
   }
 
-  return NextResponse.json({ blog });
+  // Inline FAQ group if one is linked
+  const faqGroup = getFAQGroupByBlogId(id);
+  return NextResponse.json({ blog, faqGroup: faqGroup ?? null });
 }
 
 export async function PUT(req: NextRequest, { params }: Params) {
   const { id } = await params;
 
   try {
-    const body = await req.json();
-    const blog = updateBlog(id, body);
+    const body: Partial<Parameters<typeof updateBlog>[1]> & {
+      faqs?: {
+        title: string;
+        description?: string;
+        items: Array<{ question: string; answer: string }>;
+      };
+    } = await req.json();
+
+    const { faqs, ...blogData } = body;
+    const blog = updateBlog(id, blogData);
 
     if (!blog) {
       return NextResponse.json({ error: "Blog not found" }, { status: 404 });
     }
 
-    return NextResponse.json({ blog });
+    let faqGroup = null;
+    if (faqs !== undefined) {
+      if (faqs.items?.length) {
+        faqGroup = upsertFAQGroupForBlog(id, blog.faqGroupId, {
+          title: faqs.title ?? `${blog.title} — FAQs`,
+          description: faqs.description,
+          faqs: faqs.items.map((f, i) => ({
+            id: `f_${Date.now()}_${i}`,
+            question: f.question,
+            answer: f.answer,
+            order: i + 1,
+          })),
+        });
+        if (!blog.faqGroupId) {
+          updateBlog(id, { faqGroupId: faqGroup.id });
+          blog.faqGroupId = faqGroup.id;
+        }
+      } else {
+        deleteFAQGroupForBlog(id);
+        updateBlog(id, { faqGroupId: undefined });
+        blog.faqGroupId = undefined;
+      }
+    }
+
+    return NextResponse.json({ blog, faqGroup });
   } catch {
     return NextResponse.json(
       { error: "Failed to update blog" },
@@ -37,6 +79,9 @@ export async function PUT(req: NextRequest, { params }: Params) {
 
 export async function DELETE(_req: NextRequest, { params }: Params) {
   const { id } = await params;
+
+  // Clean up the linked FAQ group first
+  deleteFAQGroupForBlog(id);
 
   const deleted = deleteBlog(id);
   if (!deleted) {
