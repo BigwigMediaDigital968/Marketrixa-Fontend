@@ -19,6 +19,11 @@ export default function LeadForm() {
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+  });
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -29,12 +34,61 @@ export default function LeadForm() {
     note: "",
   });
 
-  const handleNext = () => step < 2 && setStep(step + 1);
+  const validateStep1 = () => {
+    let newErrors = {
+      fullName: "",
+      email: "",
+      phone: "",
+    };
+
+    let isValid = true;
+
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full name is required";
+      isValid = false;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+      isValid = false;
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Enter a valid email";
+      isValid = false;
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+      isValid = false;
+    } else if (!/^[0-9]{7,15}$/.test(formData.phone)) {
+      newErrors.phone = "Enter valid phone number";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const handleNext = () => {
+    if (step === 1) {
+      const isValid = validateStep1();
+      if (!isValid) return;
+    }
+
+    if (step < 2) setStep(step + 1);
+  };
+
   const handlePrev = () => step > 1 && setStep(step - 1);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const eventId = crypto.randomUUID();
+
+    if (typeof window !== "undefined") {
+      // @ts-ignore
+      window.fbq("track", "Lead", {}, { eventID: eventId });
+    }
 
     try {
       // Map your local state to the API requirements
@@ -45,6 +99,7 @@ export default function LeadForm() {
         company: formData.companyName,
         service: formData.service,
         message: formData.note,
+        eventId,
       };
 
       const response = await fetch("/api/leads", {
@@ -152,10 +207,14 @@ export default function LeadForm() {
                 <div className="flex items-center justify-between mb-10">
                   <div className="flex gap-2 flex-grow mr-6">
                     <div
-                      className={`h-1.5 flex-grow rounded-full transition-all duration-500 ${step >= 1 ? "bg-[#F26522]" : "bg-white/10"}`}
+                      className={`h-1.5 flex-grow rounded-full transition-all duration-500 ${
+                        step >= 1 ? "bg-[#F26522]" : "bg-white/10"
+                      }`}
                     />
                     <div
-                      className={`h-1.5 flex-grow rounded-full transition-all duration-500 ${step >= 2 ? "bg-[#F26522]" : "bg-white/10"}`}
+                      className={`h-1.5 flex-grow rounded-full transition-all duration-500 ${
+                        step >= 2 ? "bg-[#F26522]" : "bg-white/10"
+                      }`}
                     />
                   </div>
                   <span className="text-[10px] font-black text-[#F26522] uppercase tracking-[0.2em] whitespace-nowrap">
@@ -230,6 +289,11 @@ export default function LeadForm() {
                             className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"
                             placeholder="Full Name"
                           />
+                          {errors.fullName && (
+                            <p className="text-red-500 text-xs mt-2">
+                              {errors.fullName}
+                            </p>
+                          )}
                         </div>
 
                         <div className="relative">
@@ -243,6 +307,12 @@ export default function LeadForm() {
                             className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"
                             placeholder="Work Email Address"
                           />
+
+                          {errors.email && (
+                            <p className="text-red-500 text-xs mt-2">
+                              {errors.email}
+                            </p>
+                          )}
                         </div>
 
                         <div className="flex gap-3">
@@ -292,13 +362,24 @@ export default function LeadForm() {
                               className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"
                               placeholder="Mobile Number"
                             />
+
+                            {errors.phone && (
+                              <p className="text-red-500 text-xs mt-2">
+                                {errors.phone}
+                              </p>
+                            )}
                           </div>
                         </div>
 
                         <button
                           type="button"
                           onClick={handleNext}
-                          className="w-full bg-[#F26522] text-black font-black py-5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all mt-6 shadow-lg shadow-[#F26522]/10 cursor-pointer"
+                          disabled={
+                            !formData.fullName ||
+                            !formData.email ||
+                            !formData.phone
+                          }
+                          className="w-full disabled:opacity-50 disabled:cursor-not-allowed bg-[#F26522] text-black font-black py-5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all mt-6 shadow-lg shadow-[#F26522]/10 cursor-pointer"
                         >
                           NEXT STEP <ArrowRight size={20} />
                         </button>
@@ -333,7 +414,6 @@ export default function LeadForm() {
                           <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
                           <input
                             name="companyName"
-                            required
                             value={formData.companyName}
                             onChange={handleChange}
                             className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"

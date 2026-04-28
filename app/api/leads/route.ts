@@ -11,11 +11,17 @@ import {
   updateDoc,
 } from "firebase/firestore";
 
+import CryptoJS from "crypto-js";
+
+function hashData(data: string) {
+  return CryptoJS.SHA256(data.trim().toLowerCase()).toString();
+}
+
 // POST: Create Lead
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, service, message } = body;
+    const { name, email, phone, service, message, company, eventId } = body;
 
     if (!name || !email) {
       return NextResponse.json(
@@ -27,12 +33,40 @@ export async function POST(request: Request) {
     const docRef = await addDoc(collection(db, "leads"), {
       name,
       email,
+      company: company || "",
       phone: phone || "",
+      event_id: eventId,
       service: service || "General Inquiry",
       message: message || "",
       status: "new",
       createdAt: Timestamp.now(),
     });
+
+    const metaPayload = {
+      data: [
+        {
+          event_name: "Lead",
+          event_time: Math.floor(Date.now() / 1000),
+          action_source: "website",
+          event_id: eventId, // ✅ ADD THIS
+          user_data: {
+            em: [hashData(email)],
+            ph: [hashData(phone.replace(/\s+/g, ""))], // also fixed
+          },
+        },
+      ],
+    };
+
+    await fetch(
+      `https://graph.facebook.com/v18.0/${process.env.NEXT_PUBLIC_META_PIXEL_ID}/events?access_token=${process.env.META_ACCESS_TOKEN}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(metaPayload),
+      },
+    );
 
     return NextResponse.json(
       { message: "Lead saved successfully", id: docRef.id },
