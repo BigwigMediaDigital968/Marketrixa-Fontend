@@ -210,13 +210,30 @@ export default function Footer() {
                 © {currentYear} MARKETRIXA Digital Marketing Agency. All Rights
                 Reserved.
               </p>
+              <p className="text-gray-600 text-xs">
+                Designed and developed by{" "}
+                <a
+                  href="https://bigwigmediadigital.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#F26522] hover:underline"
+                >
+                  BigWig Media Digital
+                </a>
+              </p>
               <div className="flex gap-8">
-                <span className="text-gray-600 text-xs cursor-pointer hover:text-white transition-colors">
+                <Link
+                  href="/privacy-policy"
+                  className="text-gray-600 text-xs cursor-pointer hover:text-white transition-colors"
+                >
                   Privacy
-                </span>
-                <span className="text-gray-600 text-xs cursor-pointer hover:text-white transition-colors">
+                </Link>
+                <Link
+                  href={"/terms-of-service"}
+                  className="text-gray-600 text-xs cursor-pointer hover:text-white transition-colors"
+                >
                   Terms
-                </span>
+                </Link>
                 <span className="text-gray-600 text-xs cursor-pointer hover:text-white transition-colors">
                   Cookies
                 </span>
