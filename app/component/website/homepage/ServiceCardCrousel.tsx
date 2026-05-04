@@ -50,7 +50,7 @@ const SERVICES: Service[] = [
       "Run data-driven campaigns focused on generating leads and increasing revenue.",
     bgImage:
       "https://images.unsplash.com/photo-1770970716469-4b32abc0a577?q=80&w=880",
-    href: "/services/performance-marketing",
+    href: "/services/performance-marketing-service",
   },
   {
     id: 5,

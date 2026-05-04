@@ -128,7 +128,7 @@ const ContactHero = () => {
               <div className="p-3 rounded-full bg-white/5 group-hover:bg-[#F26522]/20 transition-colors">
                 <Phone className="w-5 h-5" style={{ color: brandOrange }} />
               </div>
-              <span className="text-lg font-medium">+91 7201907236</span>
+              <span className="text-lg font-medium">+91 9512400000</span>
             </div>
             <div className="flex items-center gap-4 group cursor-pointer">
               <div className="p-3 rounded-full bg-white/5 group-hover:bg-[#F26522]/20 transition-colors">

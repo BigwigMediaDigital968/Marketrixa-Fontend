@@ -577,14 +577,14 @@ export default function Navbar() {
               {/* Drawer footer */}
               <div className="px-4 py-6 border-t border-white/8 space-y-3">
                 <a
-                  href="tel:+911234567890"
+                  href="tel:+919512400000"
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-white/10 text-white/60 hover:text-white hover:border-white/20 transition-all text-sm font-bold tracking-wide"
                 >
                   <Phone size={15} className="text-[#F26522]" />
-                  +91 12345 67890
+                  +91 951 240 0000
                 </a>
                 <button
-                  className="w-full bg-[#F26522] hover:bg-[#e55a1a] text-white py-4 rounded-xl uppercase tracking-widest text-sm transition-all active:scale-[0.98] shadow-lg shadow-[#F26522]/20"
+                  className="w-full bg-[#F26522] hover:bg-[#e55a1a] text-white py-4 rounded-xl uppercase tracking-widest text-sm transition-all active:scale-[0.98] shadow-lg shadow-[#F26522]/20 cursor-pointer"
                   onClick={() => setShowPopup(true)}
                 >
                   Get Started

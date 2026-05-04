@@ -127,7 +127,7 @@ const PrivacyPolicy = () => {
 
               <div className="flex items-center gap-2">
                 <Phone size={16} />
-                <span>+91 7201907236</span>
+                <span>+91 9512400000</span>
               </div>
             </div>
           </motion.div>
