@@ -18,6 +18,7 @@ const INDUSTRIES = [
 export default function BlogManagementPage() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("all");
   const [industry, setIndustry] = useState("all");
@@ -30,6 +31,7 @@ export default function BlogManagementPage() {
 
   const fetchBlogs = useCallback(async () => {
     setLoading(true);
+    setError(null);
     try {
       const params = new URLSearchParams({
         ...(status !== "all" && { status }),
@@ -37,10 +39,12 @@ export default function BlogManagementPage() {
         ...(debouncedSearch && { search: debouncedSearch }),
       });
       const res = await fetch(`/api/blogs?${params}`);
+      if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
-      setBlogs(data.blogs || []);
+      setBlogs(data.blogs ?? []);
     } catch {
-      console.error("Failed to load blogs");
+      setError("Failed to load blogs. Please try again.");
+      setBlogs([]);
     } finally {
       setLoading(false);
     }
@@ -51,28 +55,40 @@ export default function BlogManagementPage() {
   }, [fetchBlogs]);
 
   const handleDelete = async (id: string) => {
-    await fetch(`/api/blogs/${id}`, { method: "DELETE" });
-    setBlogs((prev) => prev.filter((b) => b.id !== id));
+    try {
+      const res = await fetch(`/api/blogs/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error("Delete failed");
+      setBlogs((prev) => prev.filter((b) => b.id !== id));
+    } catch {
+      alert("Failed to delete blog. Please try again.");
+    }
   };
 
   const handleStatusChange = async (id: string, newStatus: Blog["status"]) => {
-    const res = await fetch(`/api/blogs/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status: newStatus }),
-    });
-    const data = await res.json();
-    if (data.blog) {
-      setBlogs((prev) => prev.map((b) => (b.id === id ? data.blog : b)));
+    try {
+      const res = await fetch(`/api/blogs/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: newStatus }),
+      });
+      if (!res.ok) throw new Error("Status update failed");
+      const data = await res.json();
+      if (data.blog) {
+        setBlogs((prev) => prev.map((b) => (b.id === id ? data.blog : b)));
+      }
+    } catch {
+      alert("Failed to update status. Please try again.");
     }
   };
+
+  console.log(blogs);
 
   const stats = {
     total: blogs.length,
     published: blogs.filter((b) => b.status === "published").length,
     draft: blogs.filter((b) => b.status === "draft").length,
     archived: blogs.filter((b) => b.status === "archived").length,
-    totalViews: blogs.reduce((s, b) => s + b.views, 0),
+    totalViews: blogs.reduce((s, b) => s + (b.views ?? 0), 0),
   };
 
   return (
@@ -92,27 +108,22 @@ export default function BlogManagementPage() {
             </p>
           </div>
           <div className="flex items-center gap-3">
-            <Link
-              href="/blog-management/faqs"
-              className="px-4 py-2.5 rounded-xl text-sm font-medium border border-white/10 text-gray-400 hover:border-[#f26522]/40 hover:text-[#f26522] transition-all flex items-center gap-2"
+            <button
+              onClick={fetchBlogs}
+              className="px-4 py-2.5 rounded-xl text-sm font-medium bg-white/5 text-gray-300 hover:bg-white/10 border border-white/10 transition-all flex items-center gap-2"
+              title="Refresh"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <circle
-                  cx="7"
-                  cy="7"
-                  r="6"
-                  stroke="currentColor"
-                  strokeWidth="1.2"
-                />
                 <path
-                  d="M7 5v2.5M7 9.5v.5"
+                  d="M1 7a6 6 0 1 0 1-3M1 1v3h3"
                   stroke="currentColor"
                   strokeWidth="1.5"
                   strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
-              FAQ Manager
-            </Link>
+              Refresh
+            </button>
             <Link
               href="/blog-management/new"
               className="px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#f26522] text-white hover:bg-[#f26522]/80 transition-all shadow-lg shadow-[#f26522]/25 flex items-center gap-2"
@@ -169,7 +180,11 @@ export default function BlogManagementPage() {
               className={`rounded-xl p-4 text-center bg-gradient-to-b ${s.bg} border border-white/[0.06] backdrop-blur`}
             >
               <p className={`text-2xl font-bold tabular-nums ${s.color}`}>
-                {s.value}
+                {loading ? (
+                  <span className="inline-block w-8 h-6 bg-white/10 rounded animate-pulse" />
+                ) : (
+                  s.value
+                )}
               </p>
               <p className="text-gray-500 text-xs mt-0.5 font-medium">
                 {s.label}
@@ -209,6 +224,21 @@ export default function BlogManagementPage() {
               placeholder="Search by title, excerpt, tag…"
               className="w-full bg-white/5 border border-white/10 rounded-xl pl-9 pr-4 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-[#f26522]/50 transition-colors"
             />
+            {search && (
+              <button
+                onClick={() => setSearch("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors"
+              >
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path
+                    d="M1 1l10 10M11 1L1 11"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </button>
+            )}
           </div>
           <select
             value={status}
@@ -231,12 +261,55 @@ export default function BlogManagementPage() {
               </option>
             ))}
           </select>
+          {(search || status !== "all" || industry !== "all") && (
+            <button
+              onClick={() => {
+                setSearch("");
+                setStatus("all");
+                setIndustry("all");
+              }}
+              className="px-4 py-2.5 rounded-xl text-sm text-gray-400 hover:text-white bg-white/5 border border-white/10 transition-colors whitespace-nowrap"
+            >
+              Clear filters
+            </button>
+          )}
         </div>
+
+        {/* ── Error Banner ── */}
+        {error && (
+          <div className="rounded-xl p-4 bg-red-500/10 border border-red-500/20 flex items-center justify-between gap-4">
+            <p className="text-red-400 text-sm">{error}</p>
+            <button
+              onClick={fetchBlogs}
+              className="text-xs text-red-400 hover:text-red-300 underline underline-offset-2"
+            >
+              Retry
+            </button>
+          </div>
+        )}
 
         {/* ── Blog List ── */}
         {loading ? (
-          <div className="flex items-center justify-center py-24">
-            <div className="w-8 h-8 border-2 border-[#f26522] border-t-transparent rounded-full animate-spin" />
+          <div className="space-y-3">
+            {[...Array(3)].map((_, i) => (
+              <div
+                key={i}
+                className="rounded-2xl p-5 bg-white/[0.02] border border-white/[0.06] animate-pulse"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1 space-y-3">
+                    <div className="flex gap-2">
+                      <div className="h-5 w-20 bg-white/10 rounded-full" />
+                      <div className="h-5 w-24 bg-white/5 rounded-full" />
+                    </div>
+                    <div className="h-5 w-3/4 bg-white/10 rounded-lg" />
+                    <div className="h-4 w-full bg-white/5 rounded-lg" />
+                    <div className="h-4 w-2/3 bg-white/5 rounded-lg" />
+                  </div>
+                  <div className="h-8 w-24 bg-white/5 rounded-lg" />
+                </div>
+              </div>
+            ))}
           </div>
         ) : blogs.length === 0 ? (
           <div className="rounded-2xl p-16 text-center bg-white/[0.02] border border-white/[0.06] border-dashed">
@@ -263,7 +336,7 @@ export default function BlogManagementPage() {
             </p>
             {!search && status === "all" && industry === "all" && (
               <Link
-                href="/admin/blog-management/new"
+                href="/blog-management/new"
                 className="inline-flex items-center gap-2 mt-5 px-6 py-2.5 rounded-xl bg-[#f26522] text-white text-sm font-semibold hover:bg-[#f26522]/80 transition-all"
               >
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -280,6 +353,11 @@ export default function BlogManagementPage() {
           </div>
         ) : (
           <div className="space-y-3">
+            <p className="text-gray-600 text-xs px-1">
+              Showing {blogs.length} {blogs.length === 1 ? "blog" : "blogs"}
+              {(search || status !== "all" || industry !== "all") &&
+                " (filtered)"}
+            </p>
             {blogs.map((blog) => (
               <BlogCard
                 key={blog.id}

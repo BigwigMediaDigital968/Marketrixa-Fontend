@@ -81,7 +81,7 @@ export default function Footer() {
     },
     {
       icon: FaTwitter,
-      href: "https://twitter.com/marketrixa",
+      href: "https://x.com/@marketrixa99",
     },
   ];
 

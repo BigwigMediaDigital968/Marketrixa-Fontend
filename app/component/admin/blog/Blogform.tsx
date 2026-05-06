@@ -557,9 +557,12 @@ export default function BlogForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error);
-      router.push("/admin/blog-management");
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(data?.error || "Something went wrong");
+      }
+      router.push("/blog-management");
       router.refresh();
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Save failed");
@@ -771,7 +774,7 @@ export default function BlogForm({
                     <img
                       src={form.coverImage}
                       alt="cover"
-                      className="w-44 h-28 object-cover rounded-xl border border-white/10"
+                      className="w-28 h-20 object-cover rounded-lg border border-white/10 shadow-sm transition-transform duration-300 group-hover:scale-[1.03]"
                     />
                     <button
                       onClick={() => update("coverImage", "")}
@@ -1010,15 +1013,15 @@ export default function BlogForm({
                 Search Preview (Google SERP)
               </h3>
               <div className="rounded-xl bg-white p-4 space-y-0.5">
-                <p className="text-[#1a0dab] text-base font-medium leading-tight truncate">
+                <p className="text-black text-base font-medium leading-tight truncate">
                   {form.seo.metaTitle ||
                     form.title ||
                     "Page title appears here"}
                 </p>
-                <p className="text-[#006621] text-xs">
+                <p className="text-black text-xs">
                   https://marketrixa.com/blogs/{form.slug || "your-slug"}
                 </p>
-                <p className="text-[#545454] text-sm leading-snug line-clamp-2">
+                <p className="text-black text-sm leading-snug line-clamp-2">
                   {form.seo.metaDescription ||
                     form.excerpt ||
                     "Page description appears here. Make it compelling and keyword-rich."}

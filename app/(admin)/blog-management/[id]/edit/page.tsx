@@ -1,4 +1,3 @@
-// app/(admin)/blog-management/[id]/edit/page.tsx
 import BlogForm from "@/app/component/admin/blog/Blogform";
 import { notFound } from "next/navigation";
 
@@ -9,22 +8,24 @@ interface PageProps {
 export default async function EditBlogPage({ params }: PageProps) {
   const { id } = await params;
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/blogs/${id}`,
-    {
+  let blog = null;
+  let faqGroup = null;
+
+  try {
+    const res = await fetch(`http://localhost:3000/api/blogs/${id}`, {
       cache: "no-store",
-    },
-  );
+    });
 
-  if (!res.ok) notFound();
+    if (!res.ok) notFound();
 
-  const { blog, faqGroup } = await res.json();
+    const data = await res.json();
+    blog = data.blog;
+    faqGroup = data.faqGroup ?? null;
+  } catch {
+    notFound();
+  }
 
-  return (
-    <BlogForm
-      mode="edit"
-      initialData={blog}
-      initialFAQGroup={faqGroup ?? null}
-    />
-  );
+  if (!blog) notFound();
+
+  return <BlogForm mode="edit" initialData={blog} initialFAQGroup={faqGroup} />;
 }
