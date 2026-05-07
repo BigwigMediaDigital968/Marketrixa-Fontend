@@ -24,11 +24,11 @@ const clients = [
   {
     name: "Billion Dollar FX",
     logo: "https://res.cloudinary.com/dqrlkbsdq/image/upload/v1764826680/bdfx_zvjbi6.gif",
-    industry: "FinTech",
+    industry: "Forex trade",
   },
   {
     name: "Lalit Forex",
-    logo: "/lalit-logo.jpeg",
+    logo: "/lalit-logo.png",
     industry: "Treading",
   },
   {
@@ -51,12 +51,6 @@ const clients = [
     logo: "/dbn-logo.webp",
     industry: "Astrology",
   },
-];
-
-const stats = [
-  { label: "Global Partners", value: "200+", icon: <Globe size={16} /> },
-  { label: "Industry Awards", value: "14", icon: <Award size={16} /> },
-  { label: "Retained Clients", value: "94%", icon: <Users size={16} /> },
 ];
 
 export default function Clientele() {
@@ -219,7 +213,7 @@ export default function Clientele() {
                       </div>
 
                       {/* Bottom Progress Bar for Active Logo */}
-                      {isActive && (
+                      {/* {isActive && (
                         <motion.div
                           layoutId="progress"
                           className="absolute bottom-0 left-0 h-[2px] bg-[#F26522] z-20"
@@ -227,7 +221,7 @@ export default function Clientele() {
                           animate={{ width: "100%" }}
                           transition={{ duration: 3, ease: "linear" }}
                         />
-                      )}
+                      )} */}
                     </motion.div>
                   );
                 })}

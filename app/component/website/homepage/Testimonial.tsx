@@ -7,8 +7,8 @@ import { Quote, ArrowLeft, ArrowRight, Star } from "lucide-react";
 const TESTIMONIALS = [
   {
     id: 1,
-    name: "Raj Sharma",
-    role: "CEO, TechFlow",
+    name: "Harshjyot",
+    role: "CEO, Bigwig Media Digital",
     content:
       "What stood out was the strategy. MarketRixa created a full digital ecosystem that delivered real results. We saw 3x growth in conversions in just a few months.",
     image:
@@ -17,8 +17,8 @@ const TESTIMONIALS = [
   },
   {
     id: 2,
-    name: "Neha Kapoor",
-    role: "Marketing Director, Bloom",
+    name: "Mansha Kapoor",
+    role: "Marketing Director, Lion Forex",
     content:
       "MarketRixa went beyond execution. They built a scalable system for our brand. Within three months, our conversion rate saw a significant jump.",
     image:
@@ -27,8 +27,8 @@ const TESTIMONIALS = [
   },
   {
     id: 3,
-    name: "Siddharth Jain",
-    role: "Founder, Zenith",
+    name: "Mohit",
+    role: "Founder, Granth Dream Home",
     content:
       "This was more than marketing. MarketRixa built a system that worked. Conversions tripled in just three months.",
     image:

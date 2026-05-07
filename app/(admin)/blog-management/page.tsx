@@ -100,9 +100,9 @@ export default function BlogManagementPage() {
             <p className="text-[#f26522] text-xs font-semibold tracking-[0.2em] uppercase mb-1">
               Content Studio
             </p>
-            <h1 className="text-3xl font-bold text-white tracking-tight">
+            <h2 className="text-3xl font-bold text-white tracking-tight">
               Blog Management
-            </h1>
+            </h2>
             <p className="text-gray-500 mt-1 text-sm">
               Create, manage and publish blog posts for Marketrixa
             </p>

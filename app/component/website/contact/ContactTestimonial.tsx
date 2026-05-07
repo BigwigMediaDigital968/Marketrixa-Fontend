@@ -1,274 +1,3 @@
-// "use client";
-
-// import { useState, useEffect, useCallback, useRef } from "react";
-// import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-// import Image from "next/image";
-
-// interface Testimonial {
-//   id: number;
-//   name: string;
-//   title: string;
-//   company: string;
-//   rating: number;
-//   text: string;
-//   avatar: string;
-//   initials: string;
-// }
-
-// const testimonials: Testimonial[] = [
-//   {
-//     id: 1,
-//     name: "Ramesh Yadav",
-//     title: "Chief Marketing Officer",
-//     company: "Baidyanath",
-//     rating: 5,
-//     text: "The agency came up with great ideas and analytics to make the brand resonate more with its target audience and become more search friendly when consumers are looking for our categories of products for their problems.",
-//     avatar: "",
-//     initials: "RY",
-//   },
-//   {
-//     id: 2,
-//     name: "Mr. Vineet Tandon",
-//     title: "Head of Marketing",
-//     company: "HCL Technologies",
-//     rating: 5,
-//     text: "Brand Visage have been our growth partner in terms of creative services, performance and lead nurturing. We are very happy with their creative & prompt ideas helping us reach out & engage with target audience and increase our brand awareness.",
-//     avatar: "",
-//     initials: "VT",
-//   },
-//   {
-//     id: 3,
-//     name: "Ruchin Khanduja",
-//     title: "Head Marketing",
-//     company: "HSIL Consumer Products Division",
-//     rating: 5,
-//     text: "Brand Visage has been a highly engaged partner in our marketing journey. Their team's proactive engagement to understand our products and customers and to raise the visibility of Digy4 in the marketplace is instrumental.",
-//     avatar: "",
-//     initials: "RK",
-//   },
-//   {
-//     id: 4,
-//     name: "Priya Sharma",
-//     title: "VP Brand Strategy",
-//     company: "Marico Limited",
-//     rating: 5,
-//     text: "Working with Brand Visage has transformed our digital presence entirely. Their data-driven approach combined with creative storytelling has helped us achieve a 3x increase in qualified leads and significantly improved our brand recall across key markets.",
-//     avatar: "",
-//     initials: "PS",
-//   },
-//   {
-//     id: 5,
-//     name: "Arjun Mehta",
-//     title: "Director of Growth",
-//     company: "Nykaa",
-//     rating: 5,
-//     text: "Brand Visage understands the nuances of digital marketing like no other agency we've worked with. Their holistic approach — from SEO to performance campaigns — has consistently delivered results that exceed our expectations quarter after quarter.",
-//     avatar: "",
-//     initials: "AM",
-//   },
-//   {
-//     id: 6,
-//     name: "Deepika Nair",
-//     title: "Chief Digital Officer",
-//     company: "Titan Company",
-//     rating: 5,
-//     text: "The team at Brand Visage brings both creativity and analytical rigor to every campaign. They've helped us bridge the gap between our traditional brand equity and modern digital consumers, resulting in stronger engagement across all touchpoints.",
-//     avatar: "",
-//     initials: "DN",
-//   },
-// ];
-
-// const AVATAR_COLORS = [
-//   "bg-[#8B1A4A]",
-//   "bg-[#6B2D6B]",
-//   "bg-[#1A5276]",
-//   "bg-[#1B4332]",
-//   "bg-[#7B341E]",
-//   "bg-[#2C3E70]",
-// ];
-
-// export default function ContactTestimonial() {
-//   const [current, setCurrent] = useState(0);
-//   const [animating, setAnimating] = useState(false);
-//   const [direction, setDirection] = useState<"left" | "right">("right");
-//   const [visible, setVisible] = useState(true);
-//   const autoPlayRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-//   const total = testimonials.length;
-
-//   const goTo = useCallback(
-//     (index: number, dir: "left" | "right") => {
-//       if (animating) return;
-//       setAnimating(true);
-//       setDirection(dir);
-//       setVisible(false);
-
-//       setTimeout(() => {
-//         setCurrent(index);
-//         setVisible(true);
-//         setTimeout(() => setAnimating(false), 400);
-//       }, 350);
-//     },
-//     [animating],
-//   );
-
-//   const next = useCallback(() => {
-//     goTo((current + 1) % total, "right");
-//   }, [current, total, goTo]);
-
-//   const prev = useCallback(() => {
-//     goTo((current - 1 + total) % total, "left");
-//   }, [current, total, goTo]);
-
-//   useEffect(() => {
-//     autoPlayRef.current = setInterval(() => {
-//       next();
-//     }, 3000);
-//     return () => {
-//       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
-//     };
-//   }, [next]);
-
-//   const resetAutoPlay = useCallback(() => {
-//     if (autoPlayRef.current) clearInterval(autoPlayRef.current);
-//     autoPlayRef.current = setInterval(() => {
-//       next();
-//     }, 3000);
-//   }, [next]);
-
-//   const handlePrev = () => {
-//     prev();
-//     resetAutoPlay();
-//   };
-
-//   const handleNext = () => {
-//     next();
-//     resetAutoPlay();
-//   };
-
-//   const handleDot = (i: number) => {
-//     if (i === current) return;
-//     goTo(i, i > current ? "right" : "left");
-//     resetAutoPlay();
-//   };
-
-//   const t = testimonials[current];
-
-//   const slideStyle: React.CSSProperties = {
-//     transition: "opacity 0.35s ease, transform 0.35s ease",
-//     opacity: visible ? 1 : 0,
-//     transform: visible
-//       ? "translateX(0) scale(1)"
-//       : direction === "right"
-//         ? "translateX(-40px) scale(0.97)"
-//         : "translateX(40px) scale(0.97)",
-//   };
-
-//   return (
-//     <section className="w-full py-16 px-4 sm:px-6 lg:px-8">
-//       {/* Heading */}
-//       <div className="text-center mb-12">
-//         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-//           READ WHAT OUR!{" "}
-//           <span className="text-[#f26522]">CLIENTS HAVE TO SAY</span>
-//         </h2>
-//       </div>
-
-//       {/* Slider Container */}
-//       <div className="relative max-w-3xl mx-auto">
-//         {/* Left Arrow */}
-//         <button
-//           onClick={handlePrev}
-//           aria-label="Previous testimonial"
-//           className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 sm:-translate-x-14 z-10
-//             w-10 h-10 rounded-full flex items-center justify-center
-//             border border-white/20 bg-white/5 backdrop-blur-sm
-//             hover:bg-[#f26522]/20 hover:border-[#f26522]/50
-//             transition-all duration-300 text-white/70 hover:text-white cursor-pointer"
-//         >
-//           <ChevronLeft className="w-5 h-5" />
-//         </button>
-
-//         {/* Card */}
-//         <div
-//           className="glass rounded-2xl p-8 sm:p-10 mx-6 sm:mx-0 text-center"
-//           style={slideStyle}
-//         >
-//           {/* Quote Icon */}
-//           <div
-//             className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-6"
-//             style={{ backgroundColor: "#8B1A4A" }}
-//           >
-//             <Quote className="w-5 h-5 text-white fill-white" />
-//           </div>
-
-//           {/* Avatar */}
-//           <div className="flex justify-center mb-4">
-//             <div
-//               className={`w-20 h-20 rounded-full flex items-center justify-center text-white text-xl font-bold border-2 border-[#f26522]/40 ${
-//                 AVATAR_COLORS[t.id - 1] || "bg-[#8B1A4A]"
-//               }`}
-//             >
-//               {t.initials}
-//             </div>
-//             <div></div>
-//           </div>
-
-//           {/* Name & Role */}
-//           <h3 className="text-white font-bold text-xl mb-1">{t.name}</h3>
-//           <p className="text-white/50 text-sm mb-1">{t.title}</p>
-//           <p className="text-[#f26522] text-sm font-medium mb-4">{t.company}</p>
-
-//           {/* Stars */}
-//           <div className="flex justify-center gap-1 mb-6">
-//             {Array.from({ length: t.rating }).map((_, i) => (
-//               <span key={i} className="text-yellow-400 text-lg">
-//                 ★
-//               </span>
-//             ))}
-//           </div>
-
-//           {/* Testimonial Text */}
-//           <p className="text-white/70 text-base leading-relaxed italic">
-//             &ldquo;{t.text}&rdquo;
-//           </p>
-//         </div>
-
-//         {/* Right Arrow */}
-//         <button
-//           onClick={handleNext}
-//           aria-label="Next testimonial"
-//           className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 sm:translate-x-14 z-10
-//             w-10 h-10 rounded-full flex items-center justify-center
-//             border border-white/20 bg-white/5 backdrop-blur-sm
-//             hover:bg-[#f26522]/20 hover:border-[#f26522]/50
-//             transition-all duration-300 text-white/70 hover:text-white cursor-pointer"
-//         >
-//           <ChevronRight className="w-5 h-5" />
-//         </button>
-//       </div>
-
-//       {/* Navigation Dots */}
-//       <div className="flex justify-center gap-2 mt-8">
-//         {testimonials.map((_, i) => (
-//           <button
-//             key={i}
-//             onClick={() => handleDot(i)}
-//             aria-label={`Go to testimonial ${i + 1}`}
-//             className="transition-all duration-300 rounded-full"
-//             style={{
-//               width: i === current ? "24px" : "10px",
-//               height: "10px",
-//               backgroundColor:
-//                 i === current ? "#f26522" : "rgba(255,255,255,0.25)",
-//             }}
-//           />
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
-
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
@@ -286,51 +15,75 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Ramesh Yadav",
-    role: "Chief Marketing Officer at Baidyanath",
-    text: "The agency came up with great ideas and analytics to make the brand resonate more with its target audience and become more search friendly when consumers are looking for our categories of products for their problems.",
-    initials: "RY",
+    name: "Mohit",
+    role: "Founder, Granth Dream Home",
+    text: "Working with the team completely transformed our digital presence. From branding to lead generation campaigns, every strategy was tailored perfectly for the real estate market. We saw a major increase in quality inquiries and stronger engagement across all platforms.",
+    initials: "M",
     avatarBg: "#6B1A3A",
   },
   {
     id: 2,
-    name: "Mr. Vineet Tandon",
-    role: "Marketing, HCL",
-    text: "Brand Visage have been our growth partner in terms of creative services, performance and lead nurturing. We are very happy with their creative & prompt ideas helping us reach out & engage with target audience and increase our brand awareness.",
-    initials: "VT",
+    name: "Harshjyot",
+    role: "Marketing Head, Bigwig",
+    text: "Their creative direction and performance marketing expertise helped us scale much faster than expected. The team understands audience behavior deeply and consistently delivers campaigns that generate real business growth.",
+    initials: "H",
     avatarBg: "#1A3A6B",
   },
   {
     id: 3,
-    name: "Ruchin Khanduja",
-    role: "Head Marketing, HSIL Consumer Products Division",
-    text: "Brand Visage has been a highly engaged partner in our marketing journey. Their team's proactive engagement to understand our products and customers and to raise the visibility of Digy4 in the marketplace is instrumental.",
-    initials: "RK",
+    name: "Sandeep",
+    role: "Director, Mondus",
+    text: "The professionalism, speed, and creative quality of the team have been exceptional. From website optimization to digital campaigns, they handled everything seamlessly and helped us improve both visibility and conversions.",
+    initials: "S",
     avatarBg: "#1A5C3A",
   },
   {
     id: 4,
-    name: "Priya Sharma",
-    role: "VP Brand Strategy, Marico Limited",
-    text: "Working with Brand Visage transformed our digital presence entirely. Their data-driven approach combined with creative storytelling helped us achieve a 3x increase in qualified leads and improved brand recall across key markets.",
-    initials: "PS",
+    name: "Diksha",
+    role: "Brand Manager, BDFX",
+    text: "Their marketing strategies brought a fresh perspective to our brand. The combination of strong design, targeted advertising, and consistent optimization resulted in noticeable growth in our customer engagement and online reach.",
+    initials: "D",
     avatarBg: "#5C3A1A",
   },
   {
     id: 5,
-    name: "Arjun Mehta",
-    role: "Director of Growth, Nykaa",
-    text: "Brand Visage understands the nuances of digital marketing like no other agency. Their holistic approach from SEO to performance campaigns has consistently delivered results that exceed our expectations quarter after quarter.",
-    initials: "AM",
+    name: "Rahul",
+    role: "Founder, Lalit Forex",
+    text: "The team has been instrumental in building our digital identity. Their ability to combine branding with lead-focused campaigns helped us attract more relevant clients and strengthen trust in our services.",
+    initials: "R",
     avatarBg: "#3A1A6B",
   },
   {
     id: 6,
-    name: "Deepika Nair",
-    role: "Chief Digital Officer, Titan Company",
-    text: "The team at Brand Visage brings both creativity and analytical rigor to every campaign. They've helped us bridge the gap between traditional brand equity and modern digital consumers, resulting in stronger engagement.",
-    initials: "DN",
+    name: "Rahul",
+    role: "Market Analyst, KB Stocks",
+    text: "From social media strategy to performance marketing, every campaign was executed with precision. Their analytical approach and creative execution helped us grow our audience and improve overall engagement significantly.",
+    initials: "R",
     avatarBg: "#1A5C5C",
+  },
+  {
+    id: 7,
+    name: "Mansha",
+    role: "Operations Lead, Lion",
+    text: "The team consistently delivered high-quality creative work and innovative campaign ideas. Their understanding of digital trends and customer psychology helped us establish a stronger and more professional online presence.",
+    initials: "M",
+    avatarBg: "#6B3A1A",
+  },
+  {
+    id: 8,
+    name: "Rohinton Billimoria",
+    role: "Director, ILN",
+    text: "Their strategic approach towards branding and digital growth exceeded our expectations. They focused not just on visibility, but on creating meaningful engagement that translated into measurable business results.",
+    initials: "RB",
+    avatarBg: "#1A4B6B",
+  },
+  {
+    id: 9,
+    name: "Amit Pal",
+    role: "Managing Partner, DBN",
+    text: "One of the most reliable and creative digital teams we have worked with. Their ability to understand our business goals and execute campaigns with clarity and consistency made a huge difference to our growth journey.",
+    initials: "AP",
+    avatarBg: "#3A5C1A",
   },
 ];
 
@@ -403,7 +156,7 @@ export default function ContactTestimonial() {
       </div>
 
       {/* Slider */}
-      <div className="relative max-w-[1200px] mx-auto">
+      <div className="relative max-w-7xl mx-auto">
         {/* Left accent bar */}
         <div
           className="absolute left-0 top-[10%] h-[80%] w-[3px] rounded-sm"
