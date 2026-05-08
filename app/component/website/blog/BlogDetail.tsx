@@ -26,7 +26,6 @@ const slugify = (text: string): string =>
     .replace(/-+/g, "-");
 
 // ─── Inject heading IDs into raw HTML string BEFORE rendering ─────────────────
-// This guarantees IDs exist in the DOM on first paint — no useEffect race.
 function injectHeadingIds(html: string): string {
   return html.replace(
     /<(h[23])([^>]*)>([\s\S]*?)<\/h[23]>/gi,
@@ -444,21 +443,33 @@ const MobileTocDrawer: React.FC<{ items: TocItem[]; activeId: string }> = ({
 
   return (
     <>
+      {/* Backdrop — rendered independently so it never interferes with the trigger button */}
       {open && (
         <div
-          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm lg:hidden"
+          style={{ zIndex: 55 }}
           onClick={() => setOpen(false)}
         />
       )}
+
+      {/* Drawer — sits above backdrop */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-50 lg:hidden rounded-t-3xl overflow-hidden flex flex-col"
+        className="fixed bottom-0 left-0 right-0 rounded-t-3xl flex-col lg:hidden"
         style={{
+          // FIX: always display:flex on mobile so trigger button is never
+          // inside a hidden container; only the drawer panel itself slides in/out
+          display: "flex",
+          zIndex: 60,
           background: "rgba(12,14,22,0.98)",
           border: "1px solid rgba(242,101,34,0.18)",
           borderBottom: "none",
-          transform: open ? "translateY(0)" : "translateY(100%)",
-          transition: "transform 0.35s cubic-bezier(0.4,0,0.2,1)",
           maxHeight: "68vh",
+          // Slide the panel itself — trigger is NOT inside this div
+          transform: open ? "translate3d(0,0,0)" : "translate3d(0,110%,0)",
+          transition: "transform 0.35s cubic-bezier(0.4,0,0.2,1)",
+          willChange: "transform",
+          // Always interactive — the transform hides it visually
+          pointerEvents: open ? "auto" : "none",
         }}
       >
         <div
@@ -510,7 +521,7 @@ const MobileTocDrawer: React.FC<{ items: TocItem[]; activeId: string }> = ({
           <button
             type="button"
             onClick={() => setOpen(false)}
-            className="w-7 h-7 flex items-center justify-center rounded-full"
+            className="w-7 h-7 flex items-center justify-center rounded-full cursor-pointer"
             style={{ background: "rgba(255,255,255,0.07)" }}
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -571,18 +582,30 @@ const MobileTocDrawer: React.FC<{ items: TocItem[]; activeId: string }> = ({
         </nav>
       </div>
 
-      {/* Floating trigger pill */}
+      {/* ── Floating trigger pill — completely separate from the drawer ── */}
+      {/* FIX: moved OUTSIDE the drawer div so its pointer-events are never
+          inherited. z-index is higher than the drawer (61) so it always shows. */}
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed bottom-5 right-4 z-40 lg:hidden flex items-center gap-2 px-4 py-2.5 rounded-full"
+        className="fixed lg:hidden flex items-center gap-2 px-4 py-2.5 rounded-full cursor-pointer"
         style={{
+          bottom: "20px",
+          right: "16px",
+          zIndex: 61,
           background: "rgba(10,12,20,0.94)",
           border: "1px solid rgba(242,101,34,0.35)",
           boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
           backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
           color: "rgba(242,101,34,0.9)",
+          // Always fully interactive — never hidden
+          pointerEvents: "auto",
+          // Hide trigger while drawer is open (backdrop handles close)
+          opacity: open ? 0 : 1,
+          transition: "opacity 0.2s",
         }}
+        aria-label="Open table of contents"
       >
         <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
           <rect
@@ -636,7 +659,6 @@ const BlogDetailClient: React.FC<Props> = ({
   const [readProgress, setReadProgress] = useState(0);
   const [shareToast, setShareToast] = useState(false);
 
-  // Pre-patch HTML with IDs — happens synchronously, zero race condition
   const processedHtml = useMemo(
     () => injectHeadingIds(blog.content),
     [blog.content],
@@ -680,7 +702,6 @@ const BlogDetailClient: React.FC<Props> = ({
   });
 
   const shareUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/blogs/${blog.slug}`;
-
   const encodedUrl = encodeURIComponent(shareUrl);
   const encodedTitle = encodeURIComponent(blog.title);
 
@@ -697,14 +718,22 @@ const BlogDetailClient: React.FC<Props> = ({
     <div className="min-h-screen" style={{ color: "var(--brand-white)" }}>
       {/* ── Read progress ── */}
       <div
-        className="fixed top-0 left-0 z-[60] h-[3px] pointer-events-none"
+        className="fixed top-40 left-0 h-[3px] w-full pointer-events-none"
         style={{
-          width: `${readProgress}%`,
-          background: "linear-gradient(90deg,#f26522,rgba(242,101,34,0.5))",
-          boxShadow: "0 0 10px rgba(242,101,34,0.55)",
-          transition: "width 0.12s linear",
+          background: "rgba(255,255,255,0.04)",
+          zIndex: "100",
         }}
-      />
+      >
+        <div
+          style={{
+            height: "100%",
+            width: `${readProgress}%`,
+            background: "linear-gradient(90deg,#f26522,rgba(242,101,34,0.5))",
+            boxShadow: "0 0 10px rgba(242,101,34,0.55)",
+            transition: "width 0.12s linear",
+          }}
+        />
+      </div>
 
       {/* ── Toast ── */}
       <div
@@ -721,9 +750,7 @@ const BlogDetailClient: React.FC<Props> = ({
       </div>
 
       {/* ── Hero ── */}
-      {/* ───────────────── HERO ───────────────── */}
       <section className="relative overflow-hidden py-24">
-        {/* Background */}
         <div className="absolute inset-0">
           {blog.coverImage ? (
             <>
@@ -732,10 +759,7 @@ const BlogDetailClient: React.FC<Props> = ({
                 alt={blog.coverImageAlt ?? blog.title}
                 className="w-full h-full object-cover"
               />
-
-              {/* Dark cinematic overlays */}
-              <div className="absolute inset-0 bg-black/45" />
-
+              <div className="absolute inset-0 bg-black/30" />
               <div
                 className="absolute inset-0"
                 style={{
@@ -743,8 +767,6 @@ const BlogDetailClient: React.FC<Props> = ({
                     "linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.78) 72%, rgba(0,0,0,0.96) 100%)",
                 }}
               />
-
-              {/* Glow */}
               <div
                 className="absolute inset-0 opacity-40"
                 style={{
@@ -762,8 +784,6 @@ const BlogDetailClient: React.FC<Props> = ({
                     "linear-gradient(135deg,#0b0f1a 0%,#151821 35%,#1a1410 100%)",
                 }}
               />
-
-              {/* Orange glow */}
               <div
                 className="absolute inset-0 opacity-30"
                 style={{
@@ -771,15 +791,13 @@ const BlogDetailClient: React.FC<Props> = ({
                     "radial-gradient(circle at 25% 35%, rgba(242,101,34,0.28), transparent 48%)",
                 }}
               />
-
-              {/* Grid texture */}
               <div
                 className="absolute inset-0 opacity-[0.06]"
                 style={{
                   backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)
-            `,
+                    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)
+                  `,
                   backgroundSize: "42px 42px",
                 }}
               />
@@ -787,7 +805,6 @@ const BlogDetailClient: React.FC<Props> = ({
           )}
         </div>
 
-        {/* Bottom fade */}
         <div
           className="absolute bottom-0 left-0 right-0 h-32"
           style={{
@@ -796,14 +813,11 @@ const BlogDetailClient: React.FC<Props> = ({
           }}
         />
 
-        {/* Content */}
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="min-h-[520px] sm:min-h-[600px] flex items-end">
               <div className="w-full pb-14 sm:pb-16 lg:pb-20">
-                {/* Content wrapper */}
                 <div className="max-w-4xl">
-                  {/* Breadcrumb */}
                   <nav
                     className="flex items-center gap-2 text-[11px] sm:text-xs mb-6 flex-wrap"
                     style={{ color: "rgba(255,255,255,0.38)" }}
@@ -814,18 +828,14 @@ const BlogDetailClient: React.FC<Props> = ({
                     >
                       Home
                     </Link>
-
                     <span>/</span>
-
                     <Link
                       href="/blogs"
                       className="hover:text-white transition-colors"
                     >
                       Blog
                     </Link>
-
                     <span>/</span>
-
                     <span
                       className="truncate max-w-[180px] sm:max-w-sm lg:max-w-md"
                       style={{ color: "rgba(255,255,255,0.62)" }}
@@ -834,7 +844,6 @@ const BlogDetailClient: React.FC<Props> = ({
                     </span>
                   </nav>
 
-                  {/* Industry badge */}
                   {blog.industry && (
                     <div className="mb-5">
                       <span
@@ -851,24 +860,19 @@ const BlogDetailClient: React.FC<Props> = ({
                     </div>
                   )}
 
-                  {/* Title */}
                   <h1 className="text-3xl md:text-5xl font-black leading-[1.05] tracking-[-0.03em] text-white max-w-5xl">
                     {blog.title}
                   </h1>
 
-                  {/* Excerpt */}
                   {blog.excerpt && (
                     <p
                       className="mt-6 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl"
-                      style={{
-                        color: "rgba(255,255,255,0.68)",
-                      }}
+                      style={{ color: "rgba(255,255,255,0.68)" }}
                     >
                       {blog.excerpt}
                     </p>
                   )}
 
-                  {/* Tags */}
                   {blog.tags?.length > 0 && (
                     <div className="mt-6 flex flex-wrap gap-2">
                       {blog.tags.slice(0, 5).map((tag) => (
@@ -895,7 +899,7 @@ const BlogDetailClient: React.FC<Props> = ({
       </section>
 
       {/* ── Body ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+      <div className="max-w-7xl mx-auto px-4 py-10 lg:py-14">
         <div className="flex flex-col lg:flex-row gap-10 xl:gap-14 items-start">
           {/* Article */}
           <article className="flex-1 min-w-0 border p-5 border-white/20 backdrop-blur-lg rounded-2xl">
@@ -908,7 +912,6 @@ const BlogDetailClient: React.FC<Props> = ({
               <FAQAccordion faqGroup={faqGroup} />
             )}
 
-            {/* Tags */}
             {blog.tags && blog.tags.length > 0 && (
               <div
                 className="mt-12 pt-8"
@@ -938,7 +941,6 @@ const BlogDetailClient: React.FC<Props> = ({
               </div>
             )}
 
-            {/* Footer bar */}
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 href="/blogs"
@@ -1026,200 +1028,200 @@ const BlogDetailClient: React.FC<Props> = ({
             </div>
           </article>
 
-          {/* Sidebar */}
-          <aside className="hidden lg:block w-[285px] xl:w-[300px] flex-shrink-0 self-start">
-            <div className="sticky top-24 self-start">
-              <div className="space-y-5">
-                <TableOfContents items={tocItems} activeId={activeId} />
+          <aside
+            className="hidden lg:block flex-shrink-0"
+            style={{
+              position: "sticky",
+              top: "96px",
+              alignSelf: "flex-start",
+              width: "350px",
+            }}
+          >
+            <div className="space-y-5">
+              <TableOfContents items={tocItems} activeId={activeId} />
 
-                {/* Info card */}
-                <div
-                  className="rounded-2xl p-5"
-                  style={{
-                    background: "rgba(255,255,255,0.02)",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                  }}
+              {/* Info card */}
+              <div
+                className="rounded-2xl p-5"
+                style={{
+                  background: "rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                }}
+              >
+                <p
+                  className="text-[10px] font-bold uppercase tracking-widest mb-4"
+                  style={{ color: "var(--brand-orange)" }}
                 >
-                  <p
-                    className="text-[10px] font-bold uppercase tracking-widest mb-4"
-                    style={{ color: "var(--brand-orange)" }}
-                  >
-                    Article Info
-                  </p>
-                  <div className="space-y-3">
-                    {(
-                      [
-                        blog.author
-                          ? { label: "Author", value: blog.author }
-                          : null,
-                        { label: "Published", value: publishDate },
-                        { label: "Read time", value: `${blog.readTime} min` },
-                        blog.industry
-                          ? { label: "Industry", value: blog.industry }
-                          : null,
-                      ] as Array<{ label: string; value: string } | null>
-                    )
-                      .filter(Boolean)
-                      .map((row) => (
-                        <div
-                          key={row!.label}
-                          className="flex items-start justify-between gap-3"
-                        >
-                          <span
-                            className="text-[11px] flex-shrink-0"
-                            style={{ color: "rgba(255,255,255,0.22)" }}
-                          >
-                            {row!.label}
-                          </span>
-                          <span
-                            className="text-[11px] text-right font-medium"
-                            style={{ color: "rgba(255,255,255,0.55)" }}
-                          >
-                            {row!.value}
-                          </span>
-                        </div>
-                      ))}
-                  </div>
-                </div>
-
-                {/* Share card */}
-                <div
-                  className="rounded-2xl p-5"
-                  style={{
-                    background: "rgba(255,255,255,0.02)",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                  }}
-                >
-                  <p
-                    className="text-[10px] font-bold uppercase tracking-widest mb-3.5"
-                    style={{ color: "var(--brand-orange)" }}
-                  >
-                    Share
-                  </p>
-                  <div className="flex gap-2">
-                    {[
-                      {
-                        label: "𝕏 Twitter",
-                        href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
-                      },
-                      {
-                        label: "in LinkedIn",
-                        href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
-                      },
-                    ].map((s) => (
-                      <a
-                        key={s.label}
-                        href={s.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center py-2.5 rounded-xl text-[11px] font-bold transition-all duration-200 hover:text-white"
-                        style={{
-                          background: "rgba(255,255,255,0.04)",
-                          color: "rgba(255,255,255,0.4)",
-                          border: "1px solid rgba(255,255,255,0.07)",
-                        }}
+                  Article Info
+                </p>
+                <div className="space-y-3">
+                  {(
+                    [
+                      blog.author
+                        ? { label: "Author", value: blog.author }
+                        : null,
+                      { label: "Published", value: publishDate },
+                      { label: "Read time", value: `${blog.readTime} min` },
+                      blog.industry
+                        ? { label: "Industry", value: blog.industry }
+                        : null,
+                    ] as Array<{ label: string; value: string } | null>
+                  )
+                    .filter(Boolean)
+                    .map((row) => (
+                      <div
+                        key={row!.label}
+                        className="flex items-start justify-between gap-3"
                       >
-                        {s.label}
-                      </a>
+                        <span
+                          className="text-[11px] flex-shrink-0"
+                          style={{ color: "rgba(255,255,255,0.22)" }}
+                        >
+                          {row!.label}
+                        </span>
+                        <span
+                          className="text-[11px] text-right font-medium"
+                          style={{ color: "rgba(255,255,255,0.55)" }}
+                        >
+                          {row!.value}
+                        </span>
+                      </div>
                     ))}
-                    <button
-                      type="button"
-                      onClick={copyLink}
-                      className="flex-shrink-0 w-10 flex items-center justify-center rounded-xl transition-all duration-200 hover:text-white"
+                </div>
+              </div>
+
+              {/* Share card */}
+              <div
+                className="rounded-2xl p-5"
+                style={{
+                  background: "rgba(255,255,255,0.02)",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                }}
+              >
+                <p
+                  className="text-[10px] font-bold uppercase tracking-widest mb-3.5"
+                  style={{ color: "var(--brand-orange)" }}
+                >
+                  Share
+                </p>
+                <div className="flex gap-2">
+                  {[
+                    {
+                      label: "𝕏 Twitter",
+                      href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+                    },
+                    {
+                      label: "in LinkedIn",
+                      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+                    },
+                  ].map((s) => (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center py-2.5 rounded-xl text-[11px] font-bold transition-all duration-200 hover:text-white"
                       style={{
                         background: "rgba(255,255,255,0.04)",
                         color: "rgba(255,255,255,0.4)",
                         border: "1px solid rgba(255,255,255,0.07)",
                       }}
-                      title="Copy link"
                     >
-                      <svg
-                        width="13"
-                        height="13"
-                        viewBox="0 0 13 13"
-                        fill="none"
-                      >
-                        <rect
-                          x="3.5"
-                          y="0.5"
-                          width="8"
-                          height="8"
-                          rx="1.5"
-                          stroke="currentColor"
-                          strokeWidth="1.1"
-                        />
-                        <path
-                          d="M0.5 4.5v7h7"
-                          stroke="currentColor"
-                          strokeWidth="1.1"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-
-                {/* Related in sidebar */}
-                {relatedBlogs.length > 0 && (
-                  <div
-                    className="rounded-2xl overflow-hidden"
+                      {s.label}
+                    </a>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={copyLink}
+                    className="flex-shrink-0 w-10 flex items-center justify-center rounded-xl transition-all duration-200 hover:text-white cursor-pointer"
                     style={{
-                      background: "rgba(255,255,255,0.02)",
+                      background: "rgba(255,255,255,0.04)",
+                      color: "rgba(255,255,255,0.4)",
                       border: "1px solid rgba(255,255,255,0.07)",
+                    }}
+                    title="Copy link"
+                  >
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                      <rect
+                        x="3.5"
+                        y="0.5"
+                        width="8"
+                        height="8"
+                        rx="1.5"
+                        stroke="currentColor"
+                        strokeWidth="1.1"
+                      />
+                      <path
+                        d="M0.5 4.5v7h7"
+                        stroke="currentColor"
+                        strokeWidth="1.1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {/* Related in sidebar */}
+              {relatedBlogs.length > 0 && (
+                <div
+                  className="rounded-2xl overflow-hidden"
+                  style={{
+                    background: "rgba(255,255,255,0.02)",
+                    border: "1px solid rgba(255,255,255,0.07)",
+                  }}
+                >
+                  <div
+                    className="flex items-center gap-2.5 px-5 py-3.5"
+                    style={{
+                      background: "rgba(242,101,34,0.06)",
+                      borderBottom: "1px solid rgba(242,101,34,0.12)",
                     }}
                   >
                     <div
-                      className="flex items-center gap-2.5 px-5 py-3.5"
+                      className="w-0.5 h-4 rounded-full"
+                      style={{ background: "var(--brand-orange)" }}
+                    />
+                    <span
+                      className="text-[11px] font-bold uppercase tracking-widest flex-1"
+                      style={{ color: "var(--brand-orange)" }}
+                    >
+                      Related
+                    </span>
+                    <span
+                      className="text-[10px] px-1.5 py-0.5 rounded-full font-bold"
                       style={{
-                        background: "rgba(242,101,34,0.06)",
-                        borderBottom: "1px solid rgba(242,101,34,0.12)",
+                        background: "rgba(242,101,34,0.14)",
+                        color: "rgba(242,101,34,0.75)",
+                        border: "1px solid rgba(242,101,34,0.2)",
                       }}
                     >
-                      <div
-                        className="w-0.5 h-4 rounded-full"
-                        style={{ background: "var(--brand-orange)" }}
-                      />
-                      <span
-                        className="text-[11px] font-bold uppercase tracking-widest flex-1"
-                        style={{ color: "var(--brand-orange)" }}
-                      >
-                        Related
-                      </span>
-                      <span
-                        className="text-[10px] px-1.5 py-0.5 rounded-full font-bold"
+                      {relatedBlogs.length}
+                    </span>
+                  </div>
+                  <div className="p-3 space-y-2">
+                    {relatedBlogs.slice(0, 5).map((b) => (
+                      <SidebarRelatedCard key={b.id} blog={b} />
+                    ))}
+                  </div>
+                  {relatedBlogs.length > 5 && (
+                    <div className="px-4 pb-4">
+                      <Link
+                        href="/blogs"
+                        className="block text-center text-[11px] font-bold py-2.5 rounded-xl"
                         style={{
-                          background: "rgba(242,101,34,0.14)",
+                          background: "rgba(242,101,34,0.07)",
                           color: "rgba(242,101,34,0.75)",
-                          border: "1px solid rgba(242,101,34,0.2)",
+                          border: "1px solid rgba(242,101,34,0.14)",
                         }}
                       >
-                        {relatedBlogs.length}
-                      </span>
+                        View all →
+                      </Link>
                     </div>
-                    <div className="p-3 space-y-2">
-                      {relatedBlogs.slice(0, 5).map((b) => (
-                        <SidebarRelatedCard key={b.id} blog={b} />
-                      ))}
-                    </div>
-                    {relatedBlogs.length > 5 && (
-                      <div className="px-4 pb-4">
-                        <Link
-                          href="/blogs"
-                          className="block text-center text-[11px] font-bold py-2.5 rounded-xl"
-                          style={{
-                            background: "rgba(242,101,34,0.07)",
-                            color: "rgba(242,101,34,0.75)",
-                            border: "1px solid rgba(242,101,34,0.14)",
-                          }}
-                        >
-                          View all →
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
+                  )}
+                </div>
+              )}
             </div>
           </aside>
         </div>
