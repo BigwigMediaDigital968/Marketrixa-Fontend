@@ -1497,7 +1497,7 @@ export default function BlogForm({
                 subtitle="Recommended size: 1200 × 630 px • JPG, PNG, WebP"
               />
 
-              <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6 items-start">
+              <div>
                 {/* LEFT SIDE */}
                 <div className="space-y-3">
                   {form.coverImage ? (
@@ -1674,7 +1674,7 @@ export default function BlogForm({
                   {/* ALT TEXT */}
                   <div>
                     <label className="lbl mb-2 block">
-                      Alt Text
+                      Alt Text Here
                       <span className="text-gray-500 font-normal ml-1">
                         (SEO & accessibility)
                       </span>
