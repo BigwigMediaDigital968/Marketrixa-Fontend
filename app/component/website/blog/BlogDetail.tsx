@@ -718,7 +718,7 @@ const BlogDetailClient: React.FC<Props> = ({
     <div className="min-h-screen" style={{ color: "var(--brand-white)" }}>
       {/* ── Read progress ── */}
       <div
-        className="fixed top-40 left-0 h-[3px] w-full pointer-events-none"
+        className="fixed top-0 left-0 h-[3px] w-full pointer-events-none"
         style={{
           background: "rgba(255,255,255,0.04)",
           zIndex: "100",
