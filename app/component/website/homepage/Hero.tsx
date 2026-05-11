@@ -8,10 +8,15 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { Play } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-const PHRASES = ["Focused on Growth", "Driving Results", "Chasing Scale"];
+const PHRASES = [
+  "We Build Its Future",
+  "We Make It Impossible to Ignore",
+  " We Build the Engine Behind Its Growth",
+  "We Scale It, Relentlessly",
+  "We Turn Clicks Into Customers",
+];
 
 /* ── Magnetic cursor hook ── */
 function useMagnet(strength = 0.35) {
@@ -164,36 +169,6 @@ function Typewriter() {
     </span>
   );
 }
-
-/* ── Stat counter ── */
-function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
-  const [val, setVal] = useState(0);
-  useEffect(() => {
-    let start = 0;
-    const step = to / 60;
-    const t = setInterval(() => {
-      start += step;
-      if (start >= to) {
-        setVal(to);
-        clearInterval(t);
-      } else setVal(Math.floor(start));
-    }, 22);
-    return () => clearInterval(t);
-  }, [to]);
-  return (
-    <>
-      {val}
-      {suffix}
-    </>
-  );
-}
-
-const STATS = [
-  { value: 500, suffix: "+", label: "Brands Scaled" },
-  { value: 97, suffix: "%", label: "Retention Rate" },
-  { value: 24, suffix: "+", label: "Years Mastery" },
-  { value: 10, suffix: "x", label: "Avg ROI" },
-];
 
 export default function Hero() {
   const magnet = useMagnet(0.3);
@@ -403,7 +378,7 @@ export default function Hero() {
           font-size: clamp(1rem, 2vw, 1.18rem);
           color: rgba(255,255,255,0.50);
           line-height: 1.75;
-          max-width: 660px;
+          max-width: 760px;
           margin: 0 auto 44px;
           font-weight: 300;
         }
@@ -648,7 +623,7 @@ export default function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <span className="h1-line">Built for Brands That Want More</span>
+            <span className="h1-line">We Don’t Just Market Your Brand</span>
             <span className="h1-accent">
               <Typewriter />
             </span>
@@ -665,8 +640,10 @@ export default function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            MarketRixa brings together performance marketing and creative
-            intelligence to drive consistent growth.
+            As a top digital marketing company in Ahmedabad, MarketRixa unites
+            performance marketing with creative intelligence to deliver
+            consistent growth for ambitious businesses. Every click, every rupee
+            optimised for results.
           </motion.p>
 
           {/* CTAs */}
@@ -692,17 +669,6 @@ export default function Hero() {
               Start Your Project
               <span className="btn-arrow">→</span>
             </motion.button>
-
-            {/* <motion.button
-              className="btn-ghost-hero"
-              whileHover={{ x: 3 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <span className="play-ring">
-                <Play size={14} fill="#f26522" stroke="none" />
-              </span>
-              Watch Our Stories
-            </motion.button> */}
           </motion.div>
         </div>
 

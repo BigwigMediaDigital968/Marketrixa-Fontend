@@ -20,71 +20,71 @@ import Image from "next/image";
 
 const services = [
   {
-    title: "Social Media Marketing",
-    desc: "Engage your audience and grow your brand across all major social platforms.",
+    title: "Social Media Optimization",
+    desc: "We fine-tune your profiles, content strategy, and engagement rhythm so your brand stays visible, relevant, and algorithm-friendly organically.",
     icon: <Globe className="w-8 h-8" />,
-    href: "/services/social-media-marketing",
+    href: "/services/social-media-optimization",
   },
-  {
-    title: "Website Development",
-    desc: "Build fast, scalable, and modern websites tailored to your business needs.",
-    icon: <Code2 className="w-8 h-8" />,
-    href: "/services/website-development-service",
-  },
-  {
-    title: "Search Engine Optimization",
-    desc: "Improve your search rankings and visibility to attract high-quality organic traffic.",
-    icon: <Search className="w-8 h-8" />,
-    href: "/services/seo-service",
-  },
-  {
-    title: "Performance Marketing",
-    desc: "Drive measurable growth with data-driven campaigns focused on ROI and conversions.",
-    icon: <TrendingUp className="w-8 h-8" />,
-    href: "/services/performance-marketing-service",
-  },
-  {
-    title: "Graphic Designing & Video Editing",
-    desc: "Create visually compelling designs and videos that capture attention and communicate effectively.",
-    icon: <PenTool className="w-8 h-8" />,
-    href: "/services/graphic-design-service",
-  },
+  // {
+  //   title: "Website Development",
+  //   desc: "Build fast, scalable, and modern websites tailored to your business needs.",
+  //   icon: <Code2 className="w-8 h-8" />,
+  //   href: "/services/website-development-service",
+  // },
+  // {
+  //   title: "Search Engine Optimization",
+  //   desc: "Improve your search rankings and visibility to attract high-quality organic traffic.",
+  //   icon: <Search className="w-8 h-8" />,
+  //   href: "/services/seo-service",
+  // },
+  // {
+  //   title: "Performance Marketing",
+  //   desc: "Drive measurable growth with data-driven campaigns focused on ROI and conversions.",
+  //   icon: <TrendingUp className="w-8 h-8" />,
+  //   href: "/services/performance-marketing-service",
+  // },
+  // {
+  //   title: "Graphic Designing & Video Editing",
+  //   desc: "Create visually compelling designs and videos that capture attention and communicate effectively.",
+  //   icon: <PenTool className="w-8 h-8" />,
+  //   href: "/services/graphic-design-service",
+  // },
   {
     title: "Affiliate Marketing",
-    desc: "Expand your reach through strategic affiliate partnerships and performance-based growth.",
+    desc: "Expand your reach without expanding your team. We build and manage affiliate networks that bring in qualified traffic and pay only for real results.",
     icon: <Link2 className="w-8 h-8" />,
     href: "/services/affiliate-marketing",
   },
 
   {
     title: "Online Reputation Management",
-    desc: "Monitor, manage, and enhance your brand’s reputation across digital platforms.",
+    desc: "Your reputation is your most valuable asset. We monitor, protect, and rebuild your brand's online image so customers always find the best version of your story.",
     icon: <ShieldCheck className="w-8 h-8" />,
     href: "/services/online-reputation-management",
   },
   {
     title: "Influencer Marketing",
-    desc: "Leverage influencer partnerships to boost brand awareness and engagement.",
+    desc: "We connect your brand with the right voices creators your audience already trusts to drive authentic awareness, engagement, and conversions at scale.",
     icon: <Users2 className="w-8 h-8" />,
     href: "/services/influencer-marketing",
   },
-  {
-    title: "Social Media Optimization",
-    desc: "Optimize your social profiles and content strategy for better reach and engagement.",
-    icon: <ThumbsUp className="w-8 h-8" />,
-    href: "/services/social-media-marketing",
-  },
+  // {
+  //   title: "Social Media Optimization",
+  //   desc: "Optimize your social profiles and content strategy for better reach and engagement.",
+  //   icon: <ThumbsUp className="w-8 h-8" />,
+  //   href: "/services/social-media-marketing",
+  // },
 
   {
     title: "Content Marketing",
-    desc: "Deliver valuable content that attracts, engages, and converts your target audience.",
+    desc: "Stories that attract. Content that converts. We create purposeful, SEO-rich content that positions your brand as the authority in your industry.",
     icon: <FileText className="w-8 h-8" />,
     href: "/services/content-marketing",
   },
 
   {
     title: "Email Marketing",
-    desc: "Reach your audience directly with personalized and high-converting email campaigns.",
+    desc: "The best digital marketing agency in Deesa doesn't just send emails, we build automated, personalised sequences that nurture leads and drive repeat revenue on autopilot.",
     icon: <Mail className="w-8 h-8" />,
     href: "/services/email-marketing",
   },
@@ -126,22 +126,27 @@ export default function ServiceGrid() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold text-white mb-4"
           >
-            What Services We <span className="text-[#F26522]">Offer</span>
+            360° Digital Solutions <br />
+            <span className="text-[#F26522]">
+              That Drive Real Business Results
+            </span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-gray-400 max-w-2xl mx-auto text-lg font-light"
+            className="text-gray-400 max-w-3xl mx-auto text-lg font-light"
           >
-            Empowering your brand with cutting-edge digital solutions tailored
-            for maximum market impact and sustainable growth.
+            As a full-service digital marketing company in Ahmedabad, MarketRixa
+            offers an end-to-end suite of services designed to take your brand
+            from obscurity to market leadership. Every service is underpinned by
+            strategy, executed with precision, and measured with accountability.
           </motion.p>
         </div>
 
         {/* Grid Container */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-3xl overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-3xl overflow-hidden">
           {services.slice(0, 8).map((service, index) => (
             <motion.div
               key={index}

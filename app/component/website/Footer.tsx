@@ -106,10 +106,12 @@ export default function Footer() {
                     <span className="text-[#F26522]">Earn Together.</span>
                   </h2>
 
-                  <p className="text-gray-500 text-lg max-w-md">
-                    Work with a team that focuses on performance, strategy, and
-                    measurable success. Build My Brand | Book a Free
-                    Consultation
+                  <p className="text-gray-500 text-md max-w-3xl">
+                    Partner with MarketRixa, the best digital marketing agency
+                    in Deesa and a trusted digital marketing company in
+                    Ahmedabad, and work with a team that is relentlessly focused
+                    on performance, strategy, and results that move the needle.
+                    Your competitors are not waiting. Neither should you.
                   </p>
                 </div>
 
@@ -119,7 +121,7 @@ export default function Footer() {
                     onClick={() => setShowPopup(true)}
                     className="btn-primary flex items-center gap-3 group px-8 py-4 bg-[#F26522] text-black font-bold rounded-full hover:bg-white transition-all cursor-pointer"
                   >
-                    Start a Project
+                    Book a Free Consultation
                     <ArrowUpRight className="group-hover:rotate-45 transition-transform" />
                   </button>
                 </div>

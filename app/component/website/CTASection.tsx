@@ -5,14 +5,7 @@ import { motion, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-/**
- * CTA COMPONENT (TypeScript Version)
- * Fixes: "Property 'getContext' does not exist on type 'never'"
- * Fixes: Component export issue and naming convention for preview environment.
- */
-
 const CTASection: React.FC = () => {
-  // Explicitly type the ref to avoid 'never' inference
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const brandOrange = "#F26522";
   const router = useRouter();
@@ -160,17 +153,26 @@ const CTASection: React.FC = () => {
               </div>
 
               <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-[1.1]">
-                Still Guessing Your Marketing?
+                Stop Guessing.
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F26522] to-orange-400">
-                  Let’s change that.
+                  Start Growing.
                 </span>
               </h2>
 
-              <p className="text-neutral-400 text-lg md:text-xl max-w-md leading-relaxed">
-                Book a demo and turn confusion into clear growth. Connect with
-                our digital experts and explore strategies designed to achieve
-                your business goals.
+              <h4 className="text-xl font-light">
+                3+ Years of Digital Excellence | Trusted Across Ahmedabad, Deesa
+                & All of Gujarat
+              </h4>
+
+              <p className="text-neutral-400 text-lg leading-relaxed">
+                Uncertainty is costly. A single strategy session with our
+                experts, the best digital marketing agency in Deesa and across
+                North Gujarat, can bring clarity to your marketing and a clear
+                roadmap to your goals. Book a free demo call and walk away with
+                an actionable, customised growth plan built specifically for
+                your business. No fluff. No generic templates. Just a
+                results-driven strategy.
               </p>
             </div>
 

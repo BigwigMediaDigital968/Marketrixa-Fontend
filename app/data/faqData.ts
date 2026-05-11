@@ -3,15 +3,66 @@ import { FAQItem } from "../component/website/FAQ";
 export const homeFAQs: FAQItem[] = [
   {
     question:
-      "Whom can we help with business templates, custom web designing and mobile app development?",
+      "What exactly does a Digital Marketing Agency do for my business?",
     answer:
-      "We help startups, SMEs, and large enterprises across all industries. Whether you need a business website, a custom mobile app, or branded templates, our team tailors every solution to your specific goals and budget.",
+      "A Digital Marketing Agency manages your entire online presence, including SEO, paid ads, social media, content, and email marketing. At MarketRixa, we build growth systems that attract the right audience, convert them into customers, and retain them long term.",
   },
   {
     question:
-      "Which digital marketing technique is best — SEO, SMO, SMM, or PPC?",
+      "How is a Digital Marketing Company different from an in-house marketing team?",
     answer:
-      "The best technique depends on your business goals. SEO drives long-term organic traffic, PPC delivers immediate results, and SMM builds brand engagement. Most successful campaigns combine multiple strategies for maximum ROI.",
+      "An in-house team has limited capacity and skill range. A digital marketing company gives you a full team of certified specialists, including SEO experts, designers, paid media strategists, content writers, and analysts, all at a fraction of the cost of hiring internally.",
+  },
+  {
+    question: "Are Digital Marketing Firms only for large corporations?",
+    answer:
+      "Not at all. MarketRixa specialises in scalable strategies that fit your current budget and grow with your business. You don't need a big budget; you need the right partner.",
+  },
+  {
+    question: "What's the typical timeline for seeing results?",
+    answer:
+      "Paid ads show results within 15 to 30 days. SEO takes 90 to 120 days but delivers compounding long-term returns. We set honest timelines from day one with no vague promises and full transparency.",
+  },
+  {
+    question:
+      "How do you measure the success of your Digital Marketing Services?",
+    answer:
+      "We track what matters: leads, cost per acquisition, conversion rates, organic traffic, ROAS, and revenue impact. We provide detailed monthly reports so you always know what your investment is returning.",
+  },
+  {
+    question: "What emerging trends should my business be aware of?",
+    answer:
+      "Key trends include AI-powered personalisation, short-form video, voice search, zero-click SEO, and micro-influencer marketing. MarketRixa ensures your brand leverages what's working now, not outdated strategies.",
+  },
+  {
+    question:
+      "Can a Digital Marketing Company improve my search engine rankings?",
+    answer:
+      "Absolutely. MarketRixa combines on-page SEO, technical audits, quality content, and ethical link building to improve your rankings sustainably, targeting keywords your actual customers are searching for.",
+  },
+  {
+    question:
+      "What commitment is required when partnering with a Digital Marketing Agency?",
+    answer:
+      "Most engagements run on a 3 to 6 month minimum to let strategies mature. Beyond that, we operate on transparency and performance. Clients stay because results keep improving, not because of rigid contracts.",
+  },
+  {
+    question:
+      "What makes MarketRixa confident in being the Best Digital Marketing Agency?",
+    answer:
+      "Results, relationships, and accountability. We've delivered measurable growth for 50+ brands across 15+ industries in 3+ years. We don't just run campaigns, we own the outcomes.",
+  },
+  {
+    question:
+      "What defines the Best Digital Marketing Company for a specific industry?",
+    answer:
+      "The right agency understands your audience, competitive landscape, and the channels that drive results in your vertical. MarketRixa brings deep industry knowledge across Banking, Healthcare, Real Estate, Education, FMCG, and more.",
+  },
+  {
+    question:
+      "What role do social media and SEO play in your Digital Marketing Services?",
+    answer:
+      "They're the twin engines of sustainable growth. SEO builds long-term organic visibility while social media drives brand awareness and trust. Together, they create a compounding growth loop that amplifies every other channel you invest in.",
   },
 ];
 

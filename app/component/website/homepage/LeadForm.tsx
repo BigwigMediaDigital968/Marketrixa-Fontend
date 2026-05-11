@@ -149,14 +149,18 @@ export default function LeadForm() {
               </p>
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-bold text-[#F26522] leading-[1.2]">
+            <h2 className="text-3xl md:text-5xl font-bold leading-[1.2]">
               Build. Scale. <br />
-              <span className="italic">Dominate Your Space</span>
+              <span className="italic text-[#F26522]">Dominate Your Space</span>
             </h2>
 
-            <p className="text-gray-400 text-lg max-w-lg leading-relaxed">
-              Fill the form and our experts will connect with you within 24
-              hours with a strategy built only for your business.
+            <p className="text-gray-400 text-md max-w-xl leading-relaxed">
+              You’re one conversation away from a growth plan that changes
+              everything. Share your details, and one of our senior strategists
+              from the best digital marketing agency in Deesa will reach out
+              within 24 hours with a personalised roadmap built exclusively
+              around your business goals. No generic templates. No wasted time.
+              Just a clear, confident path to growth.
             </p>
 
             {/* Social Proof */}
@@ -167,9 +171,14 @@ export default function LeadForm() {
                     <span key={i}>★</span>
                   ))}
                 </div>
-                <p className="text-white text-xs font-bold uppercase tracking-widest">
-                  TrustRadius
-                </p>
+                <div>
+                  <p className="text-white text-xs font-bold uppercase tracking-widest">
+                    TrustRadius
+                  </p>
+                  <p className="text-white text-xs tracking-widest">
+                    Outstanding ROI and transparent reporting
+                  </p>
+                </div>
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-1 text-yellow-500 text-sm">
@@ -177,9 +186,14 @@ export default function LeadForm() {
                     <span key={i}>★</span>
                   ))}
                 </div>
-                <p className="text-white text-xs font-bold uppercase tracking-widest">
-                  G2 Crowd
-                </p>
+                <div>
+                  <p className="text-white text-xs font-bold uppercase tracking-widest">
+                    G2 Crowd
+                  </p>
+                  <p className="text-white text-xs tracking-widest">
+                    Top-rated digital marketing partner in Gujarat.
+                  </p>
+                </div>
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-1 text-yellow-500 text-sm">
@@ -187,9 +201,14 @@ export default function LeadForm() {
                     <span key={i}>★</span>
                   ))}
                 </div>
-                <p className="text-white text-xs font-bold uppercase tracking-widest">
-                  SoftwareReviews
-                </p>
+                <div>
+                  <p className="text-white text-xs font-bold uppercase tracking-widest">
+                    Software Reviews
+                  </p>
+                  <p className="text-white text-xs tracking-widest">
+                    Exceptional strategy and execution.
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>

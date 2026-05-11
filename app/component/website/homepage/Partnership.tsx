@@ -402,8 +402,6 @@ function LogoItem({ Logo, name }: { Logo: () => JSX.Element; name: string }) {
 }
 
 export default function Partnership() {
-  const items = logos.flatMap((l) => [l, l]);
-
   return (
     <section className="overflow-hidden" style={{ background: "#0a1628" }}>
       {/* Header */}
@@ -412,8 +410,9 @@ export default function Partnership() {
           trusted
         </span>
         <div className="hidden md:block flex-1 h-px bg-white/10" />
-        <h2 className="text-[clamp(28px,4vw,52px)] font-black text-white tracking-tight whitespace-nowrap">
-          PARTNERSHIPS <span className="text-[#F26522]">WITH</span>
+        <h2 className="text-[clamp(28px,4vw,52px)] font-black text-white tracking-tight whitespace-nowrap uppercase">
+          Technology &{" "}
+          <span className="text-[#F26522]">Platform Partnerships</span>
         </h2>
       </div>
 

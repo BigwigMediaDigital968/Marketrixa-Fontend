@@ -19,16 +19,16 @@ const SERVICES: Service[] = [
     title: "Website Development",
     label: "Web Dev",
     description:
-      "Build conversion-focused websites designed to perform and scale your business.",
+      "We build fast, conversion-optimised websites that do more than look good; they generate leads, build trust, and scale with your business from day one.",
     bgImage: "/service-card.png",
     href: "/services/website-development-service",
   },
   {
     id: 2,
-    title: "Social Media Optimisation",
+    title: "Social Media Marketing",
     label: "SMM",
     description:
-      "Strengthen your brand presence with strategies that boost engagement.",
+      "We build social presences that stop the scroll, grow your audience, and convert followers into loyal customers across every platform that matters to your business.",
     bgImage:
       "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?q=80&w=1170",
     href: "/services/social-media-marketing",
@@ -38,7 +38,7 @@ const SERVICES: Service[] = [
     title: "Search Engine Optimisation",
     label: "SEO",
     description:
-      "Improve your visibility on search engines that drive consistent growth.",
+      "As a leading digital marketing company in Ahmedabad, we put your brand on page one where your customers are already searching. Data-backed, penalty-free, and built for long-term dominance.",
     bgImage: "https://images.unsplash.com/photo-1599658880436-c61792e70672",
     href: "/services/seo-service",
   },
@@ -47,7 +47,7 @@ const SERVICES: Service[] = [
     title: "Performance Marketing",
     label: "PPC",
     description:
-      "Run data-driven campaigns focused on generating leads and increasing revenue.",
+      "Every rupee tracked. Every ad is optimised. We run high-ROI campaigns across Google and Meta that turn ad spend into measurable, compounding revenue.",
     bgImage:
       "https://images.unsplash.com/photo-1770970716469-4b32abc0a577?q=80&w=880",
     href: "/services/performance-marketing-service",
@@ -57,19 +57,10 @@ const SERVICES: Service[] = [
     title: "Graphic Designing",
     label: "Video & Graphics",
     description:
-      "High-quality video content that tells your story, captures attention, and drives engagement across platforms.",
+      "Visual identity that commands attention. From brand kits to campaign creatives, we design assets that communicate your value before a single word is read.",
     bgImage: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d",
     href: "/services/graphic-design-service",
   },
-  //   {
-  //     id: 6,
-  //     title: "Content\nMarketing",
-  //     label: "Content",
-  //     description:
-  //       "Strategic content creation that builds authority, engages audiences, and fuels your brand’s digital presence.",
-  //     bgImage: "https://images.unsplash.com/photo-1504691342899-4d92b50853e1",
-  //     href: "/services/video-production",
-  //   },
 ];
 
 // Section background image — replace with your actual path
@@ -218,19 +209,21 @@ export default function ServiceCardCarousel() {
       />
 
       {/* ── Section heading ── */}
-      <div className="relative z-10 text-center mb-10 px-4">
+      <div className="relative z-10 text-center mb-10 px-4 max-w-2xl">
         <p
           className="text-xs uppercase tracking-[0.35em] mb-2"
           style={{ color: "var(--brand-orange)" }}
         >
           What We Do
         </p>
-        <h2
-          className="text-4xl md:text-5xl font-bold text-white"
-          style={{ fontFamily: "var(--font-outfit, sans-serif)" }}
-        >
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-5">
           Our Services
         </h2>
+        <p>
+          Website Development We build fast, conversion optimised websites that
+          do more than look good; they generate leads, build trust, and scale
+          with your business from day one.
+        </p>
       </div>
 
       {/* ── 3-D Carousel stage ── */}

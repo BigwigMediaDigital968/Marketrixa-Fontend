@@ -90,10 +90,12 @@ export default function Industry() {
               whileInView={{ opacity: 1 }}
               className="text-gray-400 text-lg leading-relaxed"
             >
-              We specialize in the implementation of customized digital
-              strategies that help businesses thrive in various industries like
-              healthcare, finance, education, retail and many more. We empower
-              brands to connect, interact, and grow with accuracy.
+              As the best digital marketing agency in Deesa and a leading
+              digital marketing company in Ahmedabad, MarketRixa crafts
+              customised strategies for businesses across a wide range of
+              industries. We help brands connect with the right audience,
+              increase market share, and achieve sustainable growth with
+              precision, creativity, and measurable accountability.
             </motion.p>
 
             <motion.button

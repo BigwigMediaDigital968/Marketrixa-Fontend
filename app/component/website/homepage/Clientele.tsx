@@ -100,10 +100,14 @@ export default function Clientele() {
                   </h2>
                 </div>
 
-                <p className="text-gray-400 text-lg leading-relaxed max-w-sm font-light">
-                  We believe great results come from strong relationships.
-                  That’s why we listen, align, and grow together with every
-                  brand we work with.
+                <p className="text-gray-400 text-lg leading-relaxed max-w-lg font-light">
+                  As a trusted digital marketing company in Ahmedabad, we
+                  believe great results come from strong relationships, not
+                  one-off campaigns. That's why we listen deeply, align with
+                  your goals, and grow together with every brand we work with.
+                  From startups finding their footing to established enterprises
+                  scaling new heights, our partners stay because the results
+                  speak for themselves.
                 </p>
 
                 <div className="pt-6">

@@ -1216,7 +1216,7 @@ export default function BlogForm({
       className="min-h-screen"
       style={{ background: "transparent", color: "white" }}
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6 space-y-5">
+      <div className="max-w-7xl mx-auto p-2 space-y-5">
         {/* ── Top bar ── */}
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div className="flex items-center gap-3 min-w-0">
@@ -1498,7 +1498,6 @@ export default function BlogForm({
               />
 
               <div>
-                {/* LEFT SIDE */}
                 <div className="space-y-3">
                   {form.coverImage ? (
                     <div
@@ -1508,7 +1507,6 @@ export default function BlogForm({
                         background: "rgba(255,255,255,0.02)",
                       }}
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={form.coverImage}
                         alt="Cover Preview"
@@ -1561,7 +1559,7 @@ export default function BlogForm({
                     <button
                       type="button"
                       onClick={() => coverInputRef.current?.click()}
-                      className="w-full aspect-[16/9] rounded-2xl flex flex-col items-center justify-center transition-all group relative overflow-hidden cursor-pointer"
+                      className="w-full aspect-[16/9] p-5 rounded-2xl flex flex-col items-center justify-center transition-all group relative overflow-hidden cursor-pointer"
                       style={{
                         border: "2px dashed rgba(255,255,255,0.12)",
                         background:

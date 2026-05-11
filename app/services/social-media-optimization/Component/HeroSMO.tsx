@@ -26,15 +26,6 @@ const HeroSMO: React.FC = () => {
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
       {/* Dynamic Background Layer */}
       <div className="absolute inset-0 z-0">
-        {/* Brand Image with Overlay */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80')`,
-            filter: "brightness(0.3) saturate(0.5)",
-          }}
-        />
-
         {/* Brand Color Gradients */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0b0f1a] via-[#0b0f1a]/95 to-[#f26522]/" />
       </div>
@@ -119,7 +110,7 @@ const HeroSMO: React.FC = () => {
               : "translate-y-12 opacity-0 scale-95"
           }`}
         >
-          <div className="relative p-1 rounded-[3rem] bg-gradient-to-br from-white/20 via-transparent to-[#f26522]/20">
+          <div className="relative">
             <div className="bg-[#0b0f1a]/90 backdrop-blur-3xl rounded-[2.8rem] border border-white/10 p-10 shadow-[0_40px_80px_rgba(0,0,0,0.5)]">
               {/* Header UI */}
               <div className="flex items-center justify-between mb-10 pb-6 border-b border-white/5">
@@ -128,9 +119,9 @@ const HeroSMO: React.FC = () => {
                   <div className="w-3 h-3 rounded-full bg-white/20" />
                   <div className="w-3 h-3 rounded-full bg-white/20" />
                 </div>
-                <div className="px-3 py-1 rounded-md bg-[#f26522]/5 border border-[#f26522]/20 text-[10px] text-[#f26522] font-black tracking-widest uppercase">
+                {/* <div className="px-3 py-1 rounded-md bg-[#f26522]/5 border border-[#f26522]/20 text-[10px] text-[#f26522] font-black tracking-widest uppercase">
                   Analytics Hub
-                </div>
+                </div> */}
               </div>
 
               {/* Data Visuals */}
