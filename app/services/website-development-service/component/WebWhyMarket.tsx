@@ -29,7 +29,7 @@ const whyChooseData: WhyItem[] = [
     id: 1,
     title: "Custom-Built Solutions",
     description:
-      "We design websites from scratch that perfectly align with your business goals, target market, and branding.",
+      "We design every website from scratch to align perfectly with your business goals, target audience, and brand identity, never relying on generic, cookie-cutter templates that fail to differentiate your business.",
     icon: Code2,
     color: "#F26522",
   },
@@ -37,7 +37,7 @@ const whyChooseData: WhyItem[] = [
     id: 2,
     title: "Performance-Oriented",
     description:
-      "Every single site is optimized for superfast loading, perfect user experience, and robust technical performance.",
+      "Every website we deliver is optimized for blazing-fast load speeds, smooth user experience, and solid technical performance across all browsers and devices without exception.",
     icon: Zap,
     color: "#3B82F6",
   },
@@ -45,7 +45,7 @@ const whyChooseData: WhyItem[] = [
     id: 3,
     title: "Stylish & Responsive",
     description:
-      "Crafted for elegance and performance, your website delivers a flawless experience across every screen.",
+      "Crafted for both elegance and functionality, your website delivers a flawless, consistent experience across every screen size, ensuring no visitor ever has a subpar experience with your brand.",
     icon: Layers,
     color: "#10B981",
   },
@@ -53,7 +53,7 @@ const whyChooseData: WhyItem[] = [
     id: 4,
     title: "SEO-Ready Structure",
     description:
-      "Constructed with neat code and in line with the best SEO practices for maximum search engine visibility.",
+      "Built with clean, well-organized code and designed in full alignment with current SEO best practices to maximize your organic visibility and long-term search engine performance.",
     icon: Search,
     color: "#A855F7",
   },
@@ -61,7 +61,7 @@ const whyChooseData: WhyItem[] = [
     id: 5,
     title: "User-Centric Approach",
     description:
-      "We focus on making navigation intuitive and layouts friendly so as to give users the best experience.",
+      "We put users at the center of every design decision, prioritizing intuitive navigation and visitor-friendly layouts so every person who visits your website has the smoothest experience possible.",
     icon: MousePointer2,
     color: "#F43F5E",
   },
@@ -69,7 +69,7 @@ const whyChooseData: WhyItem[] = [
     id: 6,
     title: "Scalable Architecture",
     description:
-      "Our websites are designed in such a way that they can evolve with your business and support future upgrades.",
+      "Our websites are engineered to evolve alongside your business, supporting future feature additions, growing traffic demands, and technology upgrades without disruption or the need to rebuild from scratch.",
     icon: TrendingUp,
     color: "#EAB308",
   },
@@ -77,7 +77,7 @@ const whyChooseData: WhyItem[] = [
     id: 7,
     title: "Strong Consistency",
     description:
-      "We make sure that your design, colors, and message are consistently reflected throughout the website.",
+      "We ensure your design elements, color palette, and messaging are uniformly reflected throughout your entire website, reinforcing brand recognition at every single touchpoint.",
     icon: Palette,
     color: "#06B6D4",
   },
@@ -85,7 +85,7 @@ const whyChooseData: WhyItem[] = [
     id: 8,
     title: "Reliable Support",
     description:
-      "Ongoing help to ensure that your website remains secure, updated, and operates without a hitch.",
+      "Our team provides ongoing assistance to keep your website secure, up to date, and running at peak performance without any hassle, so you can focus entirely on growing your business.",
     icon: Headset,
     color: "#6366F1",
   },
@@ -111,11 +111,21 @@ const WebWhyMarket = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-black text-white mt-4 mb-6"
+            className="text-4xl md:text-5xl font-black text-white mt-4"
           >
             Why Choose <span className="text-[#F26522]">Marketrixa</span> for
             Your Website?
           </motion.h2>
+
+          <p className="text-gray-400 max-w-5xl text-md leading-relaxed mx-auto py-6">
+            When searching for the best website development company in
+            Ahmedabad, the real question is: who will treat your project with
+            the attention, expertise, and commitment it truly deserves? At
+            Marketrixa, we bring together creative talent, deep technical
+            mastery, and strategic vision to build websites that go beyond
+            aesthetics and deliver genuine, measurable business results. Here is
+            what sets us apart as your ideal web design company in Ahmedabad.
+          </p>
           <div className="w-20 h-1 bg-[#F26522] mx-auto rounded-full" />
         </div>
 

@@ -51,12 +51,12 @@ const WebHero = () => {
               Top Website {""}
               <br />
               <span className="text-[#F26522]">Development Company</span> <br />
-              in India.
+              in Ahmedabad.
             </h1>
 
             <p className="text-gray-300 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
-              Establish a solid digital base with websites that are made to
-              deliver, grow, and change your site visitors into loyal customers.
+              Build a powerful digital foundation with websites crafted to
+              perform, scale, and turn every visitor into a loyal customer.
             </p>
 
             <motion.button

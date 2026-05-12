@@ -19,7 +19,7 @@ const testimonials = [
     name: "Alex Thompson",
     role: "CEO, TechFlow Solutions",
     content:
-      "Our organic traffic increased by 215% within the first six months. The technical SEO audit was a game-changer for our site architecture. Highly recommended for any scaling SaaS.",
+      "Our organic traffic increased by 215% within the first six months. The technical SEO audit was a game-changer for our site architecture. Highly recommended for any scaling SaaS business looking for SEO services in Ahmedabad.",
     stats: "+215% Traffic",
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
@@ -106,12 +106,14 @@ const SeoClients = () => {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-black text-white"
+            className="text-3xl md:text-5xl font-black text-white"
           >
             Trusted by Industry{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
               Leaders
-            </span>
+            </span>{" "}
+            <br />
+            Across Ahmedabad and Beyond
           </motion.h2>
         </div>
 

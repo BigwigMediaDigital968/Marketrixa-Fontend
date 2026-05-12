@@ -28,7 +28,7 @@ const features: FeatureItem[] = [
     title: "Mobile-Optimized Design",
     shortDesc: "Seamless across all devices.",
     fullDesc:
-      "We create web pages that easily change according to the screen size of various devices. This ensures that customers get a good experience even if they are browsing via their mobile, tablet, or desktop.",
+      "We build responsive web pages that adapt seamlessly to any screen size, delivering a smooth, professional experience whether your customer is browsing from a smartphone, tablet, or desktop computer.",
     icon: <Smartphone className="w-6 h-6" />,
     imageUrl:
       "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1000",
@@ -38,7 +38,7 @@ const features: FeatureItem[] = [
     title: "Unique Brand Identity",
     shortDesc: "Personality in every pixel.",
     fullDesc:
-      "Every piece of work is personalized to express the character of your brand. It also offers a great way to separate yourself from the competition in the digital world.",
+      "We pour your brand's personality into every pixel, creating a strong visual identity that resonates with your audience and leaves a lasting, memorable impression that competitors simply cannot replicate.",
     icon: <Fingerprint className="w-6 h-6" />,
     imageUrl:
       "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1000",
@@ -48,7 +48,7 @@ const features: FeatureItem[] = [
     title: "Better User Experience",
     shortDesc: "Intuitive and organized.",
     fullDesc:
-      "Easy-to-use navigations, a well-organized structure, and user-friendly layouts give visitors the ease of exploring the site and taking actions.",
+      "Intuitive navigation and well-organized layouts make it effortless for visitors to find exactly what they need, keeping them engaged and on your website far longer than average.",
     icon: <Users className="w-6 h-6" />,
     imageUrl: "/better-user-experience.png",
   },
@@ -57,7 +57,7 @@ const features: FeatureItem[] = [
     title: "Stronger Credibility",
     shortDesc: "Build trust instantly.",
     fullDesc:
-      "Consumers' trust is gained and their perception of a business is strengthened just through a website that looks contemporary and professional.",
+      "A professionally designed website instantly signals trustworthiness to potential customers, positioning your business as a credible and established authority in your industry.",
     icon: <ShieldCheck className="w-6 h-6" />,
     imageUrl:
       "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1000",
@@ -67,7 +67,7 @@ const features: FeatureItem[] = [
     title: "Higher Engagement",
     shortDesc: "Drive higher conversions.",
     fullDesc:
-      "Strategic design elements guide users effortlessly across pages, increasing engagement and time spent on the website, which naturally drives higher conversions.",
+      "Strategic design, compelling content, and well-placed calls to action work together to drive higher user interaction and meaningfully improve your overall conversion rates.",
     icon: <BarChart3 className="w-6 h-6" />,
     imageUrl: "/higher-engagement.png",
   },
@@ -92,7 +92,7 @@ const WebsiteSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-[#F26522] font-bold tracking-[0.2em] uppercase text-sm mb-4"
           >
-            Website Designing Company in India
+            Website Designing Company in Ahmedabad
           </motion.h2>
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
@@ -109,12 +109,16 @@ const WebsiteSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 max-w-3xl text-lg leading-relaxed"
+            className="text-gray-400 max-w-5xl text-md leading-relaxed"
           >
-            Your brand's website is likely the first point of contact between
-            your business and a customer. And that one moment can decide
-            everything. Our designers at Marketrixa work closely with you to
-            understand the personality of your brand.
+            Your website is often the very first interaction a potential
+            customer has with your business, and that single moment can
+            determine everything. As a premier website designing company in
+            Ahmedabad, Marketrixa works side by side with you to understand your
+            brand personality, business goals, and target audience. We then
+            craft a website that genuinely sets you apart from the competition
+            and positions your business for long-term success. We do not just
+            build websites. We build your brand online.
           </motion.p>
         </div>
 

@@ -22,45 +22,45 @@ const testimonials: Testimonial[] = [
     role: "CEO",
     company: "Gujarat Tech Solutions",
     content:
-      "Marketrixa transformed our outdated site into a lead-generating machine. Their attention to detail in responsive design is unmatched in the region.",
+      "Marketrixa completely transformed our outdated site into a high-performing, lead-generating platform. Their attention to detail in responsive design is unmatched in the region. Working with the best website development company in Ahmedabad was the best decision we made for our business this year.",
     rating: 5,
   },
   {
     id: 2,
-    name: "Sarah Jenkins",
+    name: "Priya Desai",
     role: "Founder",
-    company: "EcoStyle Wear",
+    company: "Ahmedabad Wellness Hub",
     content:
-      "The dynamic features they built for our e-commerce platform have increased our user engagement by 40%. It's fast, stylish, and exactly what we needed.",
+      "From our very first meeting, the team at Marketrixa understood exactly what our brand needed. They delivered a website that not only looks outstanding but also brings in consistent leads every week. Truly a world-class website designing company in Ahmedabad.",
     rating: 5,
   },
   {
     id: 3,
-    name: "Amit Patel",
+    name: "Amit Shah",
     role: "Marketing Director",
-    company: "BrightPath Education",
+    company: "ShopWell Retail",
     content:
-      "Their SEO-friendly approach from day one helped us rank on the first page within months of the new site launch. Highly professional team!",
+      "We were skeptical at first, but Marketrixa proved themselves beyond our expectations. The website they built for us loads in under two seconds and our bounce rate dropped by 40%. If you are looking for a reliable web design company in Ahmedabad, look no further.",
     rating: 5,
   },
-  {
-    id: 4,
-    name: "Elena Rodriguez",
-    role: "Product Manager",
-    company: "Nexus AI",
-    content:
-      "The clean code and scalable architecture Marketrixa provides meant we could add new features effortlessly as our startup grew. Simply brilliant.",
-    rating: 5,
-  },
-  {
-    id: 5,
-    name: "Vikram Singh",
-    role: "Proprietor",
-    company: "Singh & Sons Enterprises",
-    content:
-      "The redesign was flawless. They captured our brand essence perfectly while making the user journey intuitive and smooth for our clients.",
-    rating: 5,
-  },
+  // {
+  //   id: 4,
+  //   name: "Elena Rodriguez",
+  //   role: "Product Manager",
+  //   company: "Nexus AI",
+  //   content:
+  //     "The clean code and scalable architecture Marketrixa provides meant we could add new features effortlessly as our startup grew. Simply brilliant.",
+  //   rating: 5,
+  // },
+  // {
+  //   id: 5,
+  //   name: "Vikram Singh",
+  //   role: "Proprietor",
+  //   company: "Singh & Sons Enterprises",
+  //   content:
+  //     "The redesign was flawless. They captured our brand essence perfectly while making the user journey intuitive and smooth for our clients.",
+  //   rating: 5,
+  // },
 ];
 
 const AUTO_PLAY_INTERVAL = 5000;
@@ -147,8 +147,10 @@ const WebTestimonials = () => {
               </h2>
 
               <p className="text-gray-400 text-lg mb-10 leading-relaxed max-w-md">
-                We've helped hundreds of businesses build their digital
-                presence. Hear from the leaders who trusted us.
+                We have helped hundreds of businesses build a powerful digital
+                presence. Hear directly from the business leaders who trusted
+                Marketrixa as their web design company in Ahmedabad and
+                experienced real, measurable growth.
               </p>
 
               {/* Navigation Controls & Pagination */}
@@ -234,7 +236,7 @@ const WebTestimonials = () => {
                       <Quote className="text-[#F26522] w-8 h-8" />
                     </div>
                     <div className="flex gap-1">
-                      {[...Array(testimonials[currentIndex].rating)].map(
+                      {[...Array(testimonials[currentIndex]?.rating)].map(
                         (_, i) => (
                           <Star
                             key={i}
@@ -245,7 +247,7 @@ const WebTestimonials = () => {
                       )}
                     </div>
                   </div>
-                  <p className="text-white text-lg md:text-2xl font-medium leading-relaxed italic">
+                  <p className="text-white text-lg font-medium leading-relaxed italic">
                     "{testimonials[currentIndex].content}"
                   </p>
                 </div>

@@ -50,13 +50,13 @@ const WhatsappFloat = () => {
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white font-bold">
-                    DS
+                    MR
                   </div>
                   <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-[#075e54] rounded-full"></div>
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-sm">
-                    Digital Solutions
+                  <h4 className="text-white font-bold text-sm tracking-wider">
+                    MarketRixa Assistent?
                   </h4>
                   <p className="text-white/70 text-xs">
                     Typically replies in minutes

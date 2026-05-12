@@ -17,28 +17,28 @@ const SeoFeatures = () => {
     {
       title: "Strategic Keyword Ranking",
       description:
-        "Achieve top positions in search engine results with our strategic keyword ranking techniques. Through meticulous research and optimization, we ensure your brand stands out amidst the competition.",
+        "Reach the top positions on Google with keyword strategies built for your Ahmedabad market. Our SEO services in Ahmedabad begin with thorough research to identify high-intent search terms that bring in customers who are ready to act, not just browse.",
       icon: <Target className="w-6 h-6" />,
       tag: "Conversion-Focused",
     },
     {
       title: "Brand's Online Visibility",
       description:
-        "Enhance your website's visibility and drive traffic with our proactive approach to online presence. By optimizing crucial factors such as backlinks, content quality, and site structure, we maximize visibility.",
+        "Your competitors are already investing in search engine optimization. As a leading search engine optimization company in Ahmedabad, we boost your online presence by building quality backlinks, refining your content strategy, and optimizing your website structure so Google trusts and ranks your brand higher.",
       icon: <Globe className="w-6 h-6" />,
       tag: "Global Reach",
     },
     {
       title: "Optimizing SEO Performance",
       description:
-        "Elevate your site's SEO performance with our comprehensive optimization strategies. By integrating cutting-edge technology and expert content creation, we optimize your site from every angle.",
+        "Page speed, core web vitals, and mobile optimization all directly impact your search rankings. Our technical team delivers SEO services in Ahmedabad that cover every performance angle, combining cutting-edge technology with expert content creation to keep your website fast and competitive.",
       icon: <Zap className="w-6 h-6" />,
       tag: "Speed & Tech",
     },
     {
       title: "The Power of Back-End",
       description:
-        "Unlock the full potential of your website with our back-end optimization techniques. Using advanced analytics tools and HTML validators, we measure website performance and identify usability issues.",
+        "Behind every high-ranking website is a strong technical foundation. We use advanced analytics tools, HTML validators, and structured data implementation to identify and fix back-end issues that hold your website back. Our search engine optimization company in Ahmedabad ensures your site is fully crawlable and search engine-ready.",
       icon: <Settings className="w-6 h-6" />,
       tag: "Technical SEO",
     },
@@ -64,18 +64,27 @@ const SeoFeatures = () => {
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="text-2xl lg:text-4xl font-black leading-tight uppercase"
+                className="text-2xl lg:text-4xl uppercase"
               >
-                Boost Your <br />
+                Boost Your{" "}
                 <span
                   className="text-transparent"
-                  style={{ WebkitTextStroke: "1px white" }}
+                  style={{ WebkitTextStroke: "1px #F26522" }}
                 >
                   Visibility
                 </span>{" "}
                 On <br />
                 Search Engines
               </motion.h2>
+
+              <motion.p className="text-md text-white/80">
+                Businesses across Ahmedabad are losing customers every day
+                simply because they are not visible online. Our SEO services in
+                Ahmedabad are built to change that. From local startups to
+                established enterprises, we help brands get found by the right
+                audience at the right time through proven search engine
+                optimization strategies.
+              </motion.p>
 
               {/* Simulated Data Dashboard Visual */}
               <motion.div
@@ -92,7 +101,7 @@ const SeoFeatures = () => {
                       <div className="w-3 h-3 rounded-full bg-green-500/50" />
                     </div>
                     <span className="text-[10px] text-gray-500 font-mono">
-                      SEO_REPORT_2024.CSV
+                      SEO_REPORT_2025.CSV
                     </span>
                   </div>
 
@@ -136,7 +145,7 @@ const SeoFeatures = () => {
               </motion.div>
 
               <Link
-                href="/case-studies"
+                href="#case-studies"
                 className="hidden lg:flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-white hover:text-[#F26522] transition-colors group cursor-pointer"
               >
                 View Detailed Case Studies{" "}

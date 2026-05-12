@@ -13,15 +13,15 @@ import Popup from "@/app/component/website/Popup";
 const projects = [
   {
     id: 1,
-    title: "Building a robust online presence for Local SaaS",
+    title: "Building a robust online presence for Local SaaS Business",
     description:
-      "We transformed their organic reach by implementing a cluster-topic strategy and technical SEO optimization.",
+      "We transformed this client's organic reach through a cluster-topic content strategy and deep technical SEO optimization, delivering extraordinary results within six months of partnering with our SEO services in Ahmedabad.",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     stats: [
-      { label: "Organic Visitors", value: 80, color: "#f26522" },
-      { label: "Website Authority", value: 60, color: "#10b981" },
-      { label: "Keyword Rankings", value: 95, color: "#8b5cf6" },
+      { label: "Growth in Organic Visitors", value: 80, color: "#f26522" },
+      { label: "Increase in Website Authority", value: 60, color: "#10b981" },
+      { label: "Improvement in Keyword Rankings", value: 95, color: "#8b5cf6" },
     ],
   },
   {
@@ -116,7 +116,10 @@ const SeoProjects = () => {
 
   return (
     <>
-      <section className="py-24 px-6 relative overflow-hidden">
+      <section
+        id="case-studies"
+        className="py-24 px-6 relative overflow-hidden"
+      >
         <div className="max-w-7xl mx-auto">
           {/* Section Heading */}
           <div className="text-center mb-16">
@@ -125,8 +128,9 @@ const SeoProjects = () => {
               <span className="text-orange-500">Our Success</span> Stories
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Are You Ready to Be a Part of Our Success Story? Partner with us
-              today and Position Your Website right at the Top.
+              Are you ready to be a part of our success story? Partner with the
+              leading search engine optimization company in Ahmedabad and
+              position your website right at the top of Google.
             </p>
           </div>
 
@@ -157,12 +161,12 @@ const SeoProjects = () => {
                 {/* Right: Content & Stats */}
                 <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white/[0.02]">
                   <div className="mb-8">
-                    <h4 className="text-orange-500 font-bold uppercase tracking-widest text-sm mb-4">
+                    <h3 className="text-orange-500 font-bold uppercase tracking-widest text-sm mb-4">
                       Case Study #{projects[index].id}
-                    </h4>
-                    <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
-                      {projects[index].title}
                     </h3>
+                    <h4 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
+                      {projects[index].title}
+                    </h4>
                     <p className="text-gray-400 text-lg leading-relaxed">
                       {projects[index].description}
                     </p>

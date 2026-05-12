@@ -49,10 +49,8 @@ export default function BgCTA({
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 p-8 md:p-16">
           {/* Left Content */}
           <div className="max-w-xl">
-            <h3 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">
-              {title}
-            </h3>
-            <p className="text-gray-300 text-lg">{description}</p>
+            <h3 className="text-xl md:text-3xl text-white mb-6">{title}</h3>
+            <p className="text-gray-300 text-md">{description}</p>
           </div>
 
           {/* Right Button */}

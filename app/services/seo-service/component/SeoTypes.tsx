@@ -16,42 +16,42 @@ const SeoTypes: React.FC = () => {
     {
       title: "Corporate SEO",
       description:
-        "Stay ahead of the competition with our corporate SEO strategies. We'll fine-tune your online presence to ensure maximum visibility and tangible results.",
+        "Stay ahead of your competition with enterprise-grade SEO strategies. We fine-tune your online presence with technical audits, authority building, and content optimization to ensure maximum visibility and tangible results for your Ahmedabad business.",
       icon: <Building2 className="w-8 h-8" />,
       gradient: "from-blue-500/20 to-cyan-500/20",
     },
     {
       title: "Ecommerce SEO",
       description:
-        "Drive growth for your e-commerce business with our top-ranking SEO solutions. From keyword optimization to strategic content, we convert leads.",
+        "Drive consistent online sales with our ecommerce SEO services in Ahmedabad. From product page optimization to strategic category keyword targeting, we help your online store rank higher and convert more visitors into paying customers.",
       icon: <ShoppingCart className="w-8 h-8" />,
       gradient: "from-orange-500/20 to-red-500/20",
     },
     {
       title: "Google Local Listings",
       description:
-        "Enhance your business listing and boost traceability with our Google Local Listings services. Increase your brand's visibility in your community.",
+        "Get your Ahmedabad business found by local customers with our Google Business Profile optimization. We enhance your local listing to improve visibility in Google Maps and local search results, bringing nearby customers directly to your door.",
       icon: <MapPin className="w-8 h-8" />,
       gradient: "from-green-500/20 to-emerald-500/20",
     },
     {
       title: "Lead Generation SEO",
       description:
-        "Attract and nurture leads with refined web traffic using our lead generation-focused SEO strategies. Cultivate interest and watch leads pour in.",
+        "Attract high-quality leads with targeted SEO strategies built to drive relevant traffic to your website. Our lead generation SEO services in Ahmedabad focus on bringing in visitors who are ready to engage, inquire, and convert.",
       icon: <Magnet className="w-8 h-8" />,
       gradient: "from-purple-500/20 to-pink-500/20",
     },
     {
       title: "Local SEO",
       description:
-        "Establish your presence in industry keywords and remain relevant and credible in your local market. Ensure visibility where your customers reside.",
+        "Dominate local search results and stay relevant to your Ahmedabad audience. As your dedicated search engine optimization company in Ahmedabad, we ensure your brand appears exactly where your customers are searching, whether on desktop or mobile.",
       icon: <Users className="w-8 h-8" />,
       gradient: "from-yellow-500/20 to-orange-500/20",
     },
     {
       title: "Multilingual SEO",
       description:
-        "Expand your reach to diverse audiences with our multilingual SEO services. Reach locals in their language and increase organic traffic globally.",
+        "Reach diverse audiences across Gujarati, Hindi, and English-speaking markets with our multilingual SEO services. Expand your organic reach and grow your brand beyond geographical boundaries with localized content strategies.",
       icon: <Globe2 className="w-8 h-8" />,
       gradient: "from-indigo-500/20 to-purple-500/20",
     },
@@ -116,7 +116,8 @@ const SeoTypes: React.FC = () => {
             Our Dynamic <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-600">
               SEO Solutions
-            </span>
+            </span>{" "}
+            for Ahmedabad Businesses
           </motion.h2>
 
           <motion.p
@@ -124,10 +125,12 @@ const SeoTypes: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 text-base md:text-xl max-w-2xl font-normal leading-relaxed"
+            className="text-gray-400 text-base max-w-4xl font-normal leading-relaxed"
           >
-            Unleash the full potential of your brand with our data-driven SEO
-            strategies designed to deliver measurable business growth.
+            Unlock the full potential of your brand with our comprehensive,
+            data-driven SEO solutions. Whether you are a local business in
+            Ahmedabad or an enterprise scaling across India, our SEO services in
+            Ahmedabad are designed to deliver measurable growth.
           </motion.p>
         </div>
 

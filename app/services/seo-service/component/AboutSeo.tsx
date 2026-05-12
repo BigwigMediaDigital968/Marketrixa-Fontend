@@ -10,22 +10,22 @@ const AboutSeo = () => {
     {
       icon: <Search className="text-yellow-500" size={24} />,
       title: "Optimize Performance",
-      desc: "Speed up your rankings with technical SEO audits and core web vital improvements.",
+      desc: "Speed up your rankings with in-depth technical SEO audits, core web vitals improvements, and site speed enhancements tailored to your business goals.",
     },
     {
       icon: <Globe className="text-yellow-500" size={24} />,
       title: "Boost Online Visibility",
-      desc: "Expand your reach globally and locally with targeted keyword strategies.",
+      desc: "Expand your reach locally across Ahmedabad and globally with targeted keyword strategies that connect you to the audiences who need your product or service most.",
     },
     {
       icon: <TrendingUp className="text-yellow-500" size={24} />,
       title: "Elevate Your Rankings",
-      desc: "Dominate search engine results pages through authority-building backlinks.",
+      desc: "Dominate search engine results pages through authority-building backlinks, strategic content placement, and consistent on-page optimization delivered by a trusted SEO company.",
     },
     {
       icon: <BarChart3 className="text-yellow-500" size={24} />,
       title: "Unleash Potential",
-      desc: "Data-driven insights to maximize your conversion rates and organic ROI.",
+      desc: "Our data-driven insights maximize your conversion rates and organic ROI, turning your website into a lead generation engine that works for your business 24 hours a day.",
     },
   ];
 
@@ -45,19 +45,22 @@ const AboutSeo = () => {
               <span className="text-white font-medium tracking-widest uppercase text-sm border-b-2 border-[#F26522] pb-1">
                 Search Engine Marketing
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              <h2 className="text-4xl md:text-5xl mt-2">
                 It all starts with a{" "}
                 <span className="text-[#F26522]">single search</span>
               </h2>
             </div>
 
-            <p className="text-gray-200 text-lg leading-relaxed mb-10 max-w-xl">
-              In a world where consumers have access to their phones at all
-              times, they often turn to search engines for answers. At{" "}
+            <p className="text-gray-200 text-md mb-10 max-w-2xl">
+              Every purchase, inquiry, and sale in today's digital world begins
+              with a search. When a potential customer in Ahmedabad types a
+              query into Google, your business needs to appear at the top.{" "}
               <span className="font-semibold text-[#F26522]">MarketRixa</span>,
-              we specialize in elevating your brand's visibility and driving
-              results through strategic SEO tactics that turn searches into
-              loyal customers.
+              delivers SEO services in Ahmedabad that turn ordinary search
+              traffic into loyal, paying customers. As a results-driven search
+              engine optimization company in Ahmedabad, we blend technical
+              expertise with creative content strategy to ensure your brand does
+              not just appear in searches but dominates them. At
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">

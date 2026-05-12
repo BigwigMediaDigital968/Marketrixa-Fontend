@@ -113,8 +113,8 @@ const FeatureCard = ({
         </div>
 
         {/* Hover View: Description (hidden by default) */}
-        <div className="absolute bottom-12 left-8 right-8 opacity-0 group-hover:opacity-100 translate-y-10 group-hover:translate-y-0 transition-all duration-500 delay-100">
-          <p className="text-gray-300 text-sm md:text-base leading-relaxed line-clamp-4 backdrop-blur-sm p-4 rounded-xl bg-black/20 border border-white/5">
+        <div className="absolute bottom-12 left-8 right-8 translate-y-10 group-hover:translate-y-0 transition-all duration-500 delay-100">
+          <p className="text-gray-300 text-xs leading-relaxed backdrop-blur-sm p-4 rounded-xl bg-black/20 border border-white/5">
             {description}
           </p>
         </div>
@@ -141,7 +141,7 @@ const WebFeatures = () => {
     {
       title: "Responsive Web Design",
       description:
-        "We focus on how your website appears and functions across various devices, including mobile phones, tablets, and desktops.",
+        "We ensure your website looks and functions flawlessly across every device, from mobile phones and tablets to desktops, providing a consistent, high-quality experience that keeps users engaged regardless of how they find you.",
       icon: <Monitor size={32} />,
       imageUrl:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
@@ -149,7 +149,7 @@ const WebFeatures = () => {
     {
       title: "Static Website Design",
       description:
-        "Simple, quick, and powerful. Excellent for businesses wanting a no-nonsense online presence with maximum speed.",
+        "Simple, fast, and powerful. Perfect for businesses that need a clean, professional online presence with maximum page speed, zero complexity, and outstanding reliability from day one.",
       icon: <Zap size={32} />,
       imageUrl:
         "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
@@ -157,14 +157,14 @@ const WebFeatures = () => {
     {
       title: "Dynamic Website Design",
       description:
-        "Create deeper connections with visitors through interactive features and personalized browsing experiences.",
+        "Build deeper, more meaningful connections with your visitors through interactive features, real-time content updates, and personalized browsing experiences carefully tailored to your specific audience.",
       icon: <Layers size={32} />,
       imageUrl: "/dynamic-web-image.png",
     },
     {
       title: "Startup Website Design",
       description:
-        "Creative digital identities designed to effectively tell your brand story and communicate your unique message.",
+        "Distinctive digital identities designed to tell your brand story powerfully and communicate your unique value proposition clearly to the audience that matters most to your growth.",
       icon: <Rocket size={32} />,
       imageUrl:
         "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=800",
@@ -172,7 +172,7 @@ const WebFeatures = () => {
     {
       title: "Website Redesign",
       description:
-        "We turn old-fashioned websites into sleek, powerful digital hubs enhancing usability, speed, and overall look.",
+        "We breathe new life into outdated websites, transforming them into sleek, modern digital platforms with improved usability, better visual appeal, and significantly enhanced performance across all metrics.",
       icon: <RefreshCcw size={32} />,
       imageUrl:
         "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800",
@@ -180,7 +180,7 @@ const WebFeatures = () => {
     {
       title: "Corporate Website Design",
       description:
-        "Professional business websites evoking reliability, developed for complex activities and high traffic performance.",
+        "Professional, polished business websites built to establish authority, meet complex operational requirements, and perform reliably even under the highest traffic volumes your business can generate.",
       icon: <Building2 size={32} />,
       imageUrl:
         "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800",
@@ -188,7 +188,7 @@ const WebFeatures = () => {
     {
       title: "Landing Page Design",
       description:
-        "Optimized for conversions with persuasive messages and effective visuals to turn visitors into loyal customers.",
+        "Conversion-optimized pages featuring persuasive messaging and strategic visual design, specifically engineered to turn every visitor into a qualified lead or loyal customer for your business.",
       icon: <Target size={32} />,
       imageUrl:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
@@ -196,7 +196,7 @@ const WebFeatures = () => {
     {
       title: "SEO-Friendly Web Design",
       description:
-        "Optimized from the ground up with clean code and fast loading to ensure better presence in search results.",
+        "Developed from the ground up with clean code, fast load times, and a solid technical structure that supports stronger, more sustainable rankings in competitive search engine results pages.",
       icon: <Search size={32} />,
       imageUrl:
         "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=800",
@@ -204,7 +204,7 @@ const WebFeatures = () => {
     {
       title: "PSD To HTML",
       description:
-        "Pixel-perfect, high-quality HTML conversion from your design files adhering to modern coding standards.",
+        "Pixel-perfect, high-quality HTML conversion from your existing design files, delivered with absolute precision and full adherence to modern coding, browser compatibility, and accessibility standards.",
       icon: <Code2 size={32} />,
       imageUrl:
         "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800",
@@ -225,7 +225,7 @@ const WebFeatures = () => {
             variants={headerVariants}
             className="text-[#F26522] font-bold tracking-widest uppercase text-sm mb-4"
           >
-            Web Design Company in Gujarat
+            Web Design Company in Ahmedabad
           </motion.h2>
           <motion.h2
             variants={headerVariants}
@@ -236,12 +236,16 @@ const WebFeatures = () => {
           </motion.h2>
           <motion.p
             variants={headerVariants}
-            className="text-gray-400 max-w-2xl mx-auto text-lg"
+            className="text-gray-400 max-w-5xl mx-auto text-lg"
           >
-            Premium Web Design Services for Modern Businesses We make websites
-            that are easy for anyone to use and visually enjoyable. We really
-            get it! A great website plays a huge role in the success of
-            businesses. <br /> Our top services include:
+            At Marketrixa, the best website development company in Ahmedabad, we
+            create websites that are intuitive, visually impressive, and
+            engineered to deliver results that matter. We truly understand the
+            decisive role a great website plays in the growth and success of
+            your business. Our comprehensive range of web design and development
+            services covers everything your business needs to thrive in the
+            digital space.
+            <br /> Our top services include:
           </motion.p>
         </motion.div>
 

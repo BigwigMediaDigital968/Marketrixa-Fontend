@@ -25,7 +25,8 @@ const activities = [
     title: "Keyword Research",
     icon: <Search size={24} />,
     color: "bg-yellow-400",
-    summary: "Identify exact keywords your users search for with real intent.",
+    summary:
+      "We identify the exact keywords your target audience in Ahmedabad is searching for with real intent.",
     details: [
       "Primary keywords for the homepage",
       "Niche keywords for category pages",
@@ -38,7 +39,7 @@ const activities = [
     icon: <BarChart2 size={24} />,
     color: "bg-green-500",
     summary:
-      "Analyze how difficult keywords are to rank for early traffic gains.",
+      "We analyze how competitive each keyword is so you gain early traffic wins while building toward long-term dominance.",
     details: [
       "Identifying quick-win (low competition) keywords",
       "Planning long-term strategy for competitive keywords",
@@ -50,7 +51,7 @@ const activities = [
     icon: <Map size={24} />,
     color: "bg-blue-500",
     summary:
-      "Assign specific keywords to relevant pages instead of targeting all in one.",
+      "We assign specific keywords to the most relevant pages on your website rather than targeting all keywords on one page.",
     details: [
       "Informational keywords → Blog/FAQ pages",
       "Product keywords → Product pages",
@@ -61,7 +62,8 @@ const activities = [
     title: "On-Page SEO",
     icon: <Layout size={24} />,
     color: "bg-purple-500",
-    summary: "Optimize elements within your website like Meta tags and H-tags.",
+    summary:
+      "We optimize every element on your website that search engines use to evaluate relevance and quality.",
     details: [
       "Meta tags & Headings (H1, H2)",
       "Content & Image Alt Tag optimization",
@@ -73,7 +75,8 @@ const activities = [
     title: "Off-Page SEO",
     icon: <ExternalLink size={24} />,
     color: "bg-orange-500",
-    summary: "Build authority outside your website through quality backlinks.",
+    summary:
+      "We build your website's authority outside your domain through quality link-building activities.",
     details: [
       "Guest posting & Content submission",
       "Forum participation & Q&A platforms",
@@ -84,7 +87,8 @@ const activities = [
     title: "Technical SEO",
     icon: <Settings size={24} />,
     color: "bg-emerald-600",
-    summary: "Ensure search engine requirements are met for crawlability.",
+    summary:
+      "We ensure your website meets all technical search engine requirements for full crawlability and indexation.",
     details: [
       "Sitemap & Robots.txt optimization",
       "Structured data & Open Graph tags",
@@ -96,7 +100,8 @@ const activities = [
     title: "SERP Tracking",
     icon: <LineChart size={24} />,
     color: "bg-red-400",
-    summary: "Monitor keyword performance on results pages in real-time.",
+    summary:
+      "We monitor your keyword performance on search result pages in real time so you always know where you stand.",
     details: [
       "Monitor keyword performance",
       "Identify and fix ranking drops quickly",
@@ -107,7 +112,8 @@ const activities = [
     title: "Competitor Watch",
     icon: <Eye size={24} />,
     color: "bg-indigo-500",
-    summary: "Analyze competitor backlinks to find new growth opportunities.",
+    summary:
+      "We analyze your competitors' backlink profiles and content strategies to discover new growth opportunities for your Ahmedabad business.",
     details: [
       "Identifying new backlink opportunities",
       "Monitoring competitor strategies & keywords",
@@ -118,7 +124,8 @@ const activities = [
     title: "Link Building",
     icon: <Link2 size={24} />,
     color: "bg-cyan-500",
-    summary: "Acquire high-quality backlinks from authoritative sites.",
+    summary:
+      "We acquire high-quality backlinks from authoritative websites to strengthen your domain authority and improve rankings.",
     details: [
       "Broken link building",
       "Resource link acquisition",
@@ -130,7 +137,8 @@ const activities = [
     title: "Interlinking",
     icon: <GitPullRequest size={24} />,
     color: "bg-pink-500",
-    summary: "Connect pages within your website to distribute authority.",
+    summary:
+      "We connect your pages strategically within your website to distribute authority and improve user navigation.",
     details: [
       "Improves site SEO structure",
       "Distributes link authority (Link Juice)",
@@ -143,7 +151,7 @@ const activities = [
     icon: <MapPin size={24} />,
     color: "bg-yellow-600",
     summary:
-      "Optimize for location-based searches and Google Business Profile.",
+      "We optimize your website and Google Business Profile for location-based searches, helping your Ahmedabad business get found by nearby customers.",
     details: [
       "Optimizing for 'near me' searches",
       "Location-based keyword targeting",
@@ -164,7 +172,7 @@ const SeoActivities = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-2xl"
+            className="max-w-3xl"
           >
             <div className="flex items-center gap-5">
               <div className="w-16 h-[2px] bg-[#F26522]" />
@@ -177,8 +185,11 @@ const SeoActivities = () => {
               <span className="text-[#F26522]">SEO Ecosystem</span>
             </h2>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Execution is everything. We follow a meticulous 11-step process to
-              ensure your website doesn't just rank, but dominates its niche.
+              Our SEO services in Ahmedabad follow a proven, meticulous 11-step
+              process so your website does not just rank, but dominates its
+              niche. Execution is everything, and every step we take is backed
+              by data, expertise, and a deep understanding of how search engines
+              work.
             </p>
           </motion.div>
 

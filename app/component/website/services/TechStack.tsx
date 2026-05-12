@@ -265,7 +265,7 @@ export default function TechStack() {
         .ts-subtitle {
           font-size: .95rem;
           color: rgba(255,255,255,.45);
-          max-width: 500px; margin: 0 auto; line-height: 1.7;
+          max-width: 900px; margin: 0 auto; line-height: 1.7;
         }
 
         /* ── main panel ── */
@@ -553,8 +553,12 @@ export default function TechStack() {
               Tools We <em>Build</em> With
             </h2>
             <p className="ts-subtitle">
-              From concept to deployment — we use best-in-class technologies to
-              deliver fast, scalable, and beautiful digital products.
+              From concept to deployment, Marketrixa uses best-in-class
+              technologies to deliver fast, scalable, and visually compelling
+              digital products. As a full-service website development company in
+              Ahmedabad, our engineers stay current with the latest tools and
+              frameworks so your website is always built on a future-proof
+              foundation.
             </p>
           </div>
 
@@ -624,7 +628,7 @@ export default function TechStack() {
                     <strong>{current.tools.length}</strong> technologies in{" "}
                     {current.label}
                   </span>
-                  <a href="#contact" className="ts-cta-btn">
+                  <a href="/contact" className="ts-cta-btn">
                     Explore Solutions
                     <svg
                       viewBox="0 0 24 24"

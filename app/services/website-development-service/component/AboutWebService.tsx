@@ -9,6 +9,7 @@ import {
   Globe,
   Palette,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -48,17 +49,17 @@ const AboutWebService = () => {
   const features = [
     {
       title: "Clean & Simple Design",
-      desc: "Aesthetic brilliance that never compromises on usability.",
+      desc: "Aesthetic brilliance that never compromises on usability, delivering a seamless experience to every visitor who lands on your page.",
       icon: <Palette className="w-5 h-5" />,
     },
     {
       title: "SEO Optimized",
-      desc: "Built to rank and perform in search engine landscapes.",
+      desc: "Built to rank and perform in competitive search engine landscapes so your business gets found online by the right people at the right time.",
       icon: <Globe className="w-5 h-5" />,
     },
     {
       title: "Conversion Focused",
-      desc: "Turning visitors into loyal customers through strategic UX.",
+      desc: "Turning visitors into loyal customers through strategic UX design, clear navigation, and persuasive calls to action at every step.",
       icon: <Zap className="w-5 h-5" />,
     },
   ];
@@ -98,23 +99,13 @@ const AboutWebService = () => {
           >
             {/* Main Mockup Container */}
             <div className="relative z-10 bg-[#081f1a] rounded-[2rem] p-4 md:p-8 border border-white/5 shadow-2xl overflow-hidden">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-3 h-3 rounded-full bg-red-500/20" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/20" />
-                <div className="w-3 h-3 rounded-full bg-green-500/20" />
-                <div className="ml-4 h-4 w-32 bg-white/5 rounded-full" />
-              </div>
-
-              <div className="space-y-4">
-                <div className="h-40 w-full bg-gradient-to-br from-[#F26522]/20 to-transparent rounded-2xl" />
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="h-20 bg-white/5 rounded-xl" />
-                  <div className="h-20 bg-white/5 rounded-xl" />
-                  <div className="h-20 bg-white/5 rounded-xl" />
-                </div>
-                <div className="h-4 w-3/4 bg-white/5 rounded-full" />
-                <div className="h-4 w-1/2 bg-white/5 rounded-full" />
-              </div>
+              <Image
+                src="/web-development-ui.png"
+                alt="test"
+                width={600}
+                height={300}
+                className="rounded-2xl"
+              />
             </div>
 
             {/* Floating Elements (Similar to reference design) */}
@@ -174,17 +165,20 @@ const AboutWebService = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-white text-lg leading-relaxed mb-8"
+              className="text-white text-md leading-relaxed mb-8"
             >
-              Our team designs websites that are both user-friendly to search
-              engines and effective in generating conversions. In addition to
-              that, we make sure that they are simple to use and can be accessed
-              by different devices. <br />
+              Marketrixa is a trusted website development company in Ahmedabad
+              that brings together visually stunning design and high-performing
+              functionality to create websites that work hard for your business.
+              As a leading website designing company in Ahmedabad, our team
+              builds platforms that are user-friendly, search-engine optimized,
+              conversion-driven, and fully accessible across all devices.
               <br />
-              So, if you own a brand new business or just giving your website a
-              makeover, our designers are more than willing to collaborate with
-              you in turning your ideas into digital experiences that not only
-              attract but also engage and convert your targets.
+              <br />
+              Whether you are launching a new business or giving your existing
+              website a complete makeover, our designers collaborate closely
+              with you to turn your ideas into digital experiences that attract,
+              engage, and convert your ideal audience.
             </motion.p>
 
             <div className="space-y-6 mb-10">
@@ -199,7 +193,7 @@ const AboutWebService = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-bold text-lg">{f.title}</h4>
-                    <p className="text-gray-400 text-sm">{f.desc}</p>
+                    <p className="text-gray-400 text-xs">{f.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -209,11 +203,6 @@ const AboutWebService = () => {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4"
             >
-              {/* <button className="flex items-center justify-center gap-3 bg-[#F26522] hover:bg-[#ffe7dc] text-[#051612] font-black px-6 py-4 rounded-full transition-all group cursor-pointer">
-                BOOK A FREE CONSULTATION TODAY
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button> */}
-
               <Link
                 href="/contact"
                 className="flex items-center justify-center gap-3 bg-white/5 hover:bg-[#F26522] text-white border border-white/10 px-8 py-4 rounded-full transition-all cursor-pointer"

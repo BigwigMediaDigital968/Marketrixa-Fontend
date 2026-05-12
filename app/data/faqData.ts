@@ -69,49 +69,48 @@ export const homeFAQs: FAQItem[] = [
 export const serviceFAQs: FAQItem[] = [
   {
     question:
-      "Whom can we help with business templates, custom web designing and mobile app development?",
+      "Who can benefit from your website design and development services?",
     answer:
-      "We work with startups, small businesses, and established enterprises looking to build or enhance their digital presence. Whether you need a business website, custom web design, or a mobile app, our solutions are tailored to your specific goals and industry.",
+      "Our services are designed for startups, small businesses, growing brands, and large enterprises across every industry. Whether you need a simple business website, a custom web design, or a fully dynamic web platform, Marketrixa, a trusted website development company in Ahmedabad, tailors every solution to your specific goals and target audience.",
   },
   {
     question:
-      "Which digital marketing technique is best - SEO, SMO, SMM, or PPC?",
+      "Which digital marketing technique delivers the best results alongside web development?",
     answer:
-      "The best technique depends on your business goals. SEO is ideal for long-term organic growth, PPC delivers immediate results, SMM builds brand awareness and engagement, while SMO enhances your social presence. A combination of these strategies usually provides the best results.",
-  },
-  {
-    question: "How much does Digital Marketing King cost for its IT services?",
-    answer:
-      "Our pricing varies based on project scope, complexity, and requirements. We offer flexible packages for startups as well as custom solutions for enterprises. Contact us for a personalized quote tailored to your needs.",
+      "The most effective approach depends entirely on your business goals. SEO drives long-term organic traffic, PPC delivers immediate visibility, SMM builds brand awareness and engagement, and ORM protects your online reputation. As the best website development company in Ahmedabad, we integrate all of these strategies to ensure your website performs as a complete growth engine for your business.",
   },
   {
     question:
-      "Will you be aware at each stage of your project operations & proceedings?",
+      "How much do your website development services cost in Ahmedabad?",
     answer:
-      "Yes, we maintain complete transparency throughout the project. You will receive regular updates, progress reports, and direct communication with our team at every stage to ensure you are always informed.",
+      "Our pricing varies based on the scope, complexity, and features of each project. We offer flexible packages for startups, growing businesses, and large enterprises. Contact us for a personalized quote tailored to your specific business needs, goals, and budget.",
+  },
+  {
+    question: "Will I be kept informed at every stage of my project?",
+    answer:
+      "Absolutely. We believe in complete transparency throughout the entire development process. As your dedicated web design company in Ahmedabad, you will receive regular progress updates, milestone reports, and direct access to your project team at every step, from the initial discovery call to the final launch.",
+  },
+  {
+    question: "Who is responsible for providing content for the website?",
+    answer:
+      "We can handle content creation as a part of our full-service offering, including professional copywriting, graphic design, and content strategy. However, if you prefer to provide your own content, our team will review, optimize, and incorporate it seamlessly into your new website.",
+  },
+  {
+    question: "Why should I choose Marketrixa as my digital growth partner?",
+    answer:
+      "Marketrixa combines data-driven strategy, technical excellence, and creative design to deliver websites that produce real, measurable business results. As a leading website designing company in Ahmedabad, our focus is always on ROI, long-term growth, and a transparent partnership that puts your success at the center of everything we do.",
   },
   {
     question:
-      "Who will be in charge of providing the content for digital marketing?",
+      "How do you stay updated with the latest SEO and web development trends?",
     answer:
-      "We can handle content creation as part of our services, including copywriting, graphics, and strategy. However, if you prefer, you can also provide your own content, and we will optimize and use it effectively.",
+      "Our team continuously monitors search engine algorithm updates, emerging technologies, and evolving industry best practices. We proactively adapt our strategies and development approaches to ensure your website always remains competitive, compliant, and ahead of the curve in both design and performance.",
   },
   {
     question:
-      "Why should you choose us as your Google SEM & Digital Marketing Partner?",
+      "How does a professionally built website impact sales and revenue?",
     answer:
-      "We combine data-driven strategies, industry expertise, and creative execution to deliver measurable results. Our focus is on ROI, transparency, and long-term growth, making us a reliable partner for your digital success.",
-  },
-  {
-    question: "How do we keep up with the SEO upgrades?",
-    answer:
-      "We continuously monitor search engine algorithm updates, industry trends, and best practices. Our team regularly adapts strategies to ensure your website stays optimized and competitive in search rankings.",
-  },
-  {
-    question:
-      "How is web development & designing crucially significant on direct sales or income generation?",
-    answer:
-      "A well-designed website improves user experience, builds trust, and increases conversion rates. Fast loading speed, mobile responsiveness, and clear CTAs directly impact how visitors turn into customers, ultimately boosting sales and revenue.",
+      "A well-designed website builds trust, improves user experience, and dramatically increases conversion rates. Fast load speeds, mobile responsiveness, intuitive navigation, and strategically placed CTAs all work together to turn visitors into paying customers. At Marketrixa, the best website development company in Ahmedabad, every website we build is engineered specifically to support your business revenue goals from day one.",
   },
 ];
 
@@ -220,54 +219,67 @@ export const WebsiteFAQs: FAQItem[] = [
 
 export const SeoServiceFAQs: FAQItem[] = [
   {
-    question: "What is SEO and why is it important for my business?",
+    question:
+      "What are SEO services, and how can they help my business in Ahmedabad?",
     answer:
-      "SEO (Search Engine Optimization) helps your website rank higher on search engines like Google, increasing visibility, traffic, and potential customers organically.",
+      "SEO services are a set of strategies used to improve your website's visibility on search engines like Google. For businesses in Ahmedabad, investing in SEO helps you appear in front of local customers actively searching for your services, resulting in more traffic, leads, and sales without paying for every click.",
   },
   {
-    question: "How long does SEO take to show results?",
+    question:
+      "Why should I hire a search engine optimization company in Ahmedabad instead of doing it myself?",
     answer:
-      "SEO is a long-term strategy. Typically, noticeable improvements can be seen within 3 to 6 months depending on competition and website condition.",
+      "SEO involves technical audits, keyword research, content strategy, link building, and constant algorithm monitoring. A professional SEO company in Ahmedabad has the expertise, tools, and experience to execute these effectively, saving you time and delivering faster, more reliable results.",
   },
   {
-    question: "What SEO services do you offer?",
+    question: "How long does it take to see results from SEO?",
     answer:
-      "We provide on-page SEO, technical SEO, keyword research, content optimization, link building, and performance tracking.",
+      "Most businesses start seeing measurable improvements within three to six months. However, results depend on your industry, competition, and current website condition. SEO is a long-term investment that builds sustainable growth over time.",
   },
   {
-    question: "Do you guarantee #1 ranking on Google?",
+    question: "What is the difference between local SEO and regular SEO?",
     answer:
-      "No ethical agency can guarantee #1 rankings, but we follow proven strategies to significantly improve your rankings and visibility.",
+      "Regular SEO targets broader national or global audiences, while local SEO focuses on location-based searches. Local SEO helps your business appear in Google Maps, 'near me' searches, and city-specific results, making it ideal for businesses targeting customers in Ahmedabad.",
   },
   {
-    question: "How do you choose keywords for my website?",
+    question: "How much do SEO services in Ahmedabad cost?",
     answer:
-      "We perform in-depth keyword research based on search volume, competition, and user intent to target high-converting keywords.",
+      "The cost depends on your business goals, website size, competition, and required scope of work. At MarketRixa, we offer flexible SEO packages tailored to businesses of all sizes. Contact us for a personalized quote that fits your needs and budget.",
   },
   {
-    question: "Will SEO work for my local business?",
+    question: "Will my website rankings drop if I stop SEO?",
     answer:
-      "Yes, local SEO helps your business appear in local search results and Google Maps, driving nearby customers.",
+      "Yes, rankings may decline over time if SEO efforts stop. Search engines continuously update algorithms, and competitors keep optimizing. Consistent SEO is essential to maintain and improve your rankings.",
   },
   {
-    question: "Do you provide monthly SEO reports?",
+    question: "Do you work with businesses outside Ahmedabad as well?",
     answer:
-      "Yes, we provide detailed reports including rankings, traffic insights, and performance improvements.",
+      "Yes, while we specialize in SEO services in Ahmedabad, we work with clients across India and globally. Our strategies are designed to support local, national, and international business growth.",
   },
   {
-    question: "Is SEO better than paid ads?",
+    question:
+      "What makes MarketRixa different from other SEO companies in Ahmedabad?",
     answer:
-      "SEO provides long-term organic growth, while paid ads deliver instant traffic. A combination of both works best.",
+      "MarketRixa focuses on data-driven strategies, transparency, and measurable outcomes. We create customized SEO strategies based on your business goals, target audience, and competition, supported by detailed reporting and continuous optimization.",
   },
   {
-    question: "Do you optimize existing websites?",
+    question: "Do you provide SEO services for ecommerce websites?",
     answer:
-      "Yes, we audit and optimize existing websites to improve performance, speed, and rankings.",
+      "Yes, we offer specialized ecommerce SEO services including product optimization, category keyword targeting, technical improvements, and conversion-focused strategies to help your online store rank higher and increase sales.",
   },
   {
-    question: "Why should I choose your SEO services?",
+    question: "How do I get started with your SEO services?",
     answer:
-      "We focus on data-driven strategies, transparent reporting, and sustainable growth to deliver real business results.",
+      "Getting started is simple. Fill out the free SEO audit form or contact our team directly. We will analyze your website, understand your goals, and recommend a customized SEO strategy.",
+  },
+  {
+    question: "Do you audit and optimize existing websites?",
+    answer:
+      "Yes, we conduct comprehensive technical and on-page audits of your existing website and implement improvements to enhance performance, speed, and search engine rankings.",
+  },
+  {
+    question: "Is SEO better than Google Ads for my business?",
+    answer:
+      "SEO provides long-term organic growth, while Google Ads deliver immediate traffic. The most effective strategy is a combination of both, ensuring consistent visibility and maximum ROI.",
   },
 ];
 

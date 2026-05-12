@@ -24,13 +24,13 @@ import Popup from "@/app/component/website/Popup";
 const services = [
   {
     title: "SEO",
-    desc: "Improve your website rankings and drive consistent organic traffic.",
+    desc: " Improve your website rankings and drive consistent, high-quality organic traffic that converts into real business results.",
     icon: Search,
     link: "/services/seo-service",
   },
   {
     title: "SMM",
-    desc: "Build a strong brand presence and connect with your audience across platforms.",
+    desc: "Build a strong, recognizable brand presence and connect meaningfully with your target audience across all major social platforms.",
     icon: Share2,
     link: "/services/social-media-marketing",
   },
@@ -72,19 +72,19 @@ const services = [
   },
   {
     title: "Influencer Marketing",
-    desc: "Collaborate with relevant influencers to expand reach and trust.",
+    desc: "Collaborate with relevant, trusted influencers to expand your brand reach and build authentic credibility in your market.",
     icon: Users,
     link: "/services/influencer-marketing",
   },
   {
     title: "ORM",
-    desc: "Protect and enhance your brand image across digital platforms.",
+    desc: "Protect and actively enhance your brand image across all digital platforms so your reputation always works in your favor.",
     icon: ShieldCheck,
     link: "/services/orm",
   },
   {
     title: "Affiliate Marketing",
-    desc: "Performance-based strategies to generate scalable growth.",
+    desc: "Performance-based strategies designed to generate scalable, cost-effective growth and maximize your return on investment.",
     icon: TrendingUp,
     link: "/services/affiliate-marketing",
   },
@@ -251,7 +251,9 @@ const OtherServices = () => {
                   <span className="text-[#F26522]">Next Level</span>
                 </h3>
                 <p className="text-gray-300 text-lg">
-                  Work with our experts to build strategies that deliver impact.
+                  Work with our experts at Marketrixa, your go-to website
+                  designing company in Ahmedabad, to build strategies that
+                  deliver real, lasting impact.
                 </p>
               </div>
 
