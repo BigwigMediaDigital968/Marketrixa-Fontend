@@ -99,7 +99,7 @@ const About = () => {
               className="space-y-6 text-lg text-white/60 leading-relaxed max-w-xl"
             >
               <p>
-                <strong className="text-white">MarketRixa</strong> is a
+                <strong className="text-white">Marketrixa</strong> is a
                 full-service digital marketing company in Ahmedabad built for
                 brands that refuse to settle for average. We combine data-driven
                 strategy, creative execution, and performance marketing to help

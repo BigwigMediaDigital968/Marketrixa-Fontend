@@ -10,7 +10,7 @@ const TESTIMONIALS = [
     name: "Harshjyot",
     role: "CEO, Bigwig Media Digital",
     content:
-      "What stood out was the strategy. MarketRixa created a full digital ecosystem that delivered real results. We saw 3x growth in conversions in just a few months.",
+      "What stood out was the strategy. Marketrixa created a full digital ecosystem that delivered real results. We saw 3x growth in conversions in just a few months.",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
     rating: 5,
@@ -20,7 +20,7 @@ const TESTIMONIALS = [
     name: "Mansha Kapoor",
     role: "Marketing Director, Lion Forex",
     content:
-      "MarketRixa went beyond execution. They built a scalable system for our brand. Within three months, our conversion rate saw a significant jump.",
+      "Marketrixa went beyond execution. They built a scalable system for our brand. Within three months, our conversion rate saw a significant jump.",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200",
     rating: 5,
@@ -30,7 +30,7 @@ const TESTIMONIALS = [
     name: "Mohit",
     role: "Founder, Granth Dream Home",
     content:
-      "This was more than marketing. MarketRixa built a system that worked. Conversions tripled in just three months.",
+      "This was more than marketing. Marketrixa built a system that worked. Conversions tripled in just three months.",
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200",
     rating: 4,

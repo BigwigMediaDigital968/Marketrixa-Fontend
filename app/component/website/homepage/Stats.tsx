@@ -76,7 +76,7 @@ export default function Stats() {
               </h2>
               <div className="space-y-6 text-gray-400 text-lg font-light leading-relaxed">
                 <p>
-                  MarketRixa is at your service to identify what's essential to
+                  Marketrixa is at your service to identify what's essential to
                   the customers and help you stand out by doing only what the
                   customers focus on. We merge data, creativity, and sharp
                   execution to deliver quantifiable results to you no matter the

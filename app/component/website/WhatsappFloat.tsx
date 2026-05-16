@@ -56,7 +56,7 @@ const WhatsappFloat = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-bold text-sm tracking-wider">
-                    MarketRixa Assistent?
+                    Marketrixa Assistent?
                   </h4>
                   <p className="text-white/70 text-xs">
                     Typically replies in minutes

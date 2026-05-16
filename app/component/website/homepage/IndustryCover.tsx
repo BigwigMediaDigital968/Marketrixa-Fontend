@@ -91,7 +91,7 @@ export default function Industry() {
               className="text-gray-400 text-lg leading-relaxed"
             >
               As the best digital marketing agency in Deesa and a leading
-              digital marketing company in Ahmedabad, MarketRixa crafts
+              digital marketing company in Ahmedabad, Marketrixa crafts
               customised strategies for businesses across a wide range of
               industries. We help brands connect with the right audience,
               increase market share, and achieve sustainable growth with

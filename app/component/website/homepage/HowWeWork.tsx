@@ -110,7 +110,7 @@ export default function App() {
           transition={{ delay: 0.2 }}
           className="text-gray-400 text-base md:text-lg max-w-4xl mx-auto leading-relaxed font-poppins"
         >
-          At MarketRixa, the most trusted digital marketing company in
+          At Marketrixa, the most trusted digital marketing company in
           Ahmedabad, we follow a structured, four-phase engagement model that
           eliminates guesswork and ensures every campaign we launch is primed
           for maximum ROI from day one.

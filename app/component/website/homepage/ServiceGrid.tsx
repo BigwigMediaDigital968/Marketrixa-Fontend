@@ -138,7 +138,7 @@ export default function ServiceGrid() {
             transition={{ delay: 0.1 }}
             className="text-gray-400 max-w-3xl mx-auto text-lg font-light"
           >
-            As a full-service digital marketing company in Ahmedabad, MarketRixa
+            As a full-service digital marketing company in Ahmedabad, Marketrixa
             offers an end-to-end suite of services designed to take your brand
             from obscurity to market leadership. Every service is underpinned by
             strategy, executed with precision, and measured with accountability.

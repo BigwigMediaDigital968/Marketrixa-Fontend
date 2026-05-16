@@ -107,7 +107,7 @@ export default function Footer() {
                   </h2>
 
                   <p className="text-gray-500 text-md max-w-3xl">
-                    Partner with MarketRixa, the best digital marketing agency
+                    Partner with Marketrixa, the best digital marketing agency
                     in Deesa and a trusted digital marketing company in
                     Ahmedabad, and work with a team that is relentlessly focused
                     on performance, strategy, and results that move the needle.

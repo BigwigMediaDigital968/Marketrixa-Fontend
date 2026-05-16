@@ -5,7 +5,7 @@ export const homeFAQs: FAQItem[] = [
     question:
       "What exactly does a Digital Marketing Agency do for my business?",
     answer:
-      "A Digital Marketing Agency manages your entire online presence, including SEO, paid ads, social media, content, and email marketing. At MarketRixa, we build growth systems that attract the right audience, convert them into customers, and retain them long term.",
+      "A Digital Marketing Agency manages your entire online presence, including SEO, paid ads, social media, content, and email marketing. At Marketrixa, we build growth systems that attract the right audience, convert them into customers, and retain them long term.",
   },
   {
     question:
@@ -16,7 +16,7 @@ export const homeFAQs: FAQItem[] = [
   {
     question: "Are Digital Marketing Firms only for large corporations?",
     answer:
-      "Not at all. MarketRixa specialises in scalable strategies that fit your current budget and grow with your business. You don't need a big budget; you need the right partner.",
+      "Not at all. Marketrixa specialises in scalable strategies that fit your current budget and grow with your business. You don't need a big budget; you need the right partner.",
   },
   {
     question: "What's the typical timeline for seeing results?",
@@ -32,13 +32,13 @@ export const homeFAQs: FAQItem[] = [
   {
     question: "What emerging trends should my business be aware of?",
     answer:
-      "Key trends include AI-powered personalisation, short-form video, voice search, zero-click SEO, and micro-influencer marketing. MarketRixa ensures your brand leverages what's working now, not outdated strategies.",
+      "Key trends include AI-powered personalisation, short-form video, voice search, zero-click SEO, and micro-influencer marketing. Marketrixa ensures your brand leverages what's working now, not outdated strategies.",
   },
   {
     question:
       "Can a Digital Marketing Company improve my search engine rankings?",
     answer:
-      "Absolutely. MarketRixa combines on-page SEO, technical audits, quality content, and ethical link building to improve your rankings sustainably, targeting keywords your actual customers are searching for.",
+      "Absolutely. Marketrixa combines on-page SEO, technical audits, quality content, and ethical link building to improve your rankings sustainably, targeting keywords your actual customers are searching for.",
   },
   {
     question:
@@ -48,7 +48,7 @@ export const homeFAQs: FAQItem[] = [
   },
   {
     question:
-      "What makes MarketRixa confident in being the Best Digital Marketing Agency?",
+      "What makes Marketrixa confident in being the Best Digital Marketing Agency?",
     answer:
       "Results, relationships, and accountability. We've delivered measurable growth for 50+ brands across 15+ industries in 3+ years. We don't just run campaigns, we own the outcomes.",
   },
@@ -56,7 +56,7 @@ export const homeFAQs: FAQItem[] = [
     question:
       "What defines the Best Digital Marketing Company for a specific industry?",
     answer:
-      "The right agency understands your audience, competitive landscape, and the channels that drive results in your vertical. MarketRixa brings deep industry knowledge across Banking, Healthcare, Real Estate, Education, FMCG, and more.",
+      "The right agency understands your audience, competitive landscape, and the channels that drive results in your vertical. Marketrixa brings deep industry knowledge across Banking, Healthcare, Real Estate, Education, FMCG, and more.",
   },
   {
     question:
@@ -243,7 +243,7 @@ export const SeoServiceFAQs: FAQItem[] = [
   {
     question: "How much do SEO services in Ahmedabad cost?",
     answer:
-      "The cost depends on your business goals, website size, competition, and required scope of work. At MarketRixa, we offer flexible SEO packages tailored to businesses of all sizes. Contact us for a personalized quote that fits your needs and budget.",
+      "The cost depends on your business goals, website size, competition, and required scope of work. At Marketrixa, we offer flexible SEO packages tailored to businesses of all sizes. Contact us for a personalized quote that fits your needs and budget.",
   },
   {
     question: "Will my website rankings drop if I stop SEO?",
@@ -257,9 +257,9 @@ export const SeoServiceFAQs: FAQItem[] = [
   },
   {
     question:
-      "What makes MarketRixa different from other SEO companies in Ahmedabad?",
+      "What makes Marketrixa different from other SEO companies in Ahmedabad?",
     answer:
-      "MarketRixa focuses on data-driven strategies, transparency, and measurable outcomes. We create customized SEO strategies based on your business goals, target audience, and competition, supported by detailed reporting and continuous optimization.",
+      "Marketrixa focuses on data-driven strategies, transparency, and measurable outcomes. We create customized SEO strategies based on your business goals, target audience, and competition, supported by detailed reporting and continuous optimization.",
   },
   {
     question: "Do you provide SEO services for ecommerce websites?",

@@ -22,7 +22,7 @@ const testimonials = [
     name: "Jonathan Reeves",
     role: "Growth Head, Financy App",
     content:
-      "MarketRixa didn't just run ads; they built a conversion engine. We scaled our monthly spend from $5k to $100k while actually decreasing our CAC by 22%. Their attribution modeling is the best we've seen.",
+      "Marketrixa didn't just run ads; they built a conversion engine. We scaled our monthly spend from $5k to $100k while actually decreasing our CAC by 22%. Their attribution modeling is the best we've seen.",
     stats: "7.2x Blended ROAS",
     platform: <Search size={18} />,
     image:
@@ -44,7 +44,7 @@ const testimonials = [
     name: "Kenji Sato",
     role: "Operations Director, SwiftLogix",
     content:
-      "Their Google Search strategy captured high-intent B2B leads that our competitors were missing. MarketRixa's transparency in reporting and focus on bottom-line profit over vanity metrics is refreshing.",
+      "Their Google Search strategy captured high-intent B2B leads that our competitors were missing. Marketrixa's transparency in reporting and focus on bottom-line profit over vanity metrics is refreshing.",
     stats: "-40% Lower CPA",
     platform: <Globe size={18} />,
     image:

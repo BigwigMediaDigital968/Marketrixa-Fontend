@@ -19,7 +19,7 @@ const slides = [
       </>
     ),
     description:
-      "We assist companies in increasing their exposure, finding the right leads and reaching their digital goals in a measurable way. MarketRixa is a performance driven digital marketing agency delivering proven growth strategies for brands worldwide.",
+      "We assist companies in increasing their exposure, finding the right leads and reaching their digital goals in a measurable way. Marketrixa is a performance driven digital marketing agency delivering proven growth strategies for brands worldwide.",
     image: "/img-1.png",
     stats: { value: "#1", label: "Google Rank" },
     link: "/services/seo",

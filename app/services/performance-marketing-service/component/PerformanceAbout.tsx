@@ -66,7 +66,7 @@ const PerformanceAbout = () => {
                 <p className="text-gray-200 text-lg leading-relaxed mb-10">
                   In a world where attention is the new currency, "visibility"
                   isn't enough. At{" "}
-                  <span className="font-bold text-[#F26522]">MarketRixa</span>,
+                  <span className="font-bold text-[#F26522]">Marketrixa</span>,
                   we specialize in the psychological science of conversion. We
                   don't just buy traffic; we engineer growth environments where
                   your brand's visibility and bottom-line results are

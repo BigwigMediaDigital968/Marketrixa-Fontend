@@ -640,7 +640,7 @@ export default function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            As a top digital marketing company in Ahmedabad, MarketRixa unites
+            As a top digital marketing company in Ahmedabad, Marketrixa unites
             performance marketing with creative intelligence to deliver
             consistent growth for ambitious businesses. Every click, every rupee
             optimised for results.

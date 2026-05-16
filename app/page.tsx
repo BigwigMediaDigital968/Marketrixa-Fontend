@@ -90,7 +90,7 @@ export default function Home() {
         <LeadForm />
         <Clientele />
         <Testimonials />
-        <Blogs />
+        {/* <Blogs /> */}
         <FAQ
           eyebrow="Frequently Asked Questions?"
           title="Everything You Need to Know Before You Grow!"

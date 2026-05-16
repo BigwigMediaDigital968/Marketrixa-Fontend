@@ -59,7 +59,7 @@ export default function AdminLogin() {
               Access Control
             </h1>
             <p className="text-gray-500 text-sm mt-2">
-              Enter your credentials to manage the MarketRixa Admin Portal
+              Enter your credentials to manage the Marketrixa Admin Portal
             </p>
           </div>
 

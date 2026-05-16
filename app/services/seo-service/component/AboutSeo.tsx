@@ -55,7 +55,7 @@ const AboutSeo = () => {
               Every purchase, inquiry, and sale in today's digital world begins
               with a search. When a potential customer in Ahmedabad types a
               query into Google, your business needs to appear at the top.{" "}
-              <span className="font-semibold text-[#F26522]">MarketRixa</span>,
+              <span className="font-semibold text-[#F26522]">Marketrixa</span>,
               delivers SEO services in Ahmedabad that turn ordinary search
               traffic into loyal, paying customers. As a results-driven search
               engine optimization company in Ahmedabad, we blend technical

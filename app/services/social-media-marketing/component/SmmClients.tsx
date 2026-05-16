@@ -20,7 +20,7 @@ const testimonials = [
     name: "Sarah Jenkins",
     role: "Brand Director, Vogue Essence",
     content:
-      "MarketRixa didn't just manage our Instagram; they transformed it into a revenue machine. Our engagement rate spiked by 400% in 3 months, and the viral reels they produced drove $50k in direct attribution.",
+      "Marketrixa didn't just manage our Instagram; they transformed it into a revenue machine. Our engagement rate spiked by 400% in 3 months, and the viral reels they produced drove $50k in direct attribution.",
     stats: "400% Engagement Boost",
     platform: <FaInstagram size={18} />,
     image:
@@ -31,7 +31,7 @@ const testimonials = [
     name: "David Chen",
     role: "Founder, NeoPulse Tech",
     content:
-      "The LinkedIn strategy provided by MarketRixa established me as a thought leader in the AI space. We've secured more B2B partnerships through organic social in 4 months than we did in 2 years of cold outreach.",
+      "The LinkedIn strategy provided by Marketrixa established me as a thought leader in the AI space. We've secured more B2B partnerships through organic social in 4 months than we did in 2 years of cold outreach.",
     stats: "32 High-Value Leads",
     platform: <FaLinkedin size={18} />,
     image:

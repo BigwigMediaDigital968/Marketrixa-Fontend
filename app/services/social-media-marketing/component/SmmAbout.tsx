@@ -61,7 +61,7 @@ const SmmAbout: React.FC = () => {
                     <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
                   </div>
                   <div className="text-[10px] uppercase tracking-widest text-white/40 font-bold">
-                    MarketRixa Social Lab
+                    Marketrixa Social Lab
                   </div>
                 </div>
                 <img
@@ -142,7 +142,7 @@ const SmmAbout: React.FC = () => {
                 </span>
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed font-light">
-                At <span className="text-white font-bold">MarketRixa</span>, we
+                At <span className="text-white font-bold">Marketrixa</span>, we
                 believe social media is more than just a digital business card.
                 It's a high-performance engine for growth. We draw traffic and
                 attention across Facebook, Instagram, LinkedIn, and TikTok,

@@ -17,7 +17,7 @@ import {
 
 // Brand Color Palette based on provided references
 const colors = {
-  primary: "#F26522", // MarketRixa Orange
+  primary: "#F26522", // Marketrixa Orange
   secondary: "#1D4533", // Deep Forest Green (Oracle/Success Reference)
   accent: "#FFB800", // Yellow accent for highlights
   dark: "#111111",
@@ -79,7 +79,7 @@ const PerformanceAbout = () => {
               <p className="text-gray-600 text-lg leading-relaxed mb-10 max-w-xl">
                 In a world where consumers have access to their phones at all
                 times, they often turn to search engines for answers. At{" "}
-                <span className="font-bold text-[#1D4533]">MarketRixa</span>, we
+                <span className="font-bold text-[#1D4533]">Marketrixa</span>, we
                 specialize in elevating your brand's visibility and driving
                 results through strategic, data-backed Search Engine Marketing
                 (SEM) tactics.
@@ -151,7 +151,7 @@ const PerformanceAbout = () => {
               <div className="relative rounded-[3rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border-[12px] border-white">
                 <img
                   src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80"
-                  alt="MarketRixa Strategy"
+                  alt="Marketrixa Strategy"
                   className="w-full h-[650px] object-cover"
                 />
 
