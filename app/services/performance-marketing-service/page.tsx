@@ -7,6 +7,8 @@ import PerformanceClients from "./component/PerformanceClients";
 import PerformanceAbout from "./component/PerformanceAbout";
 import PerformanceHero from "./component/PerformanceHero";
 import PerformanceProjects from "./component/PerformanceProject";
+import PerformanceMarketingServices from "./component/PerformanceMarketingServices";
+import PerformanceFeatures from "./component/PerformanceFeatures";
 
 export default function PerformancePage() {
   return (
@@ -14,6 +16,8 @@ export default function PerformancePage() {
       <Navbar />
       <PerformanceHero />
       <PerformanceAbout />
+      <PerformanceMarketingServices />
+      <PerformanceFeatures />
       <PerformanceProjects />
       <BgCTA
         title={

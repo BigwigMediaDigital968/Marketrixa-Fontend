@@ -14,15 +14,17 @@ import {
   Search,
   Globe,
   ShoppingCart,
+  Phone,
+  ArrowUpRight,
 } from "lucide-react";
 
 const testimonials = [
   {
     id: 1,
-    name: "Jonathan Reeves",
+    name: "Digvesh Jain",
     role: "Growth Head, Financy App",
     content:
-      "Marketrixa didn't just run ads; they built a conversion engine. We scaled our monthly spend from $5k to $100k while actually decreasing our CAC by 22%. Their attribution modeling is the best we've seen.",
+      "Marketrixa didn't just run ads, they built a conversion engine. We scaled our monthly spend from ₹2L to ₹12L while our cost per acquisition actually dropped by 22%. Their attribution modelling and weekly reporting gave us complete visibility for the first time. Worth every rupee.",
     stats: "7.2x Blended ROAS",
     platform: <Search size={18} />,
     image:
@@ -30,7 +32,7 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Elena Rodriguez",
+    name: "Priya Roy",
     role: "CEO, Aura Skincare",
     content:
       "We were struggling with plateaued Meta results until we switched. Their creative-first approach to performance marketing completely revitalized our funnel. Our Year-over-Year revenue is up 310%.",
@@ -41,7 +43,7 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Kenji Sato",
+    name: "Deepak Mehta",
     role: "Operations Director, SwiftLogix",
     content:
       "Their Google Search strategy captured high-intent B2B leads that our competitors were missing. Marketrixa's transparency in reporting and focus on bottom-line profit over vanity metrics is refreshing.",
@@ -56,26 +58,26 @@ const performanceStats = [
   {
     icon: <Target className="text-[#F26522]" />,
     label: "Ad Spend Managed",
-    value: "$25M+",
-    desc: "Cumulative budget optimized across Google, Meta, and TikTok.",
+    value: "₹10Cr+",
+    desc: "Cumulative budget optimized across Google, Meta, and LinkedIn campaigns.",
   },
   {
     icon: <TrendingUp className="text-[#F26522]" />,
-    label: "Avg. ROAS",
-    value: "5.4x",
-    desc: "Across our entire portfolio of performance marketing clients.",
+    label: "Average ROAS Delivered",
+    value: "4.8×",
+    desc: "Consistent return on ad spend achieved across our performance marketing portfolio.",
   },
   {
     icon: <MousePointerClick className="text-[#F26522]" />,
-    label: "Conv. Rate",
-    value: "+45%",
-    desc: "Average improvement after our landing page optimization.",
+    label: "Brands Scaled",
+    value: "50+",
+    desc: "Successfully helped brands grow revenue through data-driven campaign strategies.",
   },
   {
     icon: <PieChart className="text-[#F26522]" />,
-    label: "Scale Factor",
-    value: "10x",
-    desc: "Successfully scaled 15+ brands into 7 and 8-figure revenue.",
+    label: "Avg. Reduction in CAC",
+    value: "-35%",
+    desc: "Optimized acquisition funnels to significantly lower customer acquisition costs.",
   },
 ];
 
@@ -115,16 +117,16 @@ const PerformanceClients = () => {
               whileInView={{ opacity: 1, x: 0 }}
               className="text-[#F26522] font-black tracking-[0.3em] uppercase text-xs mb-4 block"
             >
-              The Performance Ledger
+              Client voice
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-6xl font-black text-white leading-tight"
             >
-              Turning Ad Spend into <br />
+              What our clients <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
-                Scalable Profit.
+                actually say.
               </span>
             </motion.h2>
           </div>
@@ -248,11 +250,11 @@ const PerformanceClients = () => {
         </div>
 
         {/* Growth Partners */}
-        <div className="mt-20 pt-10 border-t border-white/5 flex flex-col items-center">
-          <p className="text-[9px] text-gray-600 font-black uppercase tracking-[0.5em] mb-8">
+        <div className="mt-10 py-10 border-t border-white/5 flex flex-col items-center">
+          <p className="text-[9px] text-gray-100 font-black uppercase tracking-[0.5em] mb-8">
             Data & Performance Ecosystem
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-20 hover:opacity-50 transition-all">
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-80 transition-all">
             <span className="text-xl font-black italic">GOOGLE ADS</span>
             <span className="text-xl font-bold tracking-widest uppercase">
               Meta
@@ -265,6 +267,60 @@ const PerformanceClients = () => {
             <span className="text-xl font-bold">Klaviyo</span>
           </div>
         </div>
+      </div>
+
+      {/* High-Converting CTA Section (Appended from image_8c716a.png) */}
+      <div className="relative rounded-[3rem] p-8 md:p-20 overflow-hidden border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent text-center">
+        {/* Background radial glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#f26522]/10 rounded-full blur-[100px] pointer-events-none -z-10" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
+          <span className="text-[#f26522] text-sm font-bold tracking-[0.3em] uppercase block mb-6 font-poppins">
+            READY TO GROW?
+          </span>
+
+          <h3 className="text-4xl md:text-6xl lg:text-7xl font-black font-outfit text-white mb-8 tracking-tight leading-[1.1] max-w-4xl mx-auto">
+            Let&apos;s turn your ad budget into{" "}
+            <span className="text-[#f26522] block md:inline relative">
+              revenue.
+              <span className="absolute left-0 bottom-2 w-full h-[6px] bg-[#f26522]/30 rounded-full hidden md:block" />
+            </span>
+          </h3>
+
+          <p className="text-gray-400 text-base md:text-xl leading-relaxed font-poppins max-w-2xl mx-auto mb-12">
+            Partner with Marketrixa, the performance marketing agency in
+            Ahmedabad that&apos;s obsessed with your business outcomes. Your
+            competitors aren&apos;t waiting. Neither should you.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <motion.a
+              href="/contact"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#f26522] hover:bg-[#d94e1a] text-white font-bold px-8 py-5 rounded-full shadow-[0_0_30px_rgba(242,101,34,0.3)] transition-all font-poppins text-base border-none cursor-pointer"
+            >
+              Book a free 30-min strategy call
+              <ArrowUpRight className="w-5 h-5" />
+            </motion.a>
+
+            <motion.a
+              href="tel:+919512400000"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-5 rounded-full transition-all font-poppins text-base cursor-pointer"
+            >
+              <Phone className="w-5 h-5 text-[#f26522]" />
+              +91 95124 00000
+            </motion.a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

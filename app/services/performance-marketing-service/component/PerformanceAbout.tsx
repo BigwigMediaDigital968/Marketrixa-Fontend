@@ -17,23 +17,23 @@ import Popup from "@/app/component/website/Popup";
 const features = [
   {
     icon: <Target className="w-6 h-6" />,
-    title: "Precision Targeting",
-    desc: "We don't just find an audience; we find your future high-LTV customers using predictive modeling.",
+    title: "ROI-first approach",
+    desc: "Every campaign is tied directly to a business outcome, not impressions or reach.",
   },
   {
     icon: <BarChart3 className="w-6 h-6" />,
-    title: "Real-time Analytics",
-    desc: "Live dashboards that track every dollar from click to conversion with zero lag time.",
+    title: "Real-time data",
+    desc: "Live dashboards tracking every rupee from click to conversion with zero lag.",
   },
   {
     icon: <TrendingUp className="w-6 h-6" />,
-    title: "Aggressive Scaling",
-    desc: "Proprietary bidding algorithms that identify growth pockets before the competition does.",
+    title: "Audience intelligence",
+    desc: "Predictive modeling to find high-LTV customers before your competitors do.",
   },
   {
     icon: <Cpu className="w-6 h-6" />,
-    title: "AI-Powered Creative",
-    desc: "Dynamic creative optimization (DCO) to ensure the right message hits at the right moment.",
+    title: "Continuous optimization",
+    desc: "A/B testing and bid optimization running 24/7 to improve efficiency daily.",
   },
 ];
 
@@ -41,7 +41,7 @@ const PerformanceAbout = () => {
   const [showPopup, setShowPopup] = useState(false);
   return (
     <>
-      <section className="relative py-24 px-6 md:px-12 overflow-hidden">
+      <section className="relative py-14 px-6 md:px-12 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content: Narrative & Features */}
@@ -54,24 +54,22 @@ const PerformanceAbout = () => {
                 <div className="flex items-center gap-2 mb-6">
                   <span className="w-12 h-[2px] bg-[#F26522]"></span>
                   <span className="text-[#F26522] font-bold uppercase tracking-widest text-xs">
-                    Why Performance Matters
+                    Why It Matters
                   </span>
                 </div>
 
                 <h2 className="text-4xl md:text-5xl font-black leading-tight mb-8">
-                  It all starts with a single <br />
-                  <span className="text-[#F26522]">High-Intent Search.</span>
+                  Most agencies chase clicks.{" "}
+                  <span className="text-[#F26522]">We chase conversions.</span>
                 </h2>
 
-                <p className="text-gray-200 text-lg leading-relaxed mb-10">
-                  In a world where attention is the new currency, "visibility"
-                  isn't enough. At{" "}
-                  <span className="font-bold text-[#F26522]">Marketrixa</span>,
-                  we specialize in the psychological science of conversion. We
-                  don't just buy traffic; we engineer growth environments where
-                  your brand's visibility and bottom-line results are
-                  mathematically linked through strategic Search & Performance
-                  tactics.
+                <p className="text-gray-400 text-md md:text-lg leading-relaxed mb-10">
+                  Performance marketing is a results-oriented strategy where
+                  every campaign is optimized for real business outcomes leads,
+                  sales, app installs, and revenue. Unlike traditional
+                  advertising, we focus on ROI, audience targeting, data
+                  tracking, and continuous optimization so every marketing rupee
+                  delivers measurable business impact.
                 </p>
 
                 {/* Feature Grid - Inspired by the provided card layout */}
@@ -88,30 +86,11 @@ const PerformanceAbout = () => {
                       <h4 className="font-bold text-black mb-2">
                         {feature.title}
                       </h4>
-                      <p className="text-gray-500 text-sm leading-snug">
+                      <p className="text-gray-500 text-xs leading-snug">
                         {feature.desc}
                       </p>
                     </motion.div>
                   ))}
-                </div>
-
-                <div className="mt-12 flex items-center gap-6">
-                  <button
-                    onClick={() => setShowPopup(true)}
-                    className="px-8 py-4 bg-black text-white font-bold rounded-full hover:bg-[#F26522] transition-all flex items-center gap-2 group cursor-pointer cursor-pointer"
-                  >
-                    Start Your Growth Audit
-                    <ArrowUpRight
-                      size={18}
-                      className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                    />
-                  </button>
-                  <div className="hidden md:flex items-center gap-2 text-gray-400">
-                    <ShieldCheck size={20} className="text-green-500" />
-                    <span className="text-xs font-medium uppercase tracking-tighter">
-                      Verified Meta & Google Partner
-                    </span>
-                  </div>
                 </div>
               </motion.div>
             </div>
@@ -176,6 +155,25 @@ const PerformanceAbout = () => {
                   <Search className="w-96 h-96 text-white" />
                 </div>
               </motion.div>
+
+              <div className="mt-12 flex items-center gap-6">
+                <button
+                  onClick={() => setShowPopup(true)}
+                  className="px-8 py-4 hidden  bg-black text-white font-bold rounded-full hover:bg-[#F26522] transition-all md:flex items-center gap-2 group cursor-pointer cursor-pointer"
+                >
+                  Start Your Growth Audit
+                  <ArrowUpRight
+                    size={18}
+                    className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                  />
+                </button>
+                <div className="flex items-center gap-2 text-gray-400">
+                  <ShieldCheck size={20} className="text-green-500" />
+                  <span className="text-xs font-medium uppercase tracking-tighter">
+                    Verified Meta & Google Partner
+                  </span>
+                </div>
+              </div>
 
               {/* Accent Elements */}
               <div className="absolute -z-10 -bottom-6 -right-6 w-64 h-64 bg-[#F26522]/10 rounded-full blur-3xl"></div>

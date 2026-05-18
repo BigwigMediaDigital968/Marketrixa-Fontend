@@ -13,19 +13,21 @@ import Popup from "@/app/component/website/Popup";
 const projects = [
   {
     id: 1,
-    title: "Building a robust online presence for Local SaaS",
+    label: "CASE STUDY #1 SAAS",
+    title: "Building a robust online presence for a local SaaS brand",
     description:
-      "We transformed their organic reach by implementing a cluster-topic strategy and technical SEO optimization.",
+      "We rebuilt their full-funnel Google Ads architecture and implemented a cluster-topic content strategy alongside targeted LinkedIn campaigns — generating consistent B2B pipeline growth.",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     stats: [
-      { label: "Organic Visitors", value: 80, color: "#f26522" },
+      { label: "Organic Growth", value: 80, color: "#f26522" },
       { label: "Website Authority", value: 60, color: "#10b981" },
       { label: "Keyword Rankings", value: 95, color: "#8b5cf6" },
     ],
   },
   {
     id: 2,
+    label: "CASE STUDY #2 E-COMMERCE",
     title: "E-commerce Revenue Acceleration",
     description:
       "For this global retailer, we focused on conversion-centric SEO and high-intent keyword targeting.",
@@ -39,6 +41,7 @@ const projects = [
   },
   {
     id: 3,
+    label: "CASE STUDY #3 GLOBAL TECH",
     title: "Global Tech Enterprise Expansion",
     description:
       "Managing international SEO across 12 countries to ensure consistent visibility and brand authority.",
@@ -120,9 +123,16 @@ const PerformanceProjects = () => {
         <div className="max-w-7xl mx-auto">
           {/* Section Heading */}
           <div className="text-center mb-16">
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="text-[#F26522] font-black tracking-[0.3em] uppercase text-xs mb-4 block"
+            >
+              Case Studies
+            </motion.span>
             <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
-              Take a Glimpse into{" "}
-              <span className="text-orange-500">Our Success</span> Stories
+              Real campaigns.{" "}
+              <span className="text-orange-500">Real results.</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Are You Ready to Be a Part of Our Success Story? Partner with us

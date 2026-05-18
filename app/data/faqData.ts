@@ -338,54 +338,44 @@ export const SmmServiceFAQs: FAQItem[] = [
 
 export const PpcServiceFAQs: FAQItem[] = [
   {
-    question: "What is PPC advertising?",
+    question: "What is performance marketing?",
     answer:
-      "PPC (Pay-Per-Click) is a digital advertising model where you pay only when someone clicks on your ad.",
+      "Performance marketing is a digital advertising strategy where you pay based on measurable actions — clicks, leads, or sales — rather than just impressions. Every campaign is tracked to a real business outcome, making it one of the most accountable forms of marketing available.",
   },
   {
-    question: "Which platforms do you run PPC ads on?",
+    question: "How long does it take to see results?",
     answer:
-      "We run ads on Google Ads, Facebook Ads, Instagram, LinkedIn, and YouTube.",
+      "Most campaigns begin generating measurable insights within the first 2–4 weeks. Significant, optimized growth typically builds over 2–3 months as data accumulates and campaigns are refined. We provide weekly reports so you always know where things stand.",
   },
   {
-    question: "How quickly can PPC generate results?",
+    question: "Which platforms are best for my business?",
     answer:
-      "PPC campaigns can generate traffic and leads almost immediately after launch.",
+      "It depends on your goals and audience. Google Ads works best for high-intent, search-driven traffic. Meta (Facebook/Instagram) excels at audience-based targeting and D2C sales. LinkedIn is best for B2B lead generation. We recommend the right mix based on your industry and budget.",
   },
   {
-    question: "How much budget do I need for PPC?",
+    question: "What reporting do you provide?",
     answer:
-      "The budget depends on your goals, industry, and competition. We help you optimize for maximum ROI.",
+      "We provide weekly performance reports and a live Looker Studio dashboard tracking ROAS, CPA, CTR, conversions, and customer acquisition metrics. You have full visibility into every rupee spent and what it generated — no black boxes.",
   },
   {
-    question: "Do you manage and optimize campaigns?",
+    question: "What is the minimum ad budget?",
     answer:
-      "Yes, we continuously monitor, optimize, and improve campaigns for better performance and lower costs.",
+      "We work with campaigns starting from ₹15,000/month in ad spend. For competitive industries like real estate or finance, higher budgets allow faster testing and scaling. We'll recommend an appropriate starting budget based on your goals during your free audit.",
   },
   {
-    question: "What is a good CTR for PPC campaigns?",
+    question: "Can performance marketing help small businesses?",
     answer:
-      "A good CTR varies by industry, but we aim to consistently improve it through optimization.",
+      "Absolutely. Performance marketing allows businesses of all sizes to start with a controlled budget, prove ROI on a small scale, and then grow spend based on actual results — making it ideal for startups and SMEs.",
   },
   {
-    question: "Can PPC help increase sales?",
+    question: "Do you handle creative and ad design?",
     answer:
-      "Yes, targeted PPC campaigns can drive high-intent traffic that converts into leads and sales.",
+      "Yes. Our team handles ad copywriting, creative strategy, and basic design. For brands that need high-production video or graphic assets, we collaborate with our in-house design team to produce conversion-optimized ad creative.",
   },
   {
-    question: "Do you provide conversion tracking?",
+    question: "What is remarketing and do you do it?",
     answer:
-      "Yes, we set up tracking to measure leads, purchases, and campaign performance accurately.",
-  },
-  {
-    question: "What is remarketing in PPC?",
-    answer:
-      "Remarketing targets users who previously visited your website, helping convert them into customers.",
-  },
-  {
-    question: "Why choose your PPC services?",
-    answer:
-      "We focus on ROI-driven campaigns, smart targeting, and continuous optimization to maximize your ad performance.",
+      "Remarketing targets users who previously visited your site or engaged with your ads — converting warm prospects who didn't convert the first time. Yes, we build dedicated remarketing funnels for all our performance marketing clients.",
   },
 ];
 
