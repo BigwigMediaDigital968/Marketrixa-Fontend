@@ -69,14 +69,6 @@ const SmmHero: React.FC = () => {
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#F26522]/10 to-transparent pointer-events-none" />
       <div className="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] bg-orange-500/5 blur-[120px] rounded-full" />
 
-      {/* Grid Pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54 48c2.209 0 4 1.791 4 4s-1.791 4-4 4-4-1.791-4-4 1.791-4 4-4zM6 48c2.209 0 4 1.791 4 4s-1.791 4-4 4-4-1.791-4-4 1.791-4 4-4zM30 24c2.209 0 4 1.791 4 4s-1.791 4-4 4-4-1.791-4-4 1.791-4 4-4zM6 0c2.209 0 4 1.791 4 4s-1.791 4-4 4-4-1.791-4-4 1.791-4 4-4zM54 0c2.209 0 4 1.791 4 4s-1.791 4-4 4-4-1.791-4-4 1.791-4 4-4z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`,
-        }}
-      />
-
       <div className="container mx-auto px-6 md:px-30 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* LEFT CONTENT */}
@@ -87,7 +79,7 @@ const SmmHero: React.FC = () => {
             animate="visible"
           >
             {/* Breadcrumb */}
-            <motion.nav
+            {/* <motion.nav
               variants={itemVariants}
               className="flex items-center space-x-2 text-sm"
             >
@@ -103,7 +95,7 @@ const SmmHero: React.FC = () => {
               <span className="text-[#F26522] font-medium">
                 Social Media Experts
               </span>
-            </motion.nav>
+            </motion.nav> */}
 
             {/* Badge */}
             <motion.div
@@ -119,12 +111,12 @@ const SmmHero: React.FC = () => {
             {/* Headline */}
             <motion.h1
               variants={itemVariants}
-              className="text-3xl md:text-5xl xl:text-6xl font-black text-white leading-[0.95] tracking-tight"
+              className="text-3xl md:text-5xl font-black text-white"
             >
-              Own Social
-              <span className="italic font-light text-transparent bg-clip-text bg-gradient-to-r from-[#F26522] via-orange-400 to-white mr-3">
+              Own the Social Conversation in
+              <span className="italic font-light text-transparent bg-clip-text bg-gradient-to-r from-[#F26522] via-orange-400 to-white pe-5">
                 {" "}
-                Conversation.
+                Ahmedabad
               </span>
             </motion.h1>
 
@@ -133,9 +125,10 @@ const SmmHero: React.FC = () => {
               variants={itemVariants}
               className="text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed font-light"
             >
-              Beyond just posting - we craft social ecosystems that inspire
-              engagement, build loyal communities, and turn casual followers
-              into brand advocates through strategic storytelling.
+              Marketrixa is the social media marketing agency in Ahmedabad that
+              businesses trust to build powerful brand presences, attract the
+              right audience, and turn engagement into consistent, measurable
+              revenue.
             </motion.p>
 
             {/* Actions */}
@@ -154,13 +147,6 @@ const SmmHero: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </Link>
-
-              {/* <button className="group flex items-center cursor-pointer space-x-4 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-all text-white font-medium backdrop-blur-sm">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#F26522] transition-colors">
-                  <Play size={16} fill="white" />
-                </div>
-                <span>Watch Reel</span>
-              </button> */}
             </motion.div>
           </motion.div>
 
@@ -174,16 +160,10 @@ const SmmHero: React.FC = () => {
             <motion.div animate={floatingAnimation} className="relative z-10">
               <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-[#111]">
                 <img
-                  src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1000"
+                  src="/service/social-media-hero.png"
                   alt="Social Media Engagement"
-                  className="w-full h-auto opacity-80 mix-blend-luminosity hover:mix-blend-normal hover:opacity-100 transition-all duration-700"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src =
-                      "https://via.placeholder.com/800x600/111/F26522?text=Social+Media+Analytics";
-                  }}
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
               </div>
 
               {/* Dynamic Badge - Engagement */}

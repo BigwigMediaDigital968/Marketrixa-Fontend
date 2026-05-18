@@ -18,7 +18,7 @@ const projects = [
     category: "Instagram Growth",
     title: "Revolutionizing Fashion Brand Engagement",
     description:
-      "Through strategic influencer partnerships and high-quality reel content, we boosted their community interaction by over 200%.",
+      "A local fashion brand came to us with stagnant Instagram growth and poor engagement. We redesigned their content strategy, introduced a Reels-first approach, and launched a targeted influencer collaboration campaign.",
     image:
       "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80",
     stats: [
@@ -32,7 +32,7 @@ const projects = [
     category: "Paid Ads (Meta/TikTok)",
     title: "Scaling D2C Revenue with Meta Ads",
     description:
-      "We implemented a full-funnel social advertising strategy that optimized their ad spend and achieved a record-breaking ROAS.",
+      "A mid-sized real estate developer in Ahmedabad had no social media presence and was generating zero inbound leads from digital channels. We built their profiles from scratch, created project-specific content, and launched highly targeted Facebook and Instagram lead generation campaigns aimed at homebuyers in key Ahmedabad localities.",
     image:
       "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80",
     stats: [
@@ -43,16 +43,16 @@ const projects = [
   },
   {
     id: 3,
-    category: "Community Management",
-    title: "Building a Tech Titan's LinkedIn Presence",
+    category: "Facebook Advertising",
+    title: "Scaling an EdTech Brand to 3x Admissions Through Paid Social",
     description:
-      "Establishing thought leadership through consistent executive branding and high-value industry insights.",
+      "An Ahmedabad-based education company was struggling to fill seats for their online courses despite having a good product. We audited their existing ad strategy, rebuilt their Facebook and Instagram campaigns with precise interest and demographic targeting, and introduced a retargeting funnel that brought back warm leads who had not yet converted.",
     image:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
     stats: [
-      { label: "Brand Mentions", value: 95, color: "#f26522" },
-      { label: "Inbound Leads", value: 65, color: "#10b981" },
-      { label: "Network Growth", value: 78, color: "#8b5cf6" },
+      { label: "Increase in Course Admissions", value: 65, color: "#f26522" },
+      { label: "Drop in Cost Per Lead", value: 60, color: "#10b981" },
+      { label: "Return on Ad Spend", value: 510, color: "#8b5cf6" },
     ],
   },
 ];
@@ -135,12 +135,13 @@ const SmmProjects = () => {
             </motion.div>
             <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
               Mastering <span className="text-orange-500">Social Reach</span> &
-              Community
+              Community Ahmedabad Brands
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Discover how we transform brands into social icons. From viral
-              campaigns to sustainable organic growth, we deliver results that
-              trend.
+            <p className="text-gray-400 max-w-3xl mx-auto">
+              See how we transform Ahmedabad businesses into social icons. As a
+              results-driven social media marketing agency in Ahmedabad, we let
+              our work speak for itself, from targeted lead generation campaigns
+              to viral content that builds lasting brand recognition.
             </p>
           </div>
 
@@ -188,7 +189,7 @@ const SmmProjects = () => {
                     <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-[1.1]">
                       {projects[index].title}
                     </h3>
-                    <p className="text-gray-400 text-lg leading-relaxed border-l-2 border-orange-500/30 pl-6">
+                    <p className="text-gray-400 text-md leading-relaxed border-l-2 border-orange-500/30 pl-6">
                       {projects[index].description}
                     </p>
                   </div>

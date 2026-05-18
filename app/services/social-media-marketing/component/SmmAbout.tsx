@@ -17,22 +17,22 @@ const SmmAbout: React.FC = () => {
     {
       icon: <Users className="text-blue-400" />,
       title: "Community Growth",
-      desc: "We don't just find followers; we build loyal communities around your brand mission.",
+      desc: "We do not just grow your follower count. We build engaged, loyal communities around your brand that keep coming back, advocate for you, and bring others along with them.",
     },
     {
       icon: <Zap className="text-yellow-400" />,
       title: "Viral Engineering",
-      desc: "Strategic content designed to trigger algorithms and maximize organic reach.",
+      desc: " Every piece of content we create is built with purpose. Our team engineers posts, Reels, and campaigns designed to trigger platform algorithms, extend your organic reach, and keep your brand trending.",
     },
     {
       icon: <MessageSquare className="text-green-400" />,
       title: "Active Engagement",
-      desc: "Real-time interaction management that humanizes your brand and builds trust.",
+      desc: "We manage real-time interactions across all your social profiles, responding to comments, messages, and mentions in a way that humanizes your brand and builds the kind of trust that drives long-term loyalty.",
     },
     {
       icon: <Target className="text-[#F26522]" />,
       title: "Precision Targeting",
-      desc: "Reaching the exact demographic that aligns with your conversion goals.",
+      desc: " Reaching a large audience means nothing if it is the wrong one. We use data-driven targeting to put your content and ads in front of the exact people most likely to engage, convert, and stay.",
     },
   ];
 
@@ -138,15 +138,23 @@ const SmmAbout: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-black text-white leading-[1.1] mb-6">
                 Turning Social Noise <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40 italic font-light">
-                  Into Scalable Revenue.
+                  Into Scalable{" "}
                 </span>
+                for Ahmedabad Businesses.
               </h2>
-              <p className="text-gray-400 text-lg leading-relaxed font-light">
+              <p className="text-gray-400 text-sm md:text-md leading-relaxed">
                 At <span className="text-white font-bold">Marketrixa</span>, we
-                believe social media is more than just a digital business card.
-                It's a high-performance engine for growth. We draw traffic and
-                attention across Facebook, Instagram, LinkedIn, and TikTok,
-                ensuring your brand isn't just seen - it's remembered.
+                believe social media is far more than a place to post updates.
+                It is a high-performance growth engine, and we know exactly how
+                to run it. As the leading social media marketing agency in
+                Ahmedabad, we help brands across industries cut through the
+                noise, build genuine audiences, and convert online attention
+                into real business results. <br /> <br /> We draw traffic and
+                drive conversations across Facebook, Instagram, LinkedIn,
+                YouTube, and beyond, making sure your brand is not just seen but
+                remembered. Every campaign we build is rooted in strategy,
+                powered by creativity, and measured by outcomes that matter to
+                your business.
               </p>
             </motion.div>
 
@@ -165,7 +173,7 @@ const SmmAbout: React.FC = () => {
                     {f.icon}
                   </div>
                   <h3 className="text-white font-bold mb-1">{f.title}</h3>
-                  <p className="text-gray-500 text-sm leading-snug">{f.desc}</p>
+                  <p className="text-gray-500 text-xs leading-snug">{f.desc}</p>
                 </motion.div>
               ))}
             </div>

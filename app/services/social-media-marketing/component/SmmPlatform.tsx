@@ -25,7 +25,7 @@ const platforms = [
     stats: { growth: "85%", reach: "High", conversion: "4.2%" },
     features: ["Reels Dominance", "Influencer Partnerships", "Visual Branding"],
     strategy:
-      "We leverage aesthetic consistency and short-form video trends to capture the Gen-Z and Millennial demographic effectively.",
+      "We use aesthetic consistency, Reel, Crousals, and strategic posting schedules to position your brand effectively with the audiences that matter most. Our Instagram strategies are built for the Ahmedabad market and beyond, capturing attention and converting it into a community.",
   },
   {
     id: "linkedin",
@@ -37,7 +37,7 @@ const platforms = [
     stats: { growth: "60%", reach: "Targeted", conversion: "6.1%" },
     features: ["Thought Leadership", "B2B Lead Gen", "Employee Advocacy"],
     strategy:
-      "Focusing on high-value industry insights and professional networking to establish your brand as a market leader.",
+      "LinkedIn is where business decisions are made, and we make sure your brand is part of that conversation. As a social media marketing agency in Ahmedabad working with B2B brands, we build LinkedIn strategies that establish thought leadership, grow your professional network, and generate leads from the decision-makers who are actively searching for what you offer.",
   },
   {
     id: "facebook",
@@ -49,7 +49,7 @@ const platforms = [
     stats: { growth: "45%", reach: "Massive", conversion: "3.8%" },
     features: ["Group Engagement", "Retargeting Ads", "Marketplace Ads"],
     strategy:
-      "Utilizing Meta’s advanced pixel data to drive conversions through highly personalized and segmented ad campaigns.",
+      "Facebook remains one of the most powerful platforms for reaching a wide and diverse audience across Ahmedabad and beyond. We build Facebook strategies that combine organic community management with precision-targeted paid campaigns, using retargeting, lookalike audiences, and interest-based targeting to bring the right people into your funnel and move them toward conversion.",
   },
   {
     id: "youtube",
@@ -61,7 +61,7 @@ const platforms = [
     stats: { growth: "92%", reach: "Global", conversion: "5.5%" },
     features: ["Video SEO", "In-stream Ads", "Shorts Strategy"],
     strategy:
-      'Creating "Evergreen" video assets that continue to generate organic traffic and authority years after publication.',
+      "YouTube is the second-largest search engine in the world, and your audience is already using it to research the products and services they want to buy. We create and manage YouTube strategies that position your brand for long-term visibility through SEO-optimized video content, consistent publishing, and targeted pre-roll advertising that reaches viewers at exactly the right moment.",
   },
   {
     id: "whatsapp",
@@ -73,7 +73,7 @@ const platforms = [
     stats: { growth: "78%", reach: "Personal", conversion: "12.4%" },
     features: ["Automated Flows", "Broadcast Lists", "Direct Catalog"],
     strategy:
-      "Bridge the gap between discovery and purchase with conversational marketing and instant customer support.",
+      " WhatsApp Business gives your brand direct access to your customers in the channel they use most. We help businesses in Ahmedabad set up and manage WhatsApp Business strategies that drive re-engagement, nurture leads, share promotional content, and deliver customer support in a way that feels personal, timely, and genuine, all while maintaining brand consistency across every interaction.",
   },
 ];
 
@@ -88,17 +88,22 @@ const SmmPlatform = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
+            <span className="text-orange-500 tracking-widest font-medium uppercase">
+              Omnichannel Excellence
+            </span>
             <motion.h2
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               className="text-4xl md:text-5xl font-black text-white mb-6"
             >
-              Omnichannel <span className="text-orange-500">Excellence</span>
+              <span className="text-orange-500">Platforms </span>We Manage
             </motion.h2>
-            <p className="text-gray-400 text-lg">
-              We don't just post content; we master the unique algorithms and
-              user behaviors of every major social ecosystem to ensure your
-              brand thrives where your audience lives.
+            <p className="text-gray-400 text-md">
+              We do not just post content across platforms. As a social media
+              marketing agency in Ahmedabad, we master the unique algorithms,
+              audience behaviours, and content formats of every major social
+              network so your brand performs exactly where your customers spend
+              their time.
             </p>
           </div>
           <div className="hidden lg:flex gap-4">

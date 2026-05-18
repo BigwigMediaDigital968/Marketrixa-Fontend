@@ -287,52 +287,47 @@ export const SmmServiceFAQs: FAQItem[] = [
   {
     question: "What is Social Media Marketing (SMM)?",
     answer:
-      "SMM involves promoting your brand, products, or services on platforms like Instagram, Facebook, and LinkedIn to engage and grow your audience.",
+      "Social media marketing involves promoting your brand, products, or services on platforms like Instagram, Facebook, and LinkedIn to engage, grow, and convert your audience. For businesses in Ahmedabad, working with the right social media marketing agency in Ahmedabad ensures your campaigns are built around local market behaviour and deliver results that go beyond vanity metrics.",
   },
   {
     question: "Which platforms should my business focus on?",
     answer:
-      "It depends on your target audience. For example, Instagram is great for visuals, LinkedIn for B2B, and Facebook for broader reach.",
+      "It depends on your target audience. Instagram is great for visual content, LinkedIn works best for B2B marketing, and Facebook helps reach a broader audience.",
   },
   {
     question: "How often should I post on social media?",
     answer:
-      "Consistency matters. Typically, 3–5 posts per week help maintain engagement and visibility.",
+      "Consistency matters. Typically, posting 3 to 5 times per week helps maintain engagement, visibility, and steady audience growth.",
   },
   {
     question: "Do you create content for social media?",
     answer:
-      "Yes, we design creatives, write captions, and plan content calendars aligned with your brand strategy.",
+      "Yes, as a full-service social media marketing agency in Ahmedabad, we design creatives, write captions, and plan content calendars that are fully aligned with your brand strategy and built to drive real engagement.",
   },
   {
     question: "Can social media marketing generate leads?",
     answer:
-      "Yes, with the right strategy, targeting, and content, SMM can drive traffic, leads, and conversions.",
-  },
-  {
-    question: "Do you manage paid social media ads?",
-    answer:
-      "Yes, we run targeted ad campaigns to boost reach, engagement, and conversions.",
+      "Yes, with the right strategy, audience targeting, and content, social media marketing can effectively drive traffic, generate leads, and increase conversions.",
   },
   {
     question: "How do you measure social media success?",
     answer:
-      "We track engagement, reach, followers, website traffic, and conversions using analytics tools.",
+      "We track key metrics such as engagement, reach, follower growth, website traffic, and conversions using advanced analytics tools.",
   },
   {
     question: "Will social media help my brand grow?",
     answer:
-      "Absolutely, it builds brand awareness, trust, and direct communication with your audience.",
+      "Absolutely. A strong social media presence builds brand awareness, establishes trust, and opens a direct line of communication with your audience. When managed by the right social media marketing agency in Ahmedabad, it becomes one of the most powerful and cost-effective growth channels available to your business.",
   },
   {
     question: "Do you provide monthly reports?",
     answer:
-      "Yes, we share detailed reports with performance metrics and insights.",
+      "Yes, we share detailed monthly reports with performance metrics and insights across every platform we manage. As your dedicated social media marketing agency in Ahmedabad, we believe full transparency is the foundation of a strong and results-driven partnership.",
   },
   {
     question: "Why choose your SMM services?",
     answer:
-      "We combine creativity with data-driven strategies to create engaging campaigns that deliver measurable results.",
+      "We combine creativity with data-driven strategies to create engaging campaigns that deliver measurable results. Our team continuously monitors performance, tests new approaches, and refines strategies to keep your brand growing. Every decision we make is backed by data and focused on delivering outcomes that have a real impact on your business.",
   },
 ];
 

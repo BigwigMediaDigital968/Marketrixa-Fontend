@@ -26,7 +26,7 @@ export default function SmmPage() {
             <span className="text-[#F26522]">Top of the Trend</span>
           </>
         }
-        description="Get more traffic, leads, and revenue with our data-driven SEO strategies."
+        description="Get more traffic, leads, and revenue with our data-driven social media strategies built specifically for businesses in Ahmedabad."
         ctaText="START SOCIAL GROWTH"
         bgImage="/cta-bg.png"
       />

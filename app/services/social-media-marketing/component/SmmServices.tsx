@@ -25,7 +25,7 @@ const services = [
     id: 1,
     icon: <Target className="text-orange-500" size={32} />,
     title: "Strategy & Planning",
-    desc: "Business clarity that shapes user interactions through data-driven roadmaps.",
+    desc: "We begin every engagement with a thorough audit of your brand, competitors, and target audience. The result is a clear, data-backed social media roadmap built specifically for your business goals and the Ahmedabad market.",
     whatWeDo: ["Platform audits", "Competitor analysis", "Funnel mapping"],
     brandGets: ["Clear roadmap", "Targeted messaging", "Scalable engagement"],
     userExperience:
@@ -36,7 +36,7 @@ const services = [
     id: 2,
     icon: <Video className="text-orange-500" size={32} />,
     title: "Content Creation",
-    desc: "High-performing creatives including Reels and Carousels that drive engagement.",
+    desc: "Our creative team produces high-performing content, including Reels, carousels, static graphics, and copy that is designed to stop the scroll. Every piece is on-brand, platform-optimized, and built to generate real engagement.",
     whatWeDo: [
       "Reels & short-form videos",
       "Carousel storytelling",
@@ -55,7 +55,7 @@ const services = [
     id: 3,
     icon: <Megaphone className="text-orange-500" size={32} />,
     title: "Social Advertising",
-    desc: "Performance-driven paid campaigns focused on generating high-quality leads.",
+    desc: "We run performance-driven paid campaigns across Facebook, Instagram, LinkedIn, and YouTube, focused on generating high-quality leads and maximizing your return on ad spend through continuous testing and optimization.",
     whatWeDo: [
       "Meta Ads",
       "LinkedIn Ads",
@@ -71,7 +71,7 @@ const services = [
     id: 4,
     icon: <Users className="text-orange-500" size={32} />,
     title: "Influencer & UGC",
-    desc: "Strategic influencer selection and campaign management for maximum social proof.",
+    desc: "We identify, vet, and manage influencer partnerships and user-generated content campaigns that bring authentic social proof to your brand and extend your reach to audiences you could not access alone.",
     whatWeDo: ["Influencer selection", "Campaign management", "ROI tracking"],
     brandGets: ["Social proof", "Expanded reach", "Video dominance"],
     userExperience:
@@ -82,7 +82,7 @@ const services = [
     id: 5,
     icon: <MessageSquare className="text-orange-500" size={32} />,
     title: "Community & ORM",
-    desc: "Proactive engagement to protect brand image and build strong loyalty.",
+    desc: "We actively manage your online reputation by monitoring mentions, responding to feedback, and proactively engaging your audience. Your brand image stays protected, and your community stays strong.",
     whatWeDo: [
       "Comment & DM handling",
       "Reputation monitoring",
@@ -101,7 +101,7 @@ const services = [
     id: 6,
     icon: <Layout className="text-orange-500" size={32} />,
     title: "Account Management",
-    desc: "Consistent brand presence through strategic scheduling and monitoring.",
+    desc: "Consistent, strategic social media presence does not happen by accident. We handle scheduling, monitoring, and profile management across all platforms to keep your brand active and visible every single day.",
     whatWeDo: [
       "Profile optimization",
       "Content calendars",
@@ -120,7 +120,7 @@ const services = [
     id: 7,
     icon: <FaFacebook className="text-orange-500" size={32} />,
     title: "Meta Marketing",
-    desc: "FB & IG strategies designed to maximize reach via Reels and Retargeting.",
+    desc: "We develop Facebook and Instagram strategies built around Reels, Stories, and precision retargeting to maximize your reach, grow your following, and drive conversions from your most engaged audiences.",
     whatWeDo: [
       "Engagement strategies",
       "Meta Ads management",
@@ -139,7 +139,7 @@ const services = [
     id: 8,
     icon: <FaLinkedin className="text-orange-500" size={32} />,
     title: "LinkedIn Marketing",
-    desc: "Professional positioning and high-intent lead generation for B2B growth.",
+    desc: "For B2B brands and professionals, we build LinkedIn strategies that establish authority, grow meaningful connections, and generate high-intent leads from decision-makers who are actively looking for solutions.",
     whatWeDo: ["Thought leadership", "LinkedIn Ads", "Lead form campaigns"],
     brandGets: [
       "Industry authority",
@@ -154,7 +154,7 @@ const services = [
     id: 9,
     icon: <FaYoutube className="text-orange-500" size={32} />,
     title: "YouTube Marketing",
-    desc: "Video-first strategies for long-term awareness and discoverability.",
+    desc: " We build video-first strategies that position your brand for long-term awareness and search discoverability on YouTube, helping you connect with audiences at every stage of the buying journey.",
     whatWeDo: ["Video SEO", "YouTube Ads", "Channel growth strategies"],
     brandGets: [
       "Higher visibility",
@@ -169,7 +169,7 @@ const services = [
     id: 10,
     icon: <Zap className="text-orange-500" size={32} />,
     title: "Lead Generation",
-    desc: "Campaigns strictly focused on capturing and converting high-quality leads.",
+    desc: " Every campaign we run has one non-negotiable goal: results. We design and manage lead generation campaigns that attract qualified prospects and move them through your funnel efficiently and cost-effectively.",
     whatWeDo: ["Funnel targeting", "Landing pages", "Retargeting & tracking"],
     brandGets: [
       "Qualified leads",
@@ -184,7 +184,7 @@ const services = [
     id: 11,
     icon: <Cpu className="text-orange-500" size={32} />,
     title: "AI-Powered SMM",
-    desc: "Using AI for audience insights and predictive content analysis.",
+    desc: "We use artificial intelligence to analyze audience behaviour, predict content performance, and optimize ad delivery, giving your brand a significant competitive edge across every platform we manage.",
     whatWeDo: ["Audience insights", "Content analysis", "Ad optimization"],
     brandGets: ["Smarter targeting", "Higher ROI", "Faster scaling"],
     userExperience: "Highly relevant content and personalized experiences.",
@@ -194,7 +194,7 @@ const services = [
     id: 12,
     icon: <Settings className="text-orange-500" size={32} />,
     title: "SMM Automation",
-    desc: "Improving efficiency while maintaining a personalized human touch.",
+    desc: "We implement smart automation workflows that improve operational efficiency across your social channels while preserving the personalized, human tone your audience expects from your brand.",
     whatWeDo: ["Scheduled workflows", "Chatbot flows", "Trigger campaigns"],
     brandGets: [
       "Operational efficiency",
@@ -254,7 +254,9 @@ const ServiceCard = ({
           {service.title}
         </h3>
 
-        <p className="text-gray-400 mb-6 leading-relaxed">{service.desc}</p>
+        <p className="text-gray-400 mb-6 leading-relaxed text-sm">
+          {service.desc}
+        </p>
 
         {/* Animated Expanded Content */}
         <AnimatePresence>
@@ -346,14 +348,19 @@ const SmmServices = () => {
             >
               Our Expertise
             </motion.div>
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
-              360° Coverage by the Best <br />
-              <span className="text-orange-500">SMM Agency</span> in India
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
+              360 Degree Coverage by the Best <br />
+              <span className="text-orange-500">
+                Social Media Marketing Agency
+              </span>{" "}
+              in Ahmedabad
             </h2>
-            <p className="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">
-              As a creative social media & digital marketing agency, we empower
-              our clients holistically by delivering results worthy of a
-              top-tier social media marketing firm.
+            <p className="text-gray-400 max-w-4xl mx-auto text-md leading-relaxed">
+              From strategy to execution and reporting, we handle every
+              dimension of your social media presence so you can focus on
+              running your business. As a dedicated social media marketing
+              agency in Ahmedabad, we ensure your brand stays ahead across every
+              platform, every day.
             </p>
           </div>
 
@@ -372,11 +379,11 @@ const SmmServices = () => {
           >
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
             <h3 className="text-3xl md:text-4xl font-black text-white mb-6 relative z-10">
-              Ready to Dominate the Social Landscape?
+              Ready to Dominate the Social Landscape in Ahmedabad?
             </h3>
             <p className="text-white/90 mb-10 text-lg max-w-2xl mx-auto relative z-10">
               Our data-driven strategies and creative content are designed to
-              make your brand the center of conversation.
+              make your brand the centre of every conversation in your market.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
               <button

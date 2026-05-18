@@ -20,7 +20,7 @@ const testimonials = [
     name: "Sarah Jenkins",
     role: "Brand Director, Vogue Essence",
     content:
-      "Marketrixa didn't just manage our Instagram; they transformed it into a revenue machine. Our engagement rate spiked by 400% in 3 months, and the viral reels they produced drove $50k in direct attribution.",
+      "Marketrixa did not just manage our Instagram. They turned it into a revenue machine. Our engagement rate jumped by 400 percent in three months, and the content they produced drove direct, attributable sales we could track. This is the social media marketing agency in Ahmedabad that actually delivers.",
     stats: "400% Engagement Boost",
     platform: <FaInstagram size={18} />,
     image:
