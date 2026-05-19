@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Marketrixa",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/home-og-image.png",
         width: 1200,
         height: 630,
       },
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Marketrixa",
     description: "Scale your business with smart digital solutions",
-    images: ["/og-image.jpg"],
+    images: ["/home-og-image.png"],
   },
 };
 
