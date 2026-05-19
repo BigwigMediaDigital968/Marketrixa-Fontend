@@ -17,11 +17,37 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Marketrixa | Scale Your Business with Smart Digital Solutions",
+  title: "Marketrixa | Best Digital Marketing Company in Ahmedabad",
   description:
-    "Marketrixa is a digital innovative agency delivering cutting-edge solutions in web development, branding, and online promotions to help businesses grow and stand out in the modern digital landscape.",
+    "Marketrixa is the best digital marketing company in Ahmedabad & Deesa. SEO, Google Ads, social media & web. 50+ brands. Book a free Consultation today.",
+  keywords:
+    "digital marketing agency, SEO company, website development company, social media marketing, PPC services, branding agency, online marketing services, Marketrixa, SEO services India, web design company",
+  verification: {
+    google: "_-nwverD8yPqmyWX6jgsE_1CRjzpZfMzq1AC5ENuNR4",
+  },
   icons: {
     icon: "/favicon.jpg",
+  },
+  openGraph: {
+    title: "Scale Your Business with Smart Digital Solutions | Marketrixa",
+    description:
+      "Grow your business with performance-driven digital marketing.",
+    url: "https://www.marketrixa.com/",
+    siteName: "Marketrixa",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marketrixa",
+    description: "Scale your business with smart digital solutions",
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -42,16 +68,13 @@ export default function RootLayout({
 
         <>
           <Script id="meta-pixel" strategy="afterInteractive">
-            {`
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '953255090434595');
-fbq('track', 'PageView');`}
+            {`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}; 
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '953255090434595');
+            fbq('track', 'PageView');`}
           </Script>
           <noscript>
             <img
