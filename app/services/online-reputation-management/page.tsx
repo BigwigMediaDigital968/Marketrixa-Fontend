@@ -8,6 +8,7 @@ import OrmProcess from "./component/OrmProcess";
 import FAQ from "@/app/component/website/FAQ";
 import { ORMFaqs } from "@/app/data/faqData";
 import OrmStats from "./component/OrmStats";
+import OrmTestimonial from "./component/OrmTestimonial";
 
 export default function OrmPageContant() {
   return (
@@ -19,6 +20,7 @@ export default function OrmPageContant() {
       <WhyMarketORM />
       <OrmProcess />
       <WhyIndusMarket />
+      <OrmTestimonial />
       <FAQ
         eyebrow="Got questions?"
         title="Frequently Asked Questions"

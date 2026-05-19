@@ -33,7 +33,7 @@ const AboutORM: React.FC = () => {
               >
                 <div className="w-10 h-[1px] bg-[#f26522]" />
                 <span className="text-[#f26522] text-xs font-bold uppercase tracking-widest">
-                  The Marketrixa Advantage
+                  Why It Matters
                 </span>
               </motion.div>
 
@@ -43,9 +43,9 @@ const AboutORM: React.FC = () => {
                 viewport={{ once: true }}
                 className="text-3xl md:text-5xl font-bold mb-8"
               >
-                Enhance Exposure & <br />
-                <span className="text-white/60 italic text-3xl md:text-4xl">
-                  Establish Unshakable Trust.
+                What People Find When They Google You <br />
+                <span className="text-[#f26522] italic text-3xl md:text-4xl">
+                  Is Already Shaping Their Decision.
                 </span>
               </motion.h2>
 
@@ -53,35 +53,37 @@ const AboutORM: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-white/60 text-lg leading-relaxed mb-10 font-light"
+                className="text-white/60 text-md leading-relaxed mb-10 font-light"
               >
-                Marketrixa provides a complete ORM Service aimed at monitoring,
-                managing, and enhancing how your brand is seen online. Our team
-                works tirelessly to increase positive exposure across search
-                engines, review sites, and social media platforms.
+                Before a potential customer picks up the phone, before an
+                investor reviews your pitch deck, before a talented candidate
+                applies to join your team, they Google you. What they find in
+                those first ten results determines whether they proceed or walk
+                away. Online reputation management is the discipline of
+                controlling that narrative, proactively and strategically.
               </motion.p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
                   {
                     icon: Search,
-                    title: "Search Engine Control",
-                    text: "Promote positive content.",
+                    title: "88% Consumers Trust Online Reviews",
+                    // text: "Nearly 9 in 10 people trust online reviews as much as personal recommendations.",
                   },
                   {
                     icon: Star,
-                    title: "Review Management",
-                    text: "Curate authentic feedback.",
+                    title: "80% Decisions Made After Online Research",
+                    // text: "Curate authentic feedback.",
                   },
                   {
                     icon: Users,
                     title: "Social Authority",
-                    text: "Build community confidence.",
+                    // text: "Build community confidence.",
                   },
                   {
                     icon: ShieldCheck,
-                    title: "Crisis Prevention",
-                    text: "Stay ahead of challenges.",
+                    title: "1 Star Drop in Rating = 22% Revenue Loss",
+                    // text: "Stay ahead of challenges.",
                   },
                 ].map((feature, i) => (
                   <motion.div
@@ -90,14 +92,14 @@ const AboutORM: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="flex gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-[#f26522]/30 transition-all group"
+                    className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-[#f26522]/30 transition-all group"
                   >
                     <feature.icon className="w-5 h-5 text-[#f26522] mt-1" />
                     <div>
                       <h4 className="font-bold text-sm mb-1">
                         {feature.title}
                       </h4>
-                      <p className="text-xs text-white/40">{feature.text}</p>
+                      {/* <p className="text-xs text-white/40">{feature.text}</p> */}
                     </div>
                   </motion.div>
                 ))}
@@ -111,7 +113,7 @@ const AboutORM: React.FC = () => {
               viewport={{ once: true }}
               className="order-1 relative"
             >
-              <div className="premium-card p-2 aspect-video lg:aspect-square relative z-10">
+              <div className="premium-card p-2 relative z-10">
                 <img
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
                   alt="Marketrixa Strategy"

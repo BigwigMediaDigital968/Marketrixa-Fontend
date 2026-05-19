@@ -26,7 +26,7 @@ const processSteps: ProcessStep[] = [
   {
     number: "01",
     title: "Deep-Dive Reputation Audit",
-    desc: "We begin every engagement with a thorough audit of your digital footprint. We analyse the first three pages of Google results for your brand name and key executives, review all major review platforms, social channels, news mentions, and forum discussions. This gives us a precise map of your current reputation landscape — strengths, vulnerabilities, and the specific threats that need to be addressed first.",
+    desc: "We begin every engagement with a thorough audit of your digital footprint. We analyse the first three pages of Google results for your brand name and key executives, review all major review platforms, social channels, news mentions, and forum discussions. This gives us a precise map of your current reputation landscape strengths, vulnerabilities, and the specific threats that need to be addressed first.",
     icon: FileSearch,
     accentColor: "#f26522", // Brand Orange
     badge: "Discovery & Audit",
@@ -35,7 +35,7 @@ const processSteps: ProcessStep[] = [
   {
     number: "02",
     title: "Custom Strategy Development",
-    desc: "Based on the audit findings, our team builds a tailored ORM strategy specific to your brand, industry, and goals. We identify which negative content to suppress, which channels to prioritise, what positive content needs to be created, and how to structure a review management programme. We present this strategy in full before any work begins — you always know exactly what we're doing and why.",
+    desc: "Based on the audit findings, our team builds a tailored ORM strategy specific to your brand, industry, and goals. We identify which negative content to suppress, which channels to prioritise, what positive content needs to be created, and how to structure a review management programme. We present this strategy in full before any work begins you always know exactly what we're doing and why.",
     icon: Compass,
     accentColor: "#38bdf8", // Sky Blue
     badge: "Strategic Blueprint",
@@ -44,7 +44,7 @@ const processSteps: ProcessStep[] = [
   {
     number: "03",
     title: "Active Campaign Deployment",
-    desc: "With strategy approved, our team gets to work. Content is created and optimised. Suppression campaigns are launched. Review management processes are activated. Monitoring systems are configured. We work across SEO, content, PR, and social simultaneously — because reputation management is a multi-channel discipline that requires coordinated execution, not siloed tactics.",
+    desc: "With strategy approved, our team gets to work. Content is created and optimised. Suppression campaigns are launched. Review management processes are activated. Monitoring systems are configured. We work across SEO, content, PR, and social simultaneously because reputation management is a multi-channel discipline that requires coordinated execution, not siloed tactics.",
     icon: Send,
     accentColor: "#a78bfa", // Lavender Violet
     badge: "Launch & Suppress",
@@ -53,7 +53,7 @@ const processSteps: ProcessStep[] = [
   {
     number: "04",
     title: "Real-Time Monitoring & Response",
-    desc: "Our team monitors your brand around the clock. Every new review is responded to within 24 hours. Every emerging mention — positive or negative — is flagged and acted upon. If a new reputation threat appears, we respond immediately, adjusting the strategy before a small issue becomes a large crisis. You receive weekly updates and monthly comprehensive reports throughout the engagement.",
+    desc: "Our team monitors your brand around the clock. Every new review is responded to within 24 hours. Every emerging mention — positive or negative is flagged and acted upon. If a new reputation threat appears, we respond immediately, adjusting the strategy before a small issue becomes a large crisis. You receive weekly updates and monthly comprehensive reports throughout the engagement.",
     icon: Eye,
     accentColor: "#34d399", // Emerald Green
     badge: "24/7 Mitigation",
@@ -62,7 +62,7 @@ const processSteps: ProcessStep[] = [
   {
     number: "05",
     title: "Measure, Report & Continuously Improve",
-    desc: "Every month, we provide detailed reporting that tracks suppression progress, review score improvements, sentiment trends, and share-of-voice metrics. We don't just tell you what we did — we show you the measurable impact on your brand's standing. Based on results, we continuously refine the strategy to compound gains and ensure your online reputation keeps improving, never stagnating.",
+    desc: "Every month, we provide detailed reporting that tracks suppression progress, review score improvements, sentiment trends, and share-of-voice metrics. We don't just tell you what we did, we show you the measurable impact on your brand's standing. Based on results, we continuously refine the strategy to compound gains and ensure your online reputation keeps improving, never stagnating.",
     icon: BarChart3,
     accentColor: "#fbbf24", // Golden Amber
     badge: "Analytics & Scaling",
@@ -80,7 +80,7 @@ const OrmProcess: React.FC = () => {
     if (isAutoPlaying) {
       interval = setInterval(() => {
         setActiveStep((prev) => (prev + 1) % processSteps.length);
-      }, 6000);
+      }, 4000);
     }
     return () => clearInterval(interval);
   }, [isAutoPlaying]);

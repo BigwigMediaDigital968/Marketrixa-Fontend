@@ -13,6 +13,7 @@ import {
   ChevronRight,
   Heart,
   LucideProps,
+  LucideProportions,
 } from "lucide-react";
 
 const E = [0.22, 1, 0.36, 1] as const;
@@ -61,9 +62,10 @@ const WhyMarketORM: React.FC = () => {
 
   const services = [
     {
-      title: "Online Review Management",
+      tag: "Foundation Service",
+      title: "Brand Reputation Audit",
       icon: StarIcon,
-      desc: "Customer reviews play a major role in shaping brand perception. We monitor and manage feedback daily.",
+      desc: "A comprehensive analysis of your entire online footprint  Google search results, review platforms, social mentions, news coverage, and forum discussions. We identify every reputation risk, rank them by severity, and build a clear action plan. No guesswork. No generic recommendations. Just a precise diagnosis of where you stand and exactly what needs to change.",
       features: [
         "Monitor customer reviews daily",
         "Respond to positive & negative feedback",
@@ -72,9 +74,10 @@ const WhyMarketORM: React.FC = () => {
       ],
     },
     {
-      title: "Social Media Reputation",
+      tag: "Core ORM",
+      title: "Negative Content Suppression",
       icon: MessageSquare,
-      desc: "We manage your brand presence across social platforms to ensure positive engagement.",
+      desc: "Negative articles, damaging blog posts, and harmful search results don't have to define you permanently. Using advanced reverse-SEO techniques, strategic content creation, and authoritative link-building, we systematically push negative content off Page 1 of Google replacing it with positive, brand-controlled narratives. Our average suppression rate is 97% of targeted negative results within 60–90 days.",
       features: [
         "Monitoring comments & mentions",
         "Responding to customer queries",
@@ -83,9 +86,10 @@ const WhyMarketORM: React.FC = () => {
       ],
     },
     {
-      title: "Search Engine Reputation",
+      tag: "Revenue Impact",
+      title: "Review Management & Generation",
       icon: Search,
-      desc: "We work to improve visibility and ensure positive content appears prominently on SERPs.",
+      desc: "We manage your review presence across Google, Justdial, Trustpilot, Facebook, and industry-specific platforms responding to every review (positive or negative) with professionally crafted responses that demonstrate accountability and care. We also implement ethical, compliant review generation campaigns to steadily increase your rating and review volume from real, satisfied customers.",
       features: [
         "Monitoring search engine results",
         "Promoting positive content",
@@ -94,9 +98,10 @@ const WhyMarketORM: React.FC = () => {
       ],
     },
     {
-      title: "Brand Monitoring & Alerts",
+      tag: "Always-On",
+      title: "Real-Time Brand Monitoring",
       icon: Bell,
-      desc: "Real-time tracking of brand mentions across the web to keep you ahead of the narrative.",
+      desc: "You can't manage what you don't know about. Our team sets up comprehensive monitoring across Google, social media, news platforms, blogs, forums, and review sites giving you real-time visibility into every mention of your brand. We alert you to emerging threats before they become crises, track sentiment trends over time, and deliver monthly reporting that connects reputation health to business outcomes.",
       features: [
         "Real-time brand monitoring",
         "Keyword tracking",
@@ -105,14 +110,27 @@ const WhyMarketORM: React.FC = () => {
       ],
     },
     {
-      title: "Crisis Management",
+      tag: "Emergency Response",
+      title: "Crisis Reputation Management",
       icon: AlertTriangle,
-      desc: "Rapid response planning to help businesses respond effectively and maintain customer trust.",
+      desc: " When a reputation crisis hits, speed is everything. Our crisis ORM team mobilises within 48 hours to contain, counter, and neutralise reputation threats. Whether it's a viral complaint, a damaging news story, or a coordinated negative campaign, we develop and execute a rapid-response strategy that protects your brand, manages the narrative, and begins rebuilding trust from day one.",
       features: [
         "Rapid response planning",
         "Professional communication strategies",
         "Damage control & recovery support",
         "Reputation rebuilding campaigns",
+      ],
+    },
+    {
+      tag: "Long-Term Growth",
+      title: "Positive Content Creation & SEO",
+      icon: LucideProportions,
+      desc: "The most powerful way to push down negative content is to flood the top of Google with positive, authoritative content about your brand. We create SEO-optimised press releases, thought leadership articles, case studies, media features, and social profiles that rank highly and tell your brand's real story. Every piece of content serves double duty  building reputation and improving search visibility simultaneously.",
+      features: [
+        "Complete ORM strategy development",
+        "Ongoing reputation monitoring",
+        "Continuous content management",
+        "Dedicated ORM support team",
       ],
     },
   ];
@@ -179,18 +197,23 @@ const WhyMarketORM: React.FC = () => {
         {/* --- SECTION: Our ORM Services --- */}
         <div className="relative">
           <div className="text-center mb-12 md:mb-20">
+            <span className="text-[#f26522] text-xs font-bold uppercase tracking-widest">
+              What We Do
+            </span>
             <motion.h2
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               className="text-3xl md:text-5xl font-bold mb-6"
             >
-              Our ORM <span className="text-[#f26522]">Methodology.</span>
+              Our Online Reputation Management Services <br />
+              <span className="text-[#f26522]">End to End.</span>
             </motion.h2>
             <p className="text-white/50 max-w-2xl mx-auto font-light text-sm md:text-base px-4">
-              Marketrixa offers a comprehensive range of services designed
-              specifically for modern businesses, integrating technology and
-              strategy.
+              We don't offer a one-size-fits-all ORM package. Every brand's
+              reputation challenge is unique. Our team builds a custom strategy
+              across every channel where your reputation is being formed search,
+              social, reviews, news, and beyond.
             </p>
           </div>
 
@@ -241,7 +264,7 @@ const WhyMarketORM: React.FC = () => {
                 <div className="flex items-center gap-3 mb-6 md:mb-8">
                   <div className="w-8 md:w-12 h-[1px] bg-[#f26522]" />
                   <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-white/40">
-                    Active Capability
+                    {services[activeService].tag}
                   </span>
                 </div>
 
