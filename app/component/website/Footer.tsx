@@ -67,10 +67,10 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    {
-      icon: FaYoutube,
-      href: "https://youtube.com/@marketrixa",
-    },
+    // {
+    //   icon: FaYoutube,
+    //   href: "https://youtube.com/@marketrixa",
+    // },
     {
       icon: FaLinkedin,
       href: "https://linkedin.com/company/marketrixa",

@@ -1,174 +1,242 @@
 "use client";
-
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
-  Search,
-  Target,
-  Zap,
-  Activity,
-  ShieldCheck,
-  UserCheck,
+  FileSearch,
+  Compass,
+  Send,
   Eye,
-  MessageSquare,
-  Heart,
-  TrendingUp,
-  ArrowRight,
+  BarChart3,
+  ShieldCheck,
+  ChevronRight,
+  Sparkles,
 } from "lucide-react";
 
-const E = [0.22, 1, 0.36, 1] as const;
+interface ProcessStep {
+  number: string;
+  title: string;
+  desc: string;
+  icon: React.ComponentType<{ className?: string }>;
+  accentColor: string;
+  badge: string;
+  img: string;
+}
+
+const processSteps: ProcessStep[] = [
+  {
+    number: "01",
+    title: "Deep-Dive Reputation Audit",
+    desc: "We begin every engagement with a thorough audit of your digital footprint. We analyse the first three pages of Google results for your brand name and key executives, review all major review platforms, social channels, news mentions, and forum discussions. This gives us a precise map of your current reputation landscape — strengths, vulnerabilities, and the specific threats that need to be addressed first.",
+    icon: FileSearch,
+    accentColor: "#f26522", // Brand Orange
+    badge: "Discovery & Audit",
+    img: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    number: "02",
+    title: "Custom Strategy Development",
+    desc: "Based on the audit findings, our team builds a tailored ORM strategy specific to your brand, industry, and goals. We identify which negative content to suppress, which channels to prioritise, what positive content needs to be created, and how to structure a review management programme. We present this strategy in full before any work begins — you always know exactly what we're doing and why.",
+    icon: Compass,
+    accentColor: "#38bdf8", // Sky Blue
+    badge: "Strategic Blueprint",
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    number: "03",
+    title: "Active Campaign Deployment",
+    desc: "With strategy approved, our team gets to work. Content is created and optimised. Suppression campaigns are launched. Review management processes are activated. Monitoring systems are configured. We work across SEO, content, PR, and social simultaneously — because reputation management is a multi-channel discipline that requires coordinated execution, not siloed tactics.",
+    icon: Send,
+    accentColor: "#a78bfa", // Lavender Violet
+    badge: "Launch & Suppress",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    number: "04",
+    title: "Real-Time Monitoring & Response",
+    desc: "Our team monitors your brand around the clock. Every new review is responded to within 24 hours. Every emerging mention — positive or negative — is flagged and acted upon. If a new reputation threat appears, we respond immediately, adjusting the strategy before a small issue becomes a large crisis. You receive weekly updates and monthly comprehensive reports throughout the engagement.",
+    icon: Eye,
+    accentColor: "#34d399", // Emerald Green
+    badge: "24/7 Mitigation",
+    img: "/img-5.png",
+  },
+  {
+    number: "05",
+    title: "Measure, Report & Continuously Improve",
+    desc: "Every month, we provide detailed reporting that tracks suppression progress, review score improvements, sentiment trends, and share-of-voice metrics. We don't just tell you what we did — we show you the measurable impact on your brand's standing. Based on results, we continuously refine the strategy to compound gains and ensure your online reputation keeps improving, never stagnating.",
+    icon: BarChart3,
+    accentColor: "#fbbf24", // Golden Amber
+    badge: "Analytics & Scaling",
+    img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop",
+  },
+];
 
 const OrmProcess: React.FC = () => {
-  const steps = [
-    {
-      step: "01",
-      title: "Reputation Analysis",
-      desc: "We analyze your current online presence, reviews, and search results to identify strengths and areas for improvement.",
-      icon: Search,
-      color: "#3b82f6",
-    },
-    {
-      step: "02",
-      title: "Strategy Development",
-      desc: "Based on the analysis, we create a customized ORM plan aligned with your specific business objectives.",
-      icon: Target,
-      color: "#a855f7",
-    },
-    {
-      step: "03",
-      title: "Implementation",
-      desc: "Our team executes the strategy by managing reviews, publishing positive content, and monitoring brand mentions.",
-      icon: Zap,
-      color: "#f26522",
-    },
-    {
-      step: "04",
-      title: "Monitoring & Optimization",
-      desc: "We continuously track performance and adjust strategies to maintain a positive and dominant reputation.",
-      icon: Activity,
-      color: "#10b981",
-    },
-  ];
+  const [activeStep, setActiveStep] = useState<number>(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
 
-  const benefits = [
-    { title: "Stronger Brand Credibility", icon: ShieldCheck },
-    { title: "Improved Customer Trust", icon: UserCheck },
-    { title: "Better Search Visibility", icon: Eye },
-    { title: "Higher Customer Engagement", icon: MessageSquare },
-    { title: "Enhanced Brand Loyalty", icon: Heart },
-    { title: "Faster Crisis Response", icon: TrendingUp },
-  ];
+  // Auto-play interval triggers step rotation every 6 seconds
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isAutoPlaying) {
+      interval = setInterval(() => {
+        setActiveStep((prev) => (prev + 1) % processSteps.length);
+      }, 6000);
+    }
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
 
   return (
-    <div className="text-white py-16 md:py-24 lg:py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* --- SECTION: Our ORM Process --- */}
-        <div className="mb-24 md:mb-32 lg:mb-48 relative">
-          <div className="text-center mb-16 md:mb-24">
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-[#f26522] text-xs font-bold uppercase tracking-[0.4em] mb-4 block"
-            >
-              The Blueprint
-            </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-wide">
-              Our ORM <span className="text-white/60 italic">Process.</span>
-            </h2>
-          </div>
+    <section
+      className="relative min-h-screen text-white py-14 px-6 md:px-12 overflow-hidden"
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(true)}
+    >
+      {/* Ambient background accent glows */}
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#f26522]/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-16 gap-x-8 lg:gap-12 relative">
-            {/* Desktop Connector Line - Carefully positioned to align with icon centers */}
-            <div className="absolute top-[48px] left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent hidden lg:block" />
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Intro Section */}
+        <div className="max-w-4xl mb-16 md:mb-24 mx-auto text-center">
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="text-[#f26522] font-bold tracking-[0.3em] uppercase text-xs mb-4 block font-poppins"
+          >
+            How We Work
+          </motion.span>
 
-            {steps.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, ease: E }}
-                className="relative flex flex-col items-center lg:items-start text-center lg:text-left group"
-              >
-                {/* Step Icon Node */}
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-3xl bg-neutral-900 border border-white/10 flex items-center justify-center mb-6 md:mb-8 relative z-10 transition-all duration-500 group-hover:border-[#f26522]/50 group-hover:bg-[#f26522]/5 shrink-0">
-                  <item.icon
-                    size={28}
-                    className="md:w-8 md:h-8"
-                    style={{ color: item.color }}
-                  />
-                  <span className="absolute -top-2 -right-2 md:-top-3 md:-right-3 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black border border-white/10 flex items-center justify-center text-[10px] md:text-xs font-black text-white/40 group-hover:text-[#f26522] group-hover:border-[#f26522]/30 transition-colors shadow-xl">
-                    {item.step}
-                  </span>
-                </div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-3xl md:text-5xl font-black text-white mb-6"
+          >
+            Our 5-Step ORM Process <br />
+            <span className="text-[#f26522] relative inline-block">
+              Transparent From Day One
+            </span>
+          </motion.h2>
 
-                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">
-                  {item.title}
-                </h3>
-                <p className="text-white/40 text-center text-sm md:text-base leading-relaxed font-light max-w-xs mx-auto lg:mx-0">
-                  {item.desc}
-                </p>
-
-                {/* Mobile Connector Arrow */}
-                {i < steps.length - 1 && (
-                  <div className="mt-8 lg:hidden opacity-20">
-                    <ArrowRight className="rotate-90" size={20} />
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="text-gray-400 text-base md:text-lg leading-relaxed font-poppins"
+          >
+            We believe in complete transparency. Here's exactly how Marketrixa
+            approaches every online reputation management engagement from the
+            first call to long-term protection.
+          </motion.p>
         </div>
 
-        {/* --- SECTION: Benefits of Our ORM Service --- */}
-        <div className="relative">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Content Column */}
-            <div className="lg:col-span-5">
-              <motion.h2
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="text-3xl md:text-5xl font-bold mb-6 md:mb-8 tracking-wide"
-              >
-                Measurable <br className="hidden md:block" />
-                <span className="text-[#f26522]">Benefits.</span>
-              </motion.h2>
-              <p className="text-white/40 text-base md:text-lg font-light leading-relaxed mb-8 md:mb-10 max-w-md">
-                Businesses that invest in Online Reputation Management
-                experience direct, positive shifts in brand perception and
-                digital performance.
-              </p>
-            </div>
+        {/* Dynamic Stepper Grid */}
+        <div className="max-w-6xl mx-auto">
+          {/* Right Column: Interactive Accordion Stack */}
+          <div className="lg:col-span-7 flex flex-col gap-4">
+            {processSteps.map((step, index) => {
+              const isActive = activeStep === index;
+              const Icon = step.icon;
 
-            {/* Benefits Grid Column */}
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 items-stretch">
-              {benefits.map((benefit, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05, ease: E }}
-                  className="flex items-center gap-4 md:gap-6 p-5 md:p-6 rounded-2xl md:rounded-3xl bg-white/[0.03] border border-white/5 hover:border-[#f26522]/20 hover:bg-white/[0.05] transition-all group h-full"
+              return (
+                <div
+                  key={step.number}
+                  className={`premium-card p-6 md:p-8 cursor-pointer border transition-all duration-500 overflow-hidden relative ${
+                    isActive
+                      ? "bg-white/[0.04] border-[#f26522]/30 shadow-[0_15px_40px_rgba(242,101,34,0.06)] scale-[1.01]"
+                      : "bg-white/[0.01] border-white/5 hover:border-white/10 hover:bg-white/[0.02]"
+                  }`}
+                  onClick={() => {
+                    setActiveStep(index);
+                    setIsAutoPlaying(false); // Stop autoplay on click
+                  }}
                 >
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-black border border-white/5 flex items-center justify-center group-hover:text-[#f26522] group-hover:border-[#f26522]/20 transition-all shrink-0">
-                    <benefit.icon size={20} className="md:w-6 md:h-6" />
-                  </div>
-                  <span className="text-sm md:text-base font-bold tracking-tight text-white/70 group-hover:text-white transition-colors">
-                    {benefit.title}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+                  {/* Progressive Horizontal Line on Top of Active Step */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeBar"
+                      className="absolute top-0 left-0 right-0 h-[3px]"
+                      style={{ backgroundColor: step.accentColor }}
+                    />
+                  )}
 
-          {/* Background Ambient Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#f26522]/5 blur-[80px] md:blur-[120px] -z-10 rounded-full pointer-events-none" />
+                  {/* Header Row */}
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-4 md:gap-6">
+                      {/* Step Number Badge */}
+                      <span
+                        className="text-xs font-bold uppercase tracking-widest font-poppins"
+                        style={{
+                          color: isActive
+                            ? step.accentColor
+                            : "rgba(255, 255, 255, 0.4)",
+                        }}
+                      >
+                        Step {step.number}
+                      </span>
+
+                      {/* Title */}
+                      <h3 className="text-lg md:text-xl font-bold tracking-tight font-outfit text-white group-hover:text-white transition-colors">
+                        {step.title}
+                      </h3>
+                    </div>
+
+                    {/* Icon Container */}
+                    <div
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-500 ${
+                        isActive
+                          ? "bg-[#0b0f1a] text-white"
+                          : "bg-white/5 border-transparent text-gray-500"
+                      }`}
+                      style={{
+                        borderColor: isActive
+                          ? `${step.accentColor}44`
+                          : "transparent",
+                        color: isActive ? step.accentColor : undefined,
+                      }}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </div>
+                  </div>
+
+                  {/* Accordion Content (Desc) */}
+                  <motion.div
+                    initial={false}
+                    animate={{
+                      height: isActive ? "auto" : 0,
+                      opacity: isActive ? 1 : 0,
+                      marginTop: isActive ? 16 : 0,
+                    }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-gray-300 text-sm md:text-base leading-relaxed font-poppins pt-2 text-justify md:text-left">
+                      {step.desc}
+                    </p>
+
+                    {/* Tiny Mobile Custom Image inside Mobile card to make it look premium */}
+                    <div className="lg:hidden mt-6 h-48 w-full rounded-2xl overflow-hidden relative border border-white/5">
+                      <img
+                        src={step.img}
+                        alt={step.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <span className="absolute bottom-4 left-4 text-xs font-bold uppercase tracking-wider text-white bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 font-poppins">
+                        {step.badge}
+                      </span>
+                    </div>
+                  </motion.div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

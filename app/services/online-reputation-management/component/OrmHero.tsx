@@ -29,7 +29,7 @@ const OrmHero: React.FC = () => {
             >
               <ShieldCheck className="w-4 h-4 text-[#f26522]" />
               <span className="text-xs font-bold uppercase tracking-widest text-[#f26522]">
-                ORM Service by Marketrixa
+                Online Reputation Management
               </span>
             </motion.div>
 
@@ -37,26 +37,24 @@ const OrmHero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: E }}
-              className="text-3xl md:text-5xl font-bold leading-[0.95] tracking-tighter mb-8"
+              className="text-3xl md:text-5xl font-bold mb-8"
             >
-              Protect Your Brand. <br />
-              <span className="text-white/40">Build Trust.</span>
+              Your Brand's Reputation Is Your Most Valuable Asset.
+              <br />
+              <span className="text-[#f26522]">Protect It.</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: E }}
-              className="text-white/60 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed font-light"
+              className="text-white/60 text-md md:text-lg max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed font-light"
             >
-              Your reputation online is what potential customers base their
-              opinion on before reaching out. A single bad review or unresponded
-              feedback can change how your brand is viewed. Marketrixa provides
-              the{" "}
-              <span className="text-white font-semibold">
-                powerful strategy
-              </span>{" "}
-              needed to control the narrative.
+              <span className="text-white font-semibold">One bad review.</span>{" "}
+              One negative article. One damaging social post. That's all it
+              takes to derail years of trust-building. At Marketrixa, we don't
+              just manage your online reputation. we engineer it, protect it,
+              and make it work as a competitive advantage.
             </motion.p>
 
             <motion.div
@@ -68,7 +66,7 @@ const OrmHero: React.FC = () => {
                 href="/contact"
                 className="btn-primary w-full sm:w-auto group"
               >
-                Audit My Reputation
+                Get a Free ORM Audit
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>

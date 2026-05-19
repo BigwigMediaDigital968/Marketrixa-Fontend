@@ -7,16 +7,18 @@ import WhyIndusMarket from "./component/WhyIndusMarket";
 import OrmProcess from "./component/OrmProcess";
 import FAQ from "@/app/component/website/FAQ";
 import { ORMFaqs } from "@/app/data/faqData";
+import OrmStats from "./component/OrmStats";
 
 export default function OrmPageContant() {
   return (
     <>
       <Navbar />
       <OrmHero />
+      <OrmStats />
       <AboutORM />
       <WhyMarketORM />
-      <WhyIndusMarket />
       <OrmProcess />
+      <WhyIndusMarket />
       <FAQ
         eyebrow="Got questions?"
         title="Frequently Asked Questions"
