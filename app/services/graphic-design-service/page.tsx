@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "https://www.marketrixa.com/graphic-og-image.png",
+        url: "/graphic-og-image.png",
         width: 1200,
         height: 630,
         alt: "Graphic Design Services by Marketrixa",
@@ -62,20 +62,7 @@ export const metadata: Metadata = {
     description:
       "Looking for a graphic design company in Ahmedabad? Marketrixa offers logo design, branding & social media creatives. Get a free consultation!",
 
-    images: ["https://www.marketrixa.com/graphic-og-image.png"],
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
+    images: ["/graphic-og-image.png"],
   },
 
   metadataBase: new URL("https://www.marketrixa.com"),
