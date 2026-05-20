@@ -28,7 +28,7 @@ const PricingSMO: React.FC = () => {
   const tiers: PricingTier[] = [
     {
       name: "Starter Growth",
-      price: "₹14,999",
+      price: "₹9,999",
       description:
         "Perfect for startups looking to establish a professional social presence.",
       icon: <Zap className="w-6 h-6" />,
@@ -42,7 +42,7 @@ const PricingSMO: React.FC = () => {
     },
     {
       name: "Business Pro",
-      price: "₹29,999",
+      price: "₹16,999",
       description:
         "Comprehensive management for established brands scaling for ROI.",
       isPopular: true,
@@ -76,7 +76,7 @@ const PricingSMO: React.FC = () => {
   ];
 
   return (
-    <section className="relative w-full py-20 overflow-hidden">
+    <section id="package" className="relative w-full py-20 overflow-hidden">
       {/* Brand Background Elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-7xl pointer-events-none opacity-20">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#f26522]/10 rounded-full blur-[120px]" />

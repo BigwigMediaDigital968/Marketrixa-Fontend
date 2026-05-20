@@ -14,6 +14,7 @@ import {
   Share2,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const HeroSMO: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,15 +47,15 @@ const HeroSMO: React.FC = () => {
           </div>
 
           <h1 className="text-4xl md:text-6xl text-white mb-8">
-            Turn Followers <br />
-            into <span className="text-[#f26522]">Customers</span>
+            Social Media
+            <span className="text-[#f26522]"> Growth</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-12 max-w-xl">
-            We help brands grow, engage, and convert through strategic social
-            media management.{" "}
-            <span className="text-white font-medium">Marketrixa</span> crafts
-            data-driven SMO strategies tailored for your business success.
+          <p className="text-md md:text-lg text-gray-400 font-light leading-relaxed mb-12 max-w-xl">
+            <span className="text-white font-medium">Marketrixa</span> is a
+            trusted social media optimization company in Ahmedabad helping
+            brands improve engagement, visibility, audience trust, and online
+            growth through strategic content and platform optimization.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-6">
@@ -111,85 +112,87 @@ const HeroSMO: React.FC = () => {
           }`}
         >
           <div className="relative">
-            <div className="bg-[#0b0f1a]/90 backdrop-blur-3xl rounded-[2.8rem] border border-white/10 p-10 shadow-[0_40px_80px_rgba(0,0,0,0.5)]">
-              {/* Header UI */}
-              <div className="flex items-center justify-between mb-10 pb-6 border-b border-white/5">
+            {/* Main Container */}
+            <div className="relative bg-[#0b0f1a]/90 backdrop-blur-3xl rounded-[2.8rem] border border-white/10 p-5 shadow-[0_40px_80px_rgba(0,0,0,0.5)] overflow-hidden">
+              {/* Ambient Glow */}
+              <div className="absolute inset-0 bg-[#f26522]/10 blur-3xl pointer-events-none" />
+
+              {/* Top UI Bar */}
+              <div className="relative z-10 flex items-center justify-between mb-5 px-2">
                 <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#f26522]/40" />
+                  <div className="w-3 h-3 rounded-full bg-[#f26522]/50" />
                   <div className="w-3 h-3 rounded-full bg-white/20" />
                   <div className="w-3 h-3 rounded-full bg-white/20" />
                 </div>
-                {/* <div className="px-3 py-1 rounded-md bg-[#f26522]/5 border border-[#f26522]/20 text-[10px] text-[#f26522] font-black tracking-widest uppercase">
-                  Analytics Hub
-                </div> */}
               </div>
 
-              {/* Data Visuals */}
-              <div className="space-y-8">
-                {/* Bar Chart Section */}
-                <div className="h-32 flex items-end justify-between gap-2 px-2 relative">
-                  <div className="absolute -top-4 left-0 text-[10px] font-bold text-gray-500 uppercase tracking-widest flex items-center gap-2">
-                    <TrendingUp size={12} className="text-[#f26522]" />{" "}
-                    Engagement Volume
-                  </div>
-                  {[60, 40, 85, 55, 95, 75, 100].map((h, i) => (
-                    <div key={i} className="flex-1 group relative">
-                      <div
-                        className={`w-full rounded-t-lg transition-all duration-1000 ease-out ${
-                          i === 6
-                            ? "bg-[#f26522]"
-                            : "bg-white/10 group-hover:bg-white/20"
-                        }`}
-                        style={{ height: isVisible ? `${h}%` : "0%" }}
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                {/* Status Cards */}
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#f26522]/30 transition-colors group">
-                    <div className="flex justify-between items-start mb-2">
-                      <Share2 size={16} className="text-[#f26522]" />
-                      <span className="text-[10px] text-green-400 font-bold">
-                        +18%
-                      </span>
-                    </div>
-                    <div className="text-xl font-bold text-white">42.8K</div>
-                    <div className="text-[10px] text-gray-500 uppercase font-black mt-1">
-                      Social Shares
-                    </div>
-                  </div>
-                  <div className="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-colors group">
-                    <div className="flex justify-between items-start mb-2">
-                      <MousePointer2 size={16} className="text-cyan-400" />
-                      <span className="text-[10px] text-green-400 font-bold">
-                        +24%
-                      </span>
-                    </div>
-                    <div className="text-xl font-bold text-white">12.5%</div>
-                    <div className="text-[10px] text-gray-500 uppercase font-black mt-1">
-                      Click Through
-                    </div>
-                  </div>
-                </div>
+              {/* Main Image */}
+              <div className="relative z-10 overflow-hidden rounded-[2rem] border border-white/10">
+                <Image
+                  src="/service/smo/smo-hero-image.png"
+                  alt="Social Media Optimization"
+                  width={1400}
+                  height={1000}
+                  priority
+                  className="w-full h-auto object-cover rounded-[2rem] hover:scale-[1.02] transition-transform duration-700"
+                />
               </div>
 
-              {/* Floating Profile Widget */}
-              <div className="absolute top-0 -right-8 bg-white/10 backdrop-blur-2xl border border-white/20 p-5 rounded-[2rem] flex items-center gap-4 animate-float shadow-2xl">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#f26522] to-orange-400 flex items-center justify-center shadow-lg">
-                  <Rocket size={24} className="text-white" />
-                </div>
-                <div>
-                  <div className="text-xs font-black text-white uppercase tracking-wider">
-                    Growth Locked
+              {/* Bottom Floating Stats */}
+              <div className="absolute bottom-10 left-10 right-10 z-20 grid grid-cols-2 gap-4">
+                <div className="rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-5">
+                  <div className="flex justify-between items-start mb-2">
+                    <Share2 size={16} className="text-[#f26522]" />
+                    <span className="text-[10px] text-green-400 font-bold">
+                      +18%
+                    </span>
                   </div>
-                  <div className="text-[10px] text-[#f26522] font-bold">
-                    Optimization Active
+
+                  <div className="text-xl font-bold text-white">42.8K</div>
+
+                  <div className="text-[10px] text-gray-400 uppercase tracking-widest mt-1">
+                    Social Shares
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-5">
+                  <div className="flex justify-between items-start mb-2">
+                    <MousePointer2 size={16} className="text-cyan-400" />
+                    <span className="text-[10px] text-green-400 font-bold">
+                      +24%
+                    </span>
+                  </div>
+
+                  <div className="text-xl font-bold text-white">12.5%</div>
+
+                  <div className="text-[10px] text-gray-400 uppercase tracking-widest mt-1">
+                    Click Through
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* Floating Widget */}
+            <div className="absolute top-6 -right-6 bg-white/10 backdrop-blur-2xl border border-white/20 p-5 rounded-[2rem] flex items-center gap-4 animate-float shadow-2xl z-30">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#f26522] to-orange-400 flex items-center justify-center shadow-lg">
+                <Rocket size={24} className="text-white" />
+              </div>
+
+              <div>
+                <div className="text-xs font-black text-white uppercase tracking-wider">
+                  Growth Locked
+                </div>
+
+                <div className="text-[10px] text-[#f26522] font-bold">
+                  Optimization Active
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative Elements */}
+            <div className="absolute -top-10 -left-10 w-40 h-40 border border-[#f26522]/10 rounded-full pointer-events-none" />
+
+            <div className="absolute -bottom-10 -right-10 w-52 h-52 border border-white/5 rounded-full pointer-events-none" />
           </div>
         </div>
       </div>
