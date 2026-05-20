@@ -28,27 +28,55 @@ const DiamondAccent = () => <div className="w-2 h-2 rotate-45 bg-[#f26522]" />;
 const services: Service[] = [
   {
     id: "branding",
-    title: "Brand Identity",
+    title: "Brand Identity Design",
     subtitle: "Strategic Visuals",
     icon: <Palette size={24} />,
-    desc: "We craft unique visual languages that resonate with your audience and build long-term brand equity.",
-    items: ["Logo Design", "Color Theory", "Typography", "Brand Guidelines"],
+    desc: "Your logo is not just an image, it is the face of your business. We create complete brand identity packages that define how your company looks, feels, and is remembered. From logo design to brand guidelines, we make sure your brand speaks with confidence across every platform.",
+    items: [
+      "Logo design and brand mark creation",
+      "Color palette and visual system",
+      "Typography selection and hierarchy",
+      "Brand guidelines for consistent usage",
+    ],
   },
   {
-    id: "uiux",
-    title: "UI/UX Design",
-    subtitle: "Digital Experiences",
+    id: "smm",
+    title: "Social Media Creatives",
+    subtitle: "Bespoke Designs",
     icon: <Smartphone size={24} />,
-    desc: "User-centric interfaces designed for seamless navigation and high conversion rates across all devices.",
-    items: ["App Design", "Wireframing", "Prototyping", "User Research"],
+    desc: "Social media is where your audience discovers you every day. Generic content gets scrolled past. Our social media designs are crafted to stop the scroll, tell your story, and drive engagement. whether it's a product post, a campaign creative, or a festival banner.",
+    items: [
+      "Custom post creatives and editable templates",
+      "Campaign-specific visual content",
+      "Promotional and offer banners",
+      "Story frames and reel cover designs",
+    ],
   },
   {
-    id: "web",
-    title: "Web Design",
-    subtitle: "Performant Sites",
+    id: "marketing",
+    title: "Marketing & Advertising Design",
+    subtitle: "Scale Your Reach",
     icon: <Globe size={24} />,
-    desc: "Bespoke web solutions that combine aesthetic beauty with technical performance and SEO optimization.",
-    items: ["Responsive Design", "E-commerce", "CMS Integration", "Web Apps"],
+    desc: "From digital ads to printed flyers, your marketing materials need to be sharp, on-brand, and persuasive. We create advertising creatives that communicate your offer clearly and push your audience toward action.",
+    items: [
+      "Digital advertising banners and creatives",
+      "Print advertisements and newspaper inserts",
+      "Brochures and company flyers",
+      "Posters and outdoor banners",
+    ],
+  },
+  {
+    id: "corporate",
+    title: "Corporate & Business Design",
+    subtitle: "Professional Visuals",
+    icon: <LayoutIcon size={24} />,
+    desc: "In a boardroom or a pitch meeting, your materials represent your professionalism. We design business presentations, company profiles, and pitch decks that are polished, structured, and built to impress.",
+    items: [
+      "Business presentations and decks",
+      "Company profile and capability documents",
+      "Investor and sales pitch decks",
+      "Internal communication designs",
+    ],
   },
 ];
 
@@ -75,8 +103,8 @@ const DesignServices = () => {
             whileInView={{ opacity: 1, y: 0 }}
             className="flex items-center gap-3 mb-4"
           >
-            <span className="uppercase tracking-[0.42em] text-[#f26522] text-[0.68rem]">
-              What We Offer
+            <span className="uppercase tracking-[0.32em] text-[#f26522] text-[0.68rem]">
+              Our Graphic Design Services
             </span>
           </motion.div>
 
@@ -84,16 +112,21 @@ const DesignServices = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-bold leading-[1.1] text-4xl md:text-6xl"
+            className="font-bold leading-[1.1] text-3xl md:text-5xl"
             style={{ fontFamily: "var(--font-outfit, sans-serif)" }}
           >
-            Design Services <br />
-            <span className="text-[#f26522]">Built for Impact</span>
+            What We Design <br />
+            <span className="text-[#f26522]">for You</span>
           </motion.h2>
         </div>
 
         {/* Desktop: Sidebar + Content | Mobile: Top-bar + Content */}
-        <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-8 items-start">
+        <div
+          className="services-grid grid gap-8 items-start"
+          style={{
+            gridTemplateColumns: "420px minmax(0,1fr)",
+          }}
+        >
           {/* Sidebar / Tabs Container */}
           <div className="flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 no-scrollbar">
             {services.map((s) => {
@@ -148,7 +181,12 @@ const DesignServices = () => {
           </div>
 
           {/* Content Area */}
-          <div className="min-h-[450px]">
+          <div
+            className="min-h-[520px]"
+            style={{
+              width: "100%",
+            }}
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeService}
@@ -181,7 +219,7 @@ const DesignServices = () => {
                     {active.title}
                   </h3>
 
-                  <p className="text-white/50 text-lg leading-relaxed max-w-2xl mb-10 font-light">
+                  <p className="text-white/50 text-lg leading-relaxed max-w-3xl mb-10 font-light">
                     {active.desc}
                   </p>
 

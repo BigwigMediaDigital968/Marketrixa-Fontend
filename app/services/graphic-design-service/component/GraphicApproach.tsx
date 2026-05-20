@@ -136,10 +136,10 @@ const GraphicApproach: React.FC = () => {
                 viewport={viewportSettings}
                 variants={fadeLeftVariant}
                 transition={commonTransition(0.1)}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-[1.1] tracking-tight"
+                className="text-4xl md:text-5xl font-bold mb-8 leading-[1.1] tracking-tight"
               >
-                Our Approach to <br />
-                <span className="text-[#f26522]">Graphic Design</span>
+                We Don't Just Design. <br />
+                <span className="text-[#f26522]">We Communicate.</span>
               </motion.h2>
 
               <motion.p
@@ -148,23 +148,24 @@ const GraphicApproach: React.FC = () => {
                 viewport={viewportSettings}
                 variants={fadeLeftVariant}
                 transition={commonTransition(0.2)}
-                className="text-neutral-400 text-lg leading-relaxed mb-10 max-w-md font-light"
+                className="text-neutral-400 text-md leading-relaxed mb-10 max-w-md font-light"
               >
-                Every brand has a unique story, and our goal is to translate
-                that story into powerful visuals. At Marketrix, we follow a
-                structured design process that ensures clarity, consistency, and
-                quality in every project. We begin by understanding your brand,
-                audience, and communication goals. Based on this, we create
-                design concepts that align with your identity and market
-                positioning. Every visual element is carefully crafted to
-                maintain balance between creativity and purpose.
+                Design is the first impression your business makes and first
+                impressions are permanent. At Marketrixa, we treat every design
+                project as a business problem, not just a visual task. Our team
+                starts by understanding your brand, your audience, and the
+                message you want to deliver. Then we translate all of that into
+                visuals that are clean, purposeful, and built to connect.
+                <br />
+                <br />
+                We follow a clear process:
               </motion.p>
 
               <div className="space-y-4">
                 {[
-                  "Understanding your brand, audience, and goals",
-                  "Creating design concepts aligned with your identity",
-                  "Balancing creativity with strategic purpose",
+                  "Understanding your brand identity, goals, and target audience",
+                  "Developing concepts that align with your market and positioning",
+                  "Delivering designs that balance creativity with business strategy",
                 ].map((step, i) => (
                   <motion.div
                     key={i}
@@ -185,6 +186,18 @@ const GraphicApproach: React.FC = () => {
                 ))}
               </div>
 
+              <motion.p
+                initial="initial"
+                whileInView="whileInView"
+                viewport={viewportSettings}
+                variants={fadeLeftVariant}
+                transition={commonTransition(0.2)}
+                className="text-[#f26522] text-md mt-10 max-w-md leading-relaxed font-medium"
+              >
+                Every pixel has a reason. Every color has a purpose. That's the
+                Marketrixa way.
+              </motion.p>
+
               {/* Strategy Badge */}
               <motion.div
                 initial="initial"
@@ -192,7 +205,7 @@ const GraphicApproach: React.FC = () => {
                 viewport={viewportSettings}
                 variants={fadeLeftVariant}
                 transition={commonTransition(0.6)}
-                className="mt-16 p-5 rounded-2xl bg-white/[0.02] border border-white/5 inline-flex items-center gap-4"
+                className="mt-10 p-5 rounded-2xl bg-white/[0.02] border border-white/5 inline-flex items-center gap-4"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#f26522] flex items-center justify-center shadow-[0_8px_20px_rgba(242,101,34,0.3)]">
                   <Target className="text-black w-6 h-6" />

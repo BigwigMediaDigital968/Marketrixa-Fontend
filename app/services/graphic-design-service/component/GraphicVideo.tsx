@@ -19,6 +19,7 @@ import {
   Store,
   User,
   Mail,
+  LogsIcon,
 } from "lucide-react";
 import GraphicApproach from "./GraphicApproach";
 import GraphicPortfolio from "./GraphicPortfolio";
@@ -41,37 +42,6 @@ const fadeLeft = (delay = 0) => ({
   viewport: { once: true, margin: "-60px" },
   transition: { duration: 0.72, ease: E, delay },
 });
-
-// ─── SVG Decorations ─────────────────────────────────────────────────────────
-
-const GridPattern: React.FC<{ className?: string; opacity?: number }> = ({
-  className = "",
-  opacity = 0.04,
-}) => (
-  <svg
-    className={`absolute inset-0 w-full h-full pointer-events-none ${className}`}
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <defs>
-      <pattern
-        id="grid"
-        x="0"
-        y="0"
-        width="48"
-        height="48"
-        patternUnits="userSpaceOnUse"
-      >
-        <path
-          d="M 48 0 L 0 0 0 48"
-          fill="none"
-          stroke="white"
-          strokeWidth="0.5"
-        />
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill={`url(#grid)`} style={{ opacity }} />
-  </svg>
-);
 
 const CircleRing: React.FC<{ size: number; className?: string }> = ({
   size,
@@ -298,30 +268,48 @@ const services = [
 ];
 
 const industries = [
-  { icon: <Sparkles className="w-5 h-5" />, label: "Startups" },
-  { icon: <ShoppingBag className="w-5 h-5" />, label: "E-commerce Brands" },
-  { icon: <Briefcase className="w-5 h-5" />, label: "Corporate Companies" },
-  { icon: <Store className="w-5 h-5" />, label: "Local Businesses" },
-  { icon: <User className="w-5 h-5" />, label: "Personal Brands" },
-  { icon: <Globe className="w-5 h-5" />, label: "Digital Agencies" },
+  {
+    icon: <Sparkles className="w-5 h-5" />,
+    label: "Startups and new businesses establishing their brand",
+  },
+  {
+    icon: <ShoppingBag className="w-5 h-5" />,
+    label: "E-commerce brands building product and campaign creatives",
+  },
+  {
+    icon: <Store className="w-5 h-5" />,
+    label: "Corporate companies needing professional business design",
+  },
+  {
+    icon: <User className="w-5 h-5" />,
+    label: "Local businesses looking to stand out in a competitive market",
+  },
+  {
+    icon: <Globe className="w-5 h-5" />,
+    label: "Personal brands and consultants building their professional image",
+  },
+  {
+    icon: <Briefcase className="w-5 h-5" />,
+    label: "Digital agencies requiring white-label design support",
+  },
 ];
 
 const whyPoints = [
   {
     title: "Strategic Design Thinking",
-    desc: "Every visual has a purpose — we combine creativity with strategy to ensure your designs communicate and convert.",
+    desc: "We don't design by gut feeling. We design with purpose ensuring every visual element communicates the right message to the right audience.",
   },
   {
     title: "Brand-Focused Output",
-    desc: "We align every deliverable with your goals, audience expectations, and brand values — not just trends.",
+    desc: "Trends change. Brand identity endures. We design with your long-term brand goals in mind, not just what looks good today.",
   },
   {
-    title: "Timely Delivery & QA",
-    desc: "Strict quality assurance and reliable timelines mean your projects are completed without compromise.",
+    title: "Reliable Timelines and Quality",
+    desc: "Marketrixa respect your deadlines. Every project goes through quality checks before delivery so you receive work that is ready to publish, print, or present.",
   },
   {
-    title: "End-to-End Capability",
-    desc: "From logo to campaign — we handle every visual touchpoint so your brand speaks one consistent language.",
+    title: "End-to-End Design Capability",
+    desc: "Logo, social media, ads, presentations. we handle your entire visual identity so every touchpoint speaks the same brand language.",
   },
 ];
 
@@ -349,8 +337,6 @@ const GraphicVideo: React.FC = () => {
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{ paddingTop: "3rem", paddingBottom: "4rem" }}
       >
-        <GridPattern opacity={0.2} />
-
         {/* Radial glows */}
         <div className="pointer-events-none absolute inset-0">
           <div
@@ -433,35 +419,6 @@ const GraphicVideo: React.FC = () => {
               }}
             />
           ))}
-          {/* Large decorative dashes */}
-          <svg
-            className="absolute top-1/4 left-4 opacity-10"
-            width="40"
-            height="2"
-          >
-            <line
-              x1="0"
-              y1="1"
-              x2="40"
-              y2="1"
-              stroke="#f26522"
-              strokeWidth="2"
-            />
-          </svg>
-          <svg
-            className="absolute top-1/4 left-14 opacity-6"
-            width="20"
-            height="2"
-          >
-            <line
-              x1="0"
-              y1="1"
-              x2="20"
-              y2="1"
-              stroke="#f26522"
-              strokeWidth="2"
-            />
-          </svg>
         </div>
 
         {/* hero section */}
@@ -480,7 +437,7 @@ const GraphicVideo: React.FC = () => {
               >
                 <span
                   className="uppercase tracking-[0.22em]"
-                  style={{ fontSize: "0.98rem", color: "#f26522" }}
+                  style={{ fontSize: "0.78rem", color: "#f26522" }}
                 >
                   Gujarat&apos;s Creative Agency
                 </span>
@@ -492,7 +449,7 @@ const GraphicVideo: React.FC = () => {
                 {...fadeUp(0.08)}
                 className="font-bold leading-[1.04] mb-6"
                 style={{
-                  fontSize: "clamp(2.6rem, 6.5vw, 3.5rem)",
+                  fontSize: "clamp(2.6rem, 6.5vw, 2.5rem)",
                   letterSpacing: "-0.02em",
                 }}
               >
@@ -501,7 +458,7 @@ const GraphicVideo: React.FC = () => {
                   className="relative inline-block"
                   style={{ color: "#f26522" }}
                 >
-                  Graphic Design
+                  Graphic Design Services That Make Your Brand
                   <svg
                     viewBox="0 0 300 12"
                     className="absolute -bottom-2 left-0 w-full"
@@ -517,9 +474,8 @@ const GraphicVideo: React.FC = () => {
                     />
                   </svg>
                 </span>{" "}
-                & <br className="hidden sm:block" />
                 <span style={{ color: "rgba(255,255,255,0.5)" }}>
-                  Video Editing Agency
+                  Impossible to Ignore
                 </span>
               </motion.h1>
 
@@ -528,17 +484,17 @@ const GraphicVideo: React.FC = () => {
                 {...fadeUp(0.15)}
                 className="leading-relaxed mb-10 font-light"
                 style={{
-                  fontSize: "clamp(0.95rem, 1.5vw, 1.1rem)",
+                  fontSize: "clamp(0.95rem, 1.5vw, 0.98rem)",
                   color: "rgba(255,255,255,0.9)",
                   maxWidth: "56ch",
                 }}
               >
-                We are a creative graphic design and video editing agency in
-                Gujarat dedicated to helping brands express their ideas through
-                powerful visuals and professional storytelling. Our focus is on
-                transforming concepts into impactful designs and high-quality
-                video content that connects with audiences and strengthens brand
-                identity.
+                Your brand speaks before you do. At Marketrixa, we help
+                businesses build a visual identity that earns attention, builds
+                trust, and drives results. Whether you are a startup finding
+                your voice or an established brand looking for a fresh look our
+                graphic design team is built to deliver creative work that
+                actually works.
               </motion.p>
 
               {/* CTAs */}
@@ -556,7 +512,7 @@ const GraphicVideo: React.FC = () => {
                   className="inline-flex items-center gap-2.5 font-bold rounded-xl"
                   style={{
                     background: "#f26522",
-                    color: "#000",
+                    color: "#fff",
                     padding: "0.9rem 2rem",
                     fontSize: "clamp(0.82rem, 1.2vw, 0.92rem)",
                     boxShadow: "0 0 30px rgba(242,101,34,0.35)",
@@ -564,7 +520,7 @@ const GraphicVideo: React.FC = () => {
                     textDecoration: "none",
                   }}
                 >
-                  GET A FREE CREATIVE CONSULTATION
+                  GET A FREE DESIGN CONSULTATION
                   <ArrowUpRight className="w-4 h-4" />
                 </motion.a>
 
@@ -610,7 +566,6 @@ const GraphicVideo: React.FC = () => {
           background: "rgba(242,101,34,0.03)",
         }}
       >
-        <GridPattern opacity={0.02} />
         <div className="max-w-7xl mx-auto px-4 backdrop-blur-lg">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px border border-[#f26522]">
             {stats.map((s, i) => (
@@ -667,7 +622,6 @@ const GraphicVideo: React.FC = () => {
         className="relative py-14 overflow-hidden"
         style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
       >
-        <GridPattern opacity={0.025} />
         <CircleRing size={600} className="-bottom-48 -left-48 opacity-40" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -682,7 +636,7 @@ const GraphicVideo: React.FC = () => {
                   className="uppercase tracking-widest"
                   style={{ fontSize: "0.98rem", color: "#f26522" }}
                 >
-                  Our Difference
+                  Why Choose Marketrixa for Graphic Design in Ahmedabad?
                 </span>
               </motion.div>
 
@@ -694,8 +648,9 @@ const GraphicVideo: React.FC = () => {
                   fontFamily: "var(--font-outfit, sans-serif)",
                 }}
               >
-                Why Choose <span style={{ color: "#f26522" }}>Marketrix</span>{" "}
-                for Graphic Designing?
+                A Graphic{" "}
+                <span style={{ color: "#f26522" }}>Design Agency</span> That
+                Understands Business
               </motion.h2>
 
               <motion.p
@@ -707,18 +662,12 @@ const GraphicVideo: React.FC = () => {
                   maxWidth: "52ch",
                 }}
               >
-                At Marketrix, we believe design is more than just visuals. It is
-                a powerful tool for communication, positioning, and business
-                growth. Every design we create is focused on delivering meaning,
-                clarity, and impact that supports your brand identity. What
-                makes us different is our approach to combining creativity with
-                strategy. We follow strategic design thinking to ensure every
-                visual has a purpose, not just appeal. Our team consistently
-                delivers brand-focused output that aligns with your goals and
-                audience expectations. With timely delivery and strict quality
-                assurance, we make sure your projects are completed without
-                compromise. At Marketrix, every design reflects your brand
-                values and helps you stand out confidently in your industry.
+                There are many designers out there. What makes Marketrixa
+                different is that we understand what design needs to do for a
+                business not just how it should look. We are a graphic design
+                company that combines creative thinking with strategic clarity.
+                Every project we take on is treated with the same level of
+                seriousness, whether it's a single logo or a full brand system.
               </motion.p>
 
               <motion.a
@@ -816,7 +765,7 @@ const GraphicVideo: React.FC = () => {
                       <p
                         className="leading-relaxed font-light"
                         style={{
-                          fontSize: "clamp(0.8rem, 1.05vw, 0.875rem)",
+                          fontSize: "clamp(0.8rem, 1.05vw, 0.775rem)",
                           color: "rgba(255,255,255,0.42)",
                         }}
                       >
@@ -851,7 +800,7 @@ const GraphicVideo: React.FC = () => {
                 className="uppercase tracking-widest"
                 style={{ fontSize: "0.98rem", color: "#f26522" }}
               >
-                Industries We Serve
+                Industries We Design For
               </span>
             </motion.div>
             <motion.h2
@@ -861,11 +810,23 @@ const GraphicVideo: React.FC = () => {
                 fontSize: "clamp(1.7rem, 3.5vw, 2.8rem)",
               }}
             >
-              Designed for Every Industry
+              Built for Every Kind of Business in{" "}
+              <span className="text-[#f26522]">Gujarat</span>
             </motion.h2>
+
+            <motion.p
+              {...fadeUp(0.14)}
+              className="leading-relaxed text-gray-300 font-light mx-auto max-w-4xl"
+            >
+              We have worked with businesses across sectors and understand that
+              different industries have different visual needs. Whether you run
+              a local retail shop in Ahmedabad or a growing e-commerce brand
+              serving customers across India, our design solutions are tailored
+              to your market.
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {industries.map((ind, i) => (
               <motion.div
                 key={i}
@@ -935,7 +896,6 @@ const GraphicVideo: React.FC = () => {
             }}
           />
         </div>
-        <GridPattern opacity={0.03} />
 
         {/* Decorative top SVG line */}
         <svg
@@ -969,37 +929,34 @@ const GraphicVideo: React.FC = () => {
 
           <motion.h2
             {...fadeUp(0.07)}
-            className="font-bold mb-6"
+            className="font-bold mb-6 text-3xl md:text-5xl"
             style={{
-              fontSize: "clamp(2rem, 5.5vw, 3.5rem)",
               lineHeight: 1.06,
               letterSpacing: "-0.02em",
             }}
           >
-            Build a Strong{" "}
-            <span style={{ color: "#f26522" }}>Visual Identity</span>
-            <br />
+            Ready to Build a <span style={{ color: "#f26522" }}>Brand </span>
             <span style={{ color: "rgba(255,255,255,0.6)" }}>
-              with Marketrix
+              That Stands Out in Ahmedabad?
             </span>
           </motion.h2>
 
           <motion.p
             {...fadeUp(0.13)}
-            className="leading-relaxed mb-10 font-light mx-auto"
+            className="leading-relaxed mb-10 font-light mx-auto text-md"
             style={{
-              fontSize: "clamp(0.9rem, 1.4vw, 1.05rem)",
               color: "rgba(255,255,255,0.7)",
-              maxWidth: "82ch",
+              maxWidth: "85ch",
             }}
           >
-            If you are looking for a reliable partner for graphic designing
-            services in Gujarat, Marketrix is here to help you build a strong
-            and consistent brand presence. We don’t just design visuals. We
-            create meaningful brand experiences that connect with your audience
-            and support long-term growth. <br />
-            Start your project with Marketrix today and transform your ideas
-            into impactful visual designs.
+            If you are looking for the best graphic design agency in Ahmedabad,
+            Marketrixa brings you the combination of creative talent, strategic
+            thinking, and professional delivery that your brand deserves. We
+            don't just hand you files, we give you a visual identity that builds
+            credibility and grows with your business.
+            <br />
+            Let's start with a conversation. Tell us about your brand and we
+            will show you what's possible.
           </motion.p>
 
           <motion.div
@@ -1013,10 +970,10 @@ const GraphicVideo: React.FC = () => {
                 boxShadow: "0 0 60px rgba(242,101,34,0.65)",
               }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2.5 font-bold rounded-xl w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-2.5 font-bold rounded-xl w-full uppercase sm:w-auto justify-center"
               style={{
                 background: "#f26522",
-                color: "#000",
+                color: "#fff",
                 padding: "1rem 2.5rem",
                 fontSize: "clamp(0.85rem, 1.3vw, 0.95rem)",
                 boxShadow: "0 0 36px rgba(242,101,34,0.4)",
@@ -1025,7 +982,7 @@ const GraphicVideo: React.FC = () => {
                 transition: "box-shadow 0.35s ease",
               }}
             >
-              GET IN TOUCH
+              Get a Free Design Consultation
               <Mail className="w-4 h-4" />
             </motion.a>
           </motion.div>

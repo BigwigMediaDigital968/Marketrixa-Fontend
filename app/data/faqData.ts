@@ -619,3 +619,33 @@ export const InfluencerFaqs: FAQItem[] = [
       "Yes. Small businesses can achieve strong results by working with nano or micro influencers who have engaged local audiences.",
   },
 ];
+
+export const GraphicFaqs: FAQItem[] = [
+  {
+    question:
+      "What graphic design services does Marketrixa offer in Ahmedabad?",
+    answer:
+      "Marketrixa offers a full range of graphic design services including logo design, brand identity, social media creatives, marketing materials, business presentations, brochures, and advertising banners — all under one roof.",
+  },
+  {
+    question: "How much does graphic design service cost in Ahmedabad?",
+    answer:
+      "Our pricing depends on the scope and type of project. We offer flexible packages suitable for startups, small businesses, and established brands. Contact us for a free consultation and we will suggest the best plan for your budget.",
+  },
+  {
+    question: "How long does it take to complete a graphic design project?",
+    answer:
+      "Timelines vary based on the complexity of the project. A logo design typically takes 3 to 5 business days, while a complete brand identity package may take 7 to 14 business days. We always discuss timelines before starting so there are no surprises.",
+  },
+  {
+    question: "Can Marketrixa handle both digital and print design needs?",
+    answer:
+      "Yes. We design for both digital platforms — social media, websites, digital ads — and print formats like brochures, flyers, posters, and banners. You get consistent, on-brand visuals across every medium.",
+  },
+  {
+    question:
+      "Why should I choose Marketrixa over other graphic design agencies in Ahmedabad?",
+    answer:
+      "Marketrixa combines creative design with business strategy. We don't just make things look good — we make sure your visuals communicate the right message, attract the right audience, and support your business growth. Every project gets dedicated attention and goes through quality checks before delivery.",
+  },
+];

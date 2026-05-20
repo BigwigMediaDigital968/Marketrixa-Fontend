@@ -156,7 +156,7 @@ const GraphicPortfolio: React.FC = () => {
               whileInView="whileInView"
               viewport={viewportSettings}
               variants={fadeUp(0.2)}
-              href="#contact"
+              href="/contact"
               className="group relative inline-flex items-center gap-4 px-10 py-5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#f26522]/50 transition-all duration-500 overflow-hidden"
             >
               <div className="absolute inset-0 bg-[#f26522] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
