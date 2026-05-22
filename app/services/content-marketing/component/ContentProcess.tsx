@@ -22,42 +22,42 @@ interface ProcessStep {
 
 const steps: ProcessStep[] = [
   {
-    title: "Research & Audit",
-    desc: "We analyze competitors, keyword gaps, and your current assets to find high-impact opportunities.",
+    title: "Market & Audience Research",
+    desc: "To craft a data-driven communication plan, we first research your industry, your competition, how your audience searches, and other search trends.",
     icon: Search,
     color: "#3b82f6", // Blue
   },
   {
-    title: "Strategy & Ideation",
-    desc: "Developing a content calendar aligned with your business goals and audience pain points.",
+    title: "Strategic Planning",
+    desc: "Our specialists outline content themes, publishing schedules, audience targeting, and communication goals aligned with your business objectives.",
     icon: MessagesSquare,
     color: "#a855f7", // Purple
   },
   {
-    title: "Expert Drafting",
-    desc: "Our subject-matter experts craft high-quality copy that speaks directly to your customers.",
+    title: "Professional Content Creation",
+    desc: "We produce informative, engaging, and search-friendly material tailored to your industry and audience preferences.",
     icon: PenTool,
     color: "#f26522", // Brand Orange
   },
   {
-    title: "Editing & Quality",
-    desc: "A rigorous 3-step review process ensuring factual accuracy, SEO compliance, and brand voice.",
+    title: "Editing & Refinement",
+    desc: "All drafts are reviewed for clarity, readability, optimization and brand consistency.",
     icon: FileCheck,
     color: "#10b981", // Emerald
   },
   {
-    title: "Distribution",
-    desc: "Pushing content across the right channels to maximize reach, from social to newsletters.",
+    title: "Publishing & Promotion",
+    desc: "Opt for distributing communication assets on the appropriate platform to ensure they are as visible and as far reaching as possible.",
     icon: Rocket,
     color: "#f59e0b", // Amber
   },
   {
-    title: "Analyze & Optimize",
-    desc: "Tracking performance metrics and adjusting the strategy for continuous growth.",
+    title: "Analytics & Improvements",
+    desc: "We track campaign performance on a regular basis and tweak strategies to enhance engagement and conversion rates.",
     icon: BarChart,
     color: "#ec4899", // Pink
   },
-];
+];;
 
 const ContentProcess: React.FC = () => {
   return (
@@ -81,8 +81,9 @@ const ContentProcess: React.FC = () => {
             transition={{ duration: 0.8, ease: E }}
             className="text-2xl md:text-4xl font-bold mt-4 mb-6"
           >
-            Our Industry-Standard <br />
-            <span className="text-white/60">Creation Process</span>
+            Our Content
+            <br />
+            <span className="text-white"> Development Process</span>
           </motion.h2>
           <div className="h-1 w-20 bg-[#f26522] mx-auto rounded-full" />
         </div>
@@ -148,6 +149,17 @@ const ContentProcess: React.FC = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+        <div className="mt-20">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: E }}
+            className="text-white/60 text-lg md:text-xl leading-relaxed font-light w-full text-center md:px-6"
+          >
+            Marketrixa is the preferred choice for companies seeking performance-driven “content marketing services in Ahmedabad,” due to its ability to deliver consistent results and measurable outcomes.
+          </motion.p>
         </div>
       </div>
     </section>

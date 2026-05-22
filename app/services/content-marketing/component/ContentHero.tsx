@@ -38,7 +38,7 @@ const ContentHero: React.FC = () => {
             >
               <Sparkles className="w-4 h-4 text-[#f26522]" />
               <span className="text-xs font-bold uppercase tracking-widest text-[#f26522]">
-                Content Marketing Excellence
+                Content Marketing Services
               </span>
             </motion.div>
 
@@ -48,9 +48,9 @@ const ContentHero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.1, ease: E }}
               className="text-3xl md:text-5xl font-bold mb-8"
             >
-              Turn Words into
+              Turn Ideas Into 
               <br />
-              <span className="block text-[#f26522] mt-2">Growth Engine.</span>
+              <span className="block text-[#f26522] mt-2">Measurable Business Growth</span>
             </motion.h1>
 
             <motion.p

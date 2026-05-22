@@ -25,60 +25,60 @@ interface ServiceType {
 
 const services: ServiceType[] = [
   {
-    title: "Blog & Article Writing",
+    title: "Website Content",
     description:
-      "SEO-optimized long-form content that establishes authority and drives organic traffic.",
+      "Professionally written website pages designed to explain services clearly and encourage customer action.",
     icon: FileText,
-    tags: ["SEO", "Long-form", "Thought Leadership"],
+    tags: ["Website Pages", "Service Content", "Conversions"],
   },
   {
-    title: "Social Media Content",
+    title: "Social Media Communication",
     description:
-      "Viral-ready copy and visual prompts designed to stop the scroll and spark engagement.",
+      "Creative captions and campaign messaging crafted to improve audience interaction and strengthen brand awareness.",
     icon: Share2,
-    tags: ["Viral", "Engagement", "Platform-specific"],
+    tags: ["Social Media", "Engagement", "Brand Awareness"],
   },
   {
-    title: "Press Releases",
+    title: "Press Release Writing",
     description:
-      "Professional newswire-ready content that captures journalist attention and builds PR.",
+      "Professionally structured announcements created to communicate business updates effectively.",
     icon: Newspaper,
-    tags: ["PR", "Newsworthy", "Distribution"],
+    tags: ["Announcements", "Public Relations", "Business Updates"],
   },
   {
-    title: "Video Scripting",
+    title: "Video Script Development",
     description:
-      "Compelling narratives for YouTube, TikTok, and corporate ads that keep viewers watching.",
+      "Compelling scripts designed for promotional videos, brand storytelling, and digital campaigns.",
     icon: Video,
-    tags: ["Storytelling", "YouTube", "Commercials"],
+    tags: ["Video Scripts", "Storytelling", "Campaigns"],
   },
   {
-    title: "Email Marketing",
+    title: "Email Campaign Content",
     description:
-      "High-conversion sequences and newsletters that nurture leads into loyal customers.",
+      "Personalized email communication that supports lead nurturing and customer retention.",
     icon: Mail,
-    tags: ["CRM", "Newsletters", "Retention"],
+    tags: ["Email Marketing", "Lead Nurturing", "Retention"],
   },
   {
-    title: "Whitepapers & E-books",
+    title: "Whitepapers & Guides",
     description:
-      "In-depth lead magnets that showcase technical expertise and capture high-quality leads.",
+      "Detailed informational resources that help establish your business as a trusted industry authority.",
     icon: BookOpen,
-    tags: ["Lead Gen", "Technical", "Data"],
+    tags: ["Industry Authority", "Educational Content", "Resources"],
   },
   {
-    title: "Copywriting",
+    title: "Marketing Copywriting",
     description:
-      "Persuasive sales copy for landing pages, ads, and websites that drive immediate action.",
+      "Persuasive communication developed to increase conversions and improve customer engagement.",
     icon: Lightbulb,
-    tags: ["Conversion", "Ads", "Sales"],
+    tags: ["Copywriting", "Conversions", "Customer Engagement"],
   },
   {
-    title: "Technical Writing",
+    title: "Technical Documentation",
     description:
-      "Complex concepts translated into easy-to-understand documentation and guides.",
+      "Well-structured technical communication written for industries requiring detailed explanations and clarity.",
     icon: Search,
-    tags: ["Documentation", "B2B", "Manuals"],
+    tags: ["Technical Writing", "Documentation", "Clarity"],
   },
 ];
 
@@ -110,8 +110,9 @@ const ContentService: React.FC = () => {
               transition={{ duration: 0.8, ease: E }}
               className="text-3xl md:text-5xl font-bold leading-tight"
             >
-              Versatile Content for <br />
-              Every <span className="text-[#f26522]">Digital Frontier.</span>
+              Customized Content Solutions 
+ <br />
+              <span className="text-[#f26522]">For Every Digital Platform</span>
             </motion.h2>
           </div>
           <motion.p
@@ -119,8 +120,8 @@ const ContentService: React.FC = () => {
             whileInView={{ opacity: 1 }}
             className="text-white/80 max-w-xs text-sm leading-relaxed"
           >
-            From high-converting sales copy to technical documentation, our
-            creators bridge the gap between your brand and your audience.
+            As an experienced “content marketing agency in Ahmedabad”, Marketrixa creates communication strategies tailored to diverse industries and business goals.
+
           </motion.p>
         </div>
 

@@ -9,6 +9,8 @@ import {
   Users,
   TrendingUp,
   ShieldCheck,
+  Share2,
+  BarChart3,
 } from "lucide-react";
 
 const E = [0.22, 1, 0.36, 1] as const;
@@ -21,40 +23,40 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    title: "Data-Driven Strategy",
+    title: "Audience-Focused Planning",
     description:
-      "We don't guess. We use advanced analytics to find exactly what your audience is searching for.",
-    icon: Target,
-  },
-  {
-    title: "High-Velocity Output",
-    description:
-      "Scale your content without sacrificing quality. Our workflow is built for speed and precision.",
-    icon: Zap,
-  },
-  {
-    title: "Authority Building",
-    description:
-      "Position your brand as the go-to resource in your industry with thought-leadership content.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Audience Engagement",
-    description:
-      "Content designed to start conversations and build a community around your brand values.",
+      "We analyse how audiences react, their search intent and industry trends to produce communication that is very relevant to the customer and will help them engage.",
     icon: Users,
   },
   {
-    title: "SEO Optimization",
+    title: "Brand Positioning Content",
     description:
-      "Every piece is engineered to rank, bringing consistent organic traffic to your doorstep.",
+      "Our experts develop and craft well-researched and highly persuasive messaging that will help build your company's credibility in your market.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "SEO-Based Optimization",
+    description:
+      "Each asset will be created to increase its organic reach and generate targeted traffic for your business from the search engines.",
     icon: TrendingUp,
   },
   {
-    title: "Conversion Focused",
+    title: "Conversion-Oriented Messaging",
     description:
-      "We bridge the gap between 'reading' and 'buying' with strategic calls to action.",
+      "We create engaging content that inspires your visitors to act – whether it's to inquire, buy, or sign up.",
     icon: CheckCircle2,
+  },
+  {
+    title: "Multi-Platform Distribution",
+    description:
+      "Whether it's through websites, social networks or via email, we make sure your message is delivered in the appropriate digital mediums.",
+    icon: Share2,
+  },
+  {
+    title: "Performance Tracking",
+    description:
+      "Engagement metrics are always monitored and campaigns always optimized in order to achieve the best long-term results.",
+    icon: BarChart3,
   },
 ];
 
@@ -85,8 +87,8 @@ const ContentAbout: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.1, ease: E }}
               className="text-2xl md:text-4xl font-bold mb-8 leading-tight"
             >
-              Strategic Content that <br />
-              <span className="text-[#f26522]">Commands Attention.</span>
+              Purpose-Driven Content Solutions  <br />
+              <span className="text-[#f26522]">That Deliver Results</span>
             </motion.h2>
 
             <motion.p
@@ -94,12 +96,9 @@ const ContentAbout: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2, ease: E }}
-              className="text-white/60 text-lg md:text-xl leading-relaxed font-light max-w-2xl"
+              className="text-white/60 text-lg md:text-xl leading-relaxed font-light max-w-4xl"
             >
-              We believe that content is the most powerful sales tool in your
-              arsenal. Our approach combines creative storytelling with
-              technical SEO to ensure your brand isn't just seen, but
-              remembered.
+              Communication is more than putting your words on the internet. You need valuable information that will interest, build trust and inspire action in your brand. We are a top content marketing agency in Ahmedabad and develop strategies that are custom-built, creative and performance-based.
             </motion.p>
           </header>
 
@@ -140,13 +139,23 @@ const ContentAbout: React.FC = () => {
               </motion.div>
             ))}
           </div>
+
+          <div className="mt-16">
+             <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: E }}
+              className="text-white/60 text-lg md:text-xl leading-relaxed font-light w-full"
+            >
+              Marketrixa is seen as a reliable Content Marketing Company in Ahmedabad by the companies that are looking for a consistent growth in bringing their business online by strategizing communication. 
+            </motion.p>
+          </div>
         </div>
       </div>
 
       {/* Subtle Background Detail */}
-      <div className="absolute right-0 top-0 bottom-0 w-1/3 pointer-events-none hidden lg:block">
-        <div className="h-full w-full opacity-10 bg-grid-pattern" />
-      </div>
+      
     </section>
   );
 };

@@ -440,64 +440,54 @@ export const AffiliateFAQs: FAQItem[] = [
 
 export const ContentFAQs: FAQItem[] = [
   {
-    question: "What is content marketing?",
+    question: "What does a content marketing company do?",
     answer:
-      "Content marketing is a strategic approach focused on creating and distributing valuable, relevant, and consistent content to attract and retain a clearly defined audience and drive profitable customer actions.",
+      "A professional agency creates strategic communication materials that help businesses attract audiences, improve engagement, and generate leads through digital platforms.",
   },
   {
-    question: "Why is content marketing important for my business?",
+    question: "Why should I invest in content marketing for my business?",
     answer:
-      "Content marketing helps build brand awareness, establish authority, improve SEO rankings, and generate qualified leads by providing value to your audience instead of directly selling.",
+      "Strategic communication improves online visibility, builds credibility, supports customer education, and helps businesses generate long-term organic growth.",
   },
   {
-    question: "What types of content do you create?",
+    question: "What industries can benefit from content marketing?",
     answer:
-      "We create a wide range of content including blog posts, website copy, social media content, videos, infographics, case studies, email newsletters, and more.",
-  },
-  {
-    question: "How does content marketing improve SEO?",
-    answer:
-      "High-quality content targets relevant keywords, increases website engagement, earns backlinks, and helps search engines understand your website, resulting in better rankings.",
+      "Almost every industry can benefit, including healthcare, real estate, education, ecommerce, technology, finance, hospitality, and professional services.",
   },
   {
     question: "How long does it take to see results from content marketing?",
     answer:
-      "Content marketing is a long-term strategy. Typically, noticeable results such as improved traffic and engagement can be seen within 3 to 6 months.",
+      "Results depend on competition, strategy, and consistency, but businesses generally start noticing improvements within a few months.",
   },
   {
-    question: "Do you create SEO-optimized content?",
+    question: "Do you create SEO-friendly content?",
     answer:
-      "Yes, all our content is optimized for search engines using proper keyword research, on-page SEO techniques, and user-focused writing to maximize visibility and performance.",
+      "Yes, Marketrixa develops search-focused communication that helps improve website visibility and organic traffic.",
   },
   {
-    question: "Can content marketing generate leads?",
+    question: "What types of content do you provide?",
     answer:
-      "Absolutely. By providing valuable and targeted content, we attract potential customers, nurture them through the funnel, and convert them into leads and sales.",
+      "We create website communication, blogs, social media content, email campaigns, video scripts, technical writing, guides, and promotional messaging.",
   },
   {
-    question: "How do you measure content marketing success?",
+    question: "How do you measure campaign success?",
     answer:
-      "We track key metrics such as website traffic, engagement rate, keyword rankings, lead generation, and conversion rates to evaluate performance.",
+      "Performance is evaluated through traffic growth, audience engagement, lead generation, search visibility, and conversion improvements.",
   },
   {
-    question: "Do I need a blog for content marketing?",
+    question: "Can your agency handle content strategy and execution together?",
     answer:
-      "While not mandatory, having a blog significantly improves your content marketing strategy by providing a platform to publish valuable content and improve SEO.",
+      "Yes, our team manages planning, creation, optimization, publishing, and reporting under one streamlined process.",
   },
   {
-    question: "Can you handle content strategy as well?",
+    question: "Why choose Marketrixa for content marketing services?",
     answer:
-      "Yes, we develop a complete content strategy including audience research, content planning, topic clustering, and distribution to ensure maximum impact.",
+      "Marketrixa combines creative communication, SEO planning, audience research, and performance tracking to help businesses achieve sustainable digital growth.",
   },
   {
-    question: "Is content marketing suitable for all industries?",
+    question: "Do you offer customized content marketing solutions?",
     answer:
-      "Yes, content marketing works for almost every industry including e-commerce, healthcare, finance, education, SaaS, and local businesses.",
-  },
-  {
-    question: "How often should I publish content?",
-    answer:
-      "Consistency is key. Depending on your goals, we recommend publishing content weekly or bi-weekly to maintain engagement and growth.",
+      "Yes, we create tailored communication strategies based on your business objectives, target audience, and industry requirements.",
   },
 ];
 
