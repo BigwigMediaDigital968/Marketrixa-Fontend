@@ -652,30 +652,38 @@ export const GraphicFaqs: FAQItem[] = [
 
 export const SmoFaqs: FAQItem[] = [
   {
-    question:
-      "What graphic design services does Marketrixa offer in Ahmedabad?",
+    question: "What does a social media optimization company in Ahmedabad do?",
     answer:
-      "Marketrixa offers a full range of graphic design services including logo design, brand identity, social media creatives, marketing materials, business presentations, brochures, and advertising banners — all under one roof.",
+      "A social media optimization company in Ahmedabad helps businesses improve brand visibility, audience engagement, profile performance, and organic growth across major social media platforms through strategic content creation, profile optimization, and audience-focused social media practices.",
   },
   {
-    question: "How much does graphic design service cost in Ahmedabad?",
+    question: "Why should I choose Marketrixa for SMO services?",
     answer:
-      "Our pricing depends on the scope and type of project. We offer flexible packages suitable for startups, small businesses, and established brands. Contact us for a free consultation and we will suggest the best plan for your budget.",
+      "Marketrixa provides result-driven Social Media Optimization Service in Ahmedabad focused on increasing engagement, maintaining consistent brand presence, growing audiences organically, and delivering long-term social media performance aligned with business objectives.",
   },
   {
-    question: "How long does it take to complete a graphic design project?",
+    question: "What platforms does Marketrixa manage for social media optimization?",
     answer:
-      "Timelines vary based on the complexity of the project. A logo design typically takes 3 to 5 business days, while a complete brand identity package may take 7 to 14 business days. We always discuss timelines before starting so there are no surprises.",
+      "Our SMO Consultant team manages major social media platforms including Instagram, Facebook, LinkedIn, X (formerly Twitter), and other relevant channels based on your business requirements, industry, and target audience preferences.",
   },
   {
-    question: "Can Marketrixa handle both digital and print design needs?",
+    question: "How can SMO help my business grow online?",
     answer:
-      "Yes. We design for both digital platforms — social media, websites, digital ads — and print formats like brochures, flyers, posters, and banners. You get consistent, on-brand visuals across every medium.",
+      "Social Media Optimization helps businesses enhance online visibility, strengthen audience interaction, build brand credibility, and improve customer engagement while fostering stronger relationships through consistent and optimized social media communication.",
   },
   {
-    question:
-      "Why should I choose Marketrixa over other graphic design agencies in Ahmedabad?",
+    question: "Is social media optimization suitable for small businesses?",
     answer:
-      "Marketrixa combines creative design with business strategy. We don't just make things look good — we make sure your visuals communicate the right message, attract the right audience, and support your business growth. Every project gets dedicated attention and goes through quality checks before delivery.",
+      "Yes. An experienced SMO Company in Ahmedabad can help startups and small businesses increase audience reach, establish a strong brand identity, improve engagement, and achieve sustainable organic growth through cost-effective social media strategies.",
+  },
+  {
+    question: "How long does it take to see results from SMO services?",
+    answer:
+      "Social media optimization is a long-term strategy. Most businesses begin seeing improvements in engagement rates, profile activity, audience growth, and overall social media performance within a few months of consistent optimization efforts.",
+  },
+  {
+    question: "Does Marketrixa provide customized SMO strategies?",
+    answer:
+      "Yes. Marketrixa develops customized social media optimization strategies based on your business goals, target audience, industry trends, competitive landscape, and platform-specific performance requirements to maximize engagement and visibility.",
   },
 ];
