@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  BarChart3,
   Cpu,
   Layers,
   Zap,
@@ -24,50 +23,90 @@ interface Tool {
   color: string;
 }
 
-const tools: Tool[] = [
+const tools: Tool[] =  [
   {
-    id: "klaviyo",
-    name: "Klaviyo",
-    category: "Automation & CRM",
+    id: "audience-segmentation",
+    name: "Audience Segmentation",
+    category: "Targeting & Personalization",
     effectiveness: 98,
     description:
-      "The gold standard for E-commerce automation and deep data segmentation.",
+      "Create highly targeted subscriber lists based on customer activity, interests, demographics, and engagement behavior for more relevant campaigns.",
     features: [
-      "Dynamic Product Feeds",
-      "Predictive Analytics",
-      "SMS Integration",
+      "Behavior-Based Segmentation",
+      "Demographic Targeting",
+      "Interest Profiling",
     ],
     color: "#00E2B1",
   },
   {
-    id: "mailchimp",
-    name: "Mailchimp",
-    category: "Campaign Design",
-    effectiveness: 85,
-    description:
-      "Reliable, user-friendly platform for small to medium scale visual storytelling.",
-    features: ["Drag-and-Drop Editor", "A/B Testing", "Behavioral Targeting"],
-    color: "#FFE01B",
-  },
-  {
-    id: "sendgrid",
-    name: "SendGrid",
-    category: "Deliverability",
+    id: "automated-email-campaigns",
+    name: "Automated Email Campaigns",
+    category: "Marketing Automation",
     effectiveness: 95,
     description:
-      "Enterprise-level API solution focused on massive deliverability and scale.",
-    features: ["Dedicated IP addresses", "Email Validation", "SMTP Service"],
+      "Automate customer journeys with timely emails for lead nurturing, onboarding, abandoned carts, and customer retention.",
+    features: [
+      "Lead Nurturing Workflows",
+      "Abandoned Cart Recovery",
+      "Customer Retention Automation",
+    ],
     color: "#00B3E3",
   },
   {
-    id: "beehiiv",
-    name: "Beehiiv",
-    category: "Newsletters",
+    id: "conversion-copywriting",
+    name: "Conversion-Focused Copywriting",
+    category: "Content Strategy",
     effectiveness: 92,
     description:
-      "The fastest-growing platform built specifically for high-conversion newsletters.",
-    features: ["Advanced Attribution", "Referral Programs", "Ad Network"],
-    color: "#f26522",
+      "Develop persuasive email content that drives clicks, enquiries, and sales while maintaining brand consistency.",
+    features: [
+      "High-Converting Messaging",
+      "CTA Optimization",
+      "Brand Voice Consistency",
+    ],
+    color: "#FFE01B",
+  },
+  {
+    id: "performance-optimization",
+    name: "Performance-Based Optimization",
+    category: "Campaign Optimization",
+    effectiveness: 96,
+    description:
+      "Continuously analyze campaign performance and optimize strategies to improve open rates, engagement, and conversions.",
+    features: [
+      "Open Rate Improvement",
+      "Engagement Analysis",
+      "Conversion Optimization",
+    ],
+    color: "#8B5CF6",
+  },
+  {
+    id: "responsive-email-design",
+    name: "Responsive Email Design",
+    category: "Email Design",
+    effectiveness: 90,
+    description:
+      "Design visually appealing email campaigns optimized for desktop, mobile, and tablet devices.",
+    features: [
+      "Mobile-Friendly Layouts",
+      "Cross-Device Compatibility",
+      "User Experience Optimization",
+    ],
+    color: "#F26522",
+  },
+  {
+    id: "data-driven-reporting",
+    name: "Data-Driven Reporting",
+    category: "Analytics & Insights",
+    effectiveness: 94,
+    description:
+      "Access detailed campaign analytics and actionable insights to measure audience engagement and marketing performance.",
+    features: [
+      "Campaign Analytics",
+      "Audience Insights",
+      "Performance Reporting",
+    ],
+    color: "#22C55E",
   },
 ];
 
@@ -92,11 +131,10 @@ const EmailTools: React.FC = () => {
             </span>
           </motion.div>
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Mastering the <span className="text-[#f26522]">Ecosystem.</span>
+            Strategic Email Solutions  <span className="text-[#f26522]">Designed For Business Growth</span>
           </h2>
-          <p className="text-white/70 max-w-2xl mx-auto font-light">
-            We leverage industry-leading platforms to ensure your messages land
-            in the inbox, not the spam folder.
+          <p className="text-white/70 max-w-4xl mx-auto font-light">
+            Communication isn't just about massaging messages. Your brand requires relevant, personalized, and conversion-driven campaigns that resonate with the right audience at the right time. We are a professional “Email marketing agency in Ahmedabad” and recognize the importance of effective communication.We are a professional “Email marketing agency in Ahmedabad” and we know the value of effective communication to enhance customer relationship and boost sales.
           </p>
         </div>
 
@@ -220,6 +258,11 @@ const EmailTools: React.FC = () => {
               </div>
             </motion.div>
           </AnimatePresence>
+        </div>
+        <div className="text-center mt-10">
+          <p className="text-white/70 max-w-4xl mx-auto font-light">
+            Marketrixa, an Ahmedabad-based growth-oriented email marketing firm, creates communication infrastructure to drive sustainable business growth. 
+          </p>
         </div>
       </div>
     </section>

@@ -3,12 +3,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  Database,
-  Settings2,
   LayoutTemplate,
   Send,
   LineChart,
-  RotateCcw,
+  Search,
+  Users,
+  Workflow,
 } from "lucide-react";
 
 const E = [0.22, 1, 0.36, 1] as const;
@@ -25,49 +25,58 @@ interface ProcessPhase {
 
 const phases: ProcessPhase[] = [
   {
-    title: "Intelligence",
+    title: "Audience Research & Planning",
     subtitle: "Phase 01",
-    desc: "We clean your existing list and segment audiences based on deep behavioral data points.",
-    icon: Database,
-    color: "#3b82f6", // Blue
-    kpi: "List Health",
-    result: "< 0.5% Bounce",
+    desc: "Based on customer activity, interests, demographics and engagement levels, we create subscriber lists that make campaigns relevant.",
+    icon: Search,
+    color: "#3b82f6",
+    kpi: "Subscriber Lists",
+    result: "Relevant Campaigns",
   },
   {
-    title: "Warmup",
+    title: "Subscriber Segmentation",
     subtitle: "Phase 02",
-    desc: "Technical infrastructure setup and IP warming to ensure 100% inbox placement.",
-    icon: Settings2,
-    color: "#a855f7", // Purple
-    kpi: "Sender Score",
-    result: "99+ Rating",
+    desc: "We target audience based on interaction data, demographics and customer's intent to enhance targeting.",
+    icon: Users,
+    color: "#a855f7",
+    kpi: "Audience Targeting",
+    result: "Better Relevance",
   },
   {
-    title: "Creative",
+    title: "Campaign Development",
     subtitle: "Phase 03",
-    desc: "Psychology-backed copywriting and bespoke template design optimized for dark mode.",
+    desc: "Design eye-catching, compelling and conversion-focused email marketing campaigns.",
     icon: LayoutTemplate,
-    color: "#f26522", // Brand Orange
-    kpi: "Open Rate",
-    result: "35% - 45%",
+    color: "#f26522",
+    kpi: "Campaign Design",
+    result: "Higher Conversions",
   },
   {
-    title: "Execution",
+    title: "Automation Setup",
     subtitle: "Phase 04",
-    desc: "Automated flow triggers and manual blast deployment at peak engagement hours.",
-    icon: Send,
-    color: "#ec4899", // Pink
-    kpi: "CTR",
-    result: "5x Increase",
+    desc: "Our experts are able to create automated lead nurturing workflows, customer retention and personalized engagement.",
+    icon: Workflow,
+    color: "#ec4899",
+    kpi: "Automation",
+    result: "Personalized Engagement",
   },
   {
-    title: "Scaling",
+    title: "Campaign Deployment",
     subtitle: "Phase 05",
-    desc: "Deep-dive analysis of heatmaps and conversion data to double down on winning hooks.",
+    desc: "We optimize campaigns for maximum inbox placement and engagement, by scheduling and distributing via optimized delivery methods.",
+    icon: Send,
+    color: "#10b981",
+    kpi: "Inbox Placement",
+    result: "Maximum Engagement",
+  },
+  {
+    title: "Analytics & Improvements",
+    subtitle: "Phase 06",
+    desc: "The campaign's performance is continually tracked for opportunities to boost engagement and results.",
     icon: LineChart,
-    color: "#10b981", // Emerald
-    kpi: "ROI",
-    result: "20:1 Return",
+    color: "#06b6d4",
+    kpi: "Performance Tracking",
+    result: "Improved Results",
   },
 ];
 
@@ -83,16 +92,16 @@ const EmailProcess: React.FC = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-7xl font-bold mb-6 tracking-wide"
           >
-            A Scientific <span className="text-white/60">Lifecycle.</span>
+            Our Email Marketing <br />
+ <span className="text-white/60">Process</span>
           </motion.h2>
-          <p className="text-white/70 max-w-xl mx-auto font-light">
-            How Marketrixa transforms dormant email lists into consistent
-            revenue generators.
+          <p className="text-white/70 max-w-3xl mx-auto font-light">
+            Marketrixa is the go-to choice for businesses seeking expert email marketing services in Ahmedabad, known for their strategic approach and track record of delivering campaigns that result in tangible outcomes. 
           </p>
         </div>
 
         {/* Process Timeline */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4">
           {phases.map((phase, idx) => (
             <motion.div
               key={idx}

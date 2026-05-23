@@ -495,62 +495,52 @@ export const EmailMarketingFAQs: FAQItem[] = [
   {
     question: "What is email marketing?",
     answer:
-      "Email marketing is a digital marketing strategy that involves sending targeted emails to a group of subscribers to promote products, share updates, and build strong customer relationships.",
+      "Email marketing is a digital communication strategy used to connect businesses with customers through personalized and targeted email campaigns.",
   },
   {
     question: "Why is email marketing important for businesses?",
     answer:
-      "Email marketing offers a direct line of communication with your audience, delivers high ROI, and helps nurture leads, retain customers, and increase repeat sales.",
+      "It helps businesses build customer relationships, improve engagement, generate leads, and increase sales through direct communication.",
   },
   {
     question: "What types of email campaigns do you create?",
     answer:
-      "We create newsletters, promotional emails, drip campaigns, welcome sequences, abandoned cart emails, re-engagement campaigns, and more.",
+      "We create newsletters, promotional campaigns, automation workflows, customer retention emails, and lead nurturing sequences.",
   },
   {
-    question: "How do you build an email list?",
+    question: "How often should businesses send marketing emails?",
     answer:
-      "We use ethical and effective methods such as lead magnets, website forms, landing pages, and opt-in campaigns to grow a high-quality subscriber list.",
+      "The ideal frequency depends on your audience, industry, and campaign objectives. Consistency and relevance are key factors.",
   },
   {
-    question: "Do you provide email design and copywriting?",
+    question: "Do you provide automated email campaign setup?",
     answer:
-      "Yes, we handle both design and copywriting to create visually appealing and engaging emails that drive opens, clicks, and conversions.",
-  },
-  {
-    question: "How do you improve email open rates?",
-    answer:
-      "We optimize subject lines, personalize content, segment audiences, and test sending times to maximize open rates and engagement.",
-  },
-  {
-    question: "What tools do you use for email marketing?",
-    answer:
-      "We work with leading platforms such as Mailchimp, HubSpot, Klaviyo, and others depending on your business needs.",
+      "Yes, Marketrixa develops automation workflows for onboarding, abandoned cart recovery, customer retention, and lead nurturing.",
   },
   {
     question: "Can email marketing help increase sales?",
     answer:
-      "Absolutely. Email marketing is one of the most effective channels for driving sales by nurturing leads and encouraging repeat purchases.",
+      "Targeted communication strategies can improve customer engagement and encourage higher conversions and repeat purchases.",
   },
   {
-    question: "How do you measure email campaign performance?",
+    question: "How do you measure campaign performance?",
     answer:
-      "We track metrics like open rate, click-through rate, conversion rate, bounce rate, and ROI to evaluate and optimize campaign performance.",
+      "We evaluate campaigns using open rates, click-through rates, engagement metrics, subscriber growth, and conversion tracking.",
   },
   {
     question: "Is email marketing suitable for small businesses?",
     answer:
-      "Yes, email marketing is highly cost-effective and scalable, making it ideal for small businesses to connect with their audience and grow consistently.",
+      "Yes, businesses of all sizes can benefit from personalized communication strategies to improve customer relationships and brand visibility.",
   },
   {
-    question: "How often should I send emails to my audience?",
+    question: "Why choose Marketrixa for email marketing services?",
     answer:
-      "It depends on your business and audience, but generally, sending 1–4 emails per month helps maintain engagement without overwhelming subscribers.",
+      "Marketrixa combines audience research, automation, creative communication, and performance optimization to deliver effective campaigns.",
   },
   {
-    question: "Do you provide email automation services?",
+    question: "Do you offer customized email marketing solutions?",
     answer:
-      "Yes, we set up automated workflows such as welcome series, lead nurturing, abandoned cart recovery, and follow-up sequences to maximize efficiency and results.",
+      "Yes, our team creates tailored communication strategies based on your business goals, target audience, and industry requirements.",
   },
 ];
 

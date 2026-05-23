@@ -8,31 +8,55 @@ import {
   MousePointerClick,
   TrendingUp,
   ShieldCheck,
+  Briefcase,
+  Users,
+  Workflow,
+  BarChart3,
+  Building2,
 } from "lucide-react";
 
 const E = [0.22, 1, 0.36, 1] as const;
 
 const WhyEmail: React.FC = () => {
-  const highlightPoints = [
-    {
-      icon: Target,
-      label: "Precision Targeting",
-      value: "98%",
-      desc: "Inbox placement rate through expert IP warmups.",
-    },
-    {
-      icon: TrendingUp,
-      label: "Revenue Impact",
-      value: "280%",
-      desc: "Average increase in customer lifetime value (LTV).",
-    },
-    {
-      icon: MousePointerClick,
-      label: "Engagement",
-      value: "12x",
-      desc: "Higher click-through rates compared to social ads.",
-    },
-  ];
+
+  const highlightPoints2 = [
+  {
+    icon: Briefcase,
+    label: "Custom Strategies",
+    value: "100%",
+    desc: "Customized campaign strategies for every business.",
+  },
+  {
+    icon: Users,
+    label: "Audience Focus",
+    value: "360°",
+    desc: "Audience-focused communication planning.",
+  },
+  {
+    icon: Workflow,
+    label: "Automation",
+    value: "24/7",
+    desc: "Automation workflows for better engagement.",
+  },
+  {
+    icon: MousePointerClick,
+    label: "Conversions",
+    value: "High",
+    desc: "Conversion-driven messaging and design.",
+  },
+  {
+    icon: BarChart3,
+    label: "Reporting",
+    value: "100%",
+    desc: "Transparent reporting and analytics.",
+  },
+  {
+    icon: Building2,
+    label: "Experience",
+    value: "Multi",
+    desc: "Multi-industry campaign experience.",
+  },
+];
 
   return (
     <section className="relative py-14 overflow-hidden">
@@ -109,11 +133,11 @@ const WhyEmail: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.1, ease: E }}
               className="text-3xl md:text-5xl font-bold leading-[1.1] mb-8"
             >
-              Why Marketrixa for <br />
-              <span className="text-white/70 italic">Email Marketing?</span>
+              Why Businesses <br />
+              <span className="text-white/70 italic">Choose Marketrixa</span>
             </motion.h2>
 
-            <motion.p
+            {/* <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -123,11 +147,11 @@ const WhyEmail: React.FC = () => {
               Generic blasts are dead. At Marketrixa, we build hyper-segmented
               automation flows that respect your audience's time while
               aggressively scaling your revenue through behavioral psychology.
-            </motion.p>
+            </motion.p> */}
 
             {/* Feature List with Data Points */}
             <div className="space-y-6">
-              {highlightPoints.map((item, idx) => (
+              {highlightPoints2.map((item, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, x: 30 }}
@@ -146,15 +170,15 @@ const WhyEmail: React.FC = () => {
                   <div className="flex-grow">
                     <div className="flex items-baseline justify-between mb-1">
                       <h4 className="text-lg font-bold text-white group-hover:text-[#f26522] transition-colors">
-                        {item.label}
+                        {item.desc}
                       </h4>
-                      <span className="text-2xl font-black text-white/60 group-hover:text-[#f26522]/40 transition-colors">
+                      {/* <span className="text-2xl font-black text-white/60 group-hover:text-[#f26522]/40 transition-colors">
                         {item.value}
-                      </span>
+                      </span> */}
                     </div>
-                    <p className="text-sm text-white/40 font-light leading-relaxed">
+                    {/* <p className="text-sm text-white/40 font-light leading-relaxed">
                       {item.desc}
-                    </p>
+                    </p> */}
                   </div>
                 </motion.div>
               ))}

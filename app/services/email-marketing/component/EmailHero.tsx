@@ -12,7 +12,7 @@ const EmailHero: React.FC = () => {
   return (
     <section className="relative py-14 w-full flex items-center justify-center overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-18 items-center">
           {/* --- Left Content: Text --- */}
           <div className="text-center lg:text-left">
             <motion.div
@@ -23,7 +23,7 @@ const EmailHero: React.FC = () => {
             >
               <Zap className="w-4 h-4 text-[#f26522]" />
               <span className="text-xs font-bold uppercase tracking-widest text-[#f26522]">
-                Automated Revenue Engines
+                Email Marketing Services
               </span>
             </motion.div>
 
@@ -33,8 +33,9 @@ const EmailHero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.1, ease: E }}
               className="text-3xl md:text-5xl font-bold mb-8"
             >
-              Ownership of your <br />
-              <span className="text-[#f26522]">Audience.</span>
+              Build Stronger Customer Relationships Through
+              <br />
+              <span className="text-[#f26522]">Smart Email Campaigns</span>
             </motion.h1>
 
             <motion.p
@@ -43,9 +44,7 @@ const EmailHero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: E }}
               className="text-white/60 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed font-light"
             >
-              Stop renting space on social media. Build a direct line to your
-              customers with data-backed email strategies that drive consistent
-              **20x higher ROI** than any other channel.
+              Marketrixa is a trusted Email Marketing Company in Ahmedabad delivering personalized email campaigns, automated workflows, customer engagement strategies, and performance-focused communication solutions designed to improve retention, conversions, and long-term business growth. 
             </motion.p>
 
             <motion.div
