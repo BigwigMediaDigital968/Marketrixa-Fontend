@@ -84,15 +84,15 @@ export default function Popup({ isOpen, onClose, source }: PopupProps) {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    console.log(JSON.stringify({
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      service: selectedService,
-      message: `Website: ${formData.website} | Message: ${formData.message}`,
-      source: source || defaultSource,
-      eventId
-    }))
+    // console.log(JSON.stringify({
+    //   name: formData.name,
+    //   email: formData.email,
+    //   phone: formData.phone,
+    //   service: selectedService,
+    //   message: `Website: ${formData.website} | Message: ${formData.message}`,
+    //   source: source || defaultSource,
+    //   eventId
+    // }))
     try {
       const response = await fetch("/api/leads", {
         // Ensure this matches your route path
