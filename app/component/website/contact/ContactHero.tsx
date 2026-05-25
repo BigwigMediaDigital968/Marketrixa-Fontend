@@ -229,29 +229,28 @@ const ContactHero = () => {
                       onChange={handleChange}
                       className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-4 focus:outline-none focus:border-[#F26522] transition-colors appearance-none cursor-pointer"
                     >
-                      <option
-                        className="bg-black"
-                        value="Market Entry Strategy"
-                      >
-                        Web Development
+                      <option className="bg-black" value="Google Ads">
+                        Google Ads
                       </option>
-                      <option
-                        className="bg-black"
-                        value="Market Entry Strategy"
-                      >
-                        Market Entry Strategy
+
+                      <option className="bg-black" value="Meta Ads">
+                        Meta Ads
                       </option>
-                      <option
-                        className="bg-black"
-                        value="Performance Analytics"
-                      >
-                        Performance Analytics
+
+                      <option className="bg-black" value="UGC Videos">
+                        UGC Videos
                       </option>
-                      <option
-                        className="bg-black"
-                        value="Digital Infrastructure"
-                      >
-                        Digital Infrastructure
+
+                      <option className="bg-black" value="Influencer Marketing">
+                        Influencer Marketing
+                      </option>
+
+                      <option className="bg-black" value="Website Development">
+                        Website Development
+                      </option>
+
+                      <option className="bg-black" value="SEO">
+                        SEO
                       </option>
                       <option className="bg-black" value="Other Inquiries">
                         Other Inquiries

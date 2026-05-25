@@ -26,11 +26,15 @@ interface PopupProps {
 }
 
 const SERVICES = [
-  "Web Development",
+  "Google Ads",
+  "Meta Ads",
+  "UGC Videos",
   "SEO & Growth",
+  "Influencer Marketing",
+  "Web Development",
+  
   "Social Media",
   "Branding & Design",
-  "Video Production",
 ];
 
 const TRUST_PILLS = [
