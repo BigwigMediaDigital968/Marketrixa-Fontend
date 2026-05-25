@@ -22,8 +22,7 @@ function hashData(data: string) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, service, message, company, eventId, source } = body;
-
+    const { name, email, phone, service, message, company, eventId, source, businessType, budget, projectGoal, contactMethod } = body;
     if (!name || !email) {
       return NextResponse.json(
         { error: "Name and Email are required" },
@@ -40,8 +39,12 @@ export async function POST(request: Request) {
       service: service || "General Inquiry",
       message: message || "",
       status: "new",
-      source: source|| "website",
+      source: source || "website",
       createdAt: Timestamp.now(),
+      businessType, 
+      budget, 
+      projectGoal, 
+      contactMethod
     });
 
     const metaPayload = {

@@ -226,14 +226,12 @@ export default function LeadForm() {
                 <div className="flex items-center justify-between mb-10">
                   <div className="flex gap-2 flex-grow mr-6">
                     <div
-                      className={`h-1.5 flex-grow rounded-full transition-all duration-500 ${
-                        step >= 1 ? "bg-[#F26522]" : "bg-white/10"
-                      }`}
+                      className={`h-1.5 flex-grow rounded-full transition-all duration-500 ${step >= 1 ? "bg-[#F26522]" : "bg-white/10"
+                        }`}
                     />
                     <div
-                      className={`h-1.5 flex-grow rounded-full transition-all duration-500 ${
-                        step >= 2 ? "bg-[#F26522]" : "bg-white/10"
-                      }`}
+                      className={`h-1.5 flex-grow rounded-full transition-all duration-500 ${step >= 2 ? "bg-[#F26522]" : "bg-white/10"
+                        }`}
                     />
                   </div>
                   <span className="text-[10px] font-black text-[#F26522] uppercase tracking-[0.2em] whitespace-nowrap">
@@ -457,6 +455,22 @@ export default function LeadForm() {
                               >
                                 Service You Need
                               </option>
+                              <option className="bg-[#111]" value="Google Ads">
+                                Google Ads
+                              </option>
+
+                              <option className="bg-[#111]" value="Meta Ads">
+                                Meta Ads
+                              </option>
+
+                              <option className="bg-[#111]" value="UGC Videos">
+                                UGC Videos
+                              </option>
+
+                              <option className="bg-[#111]" value="Influencer Marketing">
+                                Influencer Marketing
+                              </option>
+
                               <option
                                 value="Website Development"
                                 className="bg-[#111]"

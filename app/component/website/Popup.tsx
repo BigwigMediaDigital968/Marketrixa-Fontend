@@ -32,10 +32,25 @@ const SERVICES = [
   "SEO & Growth",
   "Influencer Marketing",
   "Web Development",
-  
   "Social Media",
   "Branding & Design",
 ];
+
+const BUSINESS_TYPES = [
+  "E-commerce",
+  "Real Estate",
+  "Trading",
+  "Clinic",
+  "Local Business",
+  "Coach",
+  "Other",
+];
+
+const BUDGETS = ["25k–50k", "50k–1L", "1L–5L", "5L+"];
+
+const PROJECT_GOALS = ["More Leads", "More Sales", "Branding", "Website"];
+
+const CONTACT_METHODS = ["WhatsApp", "Call", "Email"];
 
 const TRUST_PILLS = [
   { icon: <Clock size={11} />, text: "24h Response" },
@@ -62,14 +77,21 @@ export default function Popup({ isOpen, onClose, source }: PopupProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null); // New error state
   const [focused, setFocused] = useState<string | null>(null);
-  const [selectedService, setSelectedService] = useState("Web Development");
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
-    website: "",
+    email: "",
+    company: "",
+    businessType: "",
+    budget: "",
+    revenue: "",
+    projectGoal: "",
+    contactMethod: "",
     message: "",
   });
+
+
 
   const pathname = usePathname();
 
@@ -83,6 +105,12 @@ export default function Popup({ isOpen, onClose, source }: PopupProps) {
   if (typeof window !== "undefined") {
     // @ts-ignore
   }
+
+  const toggleService = (service: string) => {
+    setSelectedServices((prev) =>
+      prev.includes(service) ? prev.filter((s) => s !== service) : [...prev, service]
+    );
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -106,8 +134,12 @@ export default function Popup({ isOpen, onClose, source }: PopupProps) {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          service: selectedService,
-          message: `Website: ${formData.website} | Message: ${formData.message}`,
+          service: selectedServices.join(", "),
+          message: formData.message,
+          businessType: formData.businessType,
+          budget: formData.budget,
+          projectGoal: formData.projectGoal,
+          contactMethod: formData.contactMethod,
           source: source || defaultSource,
           eventId
         }),
@@ -127,10 +159,15 @@ export default function Popup({ isOpen, onClose, source }: PopupProps) {
         setSubmitted(false);
         setFormData({
           name: "",
-          email: "",
           phone: "",
+          email: "",
+          company: "",
+          businessType: "",
+          budget: "",
+          revenue: "",
+          projectGoal: "",
+          contactMethod: "",
           message: "",
-          website: "",
         });
       }, 3500);
     } catch (err: any) {
@@ -161,7 +198,7 @@ export default function Popup({ isOpen, onClose, source }: PopupProps) {
         /* ... (Keep all your existing CSS exactly as it was) ... */
         .popup-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 16px; }
         .popup-backdrop { position: absolute; inset: 0; background: rgba(4,4,10,0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-        .popup-modal { position: relative; width: 100%; max-width: 880px; max-height: 92vh; display: flex; border-radius: 28px; overflow: hidden; margin: auto; box-shadow: 0 0 0 1px rgba(255,255,255,0.07), 0 40px 100px rgba(0,0,0,0.6), 0 0 80px rgba(242,101,34,0.08); background: #080b14; }
+        .popup-modal { position: relative; width: 100%; max-width: 1000px; max-height: 92vh; display: flex; border-radius: 28px; overflow: hidden; margin: auto; box-shadow: 0 0 0 1px rgba(255,255,255,0.07), 0 40px 100px rgba(0,0,0,0.6), 0 0 80px rgba(242,101,34,0.08); background: #080b14; }
         .popup-left { width: 42%; min-width: 220px; padding: 48px 40px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; background: linear-gradient(155deg, #0f1420 0%, #130e08 55%, #0a0d1a 100%); border-right: 1px solid rgba(255,255,255,0.05); flex-shrink: 0; }
         .popup-logo { margin-bottom: 40px; }
         .popup-headline { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: #fff; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 18px; }
@@ -174,30 +211,30 @@ export default function Popup({ isOpen, onClose, source }: PopupProps) {
         .step-dot { width: 6px; height: 6px; border-radius: 50%; background: #f26522; box-shadow: 0 0 8px rgba(242,101,34,0.7); animation: stepGlow 2s ease-in-out infinite; }
         @keyframes stepGlow { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
         .deco-number { position: absolute; bottom: -20px; right: -10px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 140px; font-weight: 800; color: rgba(242,101,34,0.04); line-height: 1; pointer-events: none; user-select: none; letter-spacing: -0.06em; }
-        .popup-right { flex: 1; overflow-y: auto; padding:38px; display: flex; flex-direction: column; scrollbar-width: none; }
+        .popup-right { flex: 1; overflow-y: auto; padding:20px 38px; display: flex; flex-direction: column; scrollbar-width: none; }
         .popup-right::-webkit-scrollbar { display: none; }
         .popup-close { position: absolute; top: 20px; right: 20px; z-index: 10; width: 36px; height: 36px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.25s ease; }
         .popup-close:hover { background: #f26522; border-color: #f26522; color: #fff; transform: rotate(90deg); }
-        .form-heading { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.3rem; font-weight: 700; color: #fff; letter-spacing: -0.025em; margin-bottom: 6px; }
-        .form-subheading { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-bottom: 32px; }
-        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .form-heading { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.3rem; font-weight: 700; color: #fff; letter-spacing: -0.025em; margin-bottom: 4px; }
+        .form-subheading { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-bottom: 10px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
         .field-col { display: flex; flex-direction: column; gap: 7px; }
-        .field-full { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+.field-full { display: flex; flex-direction: column; gap: 7px; margin-bottom: 12px; }
         .field-label { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.80); transition: color 0.2s ease; }
         .field-label.active { color: #fff; }
         .field-wrap { position: relative; border-radius: 12px; border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.03); transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease; overflow: hidden; }
         .field-wrap.focused { border-color: rgba(242,101,34,0.45); background: rgba(242,101,34,0.04); box-shadow: 0 0 0 3px rgba(242,101,34,0.08); }
         .field-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.20); transition: color 0.25s ease; pointer-events: none; }
         .field-wrap.focused .field-icon { color: #f26522; }
-        .popup-input { width: 100%; padding: 13px 14px 13px 40px; background: transparent; border: none; outline: none; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.875rem; }
+.popup-input { width: 100%; padding: 10px 14px 10px 40px; background: transparent; border: none; outline: none; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.875rem; }
         .popup-input::placeholder { color: rgba(255,255,255,0.15); }
-        .popup-textarea { width: 100%; padding: 13px 14px; background: transparent; border: none; outline: none; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.875rem; resize: none; min-height: 88px; }
+        .popup-textarea { width: 100%; padding: 13px 14px; background: transparent; border: none; outline: none; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.875rem; resize: none; min-height: 40px; }
         .popup-textarea::placeholder { color: rgba(255,255,255,0.15); }
-        .service-label { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.8); margin-bottom: 10px; }
+.service-label { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.8); margin-bottom: 8px; }
         .service-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
         .service-chip { padding: 7px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); font-size: 0.77rem; color: rgba(255,255,255,0.45); cursor: pointer; transition: all 0.2s ease; }
         .service-chip.selected { border-color: rgba(242,101,34,0.55); background: rgba(242,101,34,0.12); color: #f26522; font-weight: 500; }
-        .popup-submit { width: 100%; padding: 15px 24px; border-radius: 12px; border: none; cursor: pointer; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 10px; position: relative; overflow: hidden; transition: transform 0.25s ease, box-shadow 0.25s ease; background: linear-gradient(135deg, #f26522 0%, #e05510 100%); color: #fff; box-shadow: 0 6px 30px rgba(242,101,34,0.38); margin-bottom: 14px; }
+.popup-submit { width: 100%; padding: 12px 24px; border-radius: 12px; border: none; cursor: pointer; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 10px; position: relative; overflow: hidden; transition: transform 0.25s ease, box-shadow 0.25s ease; background: linear-gradient(135deg, #f26522 0%, #e05510 100%); color: #fff; box-shadow: 0 6px 30px rgba(242,101,34,0.38); margin-bottom: 10px; }
         .popup-submit:disabled { opacity: 0.7; cursor: not-allowed; }
         .spin { width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
@@ -208,6 +245,13 @@ export default function Popup({ isOpen, onClose, source }: PopupProps) {
         .success-h { font-family:'Bricolage Grotesque',sans-serif; font-size:1.8rem; font-weight:800; color:#fff; letter-spacing:-0.03em; margin-bottom:10px; }
         .success-p { font-size:0.85rem; color:rgba(255,255,255,0.40); max-width:260px; line-height:1.65; margin-bottom:28px; }
         @media (max-width: 700px) { .popup-modal { flex-direction: column; max-height: 95svh; } .popup-left { width: 100%; padding: 32px 28px 24px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); } .popup-right { padding: 28px 24px; } .field-row { grid-template-columns: 1fr; } .popup-desc, .deco-number { display: none; } }
+        .select-wrap { position: relative; border-radius: 12px; border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.03); transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease; overflow: hidden; }
+.select-wrap.focused { border-color: rgba(242,101,34,0.45); background: rgba(242,101,34,0.04); box-shadow: 0 0 0 3px rgba(242,101,34,0.08); }
+.popup-select { width: 100%; padding: 10px 14px; background: transparent; border: none; outline: none; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.875rem; appearance: none; cursor: pointer; }
+.popup-select option { background: #0f1420; color: #fff; }
+.pill-group { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.pill-btn { padding: 7px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); font-size: 0.77rem; color: rgba(255,255,255,0.45); cursor: pointer; transition: all 0.2s ease; }
+.pill-btn.selected { border-color: rgba(242,101,34,0.55); background: rgba(242,101,34,0.12); color: #f26522; font-weight: 500; }
       `}</style>
 
       <AnimatePresence>
@@ -298,11 +342,15 @@ export default function Popup({ isOpen, onClose, source }: PopupProps) {
                         flex: 1,
                       }}
                     >
-                      <div className="form-heading">
-                        Tell us about your project
-                      </div>
-                      <div className="form-subheading">
-                        All fields marked are required to proceed
+
+
+                      <div className="">
+                        <div className="form-heading">
+                          Tell us about your project
+                        </div>
+                        <div className="form-subheading">
+                          All fields marked * are required to proceed
+                        </div>
                       </div>
 
                       <form
@@ -323,138 +371,148 @@ export default function Popup({ isOpen, onClose, source }: PopupProps) {
 
                         <div className="field-row">
                           <div className="field-col">
-                            <label
-                              className={`field-label${focused === "name" ? " active" : ""}`}
-                            >
-                              Full Name
-                            </label>
-                            <div
-                              className={`field-wrap${focused === "name" ? " focused" : ""}`}
-                            >
-                              <span className="field-icon">
-                                <User size={14} />
-                              </span>
-                              <input
-                                type="text"
-                                required
-                                placeholder="John Doe"
-                                className="popup-input"
-                                value={formData.name}
-                                onFocus={() => setFocused("name")}
-                                onBlur={() => setFocused(null)}
-                                onChange={(e) =>
-                                  setFormData({
-                                    ...formData,
-                                    name: e.target.value,
-                                  })
-                                }
-                              />
+                            <label className={`field-label${focused === "name" ? " active" : ""}`}>Full Name *</label>
+                            <div className={`field-wrap${focused === "name" ? " focused" : ""}`}>
+                              <span className="field-icon"><User size={14} /></span>
+                              <input type="text" required placeholder="John Doe" className="popup-input"
+                                value={formData.name} onFocus={() => setFocused("name")} onBlur={() => setFocused(null)}
+                                onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
                             </div>
                           </div>
                           <div className="field-col">
-                            <label
-                              className={`field-label${focused === "email" ? " active" : ""}`}
-                            >
-                              Email Address
-                            </label>
-                            <div
-                              className={`field-wrap${focused === "email" ? " focused" : ""}`}
-                            >
-                              <span className="field-icon">
-                                <Mail size={14} />
-                              </span>
-                              <input
-                                type="email"
-                                required
-                                placeholder="john@company.com"
-                                className="popup-input"
-                                value={formData.email}
-                                onFocus={() => setFocused("email")}
-                                onBlur={() => setFocused(null)}
-                                onChange={(e) =>
-                                  setFormData({
-                                    ...formData,
-                                    email: e.target.value,
-                                  })
-                                }
-                              />
+                            <label className={`field-label${focused === "phone" ? " active" : ""}`}>Mobile Number *</label>
+                            <div className={`field-wrap${focused === "phone" ? " focused" : ""}`}>
+                              <span className="field-icon"><Phone size={14} /></span>
+                              <input type="tel" required placeholder="+91 98765 43210" className="popup-input"
+                                value={formData.phone} onFocus={() => setFocused("phone")} onBlur={() => setFocused(null)}
+                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
                             </div>
                           </div>
                         </div>
 
                         <div className="field-row">
                           <div className="field-col">
-                            <label
-                              className={`field-label${focused === "phone" ? " active" : ""}`}
-                            >
-                              Phone Number
-                            </label>
-                            <div
-                              className={`field-wrap${focused === "phone" ? " focused" : ""}`}
-                            >
-                              <span className="field-icon">
-                                <Phone size={14} />
-                              </span>
-                              <input
-                                type="tel"
-                                required
-                                placeholder="+91 98765 43210"
-                                className="popup-input"
-                                value={formData.phone}
-                                onFocus={() => setFocused("phone")}
-                                onBlur={() => setFocused(null)}
-                                onChange={(e) =>
-                                  setFormData({
-                                    ...formData,
-                                    phone: e.target.value,
-                                  })
-                                }
-                              />
+                            <label className={`field-label${focused === "email" ? " active" : ""}`}>Email Address *</label>
+                            <div className={`field-wrap${focused === "email" ? " focused" : ""}`}>
+                              <span className="field-icon"><Mail size={14} /></span>
+                              <input type="email" required placeholder="john@company.com" className="popup-input"
+                                value={formData.email} onFocus={() => setFocused("email")} onBlur={() => setFocused(null)}
+                                onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
                             </div>
                           </div>
                           <div className="field-col">
-                            <label
-                              className={`field-label${focused === "website" ? " active" : ""}`}
-                            >
-                              Website
-                            </label>
-                            <div
-                              className={`field-wrap${focused === "website" ? " focused" : ""}`}
-                            >
-                              <span className="field-icon">
-                                <Zap size={14} />
-                              </span>
-                              <input
-                                type="text"
-                                placeholder="www.example.com"
-                                className="popup-input"
-                                value={formData.website}
-                                onFocus={() => setFocused("website")}
-                                onBlur={() => setFocused(null)}
-                                onChange={(e) =>
-                                  setFormData({
-                                    ...formData,
-                                    website: e.target.value,
-                                  })
-                                }
-                              />
+                            <label className={`field-label${focused === "company" ? " active" : ""}`}>Company / Brand</label>
+                            <div className={`field-wrap${focused === "company" ? " focused" : ""}`}>
+                              <span className="field-icon"><Zap size={14} /></span>
+                              <input type="text" placeholder="Acme Inc." className="popup-input"
+                                value={formData.company} onFocus={() => setFocused("company")} onBlur={() => setFocused(null)}
+                                onChange={(e) => setFormData({ ...formData, company: e.target.value })} />
                             </div>
                           </div>
                         </div>
 
-                        <div className="service-label">Interested In</div>
-                        <div className="service-chips">
-                          {SERVICES.map((s) => (
-                            <button
-                              type="button"
-                              key={s}
-                              className={`service-chip${selectedService === s ? " selected" : ""} cursor-pointer`}
-                              onClick={() => setSelectedService(s)}
-                            >
-                              {s}
+                        {/* Row 3: Business Type + Budget */}
+                        <div className="grid grid-cols-3 gap-2">
+                          <div className="field-col">
+                            <label className="field-label">Business Type</label>
+                            <div className={`select-wrap${focused === "businessType" ? " focused" : ""}`}>
+                              <select className="popup-select" value={formData.businessType}
+                                onFocus={() => setFocused("businessType")} onBlur={() => setFocused(null)}
+                                onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}>
+                                <option value="" disabled>Select type...</option>
+                                {BUSINESS_TYPES.map((b) => <option key={b} value={b}>{b}</option>)}
+                              </select>
+                            </div>
+                          </div>
+                          <div className="field-col">
+                            <label className="field-label">Monthly Budget</label>
+                            <div className={`select-wrap${focused === "budget" ? " focused" : ""}`}>
+                              <select className="popup-select" value={formData.budget}
+                                onFocus={() => setFocused("budget")} onBlur={() => setFocused(null)}
+                                onChange={(e) => setFormData({ ...formData, budget: e.target.value })}>
+                                <option value="" disabled>Select budget...</option>
+                                {BUDGETS.map((b) => <option key={b} value={b}>{b}</option>)}
+                              </select>
+                            </div>
+                          </div>
+                          <div className="field-col">
+                            <label className="field-label">Services Interested In</label>
+                            <div className={`select-wrap${focused === "services" ? " focused" : ""}`}>
+                              <select className="popup-select" required={selectedServices.length < 1} value=""
+                                onFocus={() => setFocused("services")} onBlur={() => setFocused(null)}
+                                onChange={(e) => {
+                                  const val = e.target.value;
+                                  if (val && !selectedServices.includes(val))
+                                    setSelectedServices((prev) => [...prev, val]);
+                                }}>
+                                <option value="" disabled>Add services...</option>
+                                {SERVICES.filter((s) => !selectedServices.includes(s)).map((s) => (
+                                  <option key={s} value={s}>{s}</option>
+                                ))}
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        {/* Services Multi-select */}
+                        <div className="field-full" style={{ marginBottom: 16 }}>
+
+                          {selectedServices.length > 0 && (
+                            <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
+                              {selectedServices.map((s) => (
+                                <span key={s} style={{
+                                  display: "inline-flex", alignItems: "center", gap: 5,
+                                  padding: "4px 10px", borderRadius: 6,
+                                  background: "rgba(242,101,34,0.12)",
+                                  border: "1px solid rgba(242,101,34,0.35)",
+                                  color: "#f26522", fontSize: "0.75rem", fontWeight: 500,
+                                }}>
+                                  {s}
+                                  <button type="button" onClick={() => setSelectedServices((prev) => prev.filter((x) => x !== s))}
+                                    style={{ background: "none", border: "none", color: "#f26522", cursor: "pointer", padding: 0, lineHeight: 1, fontSize: "0.85rem" }}>
+                                    ×
+                                  </button>
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Row 4: Revenue + Goal */}
+                        <div className="field-row">
+                          <div className="field-col">
+                            <label className={`field-label${focused === "revenue" ? " active" : ""}`}>Current Monthly Revenue</label>
+                            <div className={`field-wrap${focused === "revenue" ? " focused" : ""}`}>
+                              <span className="field-icon"><Zap size={14} /></span>
+                              <input type="text" placeholder="e.g. ₹5L/month" className="popup-input"
+                                value={formData.revenue} onFocus={() => setFocused("revenue")} onBlur={() => setFocused(null)}
+                                onChange={(e) => setFormData({ ...formData, revenue: e.target.value })} />
+                            </div>
+                          </div>
+                          <div className="field-col">
+                            <label className="field-label">Project Goal</label>
+                            <div className={`select-wrap${focused === "projectGoal" ? " focused" : ""}`}>
+                              <select required className="popup-select" value={formData.projectGoal}
+                                onFocus={() => setFocused("projectGoal")} onBlur={() => setFocused(null)}
+                                onChange={(e) => setFormData({ ...formData, projectGoal: e.target.value })}>
+                                <option value="" disabled>Select goal...</option>
+                                {PROJECT_GOALS.map((g) => <option key={g} value={g}>{g}</option>)}
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Preferred Contact Method */}
+                        <div className="service-label">Preferred Contact Method</div>
+                        <div className="pill-group">
+                          {CONTACT_METHODS.map((m) => (
+                            <button type="button" key={m}
+                              className={`pill-btn${formData.contactMethod === m ? " selected" : ""} cursor-pointer`}
+                              onClick={() => setFormData({ ...formData, contactMethod: m })}>
+                              {m}
                             </button>
                           ))}
                         </div>
+
 
                         <div className="field-full">
                           <label

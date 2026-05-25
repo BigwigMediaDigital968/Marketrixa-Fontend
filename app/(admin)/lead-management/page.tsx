@@ -120,6 +120,8 @@ export default function LeadTable() {
     );
   }
 
+  console.log(leads)
+
   return (
     <>
       <div className="flex items-center justify-between mb-4">

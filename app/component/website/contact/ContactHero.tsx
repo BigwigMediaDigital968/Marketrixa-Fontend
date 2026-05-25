@@ -253,7 +253,7 @@ const ContactHero = () => {
                         SEO
                       </option>
                       <option className="bg-black" value="Other Inquiries">
-                        Other Inquiries
+                       SMM
                       </option>
                     </select>
                   </div>
