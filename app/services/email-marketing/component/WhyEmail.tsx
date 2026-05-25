@@ -20,43 +20,43 @@ const E = [0.22, 1, 0.36, 1] as const;
 const WhyEmail: React.FC = () => {
 
   const highlightPoints2 = [
-  {
-    icon: Briefcase,
-    label: "Custom Strategies",
-    value: "100%",
-    desc: "Customized campaign strategies for every business.",
-  },
-  {
-    icon: Users,
-    label: "Audience Focus",
-    value: "360°",
-    desc: "Audience-focused communication planning.",
-  },
-  {
-    icon: Workflow,
-    label: "Automation",
-    value: "24/7",
-    desc: "Automation workflows for better engagement.",
-  },
-  {
-    icon: MousePointerClick,
-    label: "Conversions",
-    value: "High",
-    desc: "Conversion-driven messaging and design.",
-  },
-  {
-    icon: BarChart3,
-    label: "Reporting",
-    value: "100%",
-    desc: "Transparent reporting and analytics.",
-  },
-  {
-    icon: Building2,
-    label: "Experience",
-    value: "Multi",
-    desc: "Multi-industry campaign experience.",
-  },
-];
+    {
+      icon: Briefcase,
+      label: "Custom Strategies",
+      value: "100%",
+      desc: "Customized campaign strategies for every business.",
+    },
+    {
+      icon: Users,
+      label: "Audience Focus",
+      value: "360°",
+      desc: "Audience-focused communication planning.",
+    },
+    {
+      icon: Workflow,
+      label: "Automation",
+      value: "24/7",
+      desc: "Automation workflows for better engagement.",
+    },
+    {
+      icon: MousePointerClick,
+      label: "Conversions",
+      value: "High",
+      desc: "Conversion-driven messaging and design.",
+    },
+    {
+      icon: BarChart3,
+      label: "Reporting",
+      value: "100%",
+      desc: "Transparent reporting and analytics.",
+    },
+    {
+      icon: Building2,
+      label: "Experience",
+      value: "Multi",
+      desc: "Multi-industry campaign experience.",
+    },
+  ];
 
   return (
     <section className="relative py-14 overflow-hidden">
@@ -150,7 +150,7 @@ const WhyEmail: React.FC = () => {
             </motion.p> */}
 
             {/* Feature List with Data Points */}
-            <div className="space-y-6">
+            <div className="space-y-2">
               {highlightPoints2.map((item, idx) => (
                 <motion.div
                   key={idx}
@@ -162,7 +162,7 @@ const WhyEmail: React.FC = () => {
                     delay: 0.3 + idx * 0.1,
                     ease: E,
                   }}
-                  className="group flex items-start gap-6 p-6 rounded-2xl border border-white/30 hover:border-[#f26522]/20 hover:bg-white/[0.02] transition-all duration-500"
+                  className="group flex items-start gap-6 py-3 p-6 rounded-2xl border border-white/30 hover:border-[#f26522]/20 hover:bg-white/[0.02] transition-all duration-500"
                 >
                   <div className="flex-shrink-0 mt-1">
                     <item.icon className="w-6 h-6 text-[#f26522]" />
@@ -183,6 +183,14 @@ const WhyEmail: React.FC = () => {
                 </motion.div>
               ))}
             </div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="text-white/80 text-base leading-relaxed mt-6"
+            >
+              Companies searching for a dependable <strong>email marketing company in Ahmedabad</strong> can rely on Marketrixa for scalable communication solutions and measurable results.
+
+            </motion.p>
           </div>
         </div>
       </div>

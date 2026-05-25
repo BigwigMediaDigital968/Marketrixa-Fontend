@@ -12,12 +12,13 @@ import {
   RefreshCw,
   BarChart3,
 } from "lucide-react";
+import Link from "next/link";
 
 const E = [0.22, 1, 0.36, 1] as const;
 
 interface ServiceType {
   title: string;
-  description: string;
+  description: string | React.ReactNode;
   icon: React.ElementType;
   tags: string[];
 }
@@ -75,7 +76,16 @@ const services: ServiceType[] = [
   {
     title: "Analytical Performance Tracking",
     description:
-      "Detailed reporting systems that measure campaign engagement, click-through rates, and customer behavior.",
+      (<>
+        Detailed reporting systems that measure {" "}
+        <Link
+          href="/services/performance-marketing-service"
+          className="text-blue-600 hover:underline font-bold"
+        >
+          campaign engagement
+        </Link>
+        , click-through rates, and customer behavior..
+      </>),
     icon: BarChart3,
     tags: ["Reporting", "Click-Through Rates", "Customer Behavior"],
   },
@@ -109,8 +119,8 @@ const ContentService: React.FC = () => {
               transition={{ duration: 0.8, ease: E }}
               className="text-3xl md:text-5xl font-bold leading-tight"
             >
-              Tailored Email Marketing Solutions 
- <br />
+              Tailored Email Marketing Solutions
+              <br />
               <span className="text-[#f26522]">For Every Business </span>
             </motion.h2>
           </div>
@@ -119,7 +129,7 @@ const ContentService: React.FC = () => {
             whileInView={{ opacity: 1 }}
             className="text-white/80 max-w-xs text-sm leading-relaxed"
           >
-As a results-oriented email marketing agency in Ahmedabad, Marketrixa delivers communication strategies customized for different industries and business models.
+            As a results-oriented <strong>email marketing agency in Ahmedabad</strong>, Marketrixa delivers communication strategies customized for different industries and business models.
 
           </motion.p>
         </div>

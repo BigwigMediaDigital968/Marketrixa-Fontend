@@ -10,6 +10,7 @@ import {
   CheckCircle2,
   ExternalLink,
 } from "lucide-react";
+import Link from "next/link";
 
 const E = [0.22, 1, 0.36, 1] as const;
 
@@ -18,12 +19,12 @@ interface Tool {
   name: string;
   category: string;
   effectiveness: number; // 0-100
-  description: string;
+  description: string | React.ReactNode;
   features: string[];
   color: string;
 }
 
-const tools: Tool[] =  [
+const tools: Tool[] = [
   {
     id: "audience-segmentation",
     name: "Audience Segmentation",
@@ -57,8 +58,19 @@ const tools: Tool[] =  [
     name: "Conversion-Focused Copywriting",
     category: "Content Strategy",
     effectiveness: 92,
-    description:
-      "Develop persuasive email content that drives clicks, enquiries, and sales while maintaining brand consistency.",
+    description: (
+      <>
+        We create persuasive and audience-focused email communication supported by{" "}
+        <Link
+          href="/services/content-marketing"
+          className="text-blue-600 hover:underline font-bold"
+        >
+          strategic content marketing services
+        </Link>{" "}
+        to improve clicks, enquiries, customer engagement, and sales while
+        maintaining a consistent brand voice.
+      </>
+    ),
     features: [
       "High-Converting Messaging",
       "CTA Optimization",
@@ -71,8 +83,20 @@ const tools: Tool[] =  [
     name: "Performance-Based Optimization",
     category: "Campaign Optimization",
     effectiveness: 96,
-    description:
-      "Continuously analyze campaign performance and optimize strategies to improve open rates, engagement, and conversions.",
+    description: (
+
+      <>
+        Our experts continuously monitor campaign performance, audience behavior,
+        and engagement metrics while optimizing strategies alongside our{" "}
+        <Link
+          href="/services/seo-service"
+          className="text-blue-600 hover:underline font-bold"
+        >
+          SEO services
+        </Link>{" "}
+        to improve visibility, open rates, website traffic, and conversions.
+      </>
+    ),
     features: [
       "Open Rate Improvement",
       "Engagement Analysis",
@@ -134,7 +158,7 @@ const EmailTools: React.FC = () => {
             Strategic Email Solutions  <span className="text-[#f26522]">Designed For Business Growth</span>
           </h2>
           <p className="text-white/70 max-w-4xl mx-auto font-light">
-            Communication isn't just about massaging messages. Your brand requires relevant, personalized, and conversion-driven campaigns that resonate with the right audience at the right time. We are a professional “Email marketing agency in Ahmedabad” and recognize the importance of effective communication.We are a professional “Email marketing agency in Ahmedabad” and we know the value of effective communication to enhance customer relationship and boost sales.
+            Communication isn't just about messaging messages. Your brand requires relevant, personalized, and conversion-driven campaigns that resonate with the right audience at the right time. We are a professional <strong>Email marketing agency in Ahmedabad</strong> and recognize the importance of effective communication.We work professionally and we know the value of effective communication to enhance customer relationship and boost sales.
           </p>
         </div>
 
@@ -146,11 +170,10 @@ const EmailTools: React.FC = () => {
                 key={tool.id}
                 onClick={() => setActiveTool(tool)}
                 whileHover={{ y: -5 }}
-                className={`cursor-pointer p-8 rounded-[2rem] border transition-all duration-500 relative overflow-hidden ${
-                  activeTool.id === tool.id
+                className={`cursor-pointer p-8 rounded-[2rem] border transition-all duration-500 relative overflow-hidden ${activeTool.id === tool.id
                     ? "bg-white/5 border-[#f26522] shadow-[0_20px_50px_rgba(242,101,34,0.1)]"
                     : "bg-transparent border-white/70 grayscale opacity-50 hover:opacity-100 hover:grayscale-0"
-                }`}
+                  }`}
               >
                 {/* Background Glow */}
                 {activeTool.id === tool.id && (
@@ -261,7 +284,7 @@ const EmailTools: React.FC = () => {
         </div>
         <div className="text-center mt-10">
           <p className="text-white/70 max-w-4xl mx-auto font-light">
-            Marketrixa, an Ahmedabad-based growth-oriented email marketing firm, creates communication infrastructure to drive sustainable business growth. 
+            Marketrixa, an Ahmedabad-based growth-oriented email marketing firm, creates communication infrastructure to drive sustainable business growth.
           </p>
         </div>
       </div>
