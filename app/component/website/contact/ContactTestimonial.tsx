@@ -47,7 +47,7 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 5,
-    name: "Rahul",
+    name: "Lalit",
     role: "Founder, Lalit Forex",
     text: "The team has been instrumental in building our digital identity. Their ability to combine branding with lead-focused campaigns helped us attract more relevant clients and strengthen trust in our services.",
     initials: "R",
@@ -55,7 +55,7 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 6,
-    name: "Rahul",
+    name: "Pravin",
     role: "Market Analyst, KB Stocks",
     text: "From social media strategy to performance marketing, every campaign was executed with precision. Their analytical approach and creative execution helped us grow our audience and improve overall engagement significantly.",
     initials: "R",

@@ -41,14 +41,6 @@ export default function Footer() {
           href: "/contact",
         },
         {
-          title: "Our Clients",
-          href: "#clients",
-        },
-        // {
-        //   title: "Careers",
-        //   href: "/careers",
-        // },
-        {
           title: "News & Awards",
           href: "/blogs",
         },
