@@ -68,6 +68,7 @@ export default function LeadForm() {
     return isValid;
   };
 
+  
   const handleNext = () => {
     if (step === 1) {
       const isValid = validateStep1();
@@ -100,6 +101,7 @@ export default function LeadForm() {
         service: formData.service,
         message: formData.note,
         eventId,
+        source: "Home"
       };
 
       const response = await fetch("/api/leads", {

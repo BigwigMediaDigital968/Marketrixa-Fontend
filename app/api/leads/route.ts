@@ -41,10 +41,10 @@ export async function POST(request: Request) {
       status: "new",
       source: source || "website",
       createdAt: Timestamp.now(),
-      businessType, 
-      budget, 
-      projectGoal, 
-      contactMethod
+      ...(businessType && { businessType }),
+      ...(budget && { budget }),
+      ...(projectGoal && { projectGoal }),
+      ...(contactMethod && { contactMethod }),
     });
 
     const metaPayload = {
