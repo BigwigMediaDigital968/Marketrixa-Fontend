@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export interface FAQItem {
   question: string;
-  answer: string;
+  answer: string | React.ReactNode;
 }
 
 interface FAQProps {

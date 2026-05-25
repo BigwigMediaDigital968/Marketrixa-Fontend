@@ -39,16 +39,13 @@ const AffiliateHero = () => {
               </span>
             </motion.div>
 
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.1] tracking-tighter mb-6">
-              AFFILIATE <br />
-              <span className="text-[#f26522]">MARKETING SERVICES</span> <br />
-              IN INDIA
+            <h1 className="text-3xl md:text-5xl font-black text-white leading-[1.1] tracking-tighter mb-6">
+              Expand Your <br /> Brand Reach Through<br />
+              <span className="text-[#f26522]">Performance-Based Partnerships</span>
             </h1>
 
-            <p className="text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed mb-10">
-              Scale Smarter with Performance-Based Partnerships. We connect your
-              brand with high-intent audiences through a curated network of
-              elite affiliates, ensuring you only pay for results.
+            <p className="text-gray-400 text-base md:text-lg max-w-xl leading-relaxed mb-10">
+              Marketrixa is a trusted Affiliate Marketing Company in Ahmedabad delivering performance-driven campaigns through strategic publisher partnerships, targeted traffic generation, conversion-focused affiliate programs, and transparent campaign optimization for measurable business growth.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

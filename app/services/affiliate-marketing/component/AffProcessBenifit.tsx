@@ -17,14 +17,21 @@ import {
   LineChart,
   ChevronRight,
   LucideProps,
+  ShoppingCart,
+  UserPlus,
+  TicketPercent,
+  FileText,
+  Monitor,
+  Share2,
 } from "lucide-react";
+import Link from "next/link";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 interface BenefitItem {
   title: string;
   icon: React.ReactElement<LucideProps>;
-  desc: string;
+  desc: string | React.ReactNode;
 }
 
 interface ProcessStep {
@@ -51,75 +58,92 @@ const processSteps: ProcessStep[] = [
   {
     step: 1,
     title: "Business & Market Analysis",
-    desc: "Our first step is to get to know your business model, audience and competitive environment, which help us in devising a solid affiliate growth plan.",
+    desc: "First, we assess your business objectives, rivals, audience targeting options, and industry possibilities to create a campaign framework.",
     icon: <Search className="w-5 h-5" />,
   },
   {
     step: 2,
-    title: "Affiliate Discovery & Onboarding",
-    desc: "We locate and sign up excellent affiliates who not only fit your niche but also have the potential of bringing in relevant and highly motivated traffic.",
-    icon: <UserCheck className="w-5 h-5" />,
-  },
-  {
-    step: 3,
-    title: "Campaign Setup & Asset Creation",
-    desc: "We work on the creation of all necessary promotional materials, including creatives, landing pages, and other brand collateral to make sure that affiliates have all they need to promote your brand most effectively.",
+    title: "Strategy Development",
+    desc: "Our experts develop personalised affiliate development plans that suit your customer acquisition goals.",
     icon: <Settings className="w-5 h-5" />,
   },
   {
+    step: 3,
+    title: "Affiliate Partner Onboarding",
+    desc: "We find and manage appropriate promotion partners that can provide us targeted traffic and qualified leads.",
+    icon: <UserCheck className="w-5 h-5" />,
+  },
+  {
     step: 4,
-    title: "Performance Monitoring & Optimization",
-    desc: "With regularly analyzing the results and making necessary adjustments to partnerships and campaigns, we are able to enhance efficiency and achieve the highest levels of output.",
-    icon: <BarChart3 className="w-5 h-5" />,
+    title: "Campaign Launch & Setup",
+    desc: "Tracking systems, commission structures, creatives and promotion assets are set up for easy campaign execution.",
+    icon: <Rocket className="w-5 h-5" />,
   },
   {
     step: 5,
-    title: "Reporting & Growth Insights",
-    desc: "You are provided with straightforward and well-supported data reports along with solid recommendations to help you track your performance and confidently expand your business.",
+    title: "Monitoring & Optimization",
+    desc: "Campaigns are monitored incrementally and optimisation efforts are made to identify top performing affiliates and optimise conversions.",
+    icon: <BarChart3 className="w-5 h-5" />,
+  },
+  {
+    step: 6,
+    title: "Reporting & Scaling",
+    desc: "Performance reports allow you to gauge ROI, and strategic tweaks enable campaign expansion over time.",
     icon: <LineChart className="w-5 h-5" />,
   },
 ];
 
 const benefits: BenefitItem[] = [
   {
-    title: "Revenue-Driven Growth",
-    icon: <DollarSign />,
-    desc: "Drive steady sales by working with affiliates who focus on your performance.",
-  },
-  {
-    title: "Wider Brand Exposure",
-    icon: <Globe />,
-    desc: "Get your brand seen on well-trusted platforms and among the right audience segments.",
-  },
-  {
-    title: "Expanded Audience Reach",
+    title: "Influencer Partnership Campaigns",
     icon: <Users />,
-    desc: "Explore new potential customers with high purchasing intent beyond your current channels.",
+    desc: "Aligning product visibility and customer trust with strategic partnerships with creators and influencers.",
   },
   {
-    title: "Cost-Efficient Marketing",
-    icon: <Zap />,
-    desc: "Pay only for successful transactions, making this channel very optimized and scalable.",
+    title: "Ecommerce Affiliate Programs",
+    icon: <ShoppingCart />,
+    desc: "Performance based campaigns designed for ecommerce websites with high volume customer acquisition needs.",
   },
   {
-    title: "Enhanced Brand Trust",
-    icon: <ShieldCheck />,
-    desc: "Partner with trustworthy affiliates to improve brand perception and increase authority.",
+    title: "Lead Generation Partnership",
+    icon: <UserPlus
+    />,
+    desc: "Affiliate programs that are aimed at building leads, sign ups, and qualified business leads.",
   },
   {
-    title: "High-Quality Traffic",
-    icon: <Target />,
-    desc: "Bring in those users who will most likely interact, convert and carry out the desired action.",
+    title: "Coupon & Cashback Campaigns",
+    icon: <TicketPercent />,
+    desc: "Specific promotional collaborations for optimizing engagement and conversion of customers.",
   },
   {
-    title: "Improved Conversion Rates",
-    icon: <TrendingUp />,
-    desc: "Higher user intent matching and better conversions come from targeted promotions.",
+    title: "Blogger & Publisher Outreach",
+    icon: <FileText />,
+    desc: (<>
+      Industry-focused partnerships help businesses improve referral traffic through strategic
+      {" "}
+      <Link
+        href="/services/seo-service"
+        className="text-blue-600 hover:underline font-bold"
+      >
+        SEO services
+      </Link> {" "}
+      while strengthening overall online visibility and brand reach.
+    </>),
   },
   {
-    title: "Low-Risk Growth Model",
-    icon: <Rocket />,
-    desc: "Keep your risks low upfront while still having the ability to perform well in the long run.",
+    title: "SaaS Affiliate Marketing",
+    icon: <Monitor />,
+    desc: "Tailored training for software firms looking to upsell subscriptions and repeat business.",
+  },
+  {
+    title: "Referral Marketing Campaigns",
+    icon: <Share2 />,
+    desc: "Strategies that promote customer recommendations and return visits.",
+  },
+  {
+    title: "Affiliate Campaign Analytics",
+    icon: <BarChart3 />,
+    desc: "Enhanced tracking and reporting features for tracking the performance of campaigns and affiliate activity.",
   },
 ];
 
@@ -181,7 +205,7 @@ const AffProcessBenifit: React.FC = () => {
                 fontFamily: "var(--font-outfit, sans-serif)",
               }}
             >
-              Our Affiliate Marketing{" "}
+              Our Affiliate Marketing {" "}
               <span style={{ color: "#f26522" }}>Process</span>
             </motion.h2>
 
@@ -193,9 +217,7 @@ const AffProcessBenifit: React.FC = () => {
                 maxWidth: "60ch",
               }}
             >
-              Through a structured and performance-driven approach, we develop
-              affiliate systems that generate consistent traffic, strong
-              conversions, as well as measurable returns.
+              Marketrixa's reputation for transparency and reliability has made it a trusted choice for businesses looking to hire professional affiliate marketing services in Ahmedabad.
             </motion.p>
           </div>
 
@@ -222,9 +244,8 @@ const AffProcessBenifit: React.FC = () => {
                   <motion.div
                     key={step.step}
                     {...fadeUp(i * 0.08)}
-                    className={`relative flex flex-col lg:flex-row items-center gap-6 lg:gap-0 ${
-                      isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-                    }`}
+                    className={`relative flex flex-col lg:flex-row items-center gap-6 lg:gap-0 ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+                      }`}
                   >
                     {/* Card */}
                     <motion.div
@@ -344,6 +365,13 @@ const AffProcessBenifit: React.FC = () => {
                 );
               })}
             </div>
+            <div className="mt-20">
+              <motion.p initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }} className="text-gray-400 text-center text-base md:text-lg max-w-6xl leading-relaxed ">
+                          Marketrixa's reputation for transparency and reliability has made it a trusted choice for businesses looking to hire professional affiliate marketing services in Ahmedabad.
+                        </motion.p>
+            </div>
           </div>
         </div>
       </section>
@@ -351,7 +379,7 @@ const AffProcessBenifit: React.FC = () => {
       {/* ════════════════════════════════════════
           SECTION 2 — BENEFITS
       ════════════════════════════════════════ */}
-      <section className="relative md:py-20">
+      <section className="relative md:py-20 pt-5 -mt-15">
         {/* Decorative glows */}
         <div
           className="pointer-events-none absolute inset-0"
@@ -385,25 +413,14 @@ const AffProcessBenifit: React.FC = () => {
                   lineHeight: 1.1,
                 }}
               >
-                Key Benefits of <br className="hidden sm:block" />
+                Customized  <br className="hidden sm:block" />
                 <span
                   style={{
                     color: "#f26522",
                     fontStyle: "italic",
                   }}
                 >
-                  Affiliate Marketing
-                </span>
-                <span
-                  className="block mt-2"
-                  style={{
-                    fontSize: "clamp(1.1rem, 2vw, 1.5rem)",
-                    color: "rgba(255,255,255,0.5)",
-                    fontWeight: 400,
-                    fontFamily: "var(--font-poppins, sans-serif)",
-                  }}
-                >
-                  for Your Business
+                  Affiliate Marketing Solutions
                 </span>
               </motion.h2>
             </div>
@@ -526,6 +543,16 @@ const AffProcessBenifit: React.FC = () => {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}>
+
+            <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 mt-10">
+             Marketrixa, being a trusted partner <strong>Affiliate Marketing Agency in Ahmedabad</strong>, crafts industry-specific and business model specific partnerships.
+            </p>
+          </motion.div>
 
           {/* ── Bottom CTA bar ── */}
           <motion.div

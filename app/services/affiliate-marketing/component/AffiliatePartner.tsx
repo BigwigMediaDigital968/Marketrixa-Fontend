@@ -8,41 +8,74 @@ import {
   Target,
   CheckCircle2,
   ArrowUpRight,
+  Users,
+  DollarSign,
+  BarChart3,
+  ShieldCheck,
 } from "lucide-react";
+import Link from "next/link";
 
 const AffiliatePartner = () => {
   const benefits = [
     {
-      title: "Curated Affiliate Network",
+      title: "Affiliate Program Development",
       description:
-        "We link your brand to top-notch affiliates and creators who resonate with your audience and deliver authentic results.",
+        "We develop individual partnership structures based on your products, services and revenue goals.",
       icon: <Network className="w-8 h-8" />,
       accent: "text-blue-500",
       bg: "bg-blue-50",
     },
     {
-      title: "End-to-End Management",
-      description:
-        "We manage the whole affiliate program with accuracy and regularity, from initial setup to monitoring and payments.",
-      icon: <Layers className="w-8 h-8" />,
+      title: "Publisher & Partner Recruitment",
+      description: (
+        <>
+          Our team finds the right influencers, creators, bloggers, and promotion partners through strategic{" "}
+          <Link
+            href="/services/influencer-marketing"
+            className="text-blue-600 hover:underline font-bold"
+          >
+            Influencer Marketing Services
+          </Link> {" "}
+          relevant to your niche.
+        </>
+      )
+      ,
+      icon: <Users className="w-8 h-8" />,
       accent: "text-purple-500",
       bg: "bg-purple-50",
     },
     {
-      title: "Performance-Driven Optimization",
+      title: "Commission Structure Planning",
       description:
-        "On-going review of data assists us in recognizing best performing partners while increasing your overall ROI.",
-      icon: <TrendingUp className="w-8 h-8" />,
+        "We create rewarding programs that encourage affiliates and keep your business profitable.",
+      icon: <DollarSign
+        className="w-8 h-8" />,
       accent: "text-green-500",
       bg: "bg-green-50",
     },
     {
-      title: "Transparent, Results-Based Approach",
+      title: "Campaign Performance Optimization",
       description:
-        "Payment is made only for actual results, ensuring productive expenditure and measurable growth at each step.",
-      icon: <Target className="w-8 h-8" />,
+        "Continuous tracking and strategic improvements facilitate enhancing the efficiency and conversion rates of campaigns.",
+      icon: <TrendingUp className="w-8 h-8" />,
       accent: "text-orange-500",
       bg: "bg-orange-50",
+    },
+    {
+      title: "Tracking & Reporting Solutions",
+      description:
+        "Detailed analytics provide insights into clicks, leads, customer actions and overall campaign effectiveness.",
+      icon: <BarChart3 className="w-8 h-8" />,
+      accent: "text-cyan-500",
+      bg: "bg-cyan-50",
+    },
+    {
+      title: "Fraud Prevention & Quality Monitoring",
+      description:
+        "We track affiliates to ensure campaign quality and that your business is not infringed upon with invalid traffic or by unethical methods.",
+      icon: <ShieldCheck className="w-8 h-8" />,
+      accent: "text-red-500",
+      bg: "bg-red-50",
     },
   ];
 
@@ -77,18 +110,25 @@ const AffiliatePartner = () => {
           >
             <span className="w-12 h-[2px] bg-orange-500"></span>
             <span className="text-orange-600 font-bold tracking-widest text-sm uppercase">
-              Why Marketrixa
+              Morden Solution
             </span>
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-black text-slate-900 leading-tight"
+            className="text-4xl md:text-5xl font-black text-white leading-tight"
           >
-            What Makes Marketrixa the Right{" "}
-            <span className="text-[#f26522]">Affiliate Partner?</span>
+            Performance-Focused  {" "}
+            <br />
+            <span className="text-[#f26522]">Affiliate Solutions</span> {" "}
+            For Modern Businesses
           </motion.h2>
+          <motion.p initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} className="text-gray-400 text-base md:text-lg max-w-6xl leading-relaxed mb-10 mt-4">
+            Getting publishers is only the first step to successful partnership marketing. Your business requires a strategic plan that understands your audience, the industry, and your conversion objectives. Marketrixa, being Ahmedabad's veteran affiliate marketing firm, has built a niche for itself creating data-driven campaigns that help in driving visibility and acquiring high intent customers.
+          </motion.p>
         </div>
 
         <motion.div
@@ -96,7 +136,7 @@ const AffiliatePartner = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {benefits.map((benefit, index) => (
             <motion.div
@@ -111,27 +151,29 @@ const AffiliatePartner = () => {
                 {benefit.icon}
               </div>
 
-              <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-600 transition-colors">
                 {benefit.title}
               </h3>
 
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
+              <p className="text-slate-400 text-sm leading-relaxed mb-6">
                 {benefit.description}
               </p>
 
-              <div className="flex items-center gap-2 text-xs font-bold text-slate-400 group-hover:text-blue-500 transition-colors">
-                <CheckCircle2 size={14} />
-                <span>VERIFIED SYSTEM</span>
-                <ArrowUpRight
-                  size={14}
-                  className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
-                />
-              </div>
+
 
               {/* Decorative bottom line */}
               <div className="absolute bottom-0 left-8 right-8 h-1 bg-gradient-to-r from-transparent via-slate-100 to-transparent group-hover:via-blue-400 transition-all duration-500" />
             </motion.div>
           ))}
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}>
+
+          <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 mt-10">
+            Marketrixa is a growth-driven <strong>Affiliate Marketing Company in Ahmedabad</strong>, assisting businesses to establish lucrative and enduring affiliate networks.
+          </p>
         </motion.div>
 
         {/* Bottom Trust Bar */}
