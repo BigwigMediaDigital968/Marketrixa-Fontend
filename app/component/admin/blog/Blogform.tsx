@@ -125,13 +125,12 @@ function buildSeoChecks(form: BlogFormData, faq: InlineFAQ): SEOCheck[] {
       ok: titleLen >= 30 && titleLen <= 60,
       points: 15,
       priority: "high",
-      tip: `Currently ${titleLen} chars. ${
-        titleLen < 30
-          ? "Add more descriptive text — aim for 30–60 characters."
-          : titleLen > 60
+      tip: `Currently ${titleLen} chars. ${titleLen < 30
+        ? "Add more descriptive text — aim for 30–60 characters."
+        : titleLen > 60
           ? "Trim to 60 chars max or it'll be cut off in Google results."
           : "Perfect length!"
-      }`,
+        }`,
     },
     {
       key: "metaDesc",
@@ -139,13 +138,12 @@ function buildSeoChecks(form: BlogFormData, faq: InlineFAQ): SEOCheck[] {
       ok: descLen >= 120 && descLen <= 160,
       points: 15,
       priority: "high",
-      tip: `Currently ${descLen} chars. ${
-        descLen < 120
-          ? "Expand — more detail improves click-through rates."
-          : descLen > 160
+      tip: `Currently ${descLen} chars. ${descLen < 120
+        ? "Expand — more detail improves click-through rates."
+        : descLen > 160
           ? "Shorten to 160 chars or Google will truncate it."
           : "Perfect length!"
-      }`,
+        }`,
     },
     {
       key: "keywords",
@@ -209,13 +207,11 @@ function buildSeoChecks(form: BlogFormData, faq: InlineFAQ): SEOCheck[] {
       ok: words >= 800,
       points: 5,
       priority: "medium",
-      tip: `Currently ${words} words. ${
-        words < 800
-          ? `Add ${
-              800 - words
-            } more words — longer content ranks better for competitive keywords.`
-          : "Great depth!"
-      }`,
+      tip: `Currently ${words} words. ${words < 800
+        ? `Add ${800 - words
+        } more words — longer content ranks better for competitive keywords.`
+        : "Great depth!"
+        }`,
     },
     {
       key: "excerpt",
@@ -243,10 +239,10 @@ function SeoScoreRing({ score, size = 56 }: { score: number; size?: number }) {
     score >= 80
       ? "Excellent"
       : score >= 60
-      ? "Good"
-      : score >= 40
-      ? "Fair"
-      : "Needs work";
+        ? "Good"
+        : score >= 40
+          ? "Fair"
+          : "Needs work";
   const r = size / 2 - 5;
   const circ = 2 * Math.PI * r;
   const dash = (score / 100) * circ;
@@ -518,9 +514,8 @@ function FAQItem({
             height="10"
             viewBox="0 0 10 10"
             fill="none"
-            className={`text-gray-600 transition-transform duration-200 ${
-              open ? "rotate-180" : ""
-            }`}
+            className={`text-gray-600 transition-transform duration-200 ${open ? "rotate-180" : ""
+              }`}
           >
             <path
               d="M2 3l3 3 3-3"
@@ -675,15 +670,15 @@ function SEOSuggestions({
                       c.key === "canonicalUrl" ||
                       c.key === "ogTags" ||
                       c.key === "structuredData") && (
-                      <button
-                        type="button"
-                        onClick={() => onTabSwitch("seo")}
-                        className="text-xs font-semibold flex items-center gap-1 transition-colors hover:opacity-80"
-                        style={{ color: "var(--brand-orange)" }}
-                      >
-                        Fix in SEO tab →
-                      </button>
-                    )}
+                        <button
+                          type="button"
+                          onClick={() => onTabSwitch("seo")}
+                          className="text-xs font-semibold flex items-center gap-1 transition-colors hover:opacity-80"
+                          style={{ color: "var(--brand-orange)" }}
+                        >
+                          Fix in SEO tab →
+                        </button>
+                      )}
                     {c.key === "faqSchema" && (
                       <button
                         type="button"
@@ -711,9 +706,8 @@ function SEOSuggestions({
                 height="10"
                 viewBox="0 0 10 10"
                 fill="none"
-                className={`text-gray-600 transition-transform flex-shrink-0 mt-1 ${
-                  expanded === c.key ? "rotate-180" : ""
-                }`}
+                className={`text-gray-600 transition-transform flex-shrink-0 mt-1 ${expanded === c.key ? "rotate-180" : ""
+                  }`}
               >
                 <path
                   d="M2 3l3 3 3-3"
@@ -919,17 +913,16 @@ function TabBtn({
     <button
       type="button"
       onClick={onClick}
-      className={`px-3.5 py-2.5 text-sm font-medium rounded-xl transition-all flex items-center gap-2 whitespace-nowrap ${
-        active
-          ? "text-white shadow-lg"
-          : "text-gray-500 hover:text-gray-300 cursor-pointer"
-      }`}
+      className={`px-3.5 py-2.5 text-sm font-medium rounded-xl transition-all flex items-center gap-2 whitespace-nowrap ${active
+        ? "text-white shadow-lg"
+        : "text-gray-500 hover:text-gray-300 cursor-pointer"
+        }`}
       style={
         active
           ? {
-              background: "var(--brand-orange)",
-              boxShadow: "0 4px 14px rgba(242,101,34,0.3)",
-            }
+            background: "var(--brand-orange)",
+            boxShadow: "0 4px 14px rgba(242,101,34,0.3)",
+          }
           : {}
       }
     >
@@ -937,9 +930,8 @@ function TabBtn({
       <span>{label}</span>
       {badge !== undefined && badge > 0 && (
         <span
-          className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none ${
-            active ? "bg-white/20 text-white" : "bg-white/10 text-gray-400"
-          }`}
+          className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none ${active ? "bg-white/20 text-white" : "bg-white/10 text-gray-400"
+            }`}
         >
           {badge}
         </span>
@@ -959,19 +951,19 @@ export default function BlogForm({
   const [form, setForm] = useState<BlogFormData>(
     initialData
       ? {
-          title: initialData.title,
-          slug: initialData.slug,
-          excerpt: initialData.excerpt,
-          content: initialData.content,
-          coverImage: initialData.coverImage,
-          coverImageAlt: initialData.coverImageAlt,
-          author: initialData.author,
-          industry: initialData.industry,
-          tags: initialData.tags,
-          status: initialData.status,
-          seo: initialData.seo,
-          faqGroupId: initialData.faqGroupId,
-        }
+        title: initialData.title,
+        slug: initialData.slug,
+        excerpt: initialData.excerpt,
+        content: initialData.content,
+        coverImage: initialData.coverImage,
+        coverImageAlt: initialData.coverImageAlt,
+        author: initialData.author,
+        industry: initialData.industry,
+        tags: initialData.tags,
+        status: initialData.status,
+        seo: initialData.seo,
+        faqGroupId: initialData.faqGroupId,
+      }
       : emptyForm,
   );
 
@@ -1166,15 +1158,15 @@ export default function BlogForm({
         ...(overrideStatus ? { status: overrideStatus } : {}),
         ...(valid.length > 0
           ? {
-              faqs: {
-                title: faq.title || `${form.title} — FAQs`,
-                description: faq.description || undefined,
-                items: valid.map(({ question, answer }) => ({
-                  question,
-                  answer,
-                })),
-              },
-            }
+            faqs: {
+              title: faq.title || `${form.title} — FAQs`,
+              description: faq.description || undefined,
+              items: valid.map(({ question, answer }) => ({
+                question,
+                answer,
+              })),
+            },
+          }
           : { faqs: { title: "", items: [] } }),
       };
       const url =
@@ -1269,11 +1261,10 @@ export default function BlogForm({
             <button
               type="button"
               onClick={() => setPreviewMode((p) => !p)}
-              className={`px-3.5 py-2.5 rounded-xl text-sm border transition-all flex items-center gap-2 ${
-                previewMode
-                  ? "text-[#f26522] border-[#f26522]/30 bg-[#f26522]/5"
-                  : "text-gray-400 border-white/10 hover:border-white/20 hover:text-white"
-              }`}
+              className={`px-3.5 py-2.5 rounded-xl text-sm border transition-all flex items-center gap-2 ${previewMode
+                ? "text-[#f26522] border-[#f26522]/30 bg-[#f26522]/5"
+                : "text-gray-400 border-white/10 hover:border-white/20 hover:text-white"
+                }`}
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path
@@ -1316,8 +1307,8 @@ export default function BlogForm({
               {saving
                 ? "Saving…"
                 : form.status === "published"
-                ? "Update Post"
-                : "Publish Post"}
+                  ? "Update Post"
+                  : "Publish Post"}
             </button>
           </div>
         </div>
@@ -1497,7 +1488,7 @@ export default function BlogForm({
                 subtitle="Recommended size: 1200 × 630 px • JPG, PNG, WebP"
               />
 
-              <div>
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
                   {form.coverImage ? (
                     <div
@@ -1679,7 +1670,7 @@ export default function BlogForm({
                     </label>
 
                     <textarea
-                      rows={1}
+                      rows={2}
                       value={form.coverImageAlt}
                       onChange={(e) => update("coverImageAlt", e.target.value)}
                       placeholder="Example: AI-powered democracy concept showing digital governance and futuristic civic technology..."
@@ -1693,11 +1684,10 @@ export default function BlogForm({
                       </p>
 
                       <span
-                        className={`text-[11px] font-medium ${
-                          form.coverImageAlt?.length > 20
-                            ? "text-green-500"
-                            : "text-amber-500"
-                        }`}
+                        className={`text-[11px] font-medium ${form.coverImageAlt?.length > 20
+                          ? "text-green-500"
+                          : "text-amber-500"
+                          }`}
                       >
                         {form.coverImageAlt?.length || 0}/120
                       </span>
@@ -1752,50 +1742,51 @@ export default function BlogForm({
                     </div>
                   </div>
 
-                  {!form.coverImage && (
-                    <div
-                      className="flex items-start gap-3 text-sm px-4 py-3 rounded-xl"
-                      style={{
-                        background: "rgba(245,158,11,0.06)",
-                        border: "1px solid rgba(245,158,11,0.14)",
-                        color: "rgba(251,191,36,0.9)",
-                      }}
-                    >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        className="mt-0.5 flex-shrink-0"
-                      >
-                        <path
-                          d="M6 1l5 10H1L6 1z"
-                          stroke="currentColor"
-                          strokeWidth="1"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M6 5v2.5M6 9v.5"
-                          stroke="currentColor"
-                          strokeWidth="1.2"
-                          strokeLinecap="round"
-                        />
-                      </svg>
 
-                      <div>
-                        <p className="font-semibold mb-0.5">
-                          Cover image missing
-                        </p>
-                        <p className="text-xs opacity-80 leading-relaxed">
-                          Blogs with optimized featured images perform
-                          significantly better on Google Discover, social
-                          previews, and search rankings.
-                        </p>
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
+              {!form.coverImage && (
+                <div
+                  className="flex items-start gap-3 text-sm px-4 py-3 rounded-xl"
+                  style={{
+                    background: "rgba(245,158,11,0.06)",
+                    border: "1px solid rgba(245,158,11,0.14)",
+                    color: "rgba(251,191,36,0.9)",
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    className="mt-0.5 flex-shrink-0"
+                  >
+                    <path
+                      d="M6 1l5 10H1L6 1z"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M6 5v2.5M6 9v.5"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+
+                  <div>
+                    <p className="font-semibold mb-0.5">
+                      Cover image missing
+                    </p>
+                    <p className="text-xs opacity-80 leading-relaxed">
+                      Blogs with optimized featured images perform
+                      significantly better on Google Discover, social
+                      previews, and search rankings.
+                    </p>
+                  </div>
+                </div>
+              )}
             </Card>
 
             {/* Title + Slug + Excerpt */}
@@ -1821,11 +1812,10 @@ export default function BlogForm({
                       Blog Title <span className="text-red-500">*</span>
                     </label>
                     <span
-                      className={`text-xs tabular-nums ${
-                        form.title.length > 80
-                          ? "text-amber-400"
-                          : "text-gray-600"
-                      }`}
+                      className={`text-xs tabular-nums ${form.title.length > 80
+                        ? "text-amber-400"
+                        : "text-gray-600"
+                        }`}
                     >
                       {form.title.length}/100
                     </span>
@@ -1901,12 +1891,12 @@ export default function BlogForm({
                         borderLeft: "none",
                       }}
                       onFocus={(e) =>
-                        (e.currentTarget.style.borderColor =
-                          "rgba(242,101,34,0.5)")
+                      (e.currentTarget.style.borderColor =
+                        "rgba(242,101,34,0.5)")
                       }
                       onBlur={(e) =>
-                        (e.currentTarget.style.borderColor =
-                          "rgba(255,255,255,0.09)")
+                      (e.currentTarget.style.borderColor =
+                        "rgba(255,255,255,0.09)")
                       }
                     />
                   </div>
@@ -1916,13 +1906,12 @@ export default function BlogForm({
                   <div className="flex items-center justify-between mb-1.5">
                     <label className="lbl">Excerpt / Summary</label>
                     <span
-                      className={`text-xs tabular-nums ${
-                        form.excerpt.length > 200
-                          ? "text-amber-400"
-                          : form.excerpt.length >= 80
+                      className={`text-xs tabular-nums ${form.excerpt.length > 200
+                        ? "text-amber-400"
+                        : form.excerpt.length >= 80
                           ? "text-emerald-500"
                           : "text-gray-600"
-                      }`}
+                        }`}
                     >
                       {form.excerpt.length}/300
                     </span>
@@ -2005,15 +1994,15 @@ export default function BlogForm({
                           wordCount(form.content) >= 1500
                             ? "text-emerald-400"
                             : wordCount(form.content) >= 800
-                            ? "text-amber-400"
-                            : "text-red-400"
+                              ? "text-amber-400"
+                              : "text-red-400"
                         }
                       >
                         {wordCount(form.content) >= 1500
                           ? "Great — in-depth article"
                           : wordCount(form.content) >= 800
-                          ? "Good — solid content"
-                          : "Short — add more depth"}
+                            ? "Good — solid content"
+                            : "Short — add more depth"}
                       </span>
                     </div>
                     <div
@@ -2031,8 +2020,8 @@ export default function BlogForm({
                             wordCount(form.content) >= 1500
                               ? "#10b981"
                               : wordCount(form.content) >= 800
-                              ? "#f59e0b"
-                              : "#ef4444",
+                                ? "#f59e0b"
+                                : "#ef4444",
                         }}
                       />
                     </div>
@@ -2064,22 +2053,19 @@ export default function BlogForm({
                         background: c.ok
                           ? "rgba(16,185,129,0.06)"
                           : "rgba(255,255,255,0.02)",
-                        border: `1px solid ${
-                          c.ok
-                            ? "rgba(16,185,129,0.18)"
-                            : "rgba(255,255,255,0.06)"
-                        }`,
+                        border: `1px solid ${c.ok
+                          ? "rgba(16,185,129,0.18)"
+                          : "rgba(255,255,255,0.06)"
+                          }`,
                       }}
                     >
                       <div
-                        className={`w-2 h-2 rounded-full flex-shrink-0 ${
-                          c.ok ? "bg-emerald-400" : "bg-white/15"
-                        }`}
+                        className={`w-2 h-2 rounded-full flex-shrink-0 ${c.ok ? "bg-emerald-400" : "bg-white/15"
+                          }`}
                       />
                       <span
-                        className={`text-[11px] truncate ${
-                          c.ok ? "text-gray-300" : "text-gray-600"
-                        }`}
+                        className={`text-[11px] truncate ${c.ok ? "text-gray-300" : "text-gray-600"
+                          }`}
                       >
                         {c.label}
                       </span>
@@ -2089,313 +2075,321 @@ export default function BlogForm({
               </div>
             </Card>
 
-            {/* Suggestions */}
-            <SEOSuggestions
-              checks={seoChecks}
-              onTabSwitch={(t) => setActiveTab(t as Tab)}
-            />
-
-            {/* SERP Preview */}
-            <Card>
-              <SectionHeader
-                icon={
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <circle
-                      cx="6"
-                      cy="6"
-                      r="4.5"
-                      stroke="#f26522"
-                      strokeWidth="1.2"
-                    />
-                    <path
-                      d="M9.5 9.5l3 3"
-                      stroke="#f26522"
-                      strokeWidth="1.4"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                }
-                title="Google Search Preview"
-                subtitle="Approximate how this post appears in search results"
-              />
-              <div className="rounded-xl overflow-hidden border border-white/10 bg-white">
-                <div className="p-4 space-y-1">
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 rounded-full bg-gray-200 flex items-center justify-center text-[8px] font-bold text-gray-500">
-                      M
+            <div className="flex gap-2">
+              <div className="w-2/5 sticky top-20 self-start">
+                {/* Suggestions */}
+                <SEOSuggestions
+                  checks={seoChecks}
+                  onTabSwitch={(t) => setActiveTab(t as Tab)}
+                />
+              </div>
+              <div className="w-3/5">
+                {/* SERP Preview */}
+                <Card>
+                  <SectionHeader
+                    icon={
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle
+                          cx="6"
+                          cy="6"
+                          r="4.5"
+                          stroke="#f26522"
+                          strokeWidth="1.2"
+                        />
+                        <path
+                          d="M9.5 9.5l3 3"
+                          stroke="#f26522"
+                          strokeWidth="1.4"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    }
+                    title="Google Search Preview"
+                    subtitle="Approximate how this post appears in search results"
+                  />
+                  <div className="rounded-xl overflow-hidden border border-white/10 bg-white">
+                    <div className="p-4 space-y-1">
+                      <div className="flex items-center gap-2">
+                        <div className="w-4 h-4 rounded-full bg-gray-200 flex items-center justify-center text-[8px] font-bold text-gray-500">
+                          M
+                        </div>
+                        <div>
+                          <p className="text-[11px] text-gray-500 leading-none">
+                            Marketrixa
+                          </p>
+                          <p className="text-[10px] text-gray-400 leading-none">
+                            https://marketrixa.com/blogs/{form.slug || "your-slug"}
+                          </p>
+                        </div>
+                      </div>
+                      <p className="text-[#1a0dab] text-base font-medium leading-tight cursor-pointer hover:underline">
+                        {form.seo.metaTitle ||
+                          form.title ||
+                          "Page title appears here"}
+                      </p>
+                      <p className="text-[#545454] text-sm leading-snug line-clamp-2">
+                        {form.seo.metaDescription ||
+                          form.excerpt ||
+                          "Page description appears here. Make it 120–160 characters for best results."}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+                {/* Meta fields */}
+                <Card>
+                  <SectionHeader
+                    icon={
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path
+                          d="M2 3h10M2 6h8M2 9h6"
+                          stroke="#f26522"
+                          strokeWidth="1.4"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    }
+                    title="Meta Tags"
+                    subtitle="Directly control what search engines read about this page"
+                  />
+                  <div className="space-y-5">
+                    <div className="space-y-2">
+                      <MetaBar
+                        label="Meta Title"
+                        value={form.seo.metaTitle}
+                        min={30}
+                        max={60}
+                        warn
+                      />
+                      <input
+                        value={form.seo.metaTitle}
+                        onChange={(e) => updateSeo("metaTitle", e.target.value)}
+                        placeholder="e.g. How AI is Transforming B2B Marketing in 2025 | Marketrixa"
+                        className="inp"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <MetaBar
+                        label="Meta Description"
+                        value={form.seo.metaDescription}
+                        min={120}
+                        max={160}
+                        warn
+                      />
+                      <textarea
+                        value={form.seo.metaDescription}
+                        onChange={(e) =>
+                          updateSeo("metaDescription", e.target.value)
+                        }
+                        placeholder="Concise description that entices users to click in search results…"
+                        rows={3}
+                        className="inp resize-none"
+                      />
                     </div>
                     <div>
-                      <p className="text-[11px] text-gray-500 leading-none">
-                        Marketrixa
-                      </p>
-                      <p className="text-[10px] text-gray-400 leading-none">
-                        https://marketrixa.com/blogs/{form.slug || "your-slug"}
+                      <label className="lbl">Focus Keywords</label>
+                      <input
+                        value={form.seo.metaKeywords}
+                        onChange={(e) => updateSeo("metaKeywords", e.target.value)}
+                        placeholder="AI marketing, B2B lead generation, marketing automation, CRM integration"
+                        className="inp"
+                      />
+                      <p className="text-[11px] text-gray-700 mt-1.5">
+                        Comma-separated · 5–10 keywords · include your primary
+                        keyword in title &amp; first paragraph
                       </p>
                     </div>
-                  </div>
-                  <p className="text-[#1a0dab] text-base font-medium leading-tight cursor-pointer hover:underline">
-                    {form.seo.metaTitle ||
-                      form.title ||
-                      "Page title appears here"}
-                  </p>
-                  <p className="text-[#545454] text-sm leading-snug line-clamp-2">
-                    {form.seo.metaDescription ||
-                      form.excerpt ||
-                      "Page description appears here. Make it 120–160 characters for best results."}
-                  </p>
-                </div>
-              </div>
-            </Card>
-
-            {/* Meta fields */}
-            <Card>
-              <SectionHeader
-                icon={
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path
-                      d="M2 3h10M2 6h8M2 9h6"
-                      stroke="#f26522"
-                      strokeWidth="1.4"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                }
-                title="Meta Tags"
-                subtitle="Directly control what search engines read about this page"
-              />
-              <div className="space-y-5">
-                <div className="space-y-2">
-                  <MetaBar
-                    label="Meta Title"
-                    value={form.seo.metaTitle}
-                    min={30}
-                    max={60}
-                    warn
-                  />
-                  <input
-                    value={form.seo.metaTitle}
-                    onChange={(e) => updateSeo("metaTitle", e.target.value)}
-                    placeholder="e.g. How AI is Transforming B2B Marketing in 2025 | Marketrixa"
-                    className="inp"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <MetaBar
-                    label="Meta Description"
-                    value={form.seo.metaDescription}
-                    min={120}
-                    max={160}
-                    warn
-                  />
-                  <textarea
-                    value={form.seo.metaDescription}
-                    onChange={(e) =>
-                      updateSeo("metaDescription", e.target.value)
-                    }
-                    placeholder="Concise description that entices users to click in search results…"
-                    rows={3}
-                    className="inp resize-none"
-                  />
-                </div>
-                <div>
-                  <label className="lbl">Focus Keywords</label>
-                  <input
-                    value={form.seo.metaKeywords}
-                    onChange={(e) => updateSeo("metaKeywords", e.target.value)}
-                    placeholder="AI marketing, B2B lead generation, marketing automation, CRM integration"
-                    className="inp"
-                  />
-                  <p className="text-[11px] text-gray-700 mt-1.5">
-                    Comma-separated · 5–10 keywords · include your primary
-                    keyword in title &amp; first paragraph
-                  </p>
-                </div>
-                <div>
-                  <label className="lbl">Canonical URL</label>
-                  <input
-                    value={form.seo.canonicalUrl}
-                    onChange={(e) => updateSeo("canonicalUrl", e.target.value)}
-                    placeholder="https://marketrixa.com/blogs/your-slug"
-                    className="inp font-mono text-xs"
-                  />
-                </div>
-              </div>
-            </Card>
-
-            {/* Open Graph */}
-            <Card>
-              <SectionHeader
-                icon={
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <rect
-                      x="1"
-                      y="3"
-                      width="12"
-                      height="8"
-                      rx="1.5"
-                      stroke="#f26522"
-                      strokeWidth="1.2"
-                    />
-                    <path d="M1 6h12" stroke="#f26522" strokeWidth="1" />
-                  </svg>
-                }
-                title="Open Graph / Social Sharing"
-                subtitle="Controls appearance when shared on LinkedIn, Twitter and Facebook"
-              />
-              <div className="space-y-5">
-                {/* OG card preview */}
-                <div className="rounded-xl overflow-hidden border border-white/10">
-                  <div
-                    className="h-28 relative overflow-hidden flex items-center justify-center"
-                    style={{ background: "rgba(255,255,255,0.04)" }}
-                  >
-                    {form.seo.ogImage || form.coverImage ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={form.seo.ogImage || form.coverImage}
-                        alt="og"
-                        className="w-full h-full object-cover"
+                    <div>
+                      <label className="lbl">Canonical URL</label>
+                      <input
+                        value={form.seo.canonicalUrl}
+                        onChange={(e) => updateSeo("canonicalUrl", e.target.value)}
+                        placeholder="https://marketrixa.com/blogs/your-slug"
+                        className="inp font-mono text-xs"
                       />
-                    ) : (
-                      <span className="text-gray-700 text-sm">
-                        OG Image Preview
-                      </span>
-                    )}
+                    </div>
                   </div>
-                  <div className="p-3 bg-[#f0f2f5] space-y-0.5">
-                    <p className="text-[10px] text-[#65676b] uppercase tracking-wider">
-                      MARKETRIXA.COM
-                    </p>
-                    <p className="text-[#050505] text-sm font-semibold leading-tight line-clamp-1">
-                      {form.seo.ogTitle || form.title || "Article title"}
-                    </p>
-                    <p className="text-[#65676b] text-xs line-clamp-2">
-                      {form.seo.ogDescription ||
-                        form.excerpt ||
-                        "Article description"}
-                    </p>
-                  </div>
-                </div>
+                </Card>
+                {/* Open Graph */}
+                <Card>
+                  <SectionHeader
+                    icon={
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <rect
+                          x="1"
+                          y="3"
+                          width="12"
+                          height="8"
+                          rx="1.5"
+                          stroke="#f26522"
+                          strokeWidth="1.2"
+                        />
+                        <path d="M1 6h12" stroke="#f26522" strokeWidth="1" />
+                      </svg>
+                    }
+                    title="Open Graph / Social Sharing"
+                    subtitle="Controls appearance when shared on LinkedIn, Twitter and Facebook"
+                  />
+                  <div className="space-y-5">
+                    {/* OG card preview */}
+                    <div className="rounded-xl overflow-hidden border border-white/10">
+                      <div
+                        className="h-28 relative overflow-hidden flex items-center justify-center"
+                        style={{ background: "rgba(255,255,255,0.04)" }}
+                      >
+                        {form.seo.ogImage || form.coverImage ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={form.seo.ogImage || form.coverImage}
+                            alt="og"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <span className="text-gray-700 text-sm">
+                            OG Image Preview
+                          </span>
+                        )}
+                      </div>
+                      <div className="p-3 bg-[#f0f2f5] space-y-0.5">
+                        <p className="text-[10px] text-[#65676b] uppercase tracking-wider">
+                          MARKETRIXA.COM
+                        </p>
+                        <p className="text-[#050505] text-sm font-semibold leading-tight line-clamp-1">
+                          {form.seo.ogTitle || form.title || "Article title"}
+                        </p>
+                        <p className="text-[#65676b] text-xs line-clamp-2">
+                          {form.seo.ogDescription ||
+                            form.excerpt ||
+                            "Article description"}
+                        </p>
+                      </div>
+                    </div>
 
-                <div>
-                  <label className="lbl">OG Title</label>
-                  <input
-                    value={form.seo.ogTitle}
-                    onChange={(e) => updateSeo("ogTitle", e.target.value)}
-                    placeholder="Social share title (defaults to blog title)"
-                    className="inp"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <MetaBar
-                    label="OG Description"
-                    value={form.seo.ogDescription}
-                    min={60}
-                    max={200}
-                  />
-                  <textarea
-                    value={form.seo.ogDescription}
-                    onChange={(e) => updateSeo("ogDescription", e.target.value)}
-                    placeholder="Social share description…"
-                    rows={2}
-                    className="inp resize-none"
-                  />
-                </div>
-                <div>
-                  <label className="lbl">OG Image</label>
-                  <div className="flex gap-2 flex-wrap">
-                    <input
-                      value={form.seo.ogImage}
-                      onChange={(e) => updateSeo("ogImage", e.target.value)}
-                      placeholder="https://… or upload below"
-                      className="inp flex-1 font-mono text-xs min-w-0"
+                    <div>
+                      <label className="lbl">OG Title</label>
+                      <input
+                        value={form.seo.ogTitle}
+                        onChange={(e) => updateSeo("ogTitle", e.target.value)}
+                        placeholder="Social share title (defaults to blog title)"
+                        className="inp"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <MetaBar
+                        label="OG Description"
+                        value={form.seo.ogDescription}
+                        min={60}
+                        max={200}
+                      />
+                      <textarea
+                        value={form.seo.ogDescription}
+                        onChange={(e) => updateSeo("ogDescription", e.target.value)}
+                        placeholder="Social share description…"
+                        rows={2}
+                        className="inp resize-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="lbl">OG Image</label>
+                      <div className="flex gap-2 flex-wrap">
+                        <input
+                          value={form.seo.ogImage}
+                          onChange={(e) => updateSeo("ogImage", e.target.value)}
+                          placeholder="https://… or upload below"
+                          className="inp flex-1 font-mono text-xs min-w-0"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => ogImageRef.current?.click()}
+                          className="px-3 py-2.5 rounded-xl border text-sm text-gray-400 hover:text-white hover:border-white/20 transition-all whitespace-nowrap cursor-pointer"
+                          style={{ borderColor: "rgba(255,255,255,0.1)" }}
+                        >
+                          {uploading === "og" ? (
+                            <span className="w-4 h-4 border-2 border-[#f26522] border-t-transparent rounded-full animate-spin inline-block" />
+                          ) : (
+                            "Upload"
+                          )}
+                        </button>
+                        {form.coverImage && !form.seo.ogImage && (
+                          <button
+                            type="button"
+                            onClick={() => updateSeo("ogImage", form.coverImage)}
+                            className="px-3 py-2.5 rounded-xl border text-xs text-gray-400 hover:text-[#f26522] transition-all whitespace-nowrap cursor-pointer"
+                            style={{ borderColor: "rgba(255,255,255,0.1)" }}
+                          >
+                            Use cover
+                          </button>
+                        )}
+                      </div>
+                      <input
+                        ref={ogImageRef}
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => {
+                          const f = e.target.files?.[0];
+                          if (f) uploadImage(f, "og");
+                        }}
+                      />
+                    </div>
+                  </div>
+                </Card>
+
+                {/* Structured Data */}
+                <Card>
+                  <div className="flex items-start justify-between mb-4">
+                    <SectionHeader
+                      icon={
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                          <path
+                            d="M4 2L2 7l2 5M10 2l2 5-2 5M6 1l2 12"
+                            stroke="#f26522"
+                            strokeWidth="1.2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      }
+                      title="Structured Data (JSON-LD)"
+                      subtitle="Schema.org markup for rich search results — BlogPosting + FAQ"
                     />
                     <button
                       type="button"
-                      onClick={() => ogImageRef.current?.click()}
-                      className="px-3 py-2.5 rounded-xl border text-sm text-gray-400 hover:text-white hover:border-white/20 transition-all whitespace-nowrap cursor-pointer"
-                      style={{ borderColor: "rgba(255,255,255,0.1)" }}
+                      onClick={generateStructuredData}
+                      className="flex-shrink-0 px-3 py-2 rounded-xl text-xs font-medium flex items-center gap-1.5 transition-all"
+                      style={{
+                        background: "rgba(242,101,34,0.1)",
+                        color: "rgba(242,101,34,0.85)",
+                        border: "1px solid rgba(242,101,34,0.2)",
+                      }}
                     >
-                      {uploading === "og" ? (
-                        <span className="w-4 h-4 border-2 border-[#f26522] border-t-transparent rounded-full animate-spin inline-block" />
-                      ) : (
-                        "Upload"
-                      )}
+                      <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+                        <path
+                          d="M5.5 1v4.5H10M1.5 5.5a4 4 0 108-1"
+                          stroke="currentColor"
+                          strokeWidth="1.3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      Auto-generate
                     </button>
-                    {form.coverImage && !form.seo.ogImage && (
-                      <button
-                        type="button"
-                        onClick={() => updateSeo("ogImage", form.coverImage)}
-                        className="px-3 py-2.5 rounded-xl border text-xs text-gray-400 hover:text-[#f26522] transition-all whitespace-nowrap cursor-pointer"
-                        style={{ borderColor: "rgba(255,255,255,0.1)" }}
-                      >
-                        Use cover
-                      </button>
-                    )}
                   </div>
-                  <input
-                    ref={ogImageRef}
-                    type="file"
-                    accept="image/*"
-                    className="hidden"
-                    onChange={(e) => {
-                      const f = e.target.files?.[0];
-                      if (f) uploadImage(f, "og");
-                    }}
+                  <textarea
+                    value={form.seo.structuredData || ""}
+                    onChange={(e) => updateSeo("structuredData", e.target.value)}
+                    placeholder={
+                      '{\n  "@context": "https://schema.org",\n  "@type": "BlogPosting"\n}'
+                    }
+                    rows={12}
+                    className="inp font-mono text-xs resize-none leading-relaxed"
                   />
-                </div>
+                </Card>
               </div>
-            </Card>
 
-            {/* Structured Data */}
-            <Card>
-              <div className="flex items-start justify-between mb-4">
-                <SectionHeader
-                  icon={
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path
-                        d="M4 2L2 7l2 5M10 2l2 5-2 5M6 1l2 12"
-                        stroke="#f26522"
-                        strokeWidth="1.2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  }
-                  title="Structured Data (JSON-LD)"
-                  subtitle="Schema.org markup for rich search results — BlogPosting + FAQ"
-                />
-                <button
-                  type="button"
-                  onClick={generateStructuredData}
-                  className="flex-shrink-0 px-3 py-2 rounded-xl text-xs font-medium flex items-center gap-1.5 transition-all"
-                  style={{
-                    background: "rgba(242,101,34,0.1)",
-                    color: "rgba(242,101,34,0.85)",
-                    border: "1px solid rgba(242,101,34,0.2)",
-                  }}
-                >
-                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-                    <path
-                      d="M5.5 1v4.5H10M1.5 5.5a4 4 0 108-1"
-                      stroke="currentColor"
-                      strokeWidth="1.3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  Auto-generate
-                </button>
-              </div>
-              <textarea
-                value={form.seo.structuredData || ""}
-                onChange={(e) => updateSeo("structuredData", e.target.value)}
-                placeholder={
-                  '{\n  "@context": "https://schema.org",\n  "@type": "BlogPosting"\n}'
-                }
-                rows={12}
-                className="inp font-mono text-xs resize-none leading-relaxed"
-              />
-            </Card>
+            </div>
+
+
+
+
           </div>
         )}
 
@@ -2475,9 +2469,8 @@ export default function BlogForm({
                     onChange={(e) =>
                       setFaq((p) => ({ ...p, title: e.target.value }))
                     }
-                    placeholder={`${
-                      form.title || "Article"
-                    } — Frequently Asked Questions`}
+                    placeholder={`${form.title || "Article"
+                      } — Frequently Asked Questions`}
                     className="inp"
                   />
                 </div>
@@ -2801,14 +2794,14 @@ export default function BlogForm({
                         style={
                           active
                             ? {
-                                background: c.bg,
-                                borderColor: c.border,
-                                color: c.text,
-                              }
+                              background: c.bg,
+                              borderColor: c.border,
+                              color: c.text,
+                            }
                             : {
-                                borderColor: "rgba(255,255,255,0.07)",
-                                color: "#4b5563",
-                              }
+                              borderColor: "rgba(255,255,255,0.07)",
+                              color: "#4b5563",
+                            }
                         }
                       >
                         <span className="text-base">{c.icon}</span>
@@ -2989,8 +2982,8 @@ export default function BlogForm({
                 {saving
                   ? "Saving…"
                   : mode === "new"
-                  ? "Create Post"
-                  : "Update Post"}
+                    ? "Create Post"
+                    : "Update Post"}
               </button>
             </div>
           </div>

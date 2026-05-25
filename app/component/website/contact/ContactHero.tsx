@@ -16,6 +16,14 @@ const ContactHero = () => {
     message: "",
   });
 
+
+  const eventId = crypto.randomUUID();
+
+  if (typeof window !== "undefined") {
+    // @ts-ignore
+  }
+
+
   // Handle Input Changes
   const handleChange = (
     e: React.ChangeEvent<
@@ -35,7 +43,7 @@ const ContactHero = () => {
         // Adjust path to your actual route file
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, eventId, source: "Contact Page" }),
       });
 
       if (!response.ok) throw new Error("Failed to send message");

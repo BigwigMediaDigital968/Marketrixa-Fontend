@@ -8,6 +8,7 @@ import {
   XCircle,
   PhoneCall,
   RefreshCw,
+  TrashIcon,
 } from "lucide-react";
 
 type Lead = {
@@ -18,11 +19,13 @@ type Lead = {
   service: string;
   status: "New" | "Contacted" | "Qualified" | "Closed";
   createdAt: any;
+  source: string;
 };
 
 export default function LeadTable() {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
+  const [delLoading, setDelLoading] = useState(false);
   const [updatingId, setUpdatingId] = useState<string | null>(null);
 
   const fetchLeads = async () => {
@@ -65,6 +68,34 @@ export default function LeadTable() {
   useEffect(() => {
     fetchLeads();
   }, []);
+
+  const deleteLead = async (leadId: string) => {
+    try {
+      setDelLoading(true);
+      const response = await fetch("/api/leads", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: leadId,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to delete lead");
+      }
+      fetchLeads();
+      return data;
+    } catch (error) {
+      console.error("Delete lead error:", error);
+      throw error;
+    } finally {
+      setDelLoading(false);
+    }
+  };
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -113,8 +144,9 @@ export default function LeadTable() {
               <th className="px-6 py-4">Lead Details</th>
               <th className="px-6 py-4">Service</th>
               <th className="px-6 py-4">Date</th>
+              <th className="px-6 py-4">Source</th>
               <th className="px-6 py-4">Status</th>
-              <th className="px-6 py-4 text-right">Actions</th>
+              <th className="px-6 py-4 text-center">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/5">
@@ -135,6 +167,7 @@ export default function LeadTable() {
                     ? new Date(lead.createdAt).toLocaleDateString()
                     : "N/A"}
                 </td>
+                <td className="px-6 py-4 text-xs capitalize">{String(lead.source || "Website").split("-").join(" ")}</td>
                 <td className="px-6 py-4">
                   <span
                     className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] font-bold uppercase ${getStatusColor(lead.status)}`}
@@ -142,7 +175,7 @@ export default function LeadTable() {
                     {lead.status || "New"}
                   </span>
                 </td>
-                <td className="px-6 py-4 text-right">
+                <td className="px-6 py-4 flex gap-4 text-right">
                   <select
                     disabled={updatingId === lead.id}
                     value={lead.status || "New"}
@@ -154,6 +187,16 @@ export default function LeadTable() {
                     <option value="Qualified">Qualified</option>
                     <option value="Closed">Closed</option>
                   </select>
+                  <button
+                    onClick={() => {
+                      if (window.confirm("Are you sure you want to delete this lead?")) {
+                        deleteLead(lead.id);
+                      }
+                    }}
+                    className="rounded-lg border border-red-500 px-2 py-1 cursor-pointer text-xs font-medium text-red-500 hover:bg-red-500 hover:text-white transition-colors"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

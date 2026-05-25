@@ -10,6 +10,7 @@ type BgCTAProps = {
   description: string;
   ctaText?: string;
   bgImage?: string;
+  source?: string;
 };
 
 export default function BgCTA({
@@ -17,6 +18,7 @@ export default function BgCTA({
   description,
   ctaText = "CONNECT WITH US",
   bgImage = "/cta-bg.png",
+  source= "CTA"
 }: BgCTAProps) {
   const [showPopup, setShowPopup] = React.useState(false);
 
@@ -66,7 +68,7 @@ export default function BgCTA({
         </div>
       </motion.div>
 
-      <Popup isOpen={showPopup} onClose={() => setShowPopup(false)} />
+      <Popup source={source} isOpen={showPopup} onClose={() => setShowPopup(false)} />
     </>
   );
 }

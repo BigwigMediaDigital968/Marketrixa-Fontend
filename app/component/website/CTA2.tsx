@@ -71,7 +71,7 @@ export default function CTA2() {
       </motion.div>
 
       {/* POPUP (Keep here only if NOT using portal globally) */}
-      <Popup isOpen={showPopup} onClose={() => setShowPopup(false)} />
+      <Popup source={"CTA2"} isOpen={showPopup} onClose={() => setShowPopup(false)} />
     </>
   );
 }

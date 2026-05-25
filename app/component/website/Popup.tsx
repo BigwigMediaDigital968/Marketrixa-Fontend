@@ -17,10 +17,12 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 interface PopupProps {
   isOpen: boolean;
   onClose: () => void;
+  source?: string;
 }
 
 const SERVICES = [
@@ -51,7 +53,7 @@ function PanelOrb({ style }: { style: React.CSSProperties }) {
   );
 }
 
-export default function Popup({ isOpen, onClose }: PopupProps) {
+export default function Popup({ isOpen, onClose, source }: PopupProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null); // New error state
@@ -65,11 +67,32 @@ export default function Popup({ isOpen, onClose }: PopupProps) {
     message: "",
   });
 
+  const pathname = usePathname();
+
+  const defaultSource =
+    pathname === "/"
+      ? "home"
+      : pathname.split("/").filter(Boolean).pop() || "PopUp";
+
+  const eventId = crypto.randomUUID();
+
+  if (typeof window !== "undefined") {
+    // @ts-ignore
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-
+    console.log(JSON.stringify({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      service: selectedService,
+      message: `Website: ${formData.website} | Message: ${formData.message}`,
+      source: source || defaultSource,
+      eventId
+    }))
     try {
       const response = await fetch("/api/leads", {
         // Ensure this matches your route path
@@ -81,6 +104,8 @@ export default function Popup({ isOpen, onClose }: PopupProps) {
           phone: formData.phone,
           service: selectedService,
           message: `Website: ${formData.website} | Message: ${formData.message}`,
+          source: source || defaultSource,
+          eventId
         }),
       });
 

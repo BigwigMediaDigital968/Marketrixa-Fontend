@@ -9,6 +9,7 @@ import {
   Timestamp,
   doc,
   updateDoc,
+  deleteDoc,
 } from "firebase/firestore";
 
 import CryptoJS from "crypto-js";
@@ -21,7 +22,7 @@ function hashData(data: string) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, service, message, company, eventId } = body;
+    const { name, email, phone, service, message, company, eventId, source } = body;
 
     if (!name || !email) {
       return NextResponse.json(
@@ -39,6 +40,7 @@ export async function POST(request: Request) {
       service: service || "General Inquiry",
       message: message || "",
       status: "new",
+      source: source|| "website",
       createdAt: Timestamp.now(),
     });
 
@@ -122,5 +124,33 @@ export async function PATCH(request: Request) {
     );
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: Request) {
+  try {
+    const body = await request.json();
+    const { id } = body;
+
+    if (!id) {
+      return NextResponse.json(
+        { error: "Lead ID is required" },
+        { status: 400 }
+      );
+    }
+
+    const leadRef = doc(db, "leads", id);
+
+    await deleteDoc(leadRef);
+
+    return NextResponse.json(
+      { message: "Lead deleted successfully" },
+      { status: 200 }
+    );
+  } catch (error: any) {
+    return NextResponse.json(
+      { error: error.message || "Failed to delete lead" },
+      { status: 500 }
+    );
   }
 }

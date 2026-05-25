@@ -9,12 +9,40 @@ import {
   Calendar,
   Activity,
 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { collection, getCountFromServer } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 export default function AdminDashboard() {
+  const [counts, setCounts] = useState({
+    leads: 0,
+    blogs: 0,
+  });
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      try {
+        const [leadSnap, blogSnap] = await Promise.all([
+          getCountFromServer(collection(db, "leads")),
+          getCountFromServer(collection(db, "blogs")),
+        ]);
+
+        setCounts({
+          leads: leadSnap.data().count,
+          blogs: blogSnap.data().count,
+        });
+      } catch (error) {
+        console.error("Error fetching counts:", error);
+      }
+    };
+
+    fetchCounts();
+  }, []);
+
   const stats = [
     {
       title: "Total Leads",
-      value: "1,284",
+      value: counts.leads,
       change: "+12.5%",
       icon: <Users className="text-[#F26522]" size={24} />,
       description: "New inquiries this month",
@@ -22,7 +50,7 @@ export default function AdminDashboard() {
     },
     {
       title: "Total Blogs",
-      value: "42",
+      value: counts.blogs,
       change: "+3",
       icon: <FileText className="text-[#F26522]" size={24} />,
       description: "Published articles",
@@ -93,7 +121,7 @@ export default function AdminDashboard() {
                 <div className="w-14 h-14 bg-black/40 border border-white/10 rounded-2xl flex items-center justify-center shadow-inner">
                   {stat.icon}
                 </div>
-                <div className="flex items-center gap-1 px-3 py-1 bg-[#F26522]/10 border border-[#F26522]/20 rounded-full text-[#F26522] text-[10px] font-black uppercase tracking-wider">
+                <div className="hidden items-center gap-1 px-3 py-1 bg-[#F26522]/10 border border-[#F26522]/20 rounded-full text-[#F26522] text-[10px] font-black uppercase tracking-wider">
                   <TrendingUp size={12} />
                   {stat.change}
                 </div>
