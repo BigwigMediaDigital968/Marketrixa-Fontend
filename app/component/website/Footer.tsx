@@ -7,6 +7,7 @@ import { FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
 import Popup from "./Popup";
 import Image from "next/image";
 import Link from "next/link";
+import WhatsappFloat from "./WhatsappFloat";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -79,6 +80,7 @@ export default function Footer() {
 
   return (
     <>
+    <WhatsappFloat />
       <AnimatePresence>
         <footer className="glass border-t border-white/5 pt-10 pb-12 px-6 overflow-hidden">
           <div className="max-w-7xl mx-auto">

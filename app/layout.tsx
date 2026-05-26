@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Poppins } from "next/font/google";
 import "./globals.css";
-import WhatsappFloat from "./component/website/WhatsappFloat";
 import Script from "next/script";
 
 const outfit = Outfit({
@@ -63,8 +62,6 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
-
-        <WhatsappFloat />
 
         <>
           {/* Google tag (gtag.js) */}
