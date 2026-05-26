@@ -13,129 +13,125 @@ import {
   MessageSquare,
   ChevronLeft,
   Loader2,
+  AlertCircle,
+  Zap,
+  Sparkles,
 } from "lucide-react";
+
+const SERVICES = [
+  "Google Ads", "Meta Ads", "UGC Videos",
+  "Influencer Marketing", "Website Development", "SEO",
+  "Social Media", "Performance Marketing",
+];
+const BUSINESS_TYPES = ["E-commerce", "Real Estate", "Trading", "Clinic", "Local Business", "Coach", "Other"];
+const BUDGETS = ["25k–50k", "50k–1L", "1L–5L", "5L+"];
+const PROJECT_GOALS = ["More Leads", "More Sales", "Branding", "Website"];
+const CONTACT_METHODS = ["WhatsApp", "Call", "Email"];
+const COUNTRY_CODES = [
+  { code: "+91", flag: "🇮🇳" },
+  { code: "+1", flag: "🇺🇸" },
+  { code: "+44", flag: "🇬🇧" },
+  { code: "+971", flag: "🇦🇪" },
+];
 
 export default function LeadForm() {
   const [step, setStep] = useState(1);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-  });
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    countryCode: "+91",
-    companyName: "",
-    service: "",
-    note: "",
+    fullName: "", email: "", countryCode: "+91", phone: "",
+    company: "", businessType: "", budget: "", revenue: "",
+    projectGoal: "", contactMethod: "", message: "",
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const validateStep1 = () => {
-    let newErrors = {
-      fullName: "",
-      email: "",
-      phone: "",
-    };
-
-    let isValid = true;
-
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = "Full name is required";
-      isValid = false;
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-      isValid = false;
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      newErrors.email = "Enter a valid email";
-      isValid = false;
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-      isValid = false;
-    } else if (!/^[0-9]{7,15}$/.test(formData.phone)) {
-      newErrors.phone = "Enter valid phone number";
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  
+  const validateStep = (s: number) => {
+    const e: Record<string, string> = {};
+    if (s === 1) {
+      if (!formData.fullName.trim()) e.fullName = "Full name is required";
+      if (!formData.email.trim()) e.email = "Email is required";
+      if (!formData.phone.trim()) e.phone = "Phone is required";
+    }
+    if (s === 2) {
+      if (!formData.businessType) e.businessType = "Please select a business type";
+      if (!formData.budget) e.budget = "Please select a budget";
+    }
+    if (s === 3) {
+      if (selectedServices.length === 0) e.services = "Please select at least one service";
+      if (!formData.projectGoal) e.projectGoal = "Please select a goal";
+    }
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  };
+
   const handleNext = () => {
-    if (step === 1) {
-      const isValid = validateStep1();
-      if (!isValid) return;
-    }
-
-    if (step < 2) setStep(step + 1);
+    if (validateStep(step)) setStep((s) => s + 1);
   };
 
-  const handlePrev = () => step > 1 && setStep(step - 1);
+  const handlePrev = () => setStep((s) => s - 1);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
+    if (!validateStep(3)) return;
+    setLoading(true);
+    setError(null);
     const eventId = crypto.randomUUID();
-
-    if (typeof window !== "undefined") {
-      // @ts-ignore
-      window.fbq("track", "Lead", {}, { eventID: eventId });
-    }
-
     try {
-      // Map your local state to the API requirements
-      const payload = {
-        name: formData.fullName,
-        email: formData.email,
-        phone: `${formData.countryCode} ${formData.phone}`,
-        company: formData.companyName,
-        service: formData.service,
-        message: formData.note,
-        eventId,
-        source: "Home"
-      };
-
       const response = await fetch("/api/leads", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.email,
+          phone: `${formData.countryCode} ${formData.phone}`,
+          service: selectedServices.join(", "),
+          message: formData.message,
+          company: formData.company,
+          businessType: formData.businessType,
+          budget: formData.budget,
+          revenue: formData.revenue,
+          projectGoal: formData.projectGoal,
+          contactMethod: formData.contactMethod,
+          source: "Home Page",
+          eventId,
+        }),
       });
-
-      if (response.ok) {
-        setIsSubmitted(true);
-      } else {
-        const errorData = await response.json();
-        console.error("Submission failed:", errorData.error);
-        // You could add a toast notification here
-      }
-    } catch (error) {
-      console.error("Network error:", error);
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Something went wrong");
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setStep(1);
+        setSelectedServices([]);
+        setFormData({ fullName: "", email: "", countryCode: "+91", phone: "", company: "", businessType: "", budget: "", revenue: "", projectGoal: "", contactMethod: "", message: "" });
+      }, 3500);
+    } catch (err: any) {
+      setError(err.message);
     } finally {
-      setIsSubmitting(false);
+      setLoading(false);
     }
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >,
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
     <section className="glass py-24 px-6 min-h-[700px] flex items-center overflow-hidden">
+      <style>
+        {`
+        .step-progress { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+.step-pip { height: 3px; border-radius: 99px; transition: all 0.3s ease; background: rgba(255,255,255,0.1); flex: 1; }
+.step-pip.active { background: #f26522; }
+.step-pip.done { background: rgba(242,101,34,0.4); }
+.step-label { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 4px; }
+.step-label span { color: #f26522; }
+        `}
+      </style>
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Content Column */}
@@ -224,7 +220,7 @@ export default function LeadForm() {
           >
             <div className="bg-[#111] border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative z-10 overflow-hidden">
               {/* Progress Indicator */}
-              {!isSubmitted && (
+              {!submitted && (
                 <div className="flex items-center justify-between mb-10">
                   <div className="flex gap-2 flex-grow mr-6">
                     <div
@@ -235,15 +231,20 @@ export default function LeadForm() {
                       className={`h-1.5 flex-grow rounded-full transition-all duration-500 ${step >= 2 ? "bg-[#F26522]" : "bg-white/10"
                         }`}
                     />
+                    <div
+                      className={`h-1.5 flex-grow rounded-full transition-all duration-500 ${step >= 3 ? "bg-[#F26522]" : "bg-white/10"
+                        }`}
+                    />
                   </div>
+                  
                   <span className="text-[10px] font-black text-[#F26522] uppercase tracking-[0.2em] whitespace-nowrap">
-                    Step 0{step} / 02
+                    Step 0{step} / 03
                   </span>
                 </div>
               )}
 
               <AnimatePresence mode="wait">
-                {isSubmitted ? (
+                {submitted ? (
                   <motion.div
                     key="success"
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -261,288 +262,250 @@ export default function LeadForm() {
                       your session.
                     </p>
                     <button
-                      onClick={() => {
-                        setIsSubmitted(false);
-                        setStep(1);
-                        setFormData({
-                          fullName: "",
-                          email: "",
-                          phone: "",
-                          countryCode: "+91",
-                          companyName: "",
-                          service: "",
-                          note: "",
-                        });
-                      }}
                       className="mt-8 text-sm text-[#F26522] font-bold underline cursor-pointer"
                     >
                       Send another request
                     </button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    {step === 1 ? (
-                      <motion.div
-                        key="step1"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20 }}
-                        className="space-y-5"
-                      >
-                        <div>
-                          <h3 className="text-2xl font-bold text-white mb-2">
-                            Let's get started
-                          </h3>
-                          <p className="text-gray-500 text-sm mb-6">
-                            Enter your contact details to continue.
-                          </p>
-                        </div>
+                  <form onSubmit={handleSubmit} style={{ flex: 1, display: "flex", flexDirection: "column" }}>
 
-                        <div className="relative">
-                          <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
-                          <input
-                            name="fullName"
-                            required
-                            value={formData.fullName}
-                            onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"
-                            placeholder="Full Name"
-                          />
-                          {errors.fullName && (
-                            <p className="text-red-500 text-xs mt-2">
-                              {errors.fullName}
-                            </p>
-                          )}
-                        </div>
+                    {error && (
+                      <div className="error-message"><AlertCircle size={14} />{error}</div>
+                    )}
 
-                        <div className="relative">
-                          <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
-                          <input
-                            name="email"
-                            type="email"
-                            required
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"
-                            placeholder="Work Email Address"
-                          />
+                    <AnimatePresence mode="wait">
 
-                          {errors.email && (
-                            <p className="text-red-500 text-xs mt-2">
-                              {errors.email}
-                            </p>
-                          )}
-                        </div>
+                      {/* ── STEP 1: Contact Info ── */}
+                      {step === 1 && (
+                        <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-5">
+                          <div>
+                            <h3 className="text-2xl font-bold text-white mb-1">Let's get started</h3>
+                            <p className="text-gray-500 text-sm mb-4">Enter your contact details to continue.</p>
+                          </div>
 
-                        <div className="flex gap-3">
-                          <div className="relative w-28">
-                            <select
-                              name="countryCode"
-                              value={formData.countryCode}
-                              onChange={handleChange}
-                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-3 pr-10 text-white focus:border-[#F26522] hover:border-white/20 transition-all outline-none appearance-none cursor-pointer backdrop-blur-md text-sm"
-                            >
-                              <option value="+91" className="bg-[#111]">
-                                🇮🇳 +91
-                              </option>
-                              <option value="+1" className="bg-[#111]">
-                                🇺🇸 +1
-                              </option>
-                              <option value="+44" className="bg-[#111]">
-                                🇬🇧 +44
-                              </option>
-                              <option value="+971" className="bg-[#111]">
-                                🇦🇪 +971
-                              </option>
-                            </select>
-                            <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-white/50">
-                              <svg
-                                className="w-3.5 h-3.5"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M19 9l-7 7-7-7"
-                                />
-                              </svg>
+                          <div className="relative">
+                            <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
+                            <input name="fullName" required value={formData.fullName} onChange={handleChange}
+                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"
+                              placeholder="Full Name" />
+                            {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>}
+                          </div>
+
+                          <div className="relative">
+                            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
+                            <input name="email" type="email" required value={formData.email} onChange={handleChange}
+                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"
+                              placeholder="Work Email Address" />
+                            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                          </div>
+
+                          <div className="flex gap-3">
+                            <div className="relative w-28">
+                              <select name="countryCode" value={formData.countryCode} onChange={handleChange}
+                                className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-3 pr-8 text-white focus:border-[#F26522] transition-all outline-none appearance-none cursor-pointer text-sm">
+                                {COUNTRY_CODES.map(({ code, flag }) => (
+                                  <option key={code} value={code} className="bg-[#111]">{flag} {code}</option>
+                                ))}
+                              </select>
+                              <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-white/50">
+                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                              </div>
+                            </div>
+                            <div className="relative flex-grow">
+                              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
+                              <input name="phone" required value={formData.phone} onChange={handleChange}
+                                className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"
+                                placeholder="Mobile Number" />
+                              {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                             </div>
                           </div>
-                          <div className="relative flex-grow">
-                            <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
-                            <input
-                              name="phone"
-                              required
-                              value={formData.phone}
-                              onChange={handleChange}
-                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"
-                              placeholder="Mobile Number"
-                            />
 
-                            {errors.phone && (
-                              <p className="text-red-500 text-xs mt-2">
-                                {errors.phone}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-
-                        <button
-                          type="button"
-                          onClick={handleNext}
-                          disabled={
-                            !formData.fullName ||
-                            !formData.email ||
-                            !formData.phone
-                          }
-                          className="w-full disabled:opacity-50 disabled:cursor-not-allowed bg-[#F26522] text-black font-black py-5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all mt-6 shadow-lg shadow-[#F26522]/10 cursor-pointer"
-                        >
-                          NEXT STEP <ArrowRight size={20} />
-                        </button>
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="step2"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20 }}
-                        className="space-y-5"
-                      >
-                        <div className="flex items-center justify-between mb-2">
-                          <div>
-                            <h3 className="text-2xl font-bold text-white mb-2">
-                              Business info
-                            </h3>
-                            <p className="text-gray-500 text-sm">
-                              Tell us a bit about your company.
-                            </p>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={handlePrev}
-                            className="p-2 text-gray-500 hover:text-white hover:bg-white/5 rounded-full transition-colors"
-                          >
-                            <ChevronLeft size={24} />
+                          <button type="button" onClick={handleNext}
+                            disabled={!formData.fullName || !formData.email || !formData.phone}
+                            className="w-full disabled:opacity-50 disabled:cursor-not-allowed bg-[#F26522] text-black font-black py-5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all mt-4 shadow-lg shadow-[#F26522]/10 cursor-pointer">
+                            NEXT STEP <ArrowRight size={20} />
                           </button>
-                        </div>
+                        </motion.div>
+                      )}
 
-                        <div className="relative">
-                          <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
-                          <input
-                            name="companyName"
-                            value={formData.companyName}
-                            onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"
-                            placeholder="Company (website/name)"
-                          />
-                        </div>
+                      {/* ── STEP 2: Business Info ── */}
+                      {step === 2 && (
+                        <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-5">
+                          <div className="flex items-start justify-between">
+                            <div>
+                              <h3 className="text-2xl font-bold text-white mb-1">Business info</h3>
+                              <p className="text-gray-500 text-sm">Tell us about your company.</p>
+                            </div>
+                            <button type="button" onClick={handlePrev}
+                              className="p-2 text-gray-500 hover:text-white hover:bg-white/5 rounded-full transition-colors">
+                              <ChevronLeft size={24} />
+                            </button>
+                          </div>
 
-                        <div className="relative">
-                          <Users className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5 z-10" />
                           <div className="relative">
-                            <select
-                              name="service"
-                              required
-                              value={formData.service}
-                              onChange={handleChange}
-                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-12 text-white focus:border-[#F26522] hover:border-white/20 transition-all outline-none appearance-none cursor-pointer backdrop-blur-md"
-                            >
-                              <option
-                                value=""
-                                disabled
-                                className="bg-[#111] text-gray-500"
-                              >
-                                Service You Need
-                              </option>
-                              <option className="bg-[#111]" value="Google Ads">
-                                Google Ads
-                              </option>
+                            <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
+                            <input name="company" value={formData.company} onChange={handleChange}
+                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"
+                              placeholder="Company / Brand Name" />
+                          </div>
 
-                              <option className="bg-[#111]" value="Meta Ads">
-                                Meta Ads
-                              </option>
-
-                              <option className="bg-[#111]" value="UGC Videos">
-                                UGC Videos
-                              </option>
-
-                              <option className="bg-[#111]" value="Influencer Marketing">
-                                Influencer Marketing
-                              </option>
-
-                              <option
-                                value="Website Development"
-                                className="bg-[#111]"
-                              >
-                                Website Development
-                              </option>
-                              <option value="SEO" className="bg-[#111]">
-                                SEO
-                              </option>
-                              <option
-                                value="Social Media"
-                                className="bg-[#111]"
-                              >
-                                Social Media
-                              </option>
-                              <option
-                                value="Performance Marketing"
-                                className="bg-[#111]"
-                              >
-                                Performance Marketing
-                              </option>
+                          {/* Business Type */}
+                          <div className="relative">
+                            <Users className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5 z-10" />
+                            <select name="businessType" required value={formData.businessType} onChange={handleChange}
+                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-12 text-white focus:border-[#F26522] transition-all outline-none appearance-none cursor-pointer">
+                              <option value="" disabled className="bg-[#111] text-gray-500">Business Type</option>
+                              {BUSINESS_TYPES.map((b) => <option key={b} value={b} className="bg-[#111]">{b}</option>)}
                             </select>
                             <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-white/50">
-                              <svg
-                                className="w-4 h-4"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M19 9l-7 7-7-7"
-                                />
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                               </svg>
                             </div>
+                            {errors.businessType && <p className="text-red-500 text-xs mt-1">{errors.businessType}</p>}
                           </div>
-                        </div>
 
-                        <div className="relative">
-                          <MessageSquare className="absolute left-4 top-6 text-gray-500 w-5 h-5" />
-                          <textarea
-                            name="note"
-                            rows={3}
-                            value={formData.note}
-                            onChange={handleChange}
-                            className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none resize-none placeholder:text-gray-700"
-                            placeholder="Briefly describe your requirements..."
-                          />
-                        </div>
+                          {/* Monthly Budget */}
+                          <div className="relative">
+                            <Zap className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5 z-10" />
+                            <select name="budget" required value={formData.budget} onChange={handleChange}
+                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-12 text-white focus:border-[#F26522] transition-all outline-none appearance-none cursor-pointer">
+                              <option value="" disabled className="bg-[#111] text-gray-500">Monthly Marketing Budget</option>
+                              {BUDGETS.map((b) => <option key={b} value={b} className="bg-[#111]">{b}</option>)}
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-white/50">
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                            {errors.budget && <p className="text-red-500 text-xs mt-1">{errors.budget}</p>}
+                          </div>
 
-                        <button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className="w-full bg-[#F26522] disabled:opacity-70 disabled:cursor-not-allowed text-black font-black py-5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all mt-6 shadow-lg shadow-[#F26522]/10 cursor-pointer"
-                        >
-                          {isSubmitting ? (
-                            <>
-                              SUBMITTING...{" "}
-                              <Loader2 className="animate-spin" size={20} />
-                            </>
-                          ) : (
-                            <>
-                              SUBMIT REQUEST <CheckCircle2 size={20} />
-                            </>
-                          )}
-                        </button>
-                      </motion.div>
-                    )}
+                          {/* Current Revenue */}
+                          <div className="relative">
+                            <Zap className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
+                            <input name="revenue" value={formData.revenue} onChange={handleChange}
+                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none placeholder:text-gray-700"
+                              placeholder="Current Monthly Revenue (e.g. ₹5L)" />
+                          </div>
+
+                          <button type="button" onClick={handleNext}
+                            disabled={!formData.businessType || !formData.budget}
+                            className="w-full disabled:opacity-50 disabled:cursor-not-allowed bg-[#F26522] text-black font-black py-5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all mt-4 shadow-lg shadow-[#F26522]/10 cursor-pointer">
+                            NEXT STEP <ArrowRight size={20} />
+                          </button>
+                        </motion.div>
+                      )}
+
+                      {/* ── STEP 3: Project Details ── */}
+                      {step === 3 && (
+                        <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-5">
+                          <div className="flex items-start justify-between">
+                            <div>
+                              <h3 className="text-2xl font-bold text-white mb-1">Project details</h3>
+                              <p className="text-gray-500 text-sm">What are you looking to achieve?</p>
+                            </div>
+                            <button type="button" onClick={handlePrev}
+                              className="p-2 text-gray-500 hover:text-white hover:bg-white/5 rounded-full transition-colors">
+                              <ChevronLeft size={24} />
+                            </button>
+                          </div>
+
+                          {/* Services multi-select dropdown */}
+                          <div>
+                            <div className="relative">
+                              <Users className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5 z-10" />
+                              <select value="" onChange={(e) => {
+                                const val = e.target.value;
+                                if (val && !selectedServices.includes(val))
+                                  setSelectedServices((prev) => [...prev, val]);
+                              }}
+                                className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-12 text-white focus:border-[#F26522] transition-all outline-none appearance-none cursor-pointer">
+                                <option value="" disabled className="bg-[#111] text-gray-500">Add Services...</option>
+                                {SERVICES.filter((s) => !selectedServices.includes(s)).map((s) => (
+                                  <option key={s} value={s} className="bg-[#111]">{s}</option>
+                                ))}
+                              </select>
+                              <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-white/50">
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                              </div>
+                            </div>
+                            {selectedServices.length > 0 && (
+                              <div className="flex flex-wrap gap-2 mt-3">
+                                {selectedServices.map((s) => (
+                                  <span key={s} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium"
+                                    style={{ background: "rgba(242,101,34,0.12)", border: "1px solid rgba(242,101,34,0.35)", color: "#f26522" }}>
+                                    {s}
+                                    <button type="button" onClick={() => setSelectedServices((prev) => prev.filter((x) => x !== s))}
+                                      className="hover:text-white transition-colors leading-none">×</button>
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+                            {errors.services && <p className="text-red-500 text-xs mt-1">{errors.services}</p>}
+                          </div>
+
+                          {/* Project Goal */}
+                          <div className="relative">
+                            <Sparkles className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5 z-10" />
+                            <select name="projectGoal" required value={formData.projectGoal} onChange={handleChange}
+                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-12 text-white focus:border-[#F26522] transition-all outline-none appearance-none cursor-pointer">
+                              <option value="" disabled className="bg-[#111] text-gray-500">Project Goal</option>
+                              {PROJECT_GOALS.map((g) => <option key={g} value={g} className="bg-[#111]">{g}</option>)}
+                            </select>
+                            <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-white/50">
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                            {errors.projectGoal && <p className="text-red-500 text-xs mt-1">{errors.projectGoal}</p>}
+                          </div>
+
+                          {/* Preferred Contact Method */}
+                          <div>
+                            <p className="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-3">Preferred Contact Method</p>
+                            <div className="flex gap-3">
+                              {CONTACT_METHODS.map((m) => (
+                                <button key={m} type="button"
+                                  onClick={() => setFormData((prev) => ({ ...prev, contactMethod: m }))}
+                                  className={`flex-1 py-3 rounded-xl text-sm font-semibold border transition-all cursor-pointer ${formData.contactMethod === m
+                                      ? "bg-[#F26522]/10 border-[#F26522]/50 text-[#F26522]"
+                                      : "bg-black/50 border-white/10 text-gray-500 hover:border-white/20"
+                                    }`}>
+                                  {m}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Message */}
+                          <div className="relative">
+                            <MessageSquare className="absolute left-4 top-5 text-gray-500 w-5 h-5" />
+                            <textarea name="message" rows={3} value={formData.message} onChange={handleChange}
+                              className="w-full bg-black/50 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-[#F26522] transition-all outline-none resize-none placeholder:text-gray-700"
+                              placeholder="Briefly describe your requirements..." />
+                          </div>
+
+                          <button type="submit" disabled={loading}
+                            className="w-full bg-[#F26522] disabled:opacity-70 disabled:cursor-not-allowed text-black font-black py-5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-[#F26522]/10 cursor-pointer">
+                            {loading
+                              ? <><span>SUBMITTING...</span><Loader2 className="animate-spin" size={20} /></>
+                              : <><span>SUBMIT REQUEST</span><CheckCircle2 size={20} /></>
+                            }
+                          </button>
+
+                          <p className="text-xs text-center text-gray-600">
+                            By submitting you agree to our Privacy Policy
+                          </p>
+                        </motion.div>
+                      )}
+
+                    </AnimatePresence>
                   </form>
                 )}
               </AnimatePresence>
