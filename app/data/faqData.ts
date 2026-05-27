@@ -514,27 +514,32 @@ export const InfluencerFaqs: FAQItem[] = [
   {
     question: "What is influencer marketing?",
     answer:
-      "Influencer marketing is a strategy where businesses collaborate with social media creators to promote products or services to their followers.",
+      "Influencer marketing involves collaborating with digital creators to promote products, services, or brands to targeted audiences.",
   },
   {
-    question: "How do you choose the right influencer for a brand?",
+    question: "How does influencer marketing help businesses?",
     answer:
-      "We evaluate audience demographics, engagement rates, content style, and brand compatibility before selecting influencers.",
+      "It improves brand awareness, customer trust, audience engagement, and digital visibility through authentic creator communication.",
   },
   {
-    question: "Which social media platforms are best for influencer marketing?",
+    question: "Which platforms are used for influencer campaigns?",
     answer:
-      "Popular platforms include Instagram, YouTube, Facebook, and LinkedIn. The best platform depends on your target audience and campaign goals.",
+      "Campaigns are commonly managed across Instagram, YouTube, LinkedIn, Facebook, and other social media platforms.",
   },
   {
-    question: "How long does an influencer marketing campaign take?",
+    question: "How do you select influencers for campaigns?",
     answer:
-      "Campaign duration varies depending on the objectives and content requirements. Some campaigns run for a few weeks, while others continue for several months.",
+      "We evaluate creators based on audience relevance, engagement quality, industry niche, and campaign objectives.",
   },
   {
-    question: "Can small businesses benefit from influencer marketing?",
+    question: "Can influencer marketing improve conversions?",
     answer:
-      "Yes. Small businesses can achieve strong results by working with nano or micro influencers who have engaged local audiences.",
+      "Yes, strategic creator partnerships can help generate traffic, engagement, customer interest, and conversions.",
+  },
+  {
+    question: "Do you provide campaign performance reports?",
+    answer:
+      "Yes, detailed reports include reach, engagement, audience growth, conversions, and campaign insights.",
   },
 ];
 

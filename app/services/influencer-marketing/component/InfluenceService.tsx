@@ -32,80 +32,64 @@ const InfluenceService: React.FC = () => {
     {
       title: "Influencer Identification",
       icon: Compass,
-      points: [
-        "Researching relevant industry influencers",
-        "Evaluating audience authenticity",
-        "Matching with your target market",
-        "Shortlisting suitable creators",
-      ],
+      description:
+        "Identifying creators who align with your brand values, target audience and niche in the industry.",
     },
     {
       title: "Strategy & Planning",
       icon: Lightbulb,
-      points: [
-        "Campaign objective planning",
-        "Platform & content direction",
-        "Timeline & content scheduling",
-        "Budget & resource allocation",
-      ],
+      description:
+        "Creating campaign plans, communication strategies and collaboration goals.",
     },
     {
       title: "Content Management",
       icon: PenTool,
-      points: [
-        "Social media posts & videos",
-        "Product demonstrations",
-        "Brand storytelling content",
-        "Visual & caption guidelines",
-      ],
+      description:
+        "Tracking and communicating with creators, approving content, scheduling campaigns and coordinating content.",
     },
     {
       title: "Performance Tracking",
       icon: BarChart3,
-      points: [
-        "Reach and impressions",
-        "Engagement metrics",
-        "Audience growth analysis",
-        "Campaign performance insights",
-      ],
+      description:
+        "Tracking reach, engagement, conversions and campaign performance using detailed analytics",
     },
   ];
 
   const platforms = [
     { name: "Instagram", icon: FaInstagram },
     { name: "YouTube", icon: FaYoutube },
-    { name: "Facebook", icon: FaFacebook },
     { name: "LinkedIn", icon: FaLinkedin },
+    { name: "Facebook", icon: FaFacebook },
     { name: "Twitter", icon: FaTwitter },
-    { name: "Shorts", icon: Video },
+    { name: (<>Emerging <br /> Platforms</>), icon: Video },
   ];
 
   const influencerTypes = [
-    {
-      title: "Nano Influencers",
-      badge: "Engaged",
-      icon: Zap,
-      desc: "Smaller but highly engaged audiences. Ideal for building trust within local communities.",
-    },
-    {
-      title: "Micro Influencers",
-      badge: "Niche",
-      icon: Star,
-      desc: "Offer strong engagement and niche expertise. Highly effective for targeted campaigns.",
-    },
-    {
-      title: "Macro Influencers",
-      badge: "Reach",
-      icon: Trophy,
-      desc: "Large audiences that can significantly increase brand visibility and awareness.",
-    },
-    {
-      title: "Industry Experts",
-      badge: "Authority",
-      icon: Briefcase,
-      desc: "Professionals bringing authority to specialized fields like healthcare and finance.",
-    },
-  ];
+  {
+    title: "New Influencers",
+    badge: "Emerging",
+    icon: Zap,
+    desc: "Assisting in the empowerment of young creators to work with businesses and develop their own brands.",
+  },
+  {
+    title: "Personal Brands",
+    badge: "Creator",
+    icon: Star,
+    desc: "Creating creator partnerships for professionals, coaches and industry experts.",
+  },
+  {
+    title: "Modern Businesses",
+    badge: "Growth",
+    icon: Trophy,
+    desc: "Startups, ecommerce and growing companies’ strategic influencer campaigns.",
+  },
+  {
+    title: "Industry Experts",
+    badge: "Authority",
+    icon: Briefcase,
+    desc: "Leveraging the expertise of niche pros for better authority and audience trust.",
+  },
+];
 
   return (
     <div className="text-white py-14 overflow-hidden">
@@ -124,13 +108,11 @@ const InfluenceService: React.FC = () => {
             <h2 className="text-3xl md:text-5xl font-bold tracking-tighter leading-[0.95] mb-8">
               Influencer Marketing <br />
               <span className="text-white/60 italic">
-                Services by Marketrixa.
+                Services by Marketrixa
               </span>
             </h2>
             <p className="text-white/50 text-md font-light leading-relaxed">
-              Marketrixa provides comprehensive influencer marketing solutions
-              tailored to businesses across India. From planning to execution,
-              our team manages every stage of your campaign journey.
+              Marketrixa delivers scalable influencer marketing solutions tailored for businesses seeking strategic creator partnerships and measurable digital growth.
             </p>
           </motion.div>
         </div>
@@ -151,10 +133,15 @@ const InfluenceService: React.FC = () => {
                   <service.icon size={32} />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-6 group-hover:text-[#f26522] transition-colors">
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-[#f26522] transition-colors">
                     {service.title}
                   </h3>
-                  <ul className="space-y-4">
+                  <p
+                    className="flex items-center gap-3 text-white/40 text-sm font-light"
+                  >
+                    {service.description}
+                  </p>
+                  {/* <ul className="space-y-4">
                     {service.points.map((point, idx) => (
                       <li
                         key={idx}
@@ -164,7 +151,7 @@ const InfluenceService: React.FC = () => {
                         {point}
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
                 </div>
               </div>
             </motion.div>
@@ -192,7 +179,7 @@ const InfluenceService: React.FC = () => {
                 className="flex flex-col items-center gap-3 px-8 py-6 rounded-3xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] transition-all cursor-default"
               >
                 <platform.icon size={24} />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">
+                <span className="text-[10px]  font-bold uppercase tracking-widest text-white/40">
                   {platform.name}
                 </span>
               </motion.div>
@@ -205,11 +192,10 @@ const InfluenceService: React.FC = () => {
           <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16 md:mb-20">
             <div>
               <h3 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-                Who We Work With.
+                Businesses & Brands We Support
               </h3>
               <p className="text-white/50 max-w-xl font-light">
-                Collaborating across categories to suit your specific marketing
-                needs and goals.
+                Collaborating across categories to suit your specific marketing needs and goals. 
               </p>
             </div>
             <div className="hidden lg:block h-[1px] flex-grow mx-12 bg-white/5" />
@@ -252,14 +238,15 @@ const InfluenceService: React.FC = () => {
           <div className="absolute top-0 right-0 p-12 opacity-10 rotate-12 group-hover:rotate-0 transition-transform duration-700">
             <Globe size={240} />
           </div>
-          <h3 className="text-3xl md:text-5xl text-white mb-8 relative z-10">
+          <h3 className="text-3xl md:text-5xl text-white mb-4 relative z-10">
             Start Your Influence Journey.
           </h3>
+          <p className="text-base sm:text-lg text-white/70 mb-6">Optimize your online brand with savvy influencer partnerships for higher engagement, credibility, and business development.</p>
           <Link
             href="/contact"
             className="px-10 py-4 bg-black text-white rounded-full text-xs font-bold uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl relative z-10"
           >
-            Contact Marketrixa
+            Get Started Today 
           </Link>
         </motion.div>
       </div>

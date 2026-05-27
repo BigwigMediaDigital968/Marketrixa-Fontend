@@ -25,6 +25,8 @@ import {
   Share2,
   MousePointer2,
   LucideProps,
+  FileText,
+  Globe,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -43,7 +45,7 @@ interface Feature {
 
 interface ProcessStep {
   title: string;
-  desc: string;
+  desc: string | React.ReactNode;
   icon: React.ReactElement<LucideProps>;
 }
 
@@ -61,100 +63,121 @@ const WhyInfluenceMar: React.FC = () => {
     if (isPaused) return;
 
     const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % 5);
+      setActiveStep((prev) => (prev + 1) % 6);
     }, 2000); // 2.5s for a slightly more relaxed pace than 2s
 
     return () => clearInterval(interval);
   }, [isPaused]);
 
   const industries: Industry[] = [
-    {
-      name: "Fashion and Lifestyle",
-      desc: "Promote clothing, accessories, and lifestyle products through visually appealing content.",
-      icon: <Shirt className="w-6 h-6" />,
-    },
-    {
-      name: "Food and Beverage",
-      desc: "Collaborate with food bloggers and creators to showcase menu items and dining experiences.",
-      icon: <Utensils className="w-6 h-6" />,
-    },
-    {
-      name: "Healthcare and Wellness",
-      desc: "Build trust and awareness through educational and informative content.",
-      icon: <Stethoscope className="w-6 h-6" />,
-    },
-    {
-      name: "Real Estate",
-      desc: "Highlight property features and developments to attract potential buyers.",
-      icon: <Home className="w-6 h-6" />,
-    },
-    {
-      name: "Education and Training",
-      desc: "Promote courses and institutions through student and educator influencers.",
-      icon: <GraduationCap className="w-6 h-6" />,
-    },
-    {
-      name: "Technology and Startups",
-      desc: "Launch new products and services with the help of tech influencers and reviewers.",
-      icon: <Cpu className="w-6 h-6" />,
-    },
-  ];
+  {
+    name: "Fashion & Lifestyle",
+    desc: "Style, beauty, fashion trends and lifestyle audiences were the focus of influencer campaigns.",
+    icon: <Shirt className="w-6 h-6" />,
+  },
+  {
+    name: "Food & Beverage",
+    desc: "Influencer collaborations crafted to promote food brands, restaurants, beverages, and culinary experiences while increasing audience engagement and brand awareness.",
+    icon: <Utensils className="w-6 h-6" />,
+  },
+  {
+    name: "Healthcare & Wellness",
+    desc: "Healthcare awareness, wellness brands and medical services strategic influencer outreach.",
+    icon: <Stethoscope className="w-6 h-6" />,
+  },
+  {
+    name: "Education & Training",
+    desc: "Promotions of educational establishments, courses and professional training programs.",
+    icon: <GraduationCap className="w-6 h-6" />,
+  },
+  {
+    name: "Technology & Startups",
+    desc: "Tech brand and digital product creator-driven campaigns designed to help startups grow.",
+    icon: <Cpu className="w-6 h-6" />,
+  },
+  {
+    name: "Real Estate",
+    desc: "Influencer partnerships to boost property visibility and engagement with the local audience.",
+    icon: <Home className="w-6 h-6" />,
+  },
+];
 
-  const whyChoose: Feature[] = [
-    {
-      title: "Strong Influencer Network",
-      text: "We maintain connections with a wide network of influencers across India, allowing us to match brands with suitable creators quickly.",
-      icon: <Users />,
-    },
-    {
-      title: "Data Driven Approach",
-      text: "Our strategies are based on audience insights and performance metrics, ensuring campaigns deliver measurable results.",
-      icon: <BarChart3 />,
-    },
-    {
-      title: "Customized Campaigns",
-      text: "Every brand has unique goals. We design influencer marketing campaigns tailored to your business objectives.",
-      icon: <Settings />,
-    },
-    {
-      title: "Transparent Communication",
-      text: "We keep clients informed throughout the campaign with regular updates and performance reports.",
-      icon: <MessageSquare />,
-    },
-    {
-      title: "End to End Campaign Management",
-      text: "From influencer selection to final reporting, our team handles every aspect of the campaign.",
-      icon: <CheckCircle2 />,
-    },
-  ];
+  const whyChoose: Feature[]  = [
+  {
+    title: "Customized Influencer Strategies",
+    text: "Optimized creator campaigns designed around your target audience, brand positioning, and business goals.",
+    icon: <Settings />,
+  },
+  {
+    title: "Access to Niche-Specific Creators",
+    text: "Strong relationships with influencers, creators, and digital personalities across a wide range of industries and niches.",
+    icon: <Users />,
+  },
+  {
+    title: "Audience-Focused Campaign Planning",
+    text: "Campaigns built to strengthen audience engagement, trust, communication, and overall brand impact.",
+    icon: <Target />,
+  },
+  {
+    title: "Transparent Campaign Reporting",
+    text: "Detailed performance reports with engagement insights, reach analysis, campaign tracking, and measurable outcomes.",
+    icon: <FileText />,
+  },
+  {
+    title: "Data-Driven Optimization",
+    text: "Continuous monitoring, analysis, and refinement of campaigns to maximize performance and return on investment.",
+    icon: <BarChart3 />,
+  },
+  {
+    title: "Multi-Platform Expertise",
+    text: "Strategic influencer campaigns across Instagram, YouTube, LinkedIn, and other leading digital platforms.",
+    icon: <Globe />,
+  },
+];
 
   const processSteps: ProcessStep[] = [
-    {
-      title: "Brand & Audience Analysis",
-      desc: "We study your brand, target audience, and competitors to understand your marketing needs.",
-      icon: <Target />,
-    },
-    {
-      title: "Influencer Research",
-      desc: "Our team identifies influencers who align with your brand image and audience demographics.",
-      icon: <Search />,
-    },
-    {
-      title: "Campaign Planning",
-      desc: "Detailed plans including content ideas, posting schedules, and performance targets.",
-      icon: <LayoutList />,
-    },
-    {
-      title: "Campaign Execution",
-      desc: "Influencers publish content according to the approved strategy.",
-      icon: <PlayCircle />,
-    },
-    {
-      title: "Monitoring & Reporting",
-      desc: "We track performance and provide insights to optimize future campaigns.",
-      icon: <Eye />,
-    },
-  ];
+  {
+    title: "Brand & Audience Research",
+    desc: "Before planning campaigns, we analyze your business goals, audience interests, and industry trends.",
+    icon: <Target />,
+  },
+  {
+    title: "Influencer Selection",
+    desc: "We find creators who align with your audience, brand identity, and products or services.",
+    icon: <Search />,
+  },
+  {
+    title: "Campaign Planning",
+    desc: "We develop campaign themes, communication guidelines, and content objectives to ensure effective execution.",
+    icon: <LayoutList />,
+  },
+  {
+    title: "Collaboration Execution",
+    desc: "Creators publish campaign content while we manage consistency, engagement, and coordination throughout the campaign.",
+    icon: <PlayCircle />,
+  },
+  {
+    title: "Campaign Monitoring",
+    desc: "Content performance is tracked continuously to evaluate audience feedback, engagement, and overall campaign success.",
+    icon: <Eye />,
+  },
+  {
+    title: "Optimization & Reporting",
+    desc: (
+      <>
+        Strategic improvements and detailed analytics help maximize{" "}
+        <Link
+          href="/services/campaign-performance"
+          className="font-medium text-primary hover:underline"
+        >
+          campaign performance
+        </Link>{" "}
+        and audience engagement.
+      </>
+    ),
+    icon: <BarChart3 />,
+  },
+];
 
   const benefits: string[] = [
     "Increased brand awareness",
@@ -209,8 +232,7 @@ const WhyInfluenceMar: React.FC = () => {
             <span className="text-[#f26522]">Influencer Marketing</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto font-light">
-            Our specialized services support businesses across multiple sectors
-            with data-backed creator strategies.
+           Marketrixa creates bespoke creator campaigns for companies of all industries. 
           </p>
         </div>
 
@@ -318,7 +340,7 @@ const WhyInfluenceMar: React.FC = () => {
               <div
                 key={idx}
                 onMouseEnter={() => setActiveStep(idx)}
-                className={`relative z-10 flex flex-col items-center text-center p-8 rounded-[2rem] transition-all duration-700 cursor-pointer w-full lg:w-1/5 border group overflow-hidden ${
+                className={`relative z-10 flex flex-col items-center text-center p-8 px-4 rounded-[2rem] transition-all duration-700 cursor-pointer w-full lg:w-1/5 border group overflow-hidden ${
                   activeStep === idx
                     ? "bg-white/[0.07] backdrop-blur-2xl border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.3)] ring-1 ring-white/10"
                     : "bg-transparent border-transparent opacity-40 hover:opacity-100 grayscale hover:grayscale-0"

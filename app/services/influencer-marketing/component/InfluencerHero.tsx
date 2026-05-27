@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Users, ArrowRight, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 const InfluencerHero: React.FC = () => {
   return (
@@ -36,7 +37,7 @@ const InfluencerHero: React.FC = () => {
         >
           <Sparkles size={14} className="text-[#f26522]" />
           <h1 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] text-white/70">
-            Influencer Marketing Service by Marketrixa
+            Influencer Marketing Services
           </h1>
         </motion.div>
 
@@ -47,8 +48,8 @@ const InfluencerHero: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-3xl md:text-5xl font-bold text-white mb-8"
         >
-          Connect With the <br />
-          <span className="text-[#f26522] italic">Right & Real Voices.</span>
+          Build Powerful  <br />Brand Connections  Through <br />
+          <span className="text-[#f26522] italic"> Trusted Digital Voices</span>
         </motion.h2>
 
         {/* Subheading */}
@@ -56,12 +57,14 @@ const InfluencerHero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-lg md:text-xl text-white/60 font-light leading-relaxed max-w-3xl mx-auto mb-12"
+          className="text-lg md:text-xl text-white/60 font-light leading-normal max-w-3xl mx-auto mb-12"
         >
-          Grow your brand with authentic influence. Influencer marketing is fast
-          becoming one of the most effective tools to connect with today's
-          audiences. People believe in the words of those they follow partnering
-          with influencers is the best way to get your brand known and engaged.
+          Marketrixa is a trusted Influencer Marketing Company in Ahmedabad that focuses on building effective creator campaigns that <Link
+            href="/services/social-media-optimization"
+            className="text-white/70 font-medium underline-offset-4 hover:text-blue-400 transition-colors duration-300"
+          >
+            boost brand visibility
+          </Link>, engagement, and customer confidence by leveraging intelligent collaborations with creators and performance-driven promotion.
         </motion.p>
 
         {/* CTA Button */}

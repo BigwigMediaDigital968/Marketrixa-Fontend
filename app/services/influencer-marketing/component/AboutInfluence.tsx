@@ -10,25 +10,26 @@ import {
   Sparkles,
   CheckCircle2,
 } from "lucide-react";
+import Link from "next/link";
 
 const E = [0.22, 1, 0.36, 1] as const;
 
 const AboutInfluence: React.FC = () => {
   const highlights = [
     {
-      title: "Authentic Storytelling",
+      title: "Creator Identification & Outreach",
       icon: Quote,
-      desc: "Real-world interactions that feel more organic than traditional sales messages.",
+      desc: "We match the audience, niche, engagement rate of our teams with businesses.",
     },
     {
-      title: "Deep Insights",
+      title: "Campaign Strategy Development",
       icon: Target,
-      desc: "Leveraging audience data to ensure every partnership hits the right demographic.",
+      desc: "We develop tailored influencer marketing campaigns aligned to your brand goals, customer behaviour and campaign objectives.",
     },
     {
-      title: "Performance Tracking",
+      title: "Content Collaboration Management",
       icon: BarChart4,
-      desc: "Measuring results effectively to drive impactful business growth.",
+      desc: "We organize creator collaborations so that the content is synced with your brand communication and campaign requirements.",
     },
   ];
 
@@ -114,14 +115,14 @@ const AboutInfluence: React.FC = () => {
 
         {/* --- SECTION: Definition & Details --- */}
         <div className="relative pt-10 mt-5 border-t border-white/5">
-          <div className="max-w-3xl mb-20">
+          <div className=" mb-20">
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-5xl font-bold tracking-tight mb-8"
+              className="max-w-3xl text-3xl md:text-5xl font-bold tracking-tight mb-8"
             >
-              What Is Influencer Marketing?
+              Strategic Influencer Campaigns Designed For Modern Brands
             </motion.h3>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -130,10 +131,8 @@ const AboutInfluence: React.FC = () => {
               transition={{ delay: 0.1 }}
               className="text-white/50 text-xl font-light leading-relaxed"
             >
-              A strategic collaboration where brands work with social media
-              stars to raise visibility. It emphasizes real-world interactions
-              that feel more authentic than traditional advertising, focusing on
-              storytelling and performance.
+              Consumers trust creators they follow across digital platforms. Understanding the audience, planning, align creators, and optimizing are essential for successful influencer campaigns. Marketrixa, one of the leading Ahmedabad Influencer Marketing Agency, builds partnerships with creators to boost brand credibility and customer engagement.
+
             </motion.p>
           </div>
 
@@ -169,15 +168,17 @@ const AboutInfluence: React.FC = () => {
                 <CheckCircle2 size={32} className="text-black" />
               </div>
               <h4 className="text-2xl md:text-3xl font-bold tracking-tight">
-                Driving Impactful <br />
+                Driving Impactful Results  <br />
                 <span className="text-[#f26522]">
-                  Results-Driven Campaigns.
+                  Through Creator Campaigns
                 </span>
               </h4>
             </div>
             <p className="text-white/50 text-sm md:text-base max-w-sm font-light">
-              We support business growth by delivering impactful strategies that
-              transform followers into loyal customers.
+              Marketrixa empowers businesses to create impactful <Link
+            href="/services/website-development-service"
+            className="text-white/70 font-medium underline-offset-4 hover:text-blue-400 transition-colors duration-300"
+          >digital presence</Link> by strategically connecting with creators to build trust, engagement, and sustainable brand growth.
             </p>
           </motion.div>
         </div>

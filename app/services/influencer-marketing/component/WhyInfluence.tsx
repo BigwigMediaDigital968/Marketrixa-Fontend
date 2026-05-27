@@ -19,21 +19,25 @@ const WhyInfluence: React.FC = () => {
     {
       id: "a",
       title: "Builds Brand Awareness",
-      desc: "Influencers introduce your brand to new audiences who may not have discovered your business through traditional channels.",
+      desc: "Gain access to targeted people through creators who already have online communities and loyal followers",
       icon: Eye,
       color: "#3b82f6",
     },
     {
       id: "b",
-      title: "Increases Audience Engagement",
-      desc: "Content shared by influencers often generates higher interaction compared to standard advertisements.",
+      title: "Increase Audience Engagement",
+      desc: (<>Promote interactions, conversations, and community by creating <Link
+            href="/services/social-media-optimization"
+            className="text-white/70 font-medium underline-offset-4 hover:text-blue-400 transition-colors duration-300"
+          > engaging content.</Link>
+          </>),
       icon: MessageCircle,
       color: "#a855f7",
     },
     {
       id: "c",
       title: "Enhances Brand Credibility",
-      desc: "Recommendations from trusted creators strengthen confidence in your products or services.",
+      desc: "Connect with customers by leveraging genuine product experiences and influencer endorsements.",
       icon: ShieldCheck,
       color: "#f26522",
     },
@@ -41,14 +45,14 @@ const WhyInfluence: React.FC = () => {
       id: "d",
       title: "Reaches Targeted Audiences",
       icon: Users,
-      desc: "Influencers attract followers with specific interests, making it easier to connect with the right audience.",
+      desc: "Link your products/services to users who have an interest in your niche and industry.",
       color: "#10b981",
     },
     {
       id: "e",
       title: "Supports Product Launches",
       icon: Rocket,
-      desc: "Influencer campaigns create excitement and visibility during important brand announcements and promotions.",
+      desc: "Create buzz and awareness for product launches, campaigns and announcements.",
       color: "#ef4444",
     },
   ];
@@ -73,21 +77,26 @@ const WhyInfluence: React.FC = () => {
             </h2>
           </motion.div>
 
-          <motion.p
+          <div className="max-w-2xl">
+            <motion.h3
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 1 }}
-            className="text-white/60 text-md font-light max-w-2xl"
-          >
-            Nowadays, the digital landscape is reshaping how people find out
-            about brands. Online platforms, especially social media, are the
-            first places people turn to for information, getting ideas, and even
-            making buying decisions. Through influencer marketing, companies can
-            keep up with the changes and continue to connect with their
-            audience. This post highlights some the most important benefits of
-            using influencer marketing:
-          </motion.p>
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 1 }}
+              className="text-xl sm:text-2xl text-white/80 mb-4"
+              >Build Stronger Audience Relationships Through Authentic Content
+            </motion.h3>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 1 }}
+              className="text-white/60 text-md font-light "
+            >
+              Brands can leverage the power of influencer marketing to engage highly engaged communities by relying on trusted recommendations from creators and natural storytelling experiences.
+            </motion.p>
+          </div>
         </div>
 
         {/* --- BENEFITS GRID --- */}
@@ -130,10 +139,10 @@ const WhyInfluence: React.FC = () => {
                   {item.desc}
                 </p>
 
-                <div className="pt-6 border-t border-white/5 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white/70 group-hover:text-[#f26522] transition-colors">
+                {/* <div className="pt-6 border-t border-white/5 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white/70 group-hover:text-[#f26522] transition-colors">
                   <span>Growth Metric</span>
                   <ArrowUpRight size={12} />
-                </div>
+                </div> */}
               </div>
             </motion.div>
           ))}
