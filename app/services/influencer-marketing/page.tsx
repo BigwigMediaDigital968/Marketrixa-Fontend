@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   // ],
 
   alternates: {
-    canonical: "https://www.marketrixa.com/services/email-marketing",
+    canonical: "https://www.marketrixa.com/services/influencer-marketing",
   },
 
   openGraph: {
@@ -37,8 +37,7 @@ export const metadata: Metadata = {
 
     description:
       "Connect your brand with the right influencers across Instagram, YouTube & LinkedIn. Marketrixa offers end-to-end influencer marketing services across India. Start your campaign today.",
-
-    url: "https://www.marketrixa.com/services/email-marketing",
+    url: "https://www.marketrixa.com/services/influencer-marketing",
 
     siteName: "Marketrixa",
 
