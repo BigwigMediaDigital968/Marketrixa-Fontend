@@ -16,6 +16,16 @@ import HowWeWork from "./component/website/homepage/HowWeWork";
 import FAQ from "./component/website/FAQ";
 import { homeFAQs } from "./data/faqData";
 import Script from "next/script";
+import ResultsShowcase from "./component/website/homepage/ResultsShowcase";
+import UgcVideoSection from "./component/website/homepage/UgcVideoSection";
+import AIGrowthSection from "./component/website/homepage/AIGrowthSection";
+import ResultSection from "./component/website/homepage/ResultSection";
+import CaseStudySection from "./component/website/homepage/CaseStudySection";
+import TrustMetricsShowcase from "./component/website/homepage/Counter";
+import TestimonialCarousel from "./component/website/homepage/TestimonialCarousel";
+import TopServices from "./component/website/homepage/TopServices";
+import Inndustries, { Industries2 } from "./component/website/homepage/Inndustries";
+import MarketingWall from "./component/website/homepage/MarketingWall";
 
 export const metadata = {
   title: "Marketrixa | Best Digital Marketing Company in Ahmedabad",
@@ -79,17 +89,27 @@ export default function Home() {
       <main>
         <Navbar />
         <Hero />
+        <TrustMetricsShowcase />
         <About />
+        <TopServices />
+        <ResultsShowcase />
+        <UgcVideoSection />
+        <MarketingWall />
+        {/* <Inndustries /> */}
+        <Industries2/>
+        <CaseStudySection />
+        <TestimonialCarousel />
+        {/* <Industry /> */}
         <Partnership />
+        {/* <Testimonials /> */}
         <ServiceCardCarousel />
+        <AIGrowthSection />
         <Stats />
-        <CTASection />
+        {/* <CTASection /> */}
         <ServiceGrid />
         <HowWeWork />
-        <Industry />
         <LeadForm />
         <Clientele />
-        <Testimonials />
         {/* <Blogs /> */}
         <FAQ
           eyebrow="Frequently Asked Questions?"

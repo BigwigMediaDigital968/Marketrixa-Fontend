@@ -3,38 +3,46 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
 
-const steps = [
+const steps  = [
   {
     id: 1,
-    title: "Discover & Audit",
+    title: "Research",
     content:
-      "We conduct a deep-dive audit of your brand, competitors, audience, and current digital presence. This forms the intelligence foundation of everything we build for you.",
+      "We conduct in-depth market, audience, and competitor research to uncover opportunities, identify challenges, and build a strong foundation for your growth strategy.",
     color: "#38bdf8",
-    position: "bottom" as const, // card sits BELOW the center line
+    position: "bottom" as const,
   },
   {
     id: 2,
-    title: "Strategise & Plan",
+    title: "Strategy",
     content:
-      "Our certified strategists craft a custom, multi-channel digital marketing blueprint aligned with your business goals, budget, and timeline.",
+      "Our experts create a customized digital marketing roadmap, defining the right channels, messaging, budgets, and KPIs to achieve your business objectives.",
     color: "#818cf8",
-    position: "top" as const, // card sits ABOVE the center line
+    position: "top" as const,
   },
   {
     id: 3,
-    title: "Execute & Launch",
+    title: "Creative Production",
     content:
-      "From creative production to campaign activation, our team of 13+ specialists executes with speed and precision across every channel simultaneously.",
+      "From compelling ad creatives and engaging content to landing pages and brand assets, we produce everything needed to capture attention and drive action.",
     color: "#2dd4bf",
     position: "bottom" as const,
   },
   {
     id: 4,
-    title: "Optimise & Scale",
+    title: "Ad Scaling",
     content:
-      "We track every metric, analyse what's working, eliminate what's not, and continuously optimise to scale your results month over month.",
+      "We launch and scale campaigns across multiple platforms, strategically increasing budgets and reach while maintaining performance and maximizing ROI.",
     color: "#f26522",
     position: "top" as const,
+  },
+  {
+    id: 5,
+    title: "Optimization",
+    content:
+      "Through continuous testing, performance analysis, and data-driven improvements, we refine campaigns to boost conversions and sustain long-term growth.",
+    color: "#10B981",
+    position: "bottom" as const,
   },
 ];
 

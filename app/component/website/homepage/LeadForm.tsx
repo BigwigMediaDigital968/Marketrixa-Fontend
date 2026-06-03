@@ -17,6 +17,7 @@ import {
   Zap,
   Sparkles,
 } from "lucide-react";
+import WhatsAppButton from "../SuccessWhatsapp";
 
 const SERVICES = [
   "Google Ads", "Meta Ads", "UGC Videos",
@@ -261,8 +262,19 @@ export default function LeadForm() {
                       Our team will reach out to you within 24 hours to schedule
                       your session.
                     </p>
+                    {/* <div className="mt-8">
+                        <WhatsAppButton
+                        message={`Hi! I'd like to discuss my project.
+                        Name: ${formData.fullName}
+                        Email: ${formData.email}
+                        Company: ${formData.company || "N/A"}
+                        Services: ${selectedServices.join(", ") || "N/A"}`}
+                      >
+                        Chat on WhatsApp
+                      </WhatsAppButton>
+                      </div> */}
                     <button
-                      className="mt-8 text-sm text-[#F26522] font-bold underline cursor-pointer"
+                      className="mt-4 text-sm text-[#F26522] font-bold underline cursor-pointer"
                     >
                       Send another request
                     </button>

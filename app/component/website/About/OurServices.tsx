@@ -14,8 +14,11 @@ import {
   ArrowUpRight,
   Rocket,
   Code,
+  Users2,
+  ArrowRight,
 } from "lucide-react";
 import Popup from "../Popup";
+import Link from "next/link";
 
 interface StepProps {
   number: string;
@@ -29,78 +32,39 @@ interface StepProps {
 const steps: StepProps[] = [
   {
     number: "01",
-    title: "Web & Mobile App Development",
+    title: "Meta Ads",
     description:
-      "High-performing websites and mobile apps that can be scaled up to meet increasing demands.",
-    icon: <Code className="w-6 h-6" />,
+      "Scale your business with high-converting Facebook and Instagram ad campaigns designed to generate leads, sales, and measurable ROI.",
+    icon: <Megaphone className="w-6 h-6" />,
     color: "#2cc2a7",
-    link: "/services/website-development-service",
-  },
-  {
-    number: "02",
-    title: "Search Engine Optimization",
-    description:
-      "Advanced SEO strategies that improve rankings, increase organic traffic, and strengthen long-term visibility.",
-    icon: <Search className="w-6 h-6" />,
-    color: "#f26522",
-    link: "/services/seo-service",
-  },
-
-  {
-    number: "03",
-    title: "Social Media Marketing",
-    description:
-      "Engaging social media campaigns that grow your audience and boost brand engagement.",
-    icon: <Share2 className="w-6 h-6" />,
-    color: "#FBBF24",
     link: "/services/social-media-marketing",
   },
   {
-    number: "04",
-    title: "Performance Marketing",
+    number: "02",
+    title: "Google Ads",
     description:
-      "Data-backed strategies crafted to boost your brand's performance and generate qualified leads.",
-    icon: <Globe className="w-6 h-6" />,
-    color: "#A855F7",
-    link: "/services/performance-marketing-service",
+      "Reach customers actively searching for your products and services through data-driven Search, Display, and YouTube advertising campaigns.",
+    icon: <Search className="w-6 h-6" />,
+    color: "#f26522",
+    link: "/services/social-media-marketing",
   },
   {
-    number: "05",
-    title: "Email Marketing",
+    number: "03",
+    title: "UGC Videos",
     description:
-      "Build hyper-segmented automation flows that respect your audience's time while aggressively scaling your revenue through behavioral psychology.",
-    icon: <TrendingUp className="w-6 h-6" />,
-    color: "#34D399",
-    link: "/services/email-marketing",
-  },
-  {
-    number: "06",
-    title: "Content Marketing",
-    description:
-      "From high-converting sales copy to technical documentation, our creators bridge the gap between your brand and your audience.",
-    icon: <DollarSign className="w-6 h-6" />,
+      "Authentic user-generated content videos that build trust, increase engagement, and improve ad performance across digital platforms.",
+    icon: <Code className="w-6 h-6" />,
     color: "#FBBF24",
-    link: "/services/content-marketing",
+    link: "/services/ugc-videos",
   },
-
   {
-    number: "07",
-    title: "Online Reputation Management",
+    number: "04",
+    title: "Influencer Marketing",
     description:
-      "We provides a complete ORM Service aimed at monitoring, managing, and enhancing how your brand is seen online.",
-    icon: <Megaphone className="w-6 h-6" />,
-    color: "#3B82F6",
-    link: "/services/online-reputation-management",
-  },
-
-  {
-    number: "08",
-    title: "Graphic Design",
-    description:
-      "Creative graphic design and video editing agency in Gujarat dedicated to helping brands express their ideas through powerful visuals and professional storytelling.",
-    icon: <Palette className="w-6 h-6" />,
-    color: "#EF4444",
-    link: "/services/graphic-design-service",
+      "Partner with relevant creators and influencers to expand brand awareness, drive engagement, and generate qualified leads.",
+    icon: <Users2 className="w-6 h-6" />,
+    color: "#A855F7",
+    link: "/services/influencer-marketing",
   },
 ];
 export default function OurServices() {
@@ -157,9 +121,8 @@ export default function OurServices() {
               {steps.map((step, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col md:flex-row items-center w-full mb-12 md:mb-24 ${
-                    index % 2 === 0 ? "md:flex-row-reverse" : ""
-                  }`}
+                  className={`flex flex-col md:flex-row items-center w-full mb-12 md:mb-24 ${index % 2 === 0 ? "md:flex-row-reverse" : ""
+                    }`}
                 >
                   {/* Content Card Area */}
                   <motion.div
@@ -238,9 +201,8 @@ export default function OurServices() {
                       whileInView={{ width: "100%" }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.7 }}
-                      className={`absolute top-1/2 -translate-y-1/2 h-[1px] bg-white/20 ${
-                        index % 2 === 0 ? "right-1/2 mr-2" : "left-1/2 ml-2"
-                      }`}
+                      className={`absolute top-1/2 -translate-y-1/2 h-[1px] bg-white/20 ${index % 2 === 0 ? "right-1/2 mr-2" : "left-1/2 ml-2"
+                        }`}
                     />
                   </div>
 
@@ -266,6 +228,13 @@ export default function OurServices() {
             <p className="text-white font-bold mt-4 uppercase tracking-[0.2em] text-xs">
               Reach New Heights
             </p>
+            <Link
+              href="/services"
+              className="mt-3 cursor-pointer inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#F26522] text-[#F26522] hover:bg-[#F26522] hover:text-white transition-all duration-300"
+            >
+              Explore All Services
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </motion.div>
         </div>
       </section>

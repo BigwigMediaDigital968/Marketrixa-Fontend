@@ -10,12 +10,19 @@ import {
 } from "framer-motion";
 import { useRouter } from "next/navigation";
 
-const PHRASES = [
+const PHRASESOLD = [
   "We Build Its Future",
   "We Make It Impossible to Ignore",
   " We Build the Engine Behind Its Growth",
   "We Scale It, Relentlessly",
   "We Turn Clicks Into Customers",
+];
+
+const PHRASES = [
+  "Google Ads",
+  "Meta Ads",
+  "UGC Videos",
+  "Influencer Marketing",
 ];
 
 /* ── Magnetic cursor hook ── */
@@ -170,8 +177,10 @@ function Typewriter() {
   );
 }
 
+
 export default function Hero() {
   const magnet = useMagnet(0.3);
+  const magnetSecondary = useMagnet(0.2);
   const router = useRouter();
 
   return (
@@ -403,7 +412,6 @@ export default function Hero() {
           background: var(--brand-orange);
           color: #fff;
           font-weight: 700;
-          font-size: 0.95rem;
           letter-spacing: 0.04em;
           border-radius: 60px;
           border: none;
@@ -437,6 +445,20 @@ export default function Hero() {
           box-shadow: 0 0 0 12px rgba(242,101,34,0.12), 0 12px 40px rgba(242,101,34,0.55);
           transform: translateY(-2px);
         }
+          .btn-hero {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 38px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 60px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: box-shadow 0.4s ease, transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
         .btn-arrow {
           display: inline-flex;
           align-items: center;
@@ -448,6 +470,40 @@ export default function Hero() {
           transition: transform 0.3s ease;
         }
         .btn-primary-hero:hover .btn-arrow { transform: translateX(4px); }
+
+        .btn-hero-outline {
+  background: rgba(242, 101, 34, 0.03); /* Subtle orange tint */
+  border: 2px solid rgba(242, 101, 34, 0.4); /* Muted orange border */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+.btn-hero-outline:hover {
+  background: rgba(242, 101, 34, 0.1);
+  border-color: var(--brand-orange); /* Highlights to full orange on hover */
+  box-shadow: 0 0 0 12px rgba(242, 101, 34, 0.05), 0 12px 40px rgba(242, 101, 34, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Shared Inner Circle Graphic Style */
+.btn-icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; 
+  height: 22px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  font-size: 12px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Hover behaviors for the icons */
+.btn-hero-solid:hover .btn-icon-circle { 
+  transform: translateX(4px); 
+}
+.btn-hero-outline:hover .btn-icon-circle { 
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+}
 
         /* Ghost button */
         .btn-ghost-hero {
@@ -614,7 +670,7 @@ export default function Hero() {
 
           {/* H1 */}
           <motion.h1
-            className="hero-h1"
+            className="text-2xl md:text-4xl"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -623,7 +679,7 @@ export default function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <span className="h1-line">We Don’t Just Market Your Brand</span>
+            <span className="h1-line">We Build Growth Machines That Scale Businesses</span>
             <span className="h1-accent">
               <Typewriter />
             </span>
@@ -631,7 +687,7 @@ export default function Hero() {
 
           {/* Subtext */}
           <motion.p
-            className="hero-sub"
+            className="text-base md:text-lg text-white/50 leading-normal mb-8"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -663,11 +719,28 @@ export default function Hero() {
               onMouseMove={magnet.onMove}
               onMouseLeave={magnet.onLeave}
               style={{ x: magnet.sx, y: magnet.sy }}
-              className="btn-primary-hero"
+              className="btn-primary-hero text-sm md:text-base"
               whileTap={{ scale: 0.97 }}
             >
-              Start Your Project
+              Get Free Growth Audit
               <span className="btn-arrow">→</span>
+            </motion.button>
+
+            <motion.button
+              onClick={() => router.push("/case-studies")}
+              ref={magnetSecondary.ref}
+              onMouseMove={magnetSecondary.onMove}
+              onMouseLeave={magnetSecondary.onLeave}
+              style={{ x: magnetSecondary.sx, y: magnetSecondary.sy }}
+              className="btn-hero btn-hero-outline text-sm md:text-base whitespace-nowrap backdrop-blur-xs"
+              whileTap={{ scale: 0.97 }}
+            >
+              Watch Case Studies
+              <span className="btn-icon-circle">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" className="ml-[1px]">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
             </motion.button>
           </motion.div>
         </div>

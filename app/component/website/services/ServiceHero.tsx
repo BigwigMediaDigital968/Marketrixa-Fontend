@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Popup from "../Popup";
 
-const TITLES = ["Digital Innovation", "Growth Strategy", "Brand Elevation"];
+const TITLES = ["Performance Marketing", "UGC Videos", "Influencer Marketing"];
 
 const STATS = [
   { icon: "◎", value: "1000+", label: "Projects Delivered" },
@@ -195,8 +195,8 @@ export default function ServiceHero() {
               <span>✦</span> Experience
             </div>
 
-            <div className="title-box">
-              <span className={`title-text${animating ? " hide" : ""}`}>
+            <div className="title-box ">
+              <span className={`title-text${animating ? " hide" : ""} text-3xl md:text-5xl font-bold`}>
                 {TITLES[titleIndex]}
               </span>
             </div>

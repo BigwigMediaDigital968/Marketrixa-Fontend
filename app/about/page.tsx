@@ -5,6 +5,14 @@ import Strategy from "../component/website/About/Ourprocess";
 import OurServices from "../component/website/About/OurServices";
 import Navbar from "../component/website/Navbar";
 import { Metadata } from "next";
+import FounderStory from "../component/website/About/Story";
+import TrustMetricsShowcase from "../component/website/About/Counter";
+import FounderTimeline from "../component/website/About/FounderTimeline";
+import ValueSection from "../component/website/About/ValueSection";
+import WhySection from "../component/website/About/WhySection";
+import TestimonialCarousel from "../component/website/homepage/TestimonialCarousel";
+import Inndustries from "../component/website/homepage/Inndustries";
+import WhyStay from "../component/website/About/WhyStay";
 
 
 export const metadata: Metadata = {
@@ -50,9 +58,18 @@ export default function aboutPage() {
       <main>
         <Navbar />
         <AboutHero />
-        <AboutStats />
-        <OurServices />
+        <FounderTimeline />
+        <ValueSection />
+        <WhySection />
+        {/* <TrustMetricsShowcase/> */}
+        {/* <FounderStory/> */}
+        {/* <AboutStats /> */}
         <Strategy />
+        <TestimonialCarousel />
+        <OurServices />
+
+        <Inndustries />
+        <WhyStay/>
         <Footer />
       </main>
     </>

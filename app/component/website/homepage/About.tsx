@@ -83,7 +83,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tighter mb-8"
+              className="text-3xl md:text-5xl font-bold leading-[1.1] tracking-tighter mb-8"
             >
               We Are Not Just an Agency. <br />
               <span className="text-[#f26522] italic">

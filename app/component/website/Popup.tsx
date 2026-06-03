@@ -18,6 +18,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import WhatsAppButton from "./SuccessWhatsapp";
 
 interface PopupProps {
   isOpen: boolean;
@@ -169,7 +170,7 @@ export default function Popup({ isOpen, onClose, source }: PopupProps) {
           contactMethod: "",
           message: "",
         });
-      }, 3500);
+      }, 4000);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -578,6 +579,7 @@ export default function Popup({ isOpen, onClose, source }: PopupProps) {
                         </div>
                       </div>
                       <h3 className="success-h">Message Received!</h3>
+                      
                       <p className="success-p">
                         Thank you,{" "}
                         <strong style={{ color: "#fff" }}>
@@ -585,6 +587,17 @@ export default function Popup({ isOpen, onClose, source }: PopupProps) {
                         </strong>
                         . Our team will reach out within 24 hours.
                       </p>
+                      {/* <div className="mb-4">
+                        <WhatsAppButton
+                        message={`Hi! I'd like to discuss my project.
+                        Name: ${formData.name}
+                        Email: ${formData.email}
+                        Company: ${formData.company || "N/A"}
+                        Services: ${selectedServices.join(", ") || "N/A"}`}
+                      >
+                        Chat on WhatsApp
+                      </WhatsAppButton>
+                      </div> */}
                       <button
                         className="success-back cursor-pointer"
                         onClick={onClose}

@@ -11,6 +11,8 @@ import {
   SEOFields as SEOFieldsType,
 } from "@/app/types/blog";
 import StatusBadge from "./Statusbadge";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "@/lib/firebase";
 
 // ─── Dynamic editor import ────────────────────────────────────────────────────
 const BlogEditor = dynamic(
@@ -1083,22 +1085,45 @@ export default function BlogForm({
   };
 
   // Image upload
+  // const uploadImage = async (file: File, target: "cover" | "og") => {
+  //   setUploading(target);
+  //   try {
+  //     const fd = new FormData();
+  //     fd.append("file", file);
+  //     const res = await fetch("/api/upload", { method: "POST", body: fd });
+  //     console.log(res);
+  //     const d = await res.json();
+  //     if (d.url) {
+  //       target === "cover"
+  //         ? update("coverImage", d.url)
+  //         : updateSeo("ogImage", d.url);
+  //     }
+  //   } finally {
+  //     setUploading(null);
+  //   }
+  // };
+
   const uploadImage = async (file: File, target: "cover" | "og") => {
-    setUploading(target);
-    try {
-      const fd = new FormData();
-      fd.append("file", file);
-      const res = await fetch("/api/upload", { method: "POST", body: fd });
-      const d = await res.json();
-      if (d.url) {
-        target === "cover"
-          ? update("coverImage", d.url)
-          : updateSeo("ogImage", d.url);
-      }
-    } finally {
-      setUploading(null);
+  setUploading(target);
+  try {
+    const ext = file.name.split(".").pop();
+    const filename = `blogs/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+    
+    const storageRef = ref(storage, filename);
+    const snapshot = await uploadBytes(storageRef, file);
+    const url = await getDownloadURL(snapshot.ref);
+
+    console.log("File uploaded to Firebase Storage:", url);
+
+    if (url) {
+      target === "cover"
+        ? update("coverImage", url)
+        : updateSeo("ogImage", url);
     }
-  };
+  } finally {
+    setUploading(null);
+  }
+};
 
   // Structured data generator
   const generateStructuredData = () => {

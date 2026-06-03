@@ -1,760 +1,506 @@
-"use client";
-
-import React, { useState, useRef, useEffect } from "react";
+'use client';
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
   Globe,
   TrendingUp,
   Search,
-  Palette,
-  FileText,
   ArrowRight,
-  CheckCircle,
+  CheckCircle2,
   ChevronRight,
   Sparkles,
+  Zap,
+  Cpu,
+  ShieldCheck,
+  Video,
+  Users,
+  Palette
 } from "lucide-react";
-import Link from "next/link";
 
-/* ─────────────────────────────────────────
-   SERVICE DATA  — add more entries freely
-───────────────────────────────────────── */
-const SERVICES = [
-  {
-    id: "web",
-    icon: <Globe size={22} />,
-    label: "Website Development",
-    tagline: "Digital Architectures That Convert",
-    description:
-      "We engineer high-performance websites and web apps that blend cutting-edge technology with pixel-perfect design. Every build is optimised for speed, SEO, and scalability — because your site is your 24/7 sales engine.",
-    highlights: [
-      "Custom React / Next.js builds",
-      "Core Web Vitals optimised",
-      "CMS & headless integrations",
-      "Mobile-first responsive design",
-    ],
-    tags: ["Next.js", "React", "Node.js", "Tailwind", "WordPress", "Webflow"],
-    cta: "Build Your Digital Foundation",
-    link: "/services/website-development-service",
-    accent: "#f26522",
-  },
-  {
-    id: "smm",
-    icon: <TrendingUp size={22} />,
-    label: "Social Media Marketing",
-    tagline: "Scroll-Stopping Content. Real Results.",
-    description:
-      "Turn followers into brand advocates and likes into revenue. Our data-backed SMM strategies create thumb-stopping content that builds communities, sparks conversations, and drives measurable business growth across every platform.",
-    highlights: [
-      "Platform-native content strategy",
-      "Paid social & retargeting",
-      "Community management",
-      "Real-time performance analytics",
-    ],
-    tags: [
-      "Instagram",
-      "LinkedIn",
-      "Facebook",
-      "TikTok",
-      "X / Twitter",
-      "Pinterest",
-    ],
-    cta: "Amplify Your Social Reach",
-    link: "/services/social-media-marketing",
-    accent: "#f26522",
-  },
-  {
-    id: "seo",
-    icon: <Search size={22} />,
-    label: "SEO & Growth",
-    tagline: "Rank Higher. Earn More. Dominate.",
-    description:
-      "Sustainable organic growth through technical excellence, authority building, and content strategy. We don't chase algorithms — we build the kind of digital presence search engines can't ignore.",
-    highlights: [
-      "Technical SEO audits & fixes",
-      "E-E-A-T content strategy",
-      "Link building & authority",
-      "Local & international SEO",
-    ],
-    tags: [
-      "On-Page",
-      "Off-Page",
-      "Technical",
-      "Local SEO",
-      "E-commerce SEO",
-      "Analytics",
-    ],
-    cta: "Climb to Page One",
-    link: "/services/seo-service",
-    accent: "#f26522",
-  },
-  {
-    id: "design",
-    icon: <Palette size={22} />,
-    label: "Graphic Design",
-    tagline: "Visuals That Stop the Scroll.",
-    description:
-      "Great design is silent communication. Our creative team crafts brand identities, marketing assets, and UI experiences that command attention, communicate value instantly, and make your brand unforgettable.",
-    highlights: [
-      "Brand identity & style guides",
-      "Social & digital creatives",
-      "UI/UX design & prototyping",
-      "Print & packaging design",
-    ],
-    tags: ["Branding", "Figma", "Illustrator", "Photoshop", "UI/UX", "Motion"],
-    cta: "Elevate Your Visual Identity",
-    link: "/services/graphic-design-service",
-    accent: "#f26522",
-  },
+// --- Types ---
+interface ServiceItem {
+  id: string;
+  icon: React.ComponentType<any>;
+  label: string;
+  tagline: string;
+  description: string;
+  highlights: string[];
+  tags: string[];
+  cta: string;
+  link: string;
+  imageUrl: string;
+  accent: string;
+}
+
+// --- Focused 4 Flagship Digital Services (Clean Content Structure) ---
+const SERVICES: ServiceItem[] = [
   {
     id: "performance",
-    icon: <TrendingUp size={22} />,
+    icon: Zap,
     label: "Performance Marketing",
-    tagline: "Data-Driven Ads That Deliver Real Results.",
+    tagline: "Paid Campaigns Engineered For Predictable Growth",
     description:
-      "We create and manage high-performance ad campaigns across Google, Meta, and other platforms to drive measurable growth. From lead generation to e-commerce sales, our strategies are built on data, optimization, and ROI — ensuring every rupee you spend works harder for your business.",
+      "We create and optimize high-converting advertising campaigns across Meta and Google to generate qualified leads, increase sales, and maximize return on ad spend. Every campaign is backed by data, testing, and funnel optimization.",
     highlights: [
-      "Google Ads (Search, Display, YouTube)",
-      "Meta Ads (Facebook & Instagram)",
-      "Conversion tracking & analytics",
-      "A/B testing & campaign optimization",
-    ],
-    tags: ["Google Ads", "Meta Ads", "ROI", "CPC", "Leads", "Sales Funnel"],
-    cta: "Start Scaling Your Ads",
-    link: "/services/performance-marketing-service",
-    accent: "#f26522",
-  },
-  {
-    id: "content",
-    icon: <FileText size={22} />,
-    label: "Content Marketing",
-    tagline: "Words That Work While You Sleep.",
-    description:
-      "Authority-building content that attracts, nurtures, and converts. From thought-leadership articles to conversion-optimised landing pages, we create content ecosystems that generate compounding ROI long after publication.",
-    highlights: [
-      "Editorial & blog strategy",
-      "Long-form thought leadership",
-      "Landing page copywriting",
-      "Email sequences & newsletters",
+      "Meta Ads Campaign Management",
+      "Google Search & Display Ads",
+      "Lead Generation Systems",
+      "High-Converting Funnel Marketing"
     ],
     tags: [
-      "Blog",
-      "Whitepapers",
-      "Case Studies",
-      "Email",
-      "Landing Pages",
-      "Scripts",
+      "Meta Ads",
+      "Google Ads",
+      "Lead Generation",
+      "Sales Funnels",
+      "Conversion Tracking",
+      "Performance Analytics"
     ],
-    cta: "Build Your Content Engine",
-    link: "/services/content-marketing",
+    cta: "Scale Your Business",
+    link: "/services/performance-marketing-service",
     accent: "#f26522",
+    imageUrl:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
   },
-];
 
-/* ── Animated section heading ── */
-function SectionHeading() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 32 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="svc-heading-wrap"
-    >
-      <div className="svc-eyebrow">
-        <span className="svc-eyebrow-dot" />
-        What We Do
-      </div>
-      <h2 className="svc-h2">
-        Our Core <em>Digital Services</em>
-      </h2>
-      <p className="svc-sub">
-        From a single campaign to a full-stack digital transformation — every
-        service is engineered for measurable business impact.
-      </p>
-    </motion.div>
-  );
-}
+  {
+    id: "ugc",
+    icon: Video,
+    label: "UGC Video Production",
+    tagline: "Authentic Content That Builds Trust And Converts",
+    description:
+      "We produce creator-style content designed for today's social platforms. From product demonstrations to engaging UGC reels, we create authentic videos that capture attention, increase engagement, and improve ad performance.",
+    highlights: [
+      "UGC Reel Creation",
+      "Product Demo Videos",
+      "Creator Generated Content",
+      "Short-Form Video Production"
+    ],
+    tags: [
+      "UGC Videos",
+      "Instagram Reels",
+      "Product Videos",
+      "Creator Content",
+      "Short Form Content",
+      "Video Ads"
+    ],
+    cta: "Create High-Converting Content",
+    link: "/services/ugc-video-creation",
+    accent: "#f26522",
+    imageUrl:
+      "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=800&auto=format&fit=crop"
+  },
 
-/* ── Service tab button ── */
-function ServiceTab({
-  service,
-  active,
-  onClick,
-  index,
-}: {
-  service: (typeof SERVICES)[0];
-  active: boolean;
-  onClick: () => void;
-  index: number;
-}) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  return (
-    <motion.button
-      ref={ref}
-      initial={{ opacity: 0, x: -24 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{
-        delay: index * 0.07,
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className={`svc-tab${active ? " svc-tab-active" : ""}`}
-      onClick={onClick}
-    >
-      <span className={`svc-tab-icon${active ? " svc-tab-icon-active" : ""}`}>
-        {service.icon}
-      </span>
-      <span className="svc-tab-label">{service.label}</span>
-      <ChevronRight
-        size={14}
-        className={`svc-tab-arrow${active ? " svc-tab-arrow-active" : ""}`}
-      />
-    </motion.button>
-  );
-}
+  {
+    id: "influencer",
+    icon: Users,
+    label: "Influencer Marketing",
+    tagline: "Leverage Trusted Voices To Accelerate Growth",
+    description:
+      "Connect your brand with carefully selected influencers who drive real engagement and measurable business results. We manage everything from creator sourcing and campaign strategy to execution and performance reporting.",
+    highlights: [
+      "Influencer Campaign Management",
+      "Brand Promotion Campaigns",
+      "Finance Influencer Collaborations",
+      "E-commerce Influencer Partnerships"
+    ],
+    tags: [
+      "Influencer Marketing",
+      "Brand Promotions",
+      "Finance Influencers",
+      "E-commerce Influencers",
+      "Creator Partnerships",
+      "Campaign Management"
+    ],
+    cta: "Launch An Influencer Campaign",
+    link: "/services/influencer-marketing",
+    accent: "#f26522",
+    imageUrl:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop"
+  }, {
+    id: "website",
+    icon: Globe,
+    label: "Website Development",
+    tagline: "Websites Built To Convert Visitors Into Customers",
+    description:
+      "From business websites to e-commerce stores and sales funnels, we build high-performance digital experiences optimized for growth and conversions.",
+    highlights: [
+      "Business Websites",
+      "Landing Pages",
+      "E-commerce Stores",
+      "Sales Funnels"
+    ],
+    tags: [
+      "Website Development",
+      "Landing Pages",
+      "Shopify",
+      "WordPress",
+      "Funnels",
+      "Conversion Optimization"
+    ],
+    cta: "Build Your Website",
+    link: "/services/website-development-service",
+    accent: "#f26522",
+    imageUrl:
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop"
+  },
 
-/* ── Detail panel ── */
-function ServiceDetail({ service }: { service: (typeof SERVICES)[0] }) {
-  return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={service.id}
-        initial={{ opacity: 0, y: 18, filter: "blur(4px)" }}
-        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        exit={{ opacity: 0, y: -12, filter: "blur(4px)" }}
-        transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-        className="svc-detail"
-      >
-        {/* Top badge */}
-        <div className="svc-detail-badge">
-          <span className="svc-detail-badge-icon">{service.icon}</span>
-          {service.label}
-        </div>
+  {
+    id: "design",
+    icon: Palette,
+    label: "Graphic Design",
+    tagline: "Creative Assets That Capture Attention Instantly",
+    description:
+      "We design compelling visuals that strengthen your brand identity and improve marketing performance across every platform.",
+    highlights: [
+      "Ad Creatives",
+      "Social Media Posts",
+      "Branding Design",
+      "Motion Graphics"
+    ],
+    tags: [
+      "Graphic Design",
+      "Ad Creatives",
+      "Branding",
+      "Motion Graphics",
+      "Social Media Design",
+      "Visual Identity"
+    ],
+    cta: "Elevate Your Brand",
+    link: "/services/graphic-design-service",
+    accent: "#f26522",
+    imageUrl:
+      "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop"
+  },
 
-        <h3 className="svc-detail-title">{service.tagline}</h3>
-        <p className="svc-detail-desc">{service.description}</p>
+  {
+    id: "seo",
+    icon: Search,
+    label: "SEO",
+    tagline: "Increase Visibility And Dominate Search Results",
+    description:
+      "Grow your organic traffic through technical SEO, local SEO, keyword strategy, and website optimization that drives long-term business growth.",
+    highlights: [
+      "Local SEO",
+      "Google Ranking",
+      "Website Optimization",
+      "Keyword Strategy"
+    ],
+    tags: [
+      "SEO",
+      "Local SEO",
+      "Google Rankings",
+      "Keyword Research",
+      "Technical SEO",
+      "Organic Growth"
+    ],
+    cta: "Improve Your Rankings",
+    link: "/services/seo-service",
+    accent: "#f26522",
+    imageUrl:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop"
+  }
+]
 
-        {/* Highlights */}
-        <div className="svc-highlights">
-          {service.highlights.map((h) => (
-            <div key={h} className="svc-highlight-item">
-              <CheckCircle size={14} className="svc-check" />
-              <span>{h}</span>
-            </div>
-          ))}
-        </div>
+const GridPattern: React.FC<{ opacity: number }> = ({ opacity }) => (
+  <div
+    className="absolute inset-0 pointer-events-none"
+    style={{
+      backgroundImage: `radial-gradient(rgba(242,101,34,${opacity}) 1px, transparent 1px)`,
+      backgroundSize: "32px 32px",
+    }}
+  />
+);
 
-        {/* Tech / platform tags */}
-        <div className="svc-tags-section">
-          <div className="svc-tags-label">
-            <Sparkles size={11} />
-            Tools & Platforms
-          </div>
-          <div className="svc-tags">
-            {service.tags.map((t) => (
-              <span key={t} className="svc-tag">
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA */}
-        <Link href={service.link} className="svc-cta-btn">
-          {service.cta}
-          <span className="svc-cta-arrow">
-            <ArrowRight size={15} />
-          </span>
-        </Link>
-      </motion.div>
-    </AnimatePresence>
-  );
-}
-
-/* ── Mobile accordion card ── */
-function MobileCard({
-  service,
-  index,
-}: {
-  service: (typeof SERVICES)[0];
-  index: number;
-}) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-30px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 24 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{
-        delay: index * 0.08,
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className={`mob-card${open ? " mob-card-open" : ""}`}
-    >
-      <button className="mob-card-header" onClick={() => setOpen(!open)}>
-        <span className={`mob-card-icon${open ? " mob-card-icon-open" : ""}`}>
-          {service.icon}
-        </span>
-        <span className="mob-card-label">{service.label}</span>
-        <motion.span
-          animate={{ rotate: open ? 90 : 0 }}
-          transition={{ duration: 0.25 }}
-          className="mob-card-chevron"
-        >
-          <ChevronRight size={16} />
-        </motion.span>
-      </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            style={{ overflow: "hidden" }}
-          >
-            <div className="mob-card-body">
-              <p className="mob-card-tagline">{service.tagline}</p>
-              <p className="mob-card-desc">{service.description}</p>
-              <div className="mob-highlights">
-                {service.highlights.map((h) => (
-                  <div key={h} className="mob-highlight">
-                    <CheckCircle
-                      size={12}
-                      style={{ color: "#f26522", flexShrink: 0 }}
-                    />
-                    <span>{h}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="mob-tags">
-                {service.tags.map((t) => (
-                  <span key={t} className="svc-tag">
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <button className="svc-cta-btn" style={{ marginTop: 20 }}>
-                {service.cta}
-                <span className="svc-cta-arrow">
-                  <ArrowRight size={14} />
-                </span>
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-}
-
-/* ── Main export ── */
 export default function CoreServices() {
-  const [active, setActive] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeService = SERVICES[activeIndex];
+
+  // Heading Scroll Animator
+  const headingRef = useRef(null);
+  const headingInView = useInView(headingRef, { once: true, margin: "-80px" });
 
   return (
-    <>
-      <style>{`
-        /* ── Section wrapper ── */
-        .svc-section {
-          position: relative;
-          width: 100%;
-          padding: 110px 0 100px;
-          overflow: hidden;
-        }
+    <div className="bg-neutral-950 text-white font-sans antialiased overflow-hidden py-16 md:py-24 relative w-full min-h-screen flex flex-col justify-center">
+      
+      {/* Background Lighting Aura */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0" 
+        style={{
+          background: "radial-gradient(circle at 50% 50%, rgba(242,101,34,0.03) 0%, transparent 75%)"
+        }}
+      />
+      <GridPattern opacity={0.03} />
 
-        /* Decorative bg glows */
-        .svc-glow-left {
-          position: absolute; top: 20%; left: -200px;
-          width: 500px; height: 500px; border-radius: 50%;
-          background: radial-gradient(circle, rgba(242,101,34,0.08) 0%, transparent 70%);
-          filter: blur(60px); pointer-events: none; z-index: 0;
-        }
-        .svc-glow-right {
-          position: absolute; bottom: 10%; right: -200px;
-          width: 600px; height: 600px; border-radius: 50%;
-          background: radial-gradient(circle, rgba(242,101,34,0.06) 0%, transparent 70%);
-          filter: blur(80px); pointer-events: none; z-index: 0;
-        }
-        .svc-grid-overlay {
-          position: absolute; inset: 0;
-          background-image:
-            linear-gradient(rgba(242,101,34,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(242,101,34,0.03) 1px, transparent 1px);
-          background-size: 60px 60px;
-          pointer-events: none; z-index: 0;
-        }
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
+        
+        {/* SECTION HEADER ROW */}
+        <motion.div
+          ref={headingRef}
+          initial={{ opacity: 0, y: 25 }}
+          animate={headingInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+          className="text-center mb-16 max-w-2xl mx-auto"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 border border-white/5 mb-4 shadow-lg">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#f26522]" />
+            <span className="text-[9px] font-black uppercase tracking-widest text-neutral-400 font-mono">Our Capabilities</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-black tracking-tighter leading-none mb-4">
+            Our Core <span className="text-white/60 italic font-light">Digital Services</span>
+          </h2>
+          <p className="text-xs md:text-sm text-neutral-400 leading-relaxed max-w-md mx-auto">
+            From targeted acquisition funnels to unified platform database syncing — every service track we deploy is engineered for audited commercial impact.
+          </p>
+        </motion.div>
 
-        .svc-inner {
-          position: relative; z-index: 1;
-          max-width: 1280px; margin: 0 auto;
-          padding: 0 32px;
-        }
+        {/* ── DESKTOP SPLIT CONTAINER (Hidden on Mobile) ── */}
+        <div className="hidden lg:grid grid-cols-12 gap-8 items-stretch relative">
+          
+          {/* LEFT SIDE: Compact Navigation Selector Tabs */}
+          <div className="col-span-4 flex flex-col gap-3.5 justify-center">
+            {SERVICES.map((s, idx) => {
+              const isActive = idx === activeIndex;
+              const IconComponent = s.icon;
 
-        /* ── Heading ── */
-        .svc-heading-wrap { text-align: center; margin-bottom: 72px; }
-
-        .svc-eyebrow {
-          display: inline-flex; align-items: center; gap: 8px;
-          font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
-          text-transform: uppercase; color: var(--brand-orange);
-          margin-bottom: 18px;
-        }
-        .svc-eyebrow-dot {
-          width: 7px; height: 7px; border-radius: 50%;
-          background: var(--brand-orange);
-          box-shadow: 0 0 10px rgba(242,101,34,0.8);
-          animation: eyebrowPulse 2s ease-in-out infinite;
-        }
-        @keyframes eyebrowPulse {
-          0%,100% { opacity:1; transform:scale(1); }
-          50% { opacity:0.5; transform:scale(1.4); }
-        }
-
-        .svc-h2 {
-          font-size: clamp(2rem, 4.5vw, 3.2rem);
-          font-weight: 800;
-          color: #fff;
-          letter-spacing: -0.03em;
-          line-height: 1.1;
-          margin-bottom: 18px;
-        }
-        .svc-h2 em {
-          font-style: normal;
-          background: linear-gradient(135deg, #f26522 20%, #ff9f5a 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-        .svc-sub {
-          font-size: clamp(0.9rem, 1.8vw, 1.05rem);
-          color: rgba(255,255,255,0.42);
-          max-width: 560px; margin: 0 auto;
-          line-height: 1.75;
-        }
-
-        /* ── Desktop layout ── */
-        .svc-layout {
-          display: grid;
-          grid-template-columns: 320px 1fr;
-          gap: 32px;
-          align-items: start;
-        }
-
-        /* Tabs */
-        .svc-tabs {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          position: sticky;
-          top: 100px;
-        }
-        .svc-tab {
-          display: flex; align-items: center; gap: 14px;
-          padding: 16px 20px;
-          border-radius: 14px;
-          border: 1px solid rgba(255,255,255,0.06);
-          background: rgba(255,255,255,0.02);
-          color: rgba(255,255,255,0.45);
-          cursor: pointer;
-          text-align: left;
-          transition: all 0.3s ease;
-          position: relative;
-          overflow: hidden;
-        }
-        .svc-tab::before {
-          content: '';
-          position: absolute; inset: 0;
-          background: linear-gradient(135deg, rgba(242,101,34,0.10) 0%, transparent 60%);
-          opacity: 0;
-          transition: opacity 0.3s ease;
-          border-radius: inherit;
-        }
-        .svc-tab:hover { color: rgba(255,255,255,0.75); border-color: rgba(242,101,34,0.20); }
-        .svc-tab:hover::before { opacity: 1; }
-
-        .svc-tab-active {
-          border-color: rgba(242,101,34,0.50) !important;
-          background: rgba(242,101,34,0.08) !important;
-          color: #fff !important;
-          box-shadow: 0 0 0 1px rgba(242,101,34,0.15), 0 8px 32px rgba(242,101,34,0.12);
-        }
-        .svc-tab-active::before { opacity: 1 !important; }
-
-        .svc-tab-icon {
-          width: 38px; height: 38px;
-          border-radius: 10px;
-          border: 1px solid rgba(255,255,255,0.08);
-          background: rgba(255,255,255,0.04);
-          display: flex; align-items: center; justify-content: center;
-          color: rgba(255,255,255,0.40);
-          flex-shrink: 0;
-          transition: all 0.3s ease;
-        }
-        .svc-tab-icon-active {
-          background: var(--brand-orange) !important;
-          border-color: var(--brand-orange) !important;
-          color: #fff !important;
-          box-shadow: 0 4px 14px rgba(242,101,34,0.40) !important;
-        }
-        .svc-tab-label {
-          flex: 1;
-          font-size: 0.88rem;
-          font-weight: 600;
-          letter-spacing: 0.01em;
-        }
-        .svc-tab-arrow {
-          color: rgba(255,255,255,0.18);
-          transition: transform 0.3s ease, color 0.3s ease;
-          flex-shrink: 0;
-        }
-        .svc-tab-arrow-active {
-          color: var(--brand-orange);
-          transform: translateX(3px);
-        }
-
-        /* ── Detail panel ── */
-        .svc-detail {
-          background: rgba(255,255,255,0.025);
-          border: 1px solid rgba(255,255,255,0.07);
-          border-radius: 24px;
-          padding: 48px;
-          position: relative;
-          overflow: hidden;
-          backdrop-filter: blur(12px);
-          min-height: 480px;
-          display: flex;
-          flex-direction: column;
-          gap: 0;
-        }
-        .svc-detail::before {
-          content: '';
-          position: absolute; top: 0; left: 0; right: 0; height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(242,101,34,0.5), transparent);
-        }
-        .svc-detail::after {
-          content: '';
-          position: absolute; top: -80px; right: -80px;
-          width: 280px; height: 280px; border-radius: 50%;
-          background: radial-gradient(circle, rgba(242,101,34,0.08) 0%, transparent 70%);
-          pointer-events: none;
-        }
-
-        .svc-detail-badge {
-          display: inline-flex; align-items: center; gap: 10px;
-          padding: 7px 16px;
-          border-radius: 100px;
-          border: 1px solid rgba(242,101,34,0.25);
-          background: rgba(242,101,34,0.08);
-          font-size: 12px; font-weight: 600;
-          color: var(--brand-orange);
-          letter-spacing: 0.04em;
-          margin-bottom: 24px;
-          width: fit-content;
-        }
-        .svc-detail-badge-icon { display: flex; align-items: center; }
-
-        .svc-detail-title {
-          font-size: clamp(1.5rem, 2.8vw, 2.1rem);
-          font-weight: 800;
-          color: #fff;
-          letter-spacing: -0.03em;
-          line-height: 1.15;
-          margin-bottom: 18px;
-        }
-        .svc-detail-desc {
-          font-size: 0.94rem;
-          color: rgba(255,255,255,0.50);
-          line-height: 1.75;
-          margin-bottom: 30px;
-          max-width: 540px;
-        }
-
-        /* Highlights */
-        .svc-highlights {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 10px;
-          margin-bottom: 30px;
-        }
-        .svc-highlight-item {
-          display: flex; align-items: center; gap: 10px;
-          font-size: 0.82rem;
-          color: rgba(255,255,255,0.65);
-        }
-        .svc-check { color: var(--brand-orange); flex-shrink: 0; }
-
-        /* Tags */
-        .svc-tags-section { margin-bottom: 36px; }
-        .svc-tags-label {
-          display: flex; align-items: center; gap: 6px;
-          font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
-          text-transform: uppercase; color: rgba(255,255,255,0.25);
-          margin-bottom: 12px;
-        }
-        .svc-tags {
-          display: flex; flex-wrap: wrap; gap: 8px;
-        }
-        .svc-tag {
-          padding: 5px 13px;
-          border-radius: 6px;
-          border: 1px solid rgba(255,255,255,0.08);
-          background: rgba(255,255,255,0.04);
-          font-size: 0.75rem;
-          color: rgba(255,255,255,0.45);
-          font-weight: 500;
-          letter-spacing: 0.02em;
-          transition: all 0.2s ease;
-          cursor: default;
-        }
-        .svc-tag:hover {
-          border-color: rgba(242,101,34,0.35);
-          color: var(--brand-orange);
-          background: rgba(242,101,34,0.07);
-        }
-
-        /* CTA */
-        .svc-cta-btn {
-          display: inline-flex; align-items: center; gap: 12px;
-          padding: 15px 32px;
-          border-radius: 12px;
-          background: var(--brand-orange);
-          color: #fff;
-          font-weight: 700;
-          font-size: 0.88rem;
-          letter-spacing: 0.04em;
-          border: none; cursor: pointer;
-          position: relative; overflow: hidden;
-          box-shadow: 0 6px 28px rgba(242,101,34,0.38);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          width: fit-content;
-          margin-top: auto;
-        }
-        .svc-cta-btn::before {
-          content: '';
-          position: absolute; top: 0; left: -100%;
-          width: 60%; height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-          transition: left 0.6s ease;
-        }
-        .svc-cta-btn:hover::before { left: 160%; }
-        .svc-cta-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 12px 40px rgba(242,101,34,0.52);
-        }
-        .svc-cta-arrow {
-          display: flex; align-items: center; justify-content: center;
-          width: 26px; height: 26px;
-          border-radius: 50%;
-          background: rgba(255,255,255,0.18);
-          flex-shrink: 0;
-          transition: transform 0.3s ease;
-        }
-        .svc-cta-btn:hover .svc-cta-arrow { transform: translateX(4px); }
-
-        /* ── Mobile accordion ── */
-        .svc-mobile { display: none; flex-direction: column; gap: 12px; }
-
-        .mob-card {
-          border-radius: 16px;
-          border: 1px solid rgba(255,255,255,0.07);
-          background: rgba(255,255,255,0.025);
-          overflow: hidden;
-          transition: border-color 0.3s ease;
-        }
-        .mob-card-open { border-color: rgba(242,101,34,0.35); }
-        .mob-card-header {
-          display: flex; align-items: center; gap: 14px;
-          padding: 18px 20px;
-          cursor: pointer; width: 100%; text-align: left;
-          background: none; border: none; color: #fff;
-        }
-        .mob-card-icon {
-          width: 36px; height: 36px; border-radius: 9px;
-          background: rgba(255,255,255,0.05);
-          border: 1px solid rgba(255,255,255,0.08);
-          display: flex; align-items: center; justify-content: center;
-          color: rgba(255,255,255,0.45);
-          flex-shrink: 0; transition: all 0.25s ease;
-        }
-        .mob-card-icon-open {
-          background: var(--brand-orange) !important;
-          border-color: var(--brand-orange) !important;
-          color: #fff !important;
-          box-shadow: 0 4px 14px rgba(242,101,34,0.40) !important;
-        }
-        .mob-card-label { flex: 1; font-size: 0.9rem; font-weight: 600; }
-        .mob-card-chevron { color: rgba(255,255,255,0.30); }
-
-        .mob-card-body { padding: 0 20px 24px; }
-        .mob-card-tagline {
-          font-size: 1rem; font-weight: 700;
-          color: var(--brand-orange); margin-bottom: 8px;
-        }
-        .mob-card-desc {
-          font-size: 0.84rem; color: rgba(255,255,255,0.45);
-          line-height: 1.7; margin-bottom: 16px;
-        }
-        .mob-highlights { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
-        .mob-highlight {
-          display: flex; align-items: center; gap: 8px;
-          font-size: 0.8rem; color: rgba(255,255,255,0.60);
-        }
-        .mob-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
-
-        /* ── Responsive breakpoints ── */
-        @media (max-width: 960px) {
-          .svc-layout { display: none; }
-          .svc-mobile { display: flex; }
-          .svc-section { padding: 72px 0 64px; }
-        }
-        @media (max-width: 600px) {
-          .svc-inner { padding: 0 18px; }
-          .svc-heading-wrap { margin-bottom: 48px; }
-        }
-      `}</style>
-
-      <section className="svc-section">
-        <div className="svc-glow-left" />
-        <div className="svc-glow-right" />
-        <div className="svc-grid-overlay" />
-
-        <div className="svc-inner">
-          <SectionHeading />
-
-          {/* ── DESKTOP ── */}
-          <div className="svc-layout">
-            {/* Tabs */}
-            <div className="svc-tabs">
-              {SERVICES.map((s, i) => (
-                <ServiceTab
+              return (
+                <button
                   key={s.id}
-                  service={s}
-                  active={active === i}
-                  onClick={() => setActive(i)}
-                  index={i}
-                />
-              ))}
-            </div>
+                  onClick={() => setActiveIndex(idx)}
+                  onMouseEnter={() => setActiveIndex(idx)}
+                  className={`relative cursor-pointer p-5 rounded-2xl border transition-all duration-300 flex items-center gap-4 text-left ${
+                    isActive
+                      ? "bg-neutral-900 border-[#f26522]/30 shadow-2xl"
+                      : "bg-transparent border-white/5 hover:border-white/15 hover:bg-white/5"
+                  }`}
+                >
+                  {/* Dynamic laser side highlight */}
+                  {isActive && (
+                    <motion.div 
+                      layoutId="servicesHighlightBar"
+                      className="absolute left-0 top-1/4 bottom-1/4 w-[3px] bg-[#f26522] rounded-r-md"
+                    />
+                  )}
 
-            {/* Detail */}
-            <ServiceDetail service={SERVICES[active]} />
+                  {/* Icon Block with active orange flip */}
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-colors shrink-0 ${
+                    isActive 
+                      ? "bg-[#f26522] text-black border-[#f26522]/30 shadow-md shadow-[#f26522]/10" 
+                      : "bg-white/5 text-neutral-400 border-white/10"
+                  }`}>
+                    <IconComponent className="w-5 h-5" />
+                  </div>
+
+                  <div className="min-w-0">
+                    <span className={`text-[7.5px] font-mono tracking-widest uppercase block ${isActive ? "text-[#f26522] font-black" : "text-neutral-500"}`}>
+                      CAPABILITY 0{idx + 1}
+                    </span>
+                    <h4 className="text-sm font-black text-white tracking-tight mt-0.5">
+                      {s.label}
+                    </h4>
+                  </div>
+
+                  {/* Dynamic glowing tab perimeter */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="servicesTabGlow"
+                      className="absolute inset-0 rounded-2xl border border-[#f26522]/30 pointer-events-none"
+                    />
+                  )}
+                </button>
+              );
+            })}
           </div>
 
-          {/* ── MOBILE ── */}
-          <div className="svc-mobile">
-            {SERVICES.map((s, i) => (
-              <MobileCard key={s.id} service={s} index={i} />
-            ))}
+          {/* RIGHT SIDE: Immersive Detail Console containing textual context AND visual photo frames */}
+          <div className="col-span-8 flex">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeService.id}
+                initial={{ opacity: 0, x: 25, filter: "blur(4px)" }}
+                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, x: -15, filter: "blur(4px)" }}
+                transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
+                className="w-full rounded-[2.5rem] bg-white/5 backdrop-blur-sm border border-[#f26522]/20 p-6 md:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden group"
+              >
+                {/* Backing tech light leak */}
+                <div className="absolute top-0 right-0 w-80 h-80 bg-[#f26522]/5 blur-3xl rounded-full pointer-events-none" />
+
+                <div className="relative z-10 space-y-6 flex flex-col justify-between h-full">
+                  
+                  {/* Split Content Layer: Left Text details, Right Image card */}
+                  <div className="grid grid-cols-12 gap-6 items-start">
+                    
+                    
+
+                    {/* Integrated Service Image Card (col-span-5) */}
+                    <div className="col-span-5 aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group/image">
+                      <img 
+                        src={activeService.imageUrl} 
+                        alt={activeService.label} 
+                        className="w-full h-full object-cover transition-opacity duration-700 scale-100 group-hover/image:scale-105 filter saturate-75 group-hover/image:saturate-100"
+                      />
+                    </div>
+                    {/* Console Details Text (col-span-7) */}
+                    <div className="col-span-7 space-y-4 text-left">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-950 border border-white/5">
+                        <activeService.icon className="w-3.5 h-3.5 text-[#f26522]" />
+                        <span className="text-[8.5px] font-mono font-black text-neutral-300 uppercase tracking-widest">{activeService.label}</span>
+                      </div>
+
+                      <h3 className="text-2xl font-black text-white tracking-tight leading-tight">
+                        {activeService.tagline}
+                      </h3>
+                      <p className="text-[11.5px] text-neutral-400 leading-relaxed font-sans">
+                        {activeService.description}
+                      </p>
+                    </div>
+
+                  </div>
+
+                  {/* Checklist Highlights */}
+                  <div className="grid grid-cols-2 gap-3 text-left pt-4 border-t border-white/5">
+                    {activeService.highlights.map((h, i) => (
+                      <div key={i} className="flex items-center gap-2.5 text-[10.5px] text-neutral-300">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <span className="font-sans leading-none">{h}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Operational Tags Section */}
+                  <div className="space-y-2 border-t border-white/5 pt-4 text-left">
+                    <div className="flex items-center gap-1.5 text-[8px] font-mono tracking-widest uppercase font-black text-neutral-500">
+                      <Sparkles className="w-3.5 h-3.5 text-[#f26522]" />
+                      Tools & Platforms Deployed
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {activeService.tags.map((t, i) => (
+                        <span key={i} className="text-[9px] font-mono px-2 py-0.5 rounded bg-neutral-900 border border-white/5 text-neutral-400">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* CTA Action button */}
+                  <div className="border-t border-white/5 pt-4 mt-1 flex justify-between items-center">
+                    <span className="text-[10px] text-neutral-500 font-mono">Operational system telemetry sync</span>
+                    <motion.a
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      href={activeService.link}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#f26522] hover:bg-[#ff7b3c] text-neutral-950 font-bold text-[10px] uppercase tracking-widest transition-colors cursor-pointer"
+                    >
+                      <span>{activeService.cta}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </motion.a>
+                  </div>
+
+                </div>
+
+                {/* Glowing border outline overlay */}
+                <div className="absolute inset-0 border border-white/5 group-hover:border-[#f26522]/20 rounded-[2.5rem] pointer-events-none transition-colors duration-500" />
+              </motion.div>
+            </AnimatePresence>
           </div>
+
         </div>
-      </section>
-    </>
+
+        {/* ── MOBILE ACCORDION STACK (Hidden on Desktop) ── */}
+        <div className="lg:hidden flex flex-col gap-4">
+          {SERVICES.map((s, idx) => {
+            const isOpen = idx === activeIndex;
+            const IconComponent = s.icon;
+
+            return (
+              <div
+                key={s.id}
+                className={`rounded-2xl border transition-colors duration-300 overflow-hidden ${
+                  isOpen ? "border-[#f26522]/30 bg-neutral-900/60" : "border-white/5 bg-neutral-900/10"
+                }`}
+              >
+                {/* Header Selector bar */}
+                <button
+                  onClick={() => setActiveIndex(isOpen ? -1 : idx)}
+                  className="w-full flex items-center justify-between p-4 bg-transparent border-none text-left cursor-pointer"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center border ${
+                      isOpen ? "bg-[#f26522] text-black border-[#f26522]/20 shadow-md shadow-[#f26522]/10" : "bg-white/5 text-neutral-400 border-white/10"
+                    }`}>
+                      <IconComponent className="w-4.5 h-4.5" />
+                    </div>
+                    <span className="text-xs font-black text-white tracking-tight">{s.label}</span>
+                  </div>
+                  
+                  <motion.span
+                    animate={{ rotate: isOpen ? 90 : 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-neutral-500"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </motion.span>
+                </button>
+
+                {/* Collapsible panel body */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-4 pt-0 space-y-4 border-t border-white/5 text-left">
+                        
+                        {/* Display Image on Mobile too */}
+                        <div className="aspect-video w-full rounded-xl overflow-hidden border border-white/10">
+                          <img src={s.imageUrl} alt={s.label} className="w-full h-full object-cover filter saturate-75 opacity-70" />
+                        </div>
+
+                        <h4 className="text-xs font-mono font-black text-[#f26522] tracking-wider block">{s.tagline}</h4>
+                        <p className="text-[11px] text-neutral-400 leading-relaxed font-sans">{s.description}</p>
+                        
+                        {/* Checkboxes */}
+                        <div className="space-y-1.5 pt-2">
+                          {s.highlights.map((h, i) => (
+                            <div key={i} className="flex items-center gap-2 text-[10px] text-neutral-300">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                              <span className="font-sans leading-none">{h}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Tech tags */}
+                        <div className="flex flex-wrap gap-1 pt-1">
+                          {s.tags.map((t, i) => (
+                            <span key={i} className="text-[8px] font-mono px-2 py-0.5 rounded bg-neutral-950 border border-white/5 text-neutral-400">
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* Call to action button */}
+                        <button
+                          onClick={() => window.open(s.link, "_self")}
+                          className="w-full flex items-center justify-center gap-2 py-3 mt-3 rounded-xl bg-[#f26522] text-neutral-950 font-bold text-[10px] uppercase tracking-widest"
+                        >
+                          <span>{s.cta}</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </button>
+
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+    </div>
   );
 }

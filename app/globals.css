@@ -225,7 +225,7 @@
 .title-box {
   border: 1.5px dashed rgba(242, 101, 34, 0.55);
   border-radius: 16px;
-  padding: 26px 32px;
+  padding: 26px 28px;
   background: var(--glass-bg);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -250,8 +250,6 @@
 
 .title-text {
   font-family: "Clash Display", sans-serif;
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
-  font-weight: 700;
   color: var(--brand-orange);
   line-height: 1.1;
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -669,7 +667,6 @@
   }
   .title-text {
     white-space: normal;
-    font-size: clamp(1.6rem, 7vw, 2.4rem);
   }
   .stats-strip {
     padding: 24px 20px;

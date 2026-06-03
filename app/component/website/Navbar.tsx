@@ -11,74 +11,78 @@ import Popup from "./Popup";
 const MENU_DETAILS = {
   Services: [
     {
-      name: "Website Development",
-      href: "/services/website-development-service",
-      img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
-      tag: "Dev",
-    },
-    {
-      name: "Search Engine Optimization",
-      href: "/services/seo-service",
-      img: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&q=80&w=800",
-      tag: "SEO",
-    },
-    {
-      name: "Performance Marketing",
-      href: "/services/performance-marketing-service",
-      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
-      tag: "Marketing",
-    },
-    {
-      name: "Social Media Marketing",
-      href: "/services/social-media-marketing",
-      img: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=800",
-      tag: "Social",
-    },
-    {
-      name: "Graphic Design",
-      href: "/services/graphic-design-service",
-      img: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800",
-      tag: "Creative",
-    },
-    {
-      name: "Social Media Optimization",
-      href: "/services/social-media-optimization",
-      img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
-      tag: "Social",
-    },
-    {
-      name: "Content Marketing",
-      href: "/services/content-marketing",
-      img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=800",
-      tag: "Content",
-    },
-
-    {
-      name: "Email Marketing",
-      href: "/services/email-marketing",
-      img: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=800",
-      tag: "Email",
-    },
-    {
-      name: "Affiliate Marketing",
-      href: "/services/affiliate-marketing",
-      img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
-      tag: "Marketing",
-    },
-
-    {
-      name: "ORM Services",
-      href: "/services/online-reputation-management",
-      img: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=800",
-      tag: "Reputation",
-    },
-    {
-      name: "Influencer Marketing",
-      href: "/services/influencer-marketing",
-      img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=800",
-      tag: "Social",
-    },
-  ],
+    name: "UGC Video Creation",
+    href: "/services/ugc-video-creation",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    tag: "UGC",
+  },
+  {
+    name: "Performance Marketing",
+    href: "/services/performance-marketing-service",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    tag: "Marketing",
+  },
+  {
+    name: "Influencer Marketing",
+    href: "/services/influencer-marketing",
+    img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=800",
+    tag: "Social",
+  },
+  {
+    name: "Social Media Marketing",
+    href: "/services/social-media-marketing",
+    img: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=800",
+    tag: "Social",
+  },
+  {
+    name: "Search Engine Optimization",
+    href: "/services/seo-service",
+    img: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&q=80&w=800",
+    tag: "SEO",
+  },
+  {
+    name: "Content Marketing",
+    href: "/services/content-marketing",
+    img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=800",
+    tag: "Content",
+  },
+  {
+    name: "Social Media Optimization",
+    href: "/services/social-media-optimization",
+    img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
+    tag: "Social",
+  },
+  {
+    name: "Email Marketing",
+    href: "/services/email-marketing",
+    img: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=800",
+    tag: "Email",
+  },
+  {
+    name: "Affiliate Marketing",
+    href: "/services/affiliate-marketing",
+    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
+    tag: "Marketing",
+  },
+  {
+    name: "ORM Services",
+    href: "/services/online-reputation-management",
+    img: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=800",
+    tag: "Reputation",
+  },
+  {
+    name: "Graphic Design",
+    href: "/services/graphic-design-service",
+    img: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800",
+    tag: "Creative",
+  },
+  {
+    name: "Website Development",
+    href: "/services/website-development-service",
+    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
+    tag: "Dev",
+  },
+],
   // About: [
   //   {
   //     name: "Know About Us",

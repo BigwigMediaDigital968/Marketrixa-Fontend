@@ -5,6 +5,7 @@ import Navbar from "../component/website/Navbar";
 import IndustryHero from "../component/website/industry/IndustryHero";
 import IndustryProject from "../component/website/industry/IndustryProject";
 import IndustryShow from "../component/website/industry/IndustryShow";
+import ResultsShowcase from "../component/website/homepage/ResultsShowcase";
 import { industryFAQs } from "../data/faqData";
 
 export default function IndustryPage() {
@@ -14,6 +15,7 @@ export default function IndustryPage() {
         <Navbar />
         <IndustryHero />
         <IndustryShow />
+        <ResultsShowcase/>
         <CTA2 />
         <IndustryProject />
         <FAQ

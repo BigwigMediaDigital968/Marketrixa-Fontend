@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import { Send, Phone, Mail, AlertCircle, Loader2, ChevronLeft, ArrowRight } from "lucide-react";
+import WhatsAppButton from "../SuccessWhatsapp";
 
 
 const brandOrange = "#F26522";
@@ -198,10 +199,21 @@ const ContactHero = () => {
                 </div>
                 <h3 className="text-3xl font-bold">Message Sent!</h3>
                 <p className="text-gray-400">We'll get back to you within 24 hours.</p>
+                {/* <div className="mt-4">
+                  <WhatsAppButton
+                    message={`Hi! I'd like to discuss my project.
+                    Name: ${formData.name}
+                    Email: ${formData.email}
+                    Company: ${formData.company || "N/A"}
+                    Services: ${selectedServices.join(", ") || "N/A"}`}
+                  >
+                    Chat on WhatsApp
+                  </WhatsAppButton>
+                </div> */}
                 <button onClick={() => setFormState("idle")}
-                  className="mt-6 text-sm uppercase tracking-widest font-bold underline cursor-pointer"
+                  className=" text-sm uppercase tracking-widest font-bold underline cursor-pointer"
                   style={{ color: brandOrange }}>
-                  Send another
+                  Send another enquiry
                 </button>
               </div>
             ) : (
@@ -210,15 +222,15 @@ const ContactHero = () => {
                 {/* Progress bar */}
                 <div className="flex gap-4 justify-between">
                   <div className="flex items-center gap-2 grow">
-                  {[1, 2, 3].map((n) => (
-                    <div key={n} className="flex-1 h-[3px] rounded-full transition-all duration-500"
-                      style={{ background: n <= step ? brandOrange : "rgba(255,255,255,0.08)" }} />
-                  ))}
-                </div>
-                <p className="text-xs font-semibold tracking-[0.2em] w-30 uppercase text-gray-300"
+                    {[1, 2, 3].map((n) => (
+                      <div key={n} className="flex-1 h-[3px] rounded-full transition-all duration-500"
+                        style={{ background: n <= step ? brandOrange : "rgba(255,255,255,0.08)" }} />
+                    ))}
+                  </div>
+                  <p className="text-xs font-semibold tracking-[0.2em] w-30 uppercase text-gray-300"
                   >
-                  Step <span style={{ color: brandOrange }}>{step}</span> of 3
-                </p>
+                    Step <span style={{ color: brandOrange }}>{step}</span> of 3
+                  </p>
                 </div>
 
                 <AnimatePresence mode="wait">
@@ -435,8 +447,8 @@ const ContactHero = () => {
                               <button key={m} type="button"
                                 onClick={() => setFormData((prev) => ({ ...prev, contactMethod: m }))}
                                 className={`flex-1 rounded-lg text-xs font-bold border transition-all cursor-pointer ${formData.contactMethod === m
-                                    ? "bg-[#F26522]/10 border-[#F26522]/50 text-[#F26522]"
-                                    : "bg-white/5 border-white/10 text-gray-200 hover:border-white/20 hover:text-gray-300"
+                                  ? "bg-[#F26522]/10 border-[#F26522]/50 text-[#F26522]"
+                                  : "bg-white/5 border-white/10 text-gray-200 hover:border-white/20 hover:text-gray-300"
                                   }`}>
                                 {m}
                               </button>

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Footer from "@/app/component/website/Footer";
 import Navbar from "@/app/component/website/Navbar";
 import GraphicVideo from "./component/GraphicVideo";
-import GraphicPortfolio from "./component/GraphicPortfolio";
 import FAQ from "@/app/component/website/FAQ";
 import { GraphicFaqs } from "@/app/data/faqData";
 import GraphicTestimonial from "./component/GraphicTestimonial";
@@ -206,7 +205,7 @@ export default function GraphicVideoContent() {
 
       <GraphicVideo />
 
-      <GraphicPortfolio />
+      {/* <GraphicPortfolio /> */}
 
       <FAQ
         eyebrow="Got questions?"

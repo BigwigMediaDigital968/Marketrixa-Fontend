@@ -25,17 +25,16 @@ const IndustryHero = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-[1] mb-8">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-[1] mb-8 uppercase">
             INDUSTRIES WE <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F26522] to-orange-400">
-              REVOLUTIONIZE
+              Help Grow
             </span>
           </h1>
 
           <p className="text-neutral-400 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
-            We don't just build websites; we engineer industry-specific digital
-            ecosystems that drive tangible growth and dominate market shares
-            across diverse sectors.
+            We create high-converting marketing systems for businesses using Meta Ads, Google Ads, UGC
+            Videos & Influencer Marketing.
           </p>
 
           <div className="flex flex-wrap gap-4 items-center">
