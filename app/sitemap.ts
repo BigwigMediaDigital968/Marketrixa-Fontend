@@ -28,23 +28,127 @@ const staticRoutes: MetadataRoute.Sitemap = [
     changeFrequency: "weekly",
     priority: 0.9,
   },
+  {
+    url: `${BASE_URL}/services`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${BASE_URL}/services/website-development-service`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${BASE_URL}/services/seo-service`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${BASE_URL}/services/performance-marketing-service`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${BASE_URL}/services/social-media-marketing`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${BASE_URL}/services/graphic-design-service`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${BASE_URL}/services/social-media-optimization`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${BASE_URL}/services/content-marketing`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${BASE_URL}/services/email-marketing`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${BASE_URL}/services/affiliate-marketing`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${BASE_URL}/services/online-reputation-management`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${BASE_URL}/services/influencer-marketing`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${BASE_URL}/services/ugc-video-creation`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${BASE_URL}/industry`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  },
+  {
+    url: `${BASE_URL}/international`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
   // Add more static routes here
 ];
 
 // ─── Dynamic pages (wire to your CMS / DB) ────────────────────────────────────
 async function getDynamicRoutes(): Promise<MetadataRoute.Sitemap> {
   try {
-    // Example: fetch blog post slugs from your API
-    // const posts = await fetch(`${BASE_URL}/api/posts`, { next: { revalidate: 3600 } }).then(r => r.json());
-    // return posts.map((p: { slug: string; updatedAt: string }) => ({
-    //   url: `${BASE_URL}/blog/${p.slug}`,
-    //   lastModified: new Date(p.updatedAt),
-    //   changeFrequency: "weekly" as const,
-    //   priority: 0.7,
-    // }));
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001"}/api/blogs`,
+      {
+        next: { revalidate: 3600 }, // revalidate every hour
+      }
+    );
 
-    // Placeholder — remove once you wire in real data:
-    return [];
+    if (!res.ok) {
+      throw new Error(`Failed to fetch blogs: ${res.status}`);
+    }
+
+    const data = await res.json();
+
+    return data.blogs.map(
+      (blog: {
+        slug: string;
+        updatedAt: string;
+        publishedAt: string;
+      }) => ({
+        url: `${BASE_URL}/blogs/${blog.slug}`,
+        lastModified: new Date(blog.updatedAt || blog.publishedAt),
+        changeFrequency: "weekly" as const,
+        priority: 0.8,
+      })
+    );
   } catch (err) {
     console.error("[sitemap] Failed to fetch dynamic routes:", err);
     return [];
