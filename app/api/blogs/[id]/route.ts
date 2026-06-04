@@ -58,6 +58,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
     const { id } = await params;
 
     const blogSnap = await getDoc(doc(db, "blogs", id));
+    console.log("here");
     if (!blogSnap.exists()) {
       return NextResponse.json({ error: "Blog not found" }, { status: 404 });
     }

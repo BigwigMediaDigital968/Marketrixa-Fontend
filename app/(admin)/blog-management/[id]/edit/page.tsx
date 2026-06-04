@@ -50,6 +50,7 @@ export default async function EditBlogPage({ params }: PageProps) {
     const res = await fetch(`${baseUrl}/api/blogs/${id}`, {
       cache: "no-store",
     });
+    console.log("fetching blog data for id:", id, "from URL:", `${baseUrl}/api/blogs/${id}`);
 
     if (!res.ok) {
       notFound();
