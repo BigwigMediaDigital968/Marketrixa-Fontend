@@ -292,10 +292,10 @@ export default function MarketingWall() {
                     <motion.a
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        href="/strategy"
+                        href="/contact"
                         className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-[#f26522] hover:bg-[#ff7b3c] text-neutral-950 font-bold text-[10px] uppercase tracking-widest transition-colors cursor-pointer"
                     >
-                        <span>Request Creator Mapping</span>
+                        <span>Request Strategy Call</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
                     </motion.a>
                 </div>
