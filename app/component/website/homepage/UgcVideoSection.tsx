@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import {
@@ -14,7 +14,7 @@ import {
   TrendingUp,
   Share2,
   Clapperboard,
-  BadgeAlert
+  BadgeAlert,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -45,37 +45,42 @@ const showcaseItems: CarouselItem[] = [
     type: "video",
     tag: "UGC Reel",
     creatorHandle: "@carter.growth",
-    creatorAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop",
+    creatorAvatar:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop",
     engagement: "9.2% ER",
-    videoUrl: "/video1.mp4",
+    videoUrl: "/videos/3.mp4",
     title: "E-comm Swapping Hook",
-    niche: "Fashion & Lifestyle"
+    niche: "Fashion & Lifestyle",
   },
-  {
-    id: 2,
-    type: "creator",
-    tag: "Creator Profile",
-    creatorHandle: "@sarah_designs",
-    creatorAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
-    followers: "142K Reach",
-    engagement: "7.8% ER",
-    quote: "Creating organic-feeling ad assets that actually keep users scrolling past the 3-second mark.",
-    title: "Sarah Jenkins",
-    niche: "Aesthetic Tech",
-    imageUrl: "https://images.unsplash.com/photo-1644868734189-09a492e1032a?q=80&w=764&auto=format"
-  },
+  // {
+  //   id: 2,
+  //   type: "creator",
+  //   tag: "Creator Profile",
+  //   creatorHandle: "@sarah_designs",
+  //   creatorAvatar:
+  //     "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
+  //   followers: "142K Reach",
+  //   engagement: "7.8% ER",
+  //   quote:
+  //     "Creating organic-feeling ad assets that actually keep users scrolling past the 3-second mark.",
+  //   title: "Sarah Jenkins",
+  //   niche: "Aesthetic Tech",
+  //   imageUrl:
+  //     "https://images.unsplash.com/photo-1644868734189-09a492e1032a?q=80&w=764&auto=format",
+  // },
   {
     id: 3,
     type: "video",
     tag: "TikTok Ad",
     creatorHandle: "@alex_unboxes",
-    creatorAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+    creatorAvatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
     engagement: "11.4% ER",
-    videoUrl: "/video2.mp4",
+    videoUrl: "/videos/4.mp4",
     title: "Direct Response Unboxing",
     niche: "Consumer Electronics",
-    imageUrl: "https://images.unsplash.com/photo-1644868734189-09a492e1032a?q=80&w=764&auto=format"
-
+    imageUrl:
+      "https://images.unsplash.com/photo-1644868734189-09a492e1032a?q=80&w=764&auto=format",
   },
   {
     id: 4,
@@ -83,38 +88,70 @@ const showcaseItems: CarouselItem[] = [
     tag: "Campaign Stat",
     metric: "4.8M+",
     subMetric: "Organic UGC Views",
-    quote: "Deploying 15+ creator hooks across Meta & TikTok to construct a highly optimized, high-converting creative library.",
+    quote:
+      "Deploying 15+ creator hooks across Meta & TikTok to construct a highly optimized, high-converting creative library.",
     title: "Viral Lift Performance",
-    imageUrl: "https://images.unsplash.com/photo-1625169815831-3a532272a7fa?q=80&w=983&auto=format&fit=crop"
-
+    imageUrl:
+      "https://images.unsplash.com/photo-1625169815831-3a532272a7fa?q=80&w=983&auto=format&fit=crop",
   },
   {
     id: 5,
     type: "video",
     tag: "Short Form",
     creatorHandle: "@beautylab_ugc",
-    creatorAvatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop",
+    creatorAvatar:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop",
     engagement: "8.1% ER",
-    videoUrl: "video3.mp4",
+    videoUrl: "videos/5.mp4",
     title: "Problem-Solution Skincare Reel",
     niche: "Beauty & Wellness",
-    imageUrl: "https://images.unsplash.com/photo-1644868734189-09a492e1032a?q=80&w=764&auto=format"
-
+    imageUrl:
+      "https://images.unsplash.com/photo-1644868734189-09a492e1032a?q=80&w=764&auto=format",
   },
   {
     id: 6,
-    type: "creator",
-    tag: "Macro Influencer",
-    creatorHandle: "@marcus_creative",
-    creatorAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
-    followers: "420K Reach",
-    engagement: "6.5% ER",
-    quote: "Authentic integration is key. We build product stories that seamlessly fit within daily vlogging formats.",
-    title: "Marcus Thorne",
-    niche: "High-End Lifestyle",
-    imageUrl: "https://images.unsplash.com/photo-1625169815831-3a532272a7fa?q=80&w=983&auto=format&fit=crop"
-
-  }
+    type: "video",
+    tag: "Short Form",
+    creatorHandle: "@beautylab_ugc",
+    creatorAvatar:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop",
+    engagement: "8.1% ER",
+    videoUrl: "videos/2.mp4",
+    title: "Problem-Solution Skincare Reel",
+    niche: "Beauty & Wellness",
+    imageUrl:
+      "https://images.unsplash.com/photo-1644868734189-09a492e1032a?q=80&w=764&auto=format",
+  },
+  {
+    id: 7,
+    type: "video",
+    tag: "Short Form",
+    creatorHandle: "@beautylab_ugc",
+    creatorAvatar:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop",
+    engagement: "8.1% ER",
+    videoUrl: "videos/1.mp4",
+    title: "Problem-Solution Skincare Reel",
+    niche: "Beauty & Wellness",
+    imageUrl:
+      "https://images.unsplash.com/photo-1644868734189-09a492e1032a?q=80&w=764&auto=format",
+  },
+  // {
+  //   id: 8,
+  //   type: "creator",
+  //   tag: "Macro Influencer",
+  //   creatorHandle: "@marcus_creative",
+  //   creatorAvatar:
+  //     "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
+  //   followers: "420K Reach",
+  //   engagement: "6.5% ER",
+  //   quote:
+  //     "Authentic integration is key. We build product stories that seamlessly fit within daily vlogging formats.",
+  //   title: "Marcus Thorne",
+  //   niche: "High-End Lifestyle",
+  //   imageUrl:
+  //     "https://images.unsplash.com/photo-1625169815831-3a532272a7fa?q=80&w=983&auto=format&fit=crop",
+  // },
 ];
 
 const GridPattern: React.FC<{ opacity: number }> = ({ opacity }) => (
@@ -149,7 +186,7 @@ const VerticalVideoCard: React.FC<{ item: CarouselItem }> = ({ item }) => {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        videoRef.current.play().catch(() => { });
+        videoRef.current.play().catch(() => {});
       }
       setIsPlaying(!isPlaying);
     }
@@ -190,7 +227,10 @@ const VerticalVideoCard: React.FC<{ item: CarouselItem }> = ({ item }) => {
 
       {/* Center Interactive Play State Indicator */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-        <div className="w-12 h-12 rounded-full bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-center text-[#f26522] opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 pointer-events-auto cursor-pointer" onClick={togglePlay}>
+        <div
+          className="w-12 h-12 rounded-full bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-center text-[#f26522] opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 pointer-events-auto cursor-pointer"
+          onClick={togglePlay}
+        >
           {isPlaying ? (
             <div className="flex gap-1 items-center justify-center">
               <span className="w-1 h-3.5 bg-[#f26522] rounded-full animate-pulse" />
@@ -204,24 +244,27 @@ const VerticalVideoCard: React.FC<{ item: CarouselItem }> = ({ item }) => {
 
       {/* Bottom Information Overlays */}
       <div className="relative p-5 z-10 bg-gradient-to-t from-neutral-950 via-neutral-950/90 to-transparent pt-10">
-
         {/* Creator Info Header */}
-        <div className="flex items-center gap-2.5 mb-3">
+        {/* <div className="flex items-center gap-2.5 mb-3">
           <img
             src={item.creatorAvatar}
             alt={item.creatorHandle}
             className="w-8 h-8 rounded-full border border-[#f26522]/40 object-cover"
           />
           <div>
-            <h5 className="text-xs font-bold text-white tracking-tight">{item.creatorHandle}</h5>
-            <span className="text-[9px] text-neutral-400 font-mono tracking-wider">{item.niche}</span>
+            <h5 className="text-xs font-bold text-white tracking-tight">
+              {item.creatorHandle}
+            </h5>
+            <span className="text-[9px] text-neutral-400 font-mono tracking-wider">
+              {item.niche}
+            </span>
           </div>
-        </div>
+        </div> */}
 
         {/* Caption */}
-        <h4 className="text-xs font-semibold text-neutral-200 tracking-tight leading-snug line-clamp-2 mb-4">
+        {/* <h4 className="text-xs font-semibold text-neutral-200 tracking-tight leading-snug line-clamp-2 mb-4">
           "{item.title}"
-        </h4>
+        </h4> */}
 
         {/* Live Interaction HUD Bar */}
         <div className="flex items-center justify-between border-t border-white/5 pt-3.5">
@@ -237,10 +280,13 @@ const VerticalVideoCard: React.FC<{ item: CarouselItem }> = ({ item }) => {
             onClick={toggleMute}
             className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-[#f26522]/20 hover:border-[#f26522]/30 transition-all duration-300"
           >
-            {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
+            {isMuted ? (
+              <VolumeX className="w-3.5 h-3.5" />
+            ) : (
+              <Volume2 className="w-3.5 h-3.5" />
+            )}
           </button>
         </div>
-
       </div>
 
       {/* Glassmorphic Orange Highlight Card Ring */}
@@ -254,10 +300,10 @@ export default function UgcVideoSection() {
 
   return (
     <div className="min-h-screen text-white font-sans antialiased">
-
       {/* Injecting smooth CSS marquee frames to drive high frame rate carousel loops */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes marqueeScroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
@@ -270,10 +316,11 @@ export default function UgcVideoSection() {
         .marquee-paused {
           animation-play-state: paused !important;
         }
-      `}} />
+      `,
+        }}
+      />
 
       <section id="ugc-showcase" className="relative py-20 overflow-hidden">
-
         {/* Premium Atmospheric Ambient Lights */}
         <div
           className="absolute inset-0 pointer-events-none z-0"
@@ -296,39 +343,50 @@ export default function UgcVideoSection() {
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter leading-none">
                 Organic Content <br />
-                <span className="text-[#f26522] italic font-light">That Converted Millions</span>
+                <span className="text-[#f26522] italic font-light">
+                  That Converted Millions
+                </span>
               </h2>
               <p className="mt-3 text-neutral-400 text-xs md:text-sm leading-relaxed">
-                We orchestrate, edit, and scale creator-led campaigns. Swipe or hover over any card below to pause the marquee feed and check live content telemetry.
+                We orchestrate, edit, and scale creator-led campaigns. Swipe or
+                hover over any card below to pause the marquee feed and check
+                live content telemetry.
               </p>
             </div>
 
             <div className="flex items-center gap-4 bg-neutral-900/60 backdrop-blur-md border border-white/5 p-3 rounded-2xl">
               <div className="flex -space-x-2">
-                {showcaseItems.filter(i => i.creatorAvatar).map((c) => (
-                  <img
-                    key={c.id}
-                    src={c.creatorAvatar}
-                    alt="UGC Creator"
-                    className="w-8 h-8 rounded-full border-2 border-neutral-950 object-cover"
-                  />
-                ))}
+                {showcaseItems
+                  .filter((i) => i.creatorAvatar)
+                  .map((c) => (
+                    <img
+                      key={c.id}
+                      src={c.creatorAvatar}
+                      alt="UGC Creator"
+                      className="w-8 h-8 rounded-full border-2 border-neutral-950 object-cover"
+                    />
+                  ))}
               </div>
               <div>
-                <h4 className="text-xs font-black tracking-tight text-white">85+ Active Creators</h4>
-                <p className="text-[10px] text-[#f26522] font-mono uppercase tracking-wider">Ready to deploy</p>
+                <h4 className="text-xs font-black tracking-tight text-white">
+                  85+ Active Creators
+                </h4>
+                <p className="text-[10px] text-[#f26522] font-mono uppercase tracking-wider">
+                  Ready to deploy
+                </p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Infinite Sliding Marquee Carousel wrapper */}
-        <div
-          className="relative w-full overflow-hidden py-4 z-10"
-        >
+        <div className="relative w-full overflow-hidden py-4 z-10">
           {/* Double-layered items representation ensures smooth seamless end-to-end loop */}
-          <div className={`animate-marquee-loop ${isMarqueePaused ? "marquee-paused" : ""} flex gap-6 px-4`}>
-
+          <div
+            className={`animate-marquee-loop ${
+              isMarqueePaused ? "marquee-paused" : ""
+            } flex gap-6 px-4`}
+          >
             {/* First Segment */}
             {[...showcaseItems, ...showcaseItems].map((item, index) => {
               const uniqueKey = `marquee-item-${item.id}-${index}`;
@@ -342,14 +400,12 @@ export default function UgcVideoSection() {
                   onMouseEnter={() => setIsMarqueePaused(true)}
                   onMouseLeave={() => setIsMarqueePaused(false)}
                 >
-
                   {/* Item Switch Renderer */}
                   {item.type === "video" ? (
                     <VerticalVideoCard item={item} />
                   ) : item.type === "creator" ? (
                     /* High-fidelity Creator Bio Card */
                     <div className="relative w-[250px] h-[450px] sm:w-[280px] sm:h-[480px] rounded-[2rem] bg-neutral-900/90 border border-white/5 p-6 flex flex-col justify-between hover:border-[#f26522]/30 transition-all duration-500 shadow-2xl overflow-hidden group/card">
-
                       {/* Interactive background blur dynamic effect */}
                       <div className="absolute inset-0 z-0 pointer-events-none">
                         <img
@@ -381,8 +437,12 @@ export default function UgcVideoSection() {
                             alt={item.title}
                             className="w-20 h-20 rounded-full border-2 border-[#f26522] object-cover p-1 mb-3.5 shadow-xl shadow-black/40 group-hover/card:scale-105 transition-transform duration-500"
                           />
-                          <h4 className="text-md font-bold text-white tracking-tight">{item.title}</h4>
-                          <span className="text-xs text-[#f26522] font-mono tracking-widest uppercase mt-0.5">{item.creatorHandle}</span>
+                          <h4 className="text-md font-bold text-white tracking-tight">
+                            {item.title}
+                          </h4>
+                          <span className="text-xs text-[#f26522] font-mono tracking-widest uppercase mt-0.5">
+                            {item.creatorHandle}
+                          </span>
 
                           <div className="flex items-center gap-3 mt-3 bg-white/5 px-3.5 py-1.5 rounded-full border border-white/5">
                             <div className="flex items-center gap-1 text-[9px] font-bold tracking-wider uppercase text-neutral-300">
@@ -416,7 +476,6 @@ export default function UgcVideoSection() {
                   ) : (
                     /* Large Analytic Stat Highlights Card */
                     <div className="relative w-[250px] h-[450px] sm:w-[280px] sm:h-[480px] rounded-[2rem] bg-neutral-900 border border-white/5 p-6 flex flex-col justify-between hover:border-[#f26522]/30 transition-all duration-500 shadow-2xl overflow-hidden group/card">
-
                       <div className="absolute inset-0 z-0 pointer-events-none">
                         <img
                           src={item.imageUrl}
@@ -455,7 +514,9 @@ export default function UgcVideoSection() {
                         </p>
 
                         <div className="flex items-center justify-between border-t border-white/5 pt-4 mt-6">
-                          <span className="text-[9px] font-mono uppercase text-neutral-500 tracking-wider">verified ad audit</span>
+                          <span className="text-[9px] font-mono uppercase text-neutral-500 tracking-wider">
+                            verified ad audit
+                          </span>
                           <div className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center text-[#f26522]">
                             <ArrowUpRight className="w-3.5 h-3.5" />
                           </div>
@@ -466,7 +527,6 @@ export default function UgcVideoSection() {
                       <div className="absolute inset-0 border border-white/5 group-hover/card:border-[#f26522]/30 rounded-[2rem] transition-colors duration-500 pointer-events-none" />
                     </div>
                   )}
-
                 </motion.div>
               );
             })}
@@ -479,25 +539,31 @@ export default function UgcVideoSection() {
             {[
               {
                 title: "Hook Optimization",
-                desc: "We analyze the first 3 seconds of UGC footage to optimize thumbnail retention rate and direct scrolls."
+                desc: "We analyze the first 3 seconds of UGC footage to optimize thumbnail retention rate and direct scrolls.",
               },
               {
                 title: "Whitelisted Creator Ad Spend",
-                desc: "Run high-intensity dark posts directly using custom verified creator profiles to skyrocket trust signals."
+                desc: "Run high-intensity dark posts directly using custom verified creator profiles to skyrocket trust signals.",
               },
               {
                 title: "Multi-Platform Adaptation",
-                desc: "Tailored native formats optimized for high-yield returns across Instagram Reels, TikTok Sparks, and YT Shorts."
-              }
+                desc: "Tailored native formats optimized for high-yield returns across Instagram Reels, TikTok Sparks, and YT Shorts.",
+              },
             ].map((feature, idx) => (
-              <div key={idx} className="p-5 rounded-2xl bg-neutral-900/30 border border-white/5 backdrop-blur-sm hover:border-[#f26522]/20 transition-all duration-300">
-                <h4 className="text-xs font-black tracking-widest text-[#f26522] uppercase mb-1.5">{feature.title}</h4>
-                <p className="text-xs text-neutral-400 leading-relaxed">{feature.desc}</p>
+              <div
+                key={idx}
+                className="p-5 rounded-2xl bg-neutral-900/30 border border-white/5 backdrop-blur-sm hover:border-[#f26522]/20 transition-all duration-300"
+              >
+                <h4 className="text-xs font-black tracking-widest text-[#f26522] uppercase mb-1.5">
+                  {feature.title}
+                </h4>
+                <p className="text-xs text-neutral-400 leading-relaxed">
+                  {feature.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
-
       </section>
     </div>
   );

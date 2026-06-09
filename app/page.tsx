@@ -24,7 +24,9 @@ import CaseStudySection from "./component/website/homepage/CaseStudySection";
 import TrustMetricsShowcase from "./component/website/homepage/Counter";
 import TestimonialCarousel from "./component/website/homepage/TestimonialCarousel";
 import TopServices from "./component/website/homepage/TopServices";
-import Inndustries, { Industries2 } from "./component/website/homepage/Inndustries";
+import Inndustries, {
+  Industries2,
+} from "./component/website/homepage/Inndustries";
 import MarketingWall from "./component/website/homepage/MarketingWall";
 
 export const metadata = {
@@ -96,9 +98,9 @@ export default function Home() {
         <UgcVideoSection />
         <MarketingWall />
         {/* <Inndustries /> */}
-        <Industries2/>
+        <Industries2 />
         <CaseStudySection />
-        <TestimonialCarousel />
+        {/* <TestimonialCarousel /> */}
         {/* <Industry /> */}
         <Partnership />
         {/* <Testimonials /> */}
