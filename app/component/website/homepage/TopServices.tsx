@@ -179,7 +179,7 @@ export default function TopServices() {
   };
 
   return (
-    <div className=" text-white font-sans antialiased min-h-screen flex flex-col justify-center relative overflow-hidden py-16">
+    <div className=" text-white font-sans antialiased min-h-screen flex flex-col justify-center relative overflow-hidden py-10 -mt-10">
       <GridPattern opacity={0.03} />
 
       {/* Background Lighting Aura */}
@@ -415,8 +415,8 @@ export default function TopServices() {
 
               {/* Operational Audit CTA Row */}
               <div className="flex items-center justify-between border-t border-white/5 pt-3 mt-1 text-[10px] text-neutral-500 font-mono">
-                <span>Verified System Outcome</span>
-
+                {/* <span>Verified System Outcome</span> */}
+                <span></span>
                 <motion.a
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
