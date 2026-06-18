@@ -1,5 +1,6 @@
 "use client";
 
+import { deleteImageFromFirebase, uploadImageToFirebase } from "@/lib/uploadImage";
 import { useCallback, useRef, useState } from "react";
 
 interface ImageUploadModalProps {
@@ -31,16 +32,19 @@ export default function ImageUploadModal({
       setError("");
       setUploading(true);
       try {
-        const formData = new FormData();
-        formData.append("file", file);
-        const res = await fetch("/api/upload", {
-          method: "POST",
-          body: formData,
-        });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error);
-        setPreview(data.url);
-        setImageUrl(data.url);
+        // const formData = new FormData();
+
+        // formData.append("file", file);
+        // const res = await fetch("/api/upload", {
+        //   method: "POST",
+        //   body: formData,
+        // });
+        // const data = await res.json();
+        // if (!res.ok) throw new Error(data.error);
+        const imageUrl = await uploadImageToFirebase(file);
+        if (!imageUrl) throw new Error("Failed to uplad image!");
+        setPreview(imageUrl);
+        setImageUrl(imageUrl);
       } catch (err: unknown) {
         setError(err instanceof Error ? err.message : "Upload failed");
       } finally {
@@ -79,6 +83,17 @@ export default function ImageUploadModal({
     if (!width) setWidth(Math.min(img.naturalWidth, 800));
   };
 
+  const handleRemove = async (url: string) => {
+    try {
+      const res = await deleteImageFromFirebase(url);
+      if (!res) throw new Error("Failed to delete image!");
+      if (fileInputRef.current) fileInputRef.current.value = "";
+      setPreview("")
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Delete failed");
+    }
+  }
+
   const displaySrc = tab === "url" ? imageUrl : preview;
 
   return (
@@ -109,11 +124,10 @@ export default function ImageUploadModal({
               <button
                 key={t}
                 onClick={() => setTab(t)}
-                className={`flex-1 py-2 text-sm font-medium rounded-lg capitalize transition-all ${
-                  tab === t
-                    ? "bg-[#f26522] text-white"
-                    : "text-gray-400 hover:text-white"
-                }`}
+                className={`flex-1 py-2 text-sm font-medium rounded-lg capitalize transition-all ${tab === t
+                  ? "bg-[#f26522] text-white"
+                  : "text-gray-400 hover:text-white"
+                  }`}
               >
                 {t === "upload" ? "📁 Upload File" : "🔗 Image URL"}
               </button>
@@ -122,33 +136,58 @@ export default function ImageUploadModal({
 
           {/* Upload Area */}
           {tab === "upload" && (
-            <div
-              onDrop={handleDrop}
-              onDragOver={(e) => e.preventDefault()}
-              onClick={() => fileInputRef.current?.click()}
-              className="border-2 border-dashed border-white/20 rounded-xl p-8 text-center cursor-pointer hover:border-[#f26522]/60 hover:bg-[#f26522]/5 transition-all"
-            >
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept="image/*"
-                className="hidden"
-                onChange={handleFileChange}
-              />
-              {uploading ? (
-                <div className="flex flex-col items-center gap-3">
-                  <div className="w-8 h-8 border-2 border-[#f26522] border-t-transparent rounded-full animate-spin" />
-                  <p className="text-gray-400 text-sm">Uploading...</p>
+            <div className="w-full">
+              {!displaySrc ? (
+                /* Upload Zone (Shows only when NO image is selected/uploaded) */
+                <div
+                  onDrop={handleDrop}
+                  onDragOver={(e) => e.preventDefault()}
+                  onClick={() => fileInputRef.current?.click()}
+                  className="border-2 border-dashed border-white/20 rounded-xl p-8 text-center cursor-pointer hover:border-[#f26522]/60 hover:bg-[#f26522]/5 transition-all"
+                >
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={handleFileChange}
+                  />
+                  {uploading ? (
+                    <div className="flex flex-col items-center gap-3">
+                      <div className="w-8 h-8 border-2 border-[#f26522] border-t-transparent rounded-full animate-spin" />
+                      <p className="text-gray-400 text-sm">Uploading...</p>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="text-4xl">🖼</span>
+                      <p className="text-white font-medium">
+                        Drop image here or click to browse
+                      </p>
+                      <p className="text-gray-500 text-xs">
+                        PNG, JPG, WebP, GIF, SVG — Max 10MB
+                      </p>
+                    </div>
+                  )}
                 </div>
               ) : (
-                <div className="flex flex-col items-center gap-2">
-                  <span className="text-4xl">🖼</span>
-                  <p className="text-white font-medium">
-                    Drop image here or click to browse
-                  </p>
-                  <p className="text-gray-500 text-xs">
-                    PNG, JPG, WebP, GIF, SVG — Max 10MB
-                  </p>
+                /* Preview Zone (Replaces the upload zone for a clean layout) */
+                <div className="relative bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col items-center justify-center min-h-[160px] max-h-56 overflow-hidden group">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={displaySrc}
+                    alt="preview"
+                    className="max-h-44 max-w-full object-contain rounded-lg shadow-md"
+                    onLoad={handleImgLoad}
+                  />
+
+                  {/* Action button to clear selection and re-upload */}
+                  <button
+                    type="button"
+                    onClick={()=>{handleRemove(displaySrc);}}
+                    className="absolute top-3 right-3 bg-black/70 hover:bg-red-600 text-white text-xs px-2.5 py-1.5 rounded-md transition-colors backdrop-blur-sm"
+                  >
+                    Remove Image
+                  </button>
                 </div>
               )}
             </div>
@@ -156,25 +195,27 @@ export default function ImageUploadModal({
 
           {/* URL Input */}
           {tab === "url" && (
-            <input
-              type="text"
-              value={imageUrl}
-              onChange={(e) => setImageUrl(e.target.value)}
-              placeholder="https://example.com/image.jpg"
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#f26522]/60"
-            />
-          )}
-
-          {/* Preview */}
-          {displaySrc && (
-            <div className="bg-white/5 rounded-xl p-3 flex items-center justify-center max-h-48 overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={displaySrc}
-                alt="preview"
-                className="max-h-40 max-w-full object-contain rounded-lg"
-                onLoad={handleImgLoad}
+            <div className="w-full space-y-4">
+              <input
+                type="text"
+                value={imageUrl}
+                onChange={(e) => setImageUrl(e.target.value)}
+                placeholder="https://example.com/image.jpg"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#f26522]/60"
               />
+
+              {/* Shows URL preview inline right below the text field if valid */}
+              {displaySrc && (
+                <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex items-center justify-center max-h-48 overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={displaySrc}
+                    alt="preview"
+                    className="max-h-40 max-w-full object-contain rounded-lg"
+                    onLoad={handleImgLoad}
+                  />
+                </div>
+              )}
             </div>
           )}
 
