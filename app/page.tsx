@@ -1,33 +1,58 @@
+import dynamic from "next/dynamic";
+import Script from "next/script";
+
 import Navbar from "./component/website/Navbar";
 import Hero from "./component/website/homepage/Hero";
 import Stats from "./component/website/homepage/Stats";
 import ServiceGrid from "./component/website/homepage/ServiceGrid";
 import Footer from "./component/website/Footer";
 import Clientele from "./component/website/homepage/Clientele";
-import Testimonials from "./component/website/homepage/Testimonial";
 import LeadForm from "./component/website/homepage/LeadForm";
-import Industry from "./component/website/homepage/IndustryCover";
-import Blogs from "./component/website/homepage/Blogs";
-import ServiceCardCarousel from "./component/website/homepage/ServiceCardCrousel";
-import Partnership from "./component/website/homepage/Partnership";
-import CTASection from "./component/website/CTASection";
 import About from "./component/website/homepage/About";
 import HowWeWork from "./component/website/homepage/HowWeWork";
 import FAQ from "./component/website/FAQ";
 import { homeFAQs } from "./data/faqData";
-import Script from "next/script";
-import ResultsShowcase from "./component/website/homepage/ResultsShowcase";
-import UgcVideoSection from "./component/website/homepage/UgcVideoSection";
-import AIGrowthSection from "./component/website/homepage/AIGrowthSection";
-import ResultSection from "./component/website/homepage/ResultSection";
-import CaseStudySection from "./component/website/homepage/CaseStudySection";
+
 import TrustMetricsShowcase from "./component/website/homepage/Counter";
-import TestimonialCarousel from "./component/website/homepage/TestimonialCarousel";
-import TopServices from "./component/website/homepage/TopServices";
-import Inndustries, {
-  Industries2,
-} from "./component/website/homepage/Inndustries";
-import MarketingWall from "./component/website/homepage/MarketingWall";
+import LazySection from "./component/LazySection";
+
+const TopServices = dynamic(
+  () => import("./component/website/homepage/TopServices"),
+);
+
+const ResultsShowcase = dynamic(
+  () => import("./component/website/homepage/ResultsShowcase"),
+);
+
+const UgcVideoSection = dynamic(
+  () => import("./component/website/homepage/UgcVideoSection"),
+);
+
+const MarketingWall = dynamic(
+  () => import("./component/website/homepage/MarketingWall"),
+);
+
+const Industries2 = dynamic(() =>
+  import("./component/website/homepage/Inndustries").then(
+    (mod) => mod.Industries2,
+  ),
+);
+
+const CaseStudySection = dynamic(
+  () => import("./component/website/homepage/CaseStudySection"),
+);
+
+const Partnership = dynamic(
+  () => import("./component/website/homepage/Partnership"),
+);
+
+const ServiceCardCarousel = dynamic(
+  () => import("./component/website/homepage/ServiceCardCrousel"),
+);
+
+const AIGrowthSection = dynamic(
+  () => import("./component/website/homepage/AIGrowthSection"),
+);
 
 export const metadata = {
   title: "Marketrixa | Best Digital Marketing Company in Ahmedabad",
@@ -93,10 +118,21 @@ export default function Home() {
         <Hero />
         <TrustMetricsShowcase />
         <About />
-        <TopServices />
-        <ResultsShowcase />
-        <UgcVideoSection />
+
+        <LazySection height={700}>
+          <TopServices />
+        </LazySection>
+
+        <LazySection height={900}>
+          <ResultsShowcase />
+        </LazySection>
+
+        <LazySection height={700}>
+          <UgcVideoSection />
+        </LazySection>
+
         <MarketingWall />
+
         {/* <Inndustries /> */}
         <Industries2 />
         <CaseStudySection />

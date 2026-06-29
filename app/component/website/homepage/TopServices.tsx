@@ -16,6 +16,7 @@ import {
   Play,
   Pause,
 } from "lucide-react";
+import Image from "next/image";
 
 // --- Types ---
 interface CaseStudyMini {
@@ -307,10 +308,13 @@ export default function TopServices() {
 
                 {/* Video Render viewport */}
                 <div className="relative w-full h-[calc(100%-24px)] overflow-hidden">
-                  <img
-                    src={activeTab.fallbackImage}
+                  <Image
+                    src={activeTab.fallbackImage!}
                     alt={activeTab.title}
-                    className="absolute inset-0 w-full h-full object-cover opacity-100"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                    priority={activeTab.id === services[0].id}
                   />
                   <AnimatePresence mode="wait">
                     <motion.video

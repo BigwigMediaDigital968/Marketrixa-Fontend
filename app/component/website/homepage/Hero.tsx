@@ -9,6 +9,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const PHRASESOLD = [
   "We Build Its Future",
@@ -177,11 +178,21 @@ function Typewriter() {
   );
 }
 
-
 export default function Hero() {
   const magnet = useMagnet(0.3);
   const magnetSecondary = useMagnet(0.2);
   const router = useRouter();
+
+  const [showVideo, setShowVideo] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowVideo(true);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -214,8 +225,38 @@ export default function Hero() {
           inset: 0;
           z-index: 0;
         }
+
+        .hero-poster,
+        .hero-video {
+         position: absolute;
+         inset: 0;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+        }
+
+        .hero-poster {
+  opacity: 0.3;
+  transition: opacity 0.6s ease;
+}
+
+.hero-poster.hide {
+  opacity: 0;
+}
+
+.hero-video {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hero-video.show {
+  opacity: 1;
+}
+
         .hero-video-wrap video {
-          width: 100%; height: 100%; object-fit: cover;
+          width: 100%; 
+          height: 100%; 
+          object-fit: cover;
           transform: scale(1.08);
           filter: saturate(0.6) brightness(0.28);
         }
@@ -636,10 +677,40 @@ export default function Hero() {
 
       <section className="hero-section">
         {/* Video */}
-        <div className="hero-video-wrap">
+        {/* <div className="hero-video-wrap">
           <video autoPlay muted loop playsInline>
             <source src="./hero-video.mp4" type="video/mp4" />
           </video>
+          <div className="hero-video-overlay" />
+        </div> */}
+
+        <div className="hero-video-wrap">
+          {/* Fallback Image */}
+          <Image
+            src="/hero-image-marketrixa.webp"
+            alt="Marketrixa"
+            fill
+            priority
+            quality={90}
+            className={`hero-poster ${videoLoaded ? "hide" : ""} opacity-15`}
+          />
+
+          {/* Load video only after page is ready */}
+          {showVideo && (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+              className={`hero-video ${videoLoaded ? "show" : ""}`}
+              onCanPlayThrough={() => setVideoLoaded(true)}
+            >
+              {/* <source src="/hero-video.mp4" type="video/mp4" /> */}
+              <source src="hero-video.webm" type="video/webm" />
+            </video>
+          )}
+
           <div className="hero-video-overlay" />
         </div>
 
@@ -679,7 +750,9 @@ export default function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <span className="h1-line">We Build Growth Machines That Scale Businesses</span>
+            <span className="h1-line">
+              We Build Growth Machines That Scale Businesses
+            </span>
             <span className="h1-accent">
               <Typewriter />
             </span>
@@ -737,7 +810,13 @@ export default function Hero() {
             >
               Watch Case Studies
               <span className="btn-icon-circle">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" className="ml-[1px]">
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="ml-[1px]"
+                >
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </span>
