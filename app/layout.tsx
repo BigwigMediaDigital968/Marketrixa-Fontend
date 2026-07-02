@@ -60,9 +60,7 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${poppins.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        {children}
-
+      <head>
         <>
           {/* Google tag (gtag.js) */}
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-46N2K3C1NQ">
@@ -97,6 +95,11 @@ export default function RootLayout({
             />
           </noscript>
         </>
+      </head>
+      <body className="min-h-full flex flex-col">
+        {children}
+
+        
       </body>
     </html>
   );
