@@ -12,6 +12,7 @@ import PerformanceFeatures from "./component/PerformanceFeatures";
 
 import type { Metadata } from "next";
 import Script from "next/script";
+import OtherServices from "../website-development-service/component/OtherService";
 
 export const metadata: Metadata = {
   title: "Performance Marketing Solutions for Sales Growth | Marketrixa",
@@ -79,6 +80,8 @@ export default function PerformancePage() {
         bgImage="/cta-bg.png"
       />
       <PerformanceClients />
+      <OtherServices />
+
       <FAQ
         eyebrow="Got questions?"
         title="Frequently Asked Questions"

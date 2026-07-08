@@ -12,6 +12,7 @@ import SmmClients from "./component/SmmClients";
 
 import type { Metadata } from "next";
 import Script from "next/script";
+import OtherServices from "../website-development-service/component/OtherService";
 
 export const metadata: Metadata = {
   title: "Social Media Marketing Agency in Ahmedabad | Marketrixa",
@@ -77,6 +78,8 @@ export default function SmmPage() {
         bgImage="/cta-bg.png"
       />
       <SmmClients />
+      <OtherServices />
+
       <FAQ
         eyebrow="Got questions?"
         title="Frequently Asked Questions"

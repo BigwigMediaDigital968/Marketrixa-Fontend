@@ -5,6 +5,7 @@ import GraphicVideo from "./component/GraphicVideo";
 import FAQ from "@/app/component/website/FAQ";
 import { GraphicFaqs } from "@/app/data/faqData";
 import GraphicTestimonial from "./component/GraphicTestimonial";
+import OtherServices from "../website-development-service/component/OtherService";
 
 export const metadata: Metadata = {
   title: "Best Graphic Design Agency in Ahmedabad | Marketrixa",
@@ -206,6 +207,9 @@ export default function GraphicVideoContent() {
       <GraphicVideo />
 
       {/* <GraphicPortfolio /> */}
+
+      <OtherServices />
+
 
       <FAQ
         eyebrow="Got questions?"

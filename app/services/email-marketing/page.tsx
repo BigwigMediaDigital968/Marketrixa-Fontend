@@ -8,6 +8,7 @@ import WhyEmail from "./component/WhyEmail";
 import EmailProcess from "./component/EmailProcess";
 import { Metadata } from "next";
 import ContentService from "./component/ContentService";
+import OtherServices from "../website-development-service/component/OtherService";
 
 
 
@@ -77,8 +78,10 @@ export default function EmailPage() {
       <EmailHero />
       <EmailTools />
       <EmailProcess />
-      <ContentService/>
-            <WhyEmail />
+      <ContentService />
+      <WhyEmail />
+      <OtherServices />
+
 
       <FAQ
         eyebrow="Got questions?"

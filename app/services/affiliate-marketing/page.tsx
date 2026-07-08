@@ -11,6 +11,7 @@ import AffProcessBenifit from "./component/AffProcessBenifit";
 import WhyAffMarketrixs from "./component/WhyAffMarketrixs";
 import Link from "next/link";
 import { Metadata } from "next";
+import OtherServices from "../website-development-service/component/OtherService";
 
 export const AffiliateFAQs: FAQItem[] = [
   {
@@ -151,6 +152,7 @@ export default function ServicePage() {
         <WhyAffMarketrixs />
 
         {/* <AffiliateOtherServices /> */}
+        <OtherServices />
 
         <div className="-mt-10">
           <FAQ

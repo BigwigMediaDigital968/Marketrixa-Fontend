@@ -3,6 +3,7 @@ import Navbar from "@/app/component/website/Navbar";
 import UgcServicePage from "./Components/PageContent";
 import Hero from "./Components/Hero";
 import FAQ from "@/app/component/website/FAQ";
+import OtherServices from "../website-development-service/component/OtherService";
 
 export const UgcFaqs = [
     {
@@ -43,6 +44,8 @@ export default function Page() {
             <Navbar />
             <Hero />
             <UgcServicePage />
+            <OtherServices />
+
             <FAQ
                 eyebrow="Got questions?"
                 title="Frequently Asked Questions"

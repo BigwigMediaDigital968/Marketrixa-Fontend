@@ -10,6 +10,7 @@ import FAQ from "@/app/component/website/FAQ";
 import { ORMFaqs } from "@/app/data/faqData";
 import OrmStats from "./component/OrmStats";
 import OrmTestimonial from "./component/OrmTestimonial";
+import OtherServices from "../website-development-service/component/OtherService";
 
 export const metadata: Metadata = {
   title: "Online Reputation Management Services | Marketrixa",
@@ -191,6 +192,10 @@ export default function OrmPageContant() {
       <OrmProcess />
       <WhyIndusMarket />
       <OrmTestimonial />
+
+      <OtherServices />
+
+
       <FAQ
         eyebrow="Got questions?"
         title="Frequently Asked Questions"

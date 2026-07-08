@@ -8,6 +8,7 @@ import WhyInfluence from "./component/WhyInfluence";
 import InfluenceService from "./component/InfluenceService";
 import WhyInfluenceMar from "./component/WhyInfluenceMar";
 import { Metadata } from "next";
+import OtherServices from "../website-development-service/component/OtherService";
 
 export const metadata: Metadata = {
   title: "Influencer Marketing Services in India | Marketrixa",
@@ -76,6 +77,8 @@ export default function InfluencerPage() {
       <WhyInfluence />
       <InfluenceService />
       <WhyInfluenceMar />
+      <OtherServices />
+
 
       <FAQ
         eyebrow="Got questions?"

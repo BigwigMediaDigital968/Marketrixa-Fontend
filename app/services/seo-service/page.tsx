@@ -11,6 +11,7 @@ import SeoActivities from "./component/SeoActivities";
 import SeoClients from "./component/SeoClients";
 import SeoProjects from "./component/SeoProjects";
 import Script from "next/script";
+import OtherServices from "../website-development-service/component/OtherService";
 
 export const metadata = {
   title: "Best SEO Services in Ahmedabad | Marketrixa",
@@ -102,6 +103,9 @@ export default function SeoPage() {
       <SeoActivities />
       <SeoProjects />
       <SeoClients />
+
+      <OtherServices />
+
       <FAQ
         eyebrow="Got questions?"
         title="Frequently Asked Questions About Our SEO Services in Ahmedabad"
