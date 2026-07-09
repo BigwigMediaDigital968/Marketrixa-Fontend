@@ -13,10 +13,11 @@ import {
   TrendingUp,
   Award,
 } from "lucide-react";
+import Link from "next/link";
 
 interface BenefitCard {
   title: string;
-  desc: string;
+  desc: React.ReactNode;
   icon: React.ComponentType<{ className?: string }>;
   accentColor: string;
   bullets: string[];
@@ -25,7 +26,11 @@ interface BenefitCard {
 const cardsData: BenefitCard[] = [
   {
     title: "Content Strategy",
-    desc: "We create engaging content strategies designed for audience growth, consistency, visibility, and stronger social media performance.",
+    desc: (<>
+    We <Link href="/services/social-media-marketing" className="text-[#f26522] hover:underline">
+      pair optimization with posting strategy
+    </Link> designed for audience growth, consistency, visibility, and stronger social media performance.
+    </>),
     icon: Palette,
     accentColor: "#f26522", // Brand Orange
     bullets: [

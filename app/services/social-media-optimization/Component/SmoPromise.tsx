@@ -8,9 +8,6 @@ import {
   Users,
   TrendingUp,
   ArrowUpRight,
-  Sparkles,
-  CheckCircle2,
-  Activity,
   Award,
 } from "lucide-react";
 import Image from "next/image";

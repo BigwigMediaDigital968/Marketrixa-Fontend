@@ -17,7 +17,7 @@ const E = [0.22, 1, 0.36, 1] as const;
 interface Tool {
   id: string;
   name: string;
-  category: string;
+  category: string | React.ReactNode;
   effectiveness: number; // 0-100
   description: string | React.ReactNode;
   features: string[];
@@ -56,7 +56,13 @@ const tools: Tool[] = [
   {
     id: "conversion-copywriting",
     name: "Conversion-Focused Copywriting",
-    category: "Content Strategy",
+    category: (
+      <>
+      <Link href="/services/content-marketing" className="text-[#f26522] hover:underline font-bold">
+        Email content that converts
+      </Link>{" "}
+      </>
+    ),
     effectiveness: 92,
     description: (
       <>

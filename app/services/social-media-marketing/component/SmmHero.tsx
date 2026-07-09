@@ -69,7 +69,7 @@ const SmmHero: React.FC = () => {
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#F26522]/10 to-transparent pointer-events-none" />
       <div className="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] bg-orange-500/5 blur-[120px] rounded-full" />
 
-      <div className="container mx-auto px-6 md:px-30 relative z-10">
+      <div className="container mx-auto px-6 md:px-10 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* LEFT CONTENT */}
           <motion.div

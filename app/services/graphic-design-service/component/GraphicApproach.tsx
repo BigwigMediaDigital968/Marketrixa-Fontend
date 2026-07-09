@@ -10,6 +10,7 @@ import {
   Target,
   Layers,
 } from "lucide-react";
+import Link from "next/link";
 
 /**
  * TYPE RESOLUTION:
@@ -59,7 +60,11 @@ const GraphicApproach: React.FC = () => {
     },
     {
       title: "Social Media Design",
-      desc: "In today’s digital-first world, social media presence plays a key role. We design engaging content for all major platforms.",
+      desc: (<>
+      In today's digital-first world, social media presence plays a key role - we create <Link href="/services/social-media-marketing" className="text-[#d44f18] hover:underline">
+        visuals for your campaigns </Link>
+      across all major platforms.
+      </>),
       icon: <Share2 className="w-5 h-5" />,
       items: [
         "Post creatives and templates",

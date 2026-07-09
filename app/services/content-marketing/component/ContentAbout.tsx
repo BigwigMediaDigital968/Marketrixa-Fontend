@@ -12,12 +12,13 @@ import {
   Share2,
   BarChart3,
 } from "lucide-react";
+import Link from "next/link";
 
 const E = [0.22, 1, 0.36, 1] as const;
 
 interface Feature {
   title: string;
-  description: string;
+  description: React.ReactNode;
   icon: React.ElementType;
 }
 
@@ -37,7 +38,11 @@ const features: Feature[] = [
   {
     title: "SEO-Based Optimization",
     description:
-      "Each asset will be created to increase its organic reach and generate targeted traffic for your business from the search engines.",
+      (<>
+       Each asset is content <Link href="/services/seo-service" className="text-[#f26522] hover:underline">
+         built for search visibility
+       </Link>, created to increase organic reach and generate targeted traffic from the search engines.
+      </>),
     icon: TrendingUp,
   },
   {

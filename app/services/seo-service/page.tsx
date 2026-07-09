@@ -38,14 +38,14 @@ export const metadata = {
   metadataBase: new URL("https://www.marketrixa.com"),
 
   alternates: {
-    canonical: "/services/seo-services",
+    canonical: "/services/seo-service",
   },
 
   openGraph: {
     title: "Best SEO Services in Ahmedabad | Marketrixa",
     description:
       "Boost your Google rankings and grow your business with expert SEO services in Ahmedabad. Get a free audit today.",
-    url: "https://www.marketrixa.com/services/seo-services",
+    url: "https://www.marketrixa.com/services/seo-service",
     siteName: "Marketrixa",
     images: [
       {

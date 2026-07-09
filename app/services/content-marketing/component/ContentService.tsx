@@ -18,7 +18,7 @@ const E = [0.22, 1, 0.36, 1] as const;
 
 interface ServiceType {
   title: string;
-  description: string;
+  description: React.ReactNode;
   icon: React.ElementType;
   tags: string[];
 }
@@ -34,7 +34,11 @@ const services: ServiceType[] = [
   {
     title: "Social Media Communication",
     description:
-      "Creative captions and campaign messaging crafted to improve audience interaction and strengthen brand awareness.",
+      (<>
+       Creative captions and campaign messaging - we help you <Link href="/services/social-media-marketing" className="text-[#f26522] hover:underline">
+         repurpose content for social
+       </Link> to improve audience interaction and strengthen brand awareness.
+       </>),
     icon: Share2,
     tags: ["Social Media", "Engagement", "Brand Awareness"],
   },

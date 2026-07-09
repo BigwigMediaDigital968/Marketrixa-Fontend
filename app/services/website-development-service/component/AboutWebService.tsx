@@ -54,7 +54,12 @@ const AboutWebService = () => {
     },
     {
       title: "SEO Optimized",
-      desc: "Built to rank and perform in competitive search engine landscapes so your business gets found online by the right people at the right time.",
+      desc: (<>
+      We <Link href="/services/seo-services" className="text-[#F26522] hover:underline">
+        build SEO in from day one
+      </Link>{" "}
+      so your site is built to rank and perform in search engine landscapes.
+      </>),
       icon: <Globe className="w-5 h-5" />,
     },
     {

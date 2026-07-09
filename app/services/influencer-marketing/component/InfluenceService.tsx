@@ -81,7 +81,14 @@ const InfluenceService: React.FC = () => {
     title: "Modern Businesses",
     badge: "Growth",
     icon: Trophy,
-    desc: "Startups, ecommerce and growing companies’ strategic influencer campaigns.",
+    desc: (
+      <>
+      Startups, ecommerce and growing companies’ strategic influencer and <Link href="/services/affiliate-marketing" className="text-[#F26522] hover:underline">
+          affiliate campaigns
+        </Link>{" "}
+        .
+      </>
+    ),
   },
   {
     title: "Industry Experts",

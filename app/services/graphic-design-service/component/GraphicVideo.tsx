@@ -24,6 +24,7 @@ import {
 import GraphicApproach from "./GraphicApproach";
 import GraphicPortfolio from "./GraphicPortfolio";
 import DesignServices from "./DesignServices";
+import Link from "next/link";
 
 // ─── Easing constant (typed tuple for TS) ────────────────────────────────────
 const E: [number, number, number, number] = [0.4, 0, 0.2, 1];
@@ -309,7 +310,11 @@ const whyPoints = [
   },
   {
     title: "End-to-End Design Capability",
-    desc: "Logo, social media, ads, presentations. we handle your entire visual identity so every touchpoint speaks the same brand language.",
+    desc: (<>
+      From logo to campaign - we handle every visual touchpoint, and when you need <Link href="/services/website-development-service" className="text-[#d44f18] hover:underline">
+        assets for your new website </Link>
+      , we make sure they're ready to build with.
+    </>),
   },
 ];
 

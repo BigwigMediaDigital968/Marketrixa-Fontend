@@ -36,7 +36,12 @@ const services = [
     id: 2,
     icon: <Video className="text-orange-500" size={32} />,
     title: "Content Creation",
-    desc: "Our creative team produces high-performing content, including Reels, carousels, static graphics, and copy that is designed to stop the scroll. Every piece is on-brand, platform-optimized, and built to generate real engagement.",
+    desc: (<>
+      Our creative team produces <Link href="/services/content-marketing" className="text-[#F26522] hover:underline">
+        content that fuels your posts
+      </Link>{" "}
+      that fuels your posts - Reels, carousels, static graphics, and copy designed to stop the scroll. Every piece is on-brand, platform-optimized, and built to generate real engagement.
+    </>),
     whatWeDo: [
       "Reels & short-form videos",
       "Carousel storytelling",
@@ -71,7 +76,12 @@ const services = [
     id: 4,
     icon: <Users className="text-orange-500" size={32} />,
     title: "Influencer & UGC",
-    desc: "We identify, vet, and manage influencer partnerships and user-generated content campaigns that bring authentic social proof to your brand and extend your reach to audiences you could not access alone.",
+    desc: (<>
+      We identify, vet, and manage <Link href="/services/influencer-marketing" className="text-[#F26522] hover:underline">
+        influencer partnerships
+      </Link>{" "}
+      and user-generated content campaigns that bring authentic social proof to your brand and extend your reach to audiences you could not access alone.
+    </>),
     whatWeDo: ["Influencer selection", "Campaign management", "ROI tracking"],
     brandGets: ["Social proof", "Expanded reach", "Video dominance"],
     userExperience:
@@ -101,7 +111,12 @@ const services = [
     id: 6,
     icon: <Layout className="text-orange-500" size={32} />,
     title: "Account Management",
-    desc: "Consistent, strategic social media presence does not happen by accident. We handle scheduling, monitoring, and profile management across all platforms to keep your brand active and visible every single day.",
+    desc: (<>
+      Consistent, strategic social media presence does not happen by accident. We handle scheduling, monitoring, and profile management - including a full pass to <Link href="https://www.marketrixa.com/services/social-media-optimization" className="text-[#F26522] hover:underline">
+        optimize your profiles
+      </Link>{" "}
+      - across all platforms to keep your brand active and visible every single day.
+    </>),
     whatWeDo: [
       "Profile optimization",
       "Content calendars",
@@ -224,11 +239,10 @@ const ServiceCard = ({
       transition={{ delay: index * 0.05 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative group h-full overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 transition-all duration-500 ${
-        isHovered
-          ? "shadow-[0_0_40px_rgba(249,115,22,0.15)] ring-1 ring-orange-500/30"
-          : ""
-      }`}
+      className={`relative group h-full overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 transition-all duration-500 ${isHovered
+        ? "shadow-[0_0_40px_rgba(249,115,22,0.15)] ring-1 ring-orange-500/30"
+        : ""
+        }`}
     >
       {/* Background Glow */}
       <div
@@ -242,11 +256,10 @@ const ServiceCard = ({
             {service.icon}
           </div>
           <ArrowUpRight
-            className={`text-white/20 group-hover:text-orange-500 transition-all duration-300 transform ${
-              isHovered
-                ? "translate-x-0 opacity-100"
-                : "translate-x-4 opacity-0"
-            }`}
+            className={`text-white/20 group-hover:text-orange-500 transition-all duration-300 transform ${isHovered
+              ? "translate-x-0 opacity-100"
+              : "translate-x-4 opacity-0"
+              }`}
           />
         </div>
 

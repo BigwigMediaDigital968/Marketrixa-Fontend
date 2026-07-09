@@ -27,7 +27,11 @@ const services: ServiceType[] = [
   {
     title: "Promotional Campaigns",
     description:
-      "Promotional communication that is specific and tailored towards the purpose of raising awareness, engagement and sales.",
+      (<>
+      Promotional communication tailored to raise awareness, engagement and sales and for offer-driven campaigns, we can <Link href="/services/affiliate-marketing" className="text-[#f26522] hover:underline">
+        combine email with affiliate offers
+      </Link> to extend reach beyond your own list.
+      </>),
     icon: Megaphone,
     tags: ["Promotional Communication", "Awareness", "Sales"],
   },

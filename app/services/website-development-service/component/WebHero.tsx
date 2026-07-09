@@ -32,7 +32,7 @@ const WebHero = () => {
         <div className="absolute top-10 left-1/4 w-2 h-2 bg-[#F26522] rounded-full opacity-60 animate-pulse" />
         <div className="absolute top-20 left-1/3 w-3 h-3 bg-yellow-500 rounded-full opacity-40" />
 
-        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center md:px-24">
+        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center md:px-10 px-6">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}

@@ -113,7 +113,14 @@ const benefits: BenefitItem[] = [
   {
     title: "Coupon & Cashback Campaigns",
     icon: <TicketPercent />,
-    desc: "Specific promotional collaborations for optimizing engagement and conversion of customers.",
+    desc: (
+      <>
+      Specific promotional collaborations for optimizing engagement and conversion often strongest when we <Link href="/services/content-marketing" className="text-[#f26522] hover:underline font-bold">
+        promote affiliate offers by email
+      </Link> {" "}
+      alongside the campaign.
+      </>
+    ),
   },
   {
     title: "Blogger & Publisher Outreach",

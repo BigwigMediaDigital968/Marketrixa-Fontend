@@ -79,10 +79,7 @@ export default function ContantMarketingPage() {
       <ContentProcess />
       <ContentService />
       <WhyChooseMarketrixa/>
-
       <OtherServices />
-
-
       <FAQ
         eyebrow="Got questions?"
         title="Frequently Asked Questions"

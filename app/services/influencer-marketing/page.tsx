@@ -78,8 +78,6 @@ export default function InfluencerPage() {
       <InfluenceService />
       <WhyInfluenceMar />
       <OtherServices />
-
-
       <FAQ
         eyebrow="Got questions?"
         title="Frequently Asked Questions"

@@ -24,7 +24,12 @@ const SeoFeatures = () => {
     {
       title: "Brand's Online Visibility",
       description:
-        "Your competitors are already investing in search engine optimization. As a leading search engine optimization company in Ahmedabad, we boost your online presence by building quality backlinks, refining your content strategy, and optimizing your website structure so Google trusts and ranks your brand higher.",
+        (<>
+        Your competitors are already investing in search engine optimization. As a leading search engine optimization company in Ahmedabad, we boost your online presence by building quality backlinks, refining your <Link href="https://www.marketrixa.com/services/content-marketing" className="text-[#F26522] hover:underline">
+          content strategy that supports rankings
+        </Link>
+        , and optimizing your website structure so Google trusts and ranks your brand higher.
+        </>),
       icon: <Globe className="w-6 h-6" />,
       tag: "Global Reach",
     },

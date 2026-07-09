@@ -15,7 +15,7 @@ import Link from "next/link";
 interface FeatureItem {
   id: string;
   title: string;
-  shortDesc: string;
+  shortDesc: string | React.ReactNode;
   fullDesc: string;
   icon: React.ReactNode;
   imageUrl: string;
@@ -36,7 +36,14 @@ const features: FeatureItem[] = [
   {
     id: "identity",
     title: "Unique Brand Identity",
-    shortDesc: "Personality in every pixel.",
+    shortDesc: (
+      <>
+      <Link href="/services/graphic-design-service" className="text-[#F26522] hover:underline">
+        Get a matching visual identity
+      </Link>{" "}
+      with personality in every pixel.
+      </>
+    ),
     fullDesc:
       "We pour your brand's personality into every pixel, creating a strong visual identity that resonates with your audience and leaves a lasting, memorable impression that competitors simply cannot replicate.",
     icon: <Fingerprint className="w-6 h-6" />,

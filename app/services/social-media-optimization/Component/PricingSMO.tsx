@@ -66,7 +66,7 @@ const PricingSMO: React.FC = () => {
       features: [
         "Unlimited Platforms",
         "Daily Custom Content",
-        "Influencer Outreach",
+        "Amplify with creators",
         "Paid Ad Management Integration",
         "Dedicated Account Manager",
         "24/7 Monitoring & Response",

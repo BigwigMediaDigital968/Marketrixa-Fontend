@@ -10,8 +10,6 @@ import { Metadata } from "next";
 import ContentService from "./component/ContentService";
 import OtherServices from "../website-development-service/component/OtherService";
 
-
-
 export const metadata: Metadata = {
   title: "Email Marketing Company in Ahmedabad | Marketrixa",
 
@@ -81,8 +79,6 @@ export default function EmailPage() {
       <ContentService />
       <WhyEmail />
       <OtherServices />
-
-
       <FAQ
         eyebrow="Got questions?"
         title="Frequently Asked Questions"

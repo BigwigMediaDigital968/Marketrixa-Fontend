@@ -7,15 +7,13 @@ import {
   Send,
   Eye,
   BarChart3,
-  ShieldCheck,
-  ChevronRight,
-  Sparkles,
 } from "lucide-react";
+import Link from "next/link";
 
 interface ProcessStep {
   number: string;
   title: string;
-  desc: string;
+  desc: string | React.ReactNode;
   icon: React.ComponentType<{ className?: string }>;
   accentColor: string;
   badge: string;
@@ -53,7 +51,14 @@ const processSteps: ProcessStep[] = [
   {
     number: "04",
     title: "Real-Time Monitoring & Response",
-    desc: "Our team monitors your brand around the clock. Every new review is responded to within 24 hours. Every emerging mention — positive or negative is flagged and acted upon. If a new reputation threat appears, we respond immediately, adjusting the strategy before a small issue becomes a large crisis. You receive weekly updates and monthly comprehensive reports throughout the engagement.",
+    desc: (
+      <>
+      Our team monitors your brand around the clock. Every new review is responded to within 24 hours, and we <Link href="/services/online-reputation-management" className="text-[#f26522] hover:underline">
+        respond to reviews on social
+      </Link>
+      . Every emerging mention - positive or negative - is flagged and acted upon. If a new reputation threat appears, we respond immediately, adjusting the strategy before a small issue becomes a large crisis. You receive weekly updates and monthly comprehensive reports throughout the engagement.
+      </>
+    ),
     icon: Eye,
     accentColor: "#34d399", // Emerald Green
     badge: "24/7 Mitigation",

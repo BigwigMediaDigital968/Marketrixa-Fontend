@@ -13,8 +13,8 @@ import {
   Users,
   SearchCheck,
 } from "lucide-react";
+import Link from "next/link";
 
-const E = [0.22, 1, 0.36, 1] as const;
 
 const AboutORM: React.FC = () => {
   return (
@@ -57,10 +57,9 @@ const AboutORM: React.FC = () => {
               >
                 Before a potential customer picks up the phone, before an
                 investor reviews your pitch deck, before a talented candidate
-                applies to join your team, they Google you. What they find in
-                those first ten results determines whether they proceed or walk
-                away. Online reputation management is the discipline of
-                controlling that narrative, proactively and strategically.
+                applies to join your team, they Google you. What they find in those first ten results determines whether they proceed or walk away and <Link href="/services/seo-service" className="text-[#f26522] hover:underline font-bold">
+                  reviews influence local search </Link>
+                just as much as they influence buyer decisions. Online reputation management is the discipline of controlling that narrative, proactively and strategically.
               </motion.p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

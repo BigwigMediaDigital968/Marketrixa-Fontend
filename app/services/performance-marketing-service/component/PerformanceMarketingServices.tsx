@@ -19,7 +19,7 @@ import { FaLinkedin } from "react-icons/fa";
 interface ServiceItem {
   id: string;
   title: string;
-  desc: string;
+  desc: React.ReactNode;
   badge: string;
   img: string;
   icon: React.ComponentType<{ className?: string }>;
@@ -39,7 +39,12 @@ const servicesList: ServiceItem[] = [
   {
     id: "meta-ads",
     title: "Meta Ads (Facebook & Instagram)",
-    desc: "Reach highly targeted audiences through data-driven campaigns on Facebook and Instagram. We focus on audience segmentation, creative testing, and conversion optimization for measurable results.",
+    desc: (<>
+      Reach highly targeted audiences through data-driven campaigns on Facebook and Instagram. We focus on audience segmentation, creative testing, and conversion optimization for measurable results. Best paired with organic <Link href="/services/social-media-marketing" className="text-[#F26522] hover:underline">
+        paid social ad management
+      </Link>{" "}
+      so your ads and your everyday content reinforce the same message instead of competing for attention.
+    </>),
     badge: "Social & Demographics",
     img: "/service/performance/meta-ads.png",
     icon: Share2,

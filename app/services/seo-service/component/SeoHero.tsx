@@ -66,7 +66,7 @@ const SeoHero: React.FC = () => {
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#F26522]/10 to-transparent pointer-events-none" />
         <div className="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full" />
 
-        <div className="container mx-auto px-6 md:px-30 relative z-10">
+        <div className="container mx-auto px-6 md:px-10 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             {/* LEFT CONTENT */}
             <motion.div
@@ -75,22 +75,6 @@ const SeoHero: React.FC = () => {
               initial="hidden"
               animate="visible"
             >
-              {/* Breadcrumb */}
-              {/* <motion.nav
-              variants={itemVariants}
-              className="flex items-center space-x-2 text-sm"
-            >
-              <div className="flex items-center text-gray-400 hover:text-white transition-colors cursor-pointer">
-                <Home size={14} className="mr-1" />
-                <span>Home</span>
-              </div>
-              <ChevronRight size={14} className="text-gray-600" />
-              <div className="flex items-center text-gray-400 hover:text-white transition-colors cursor-pointer">
-                <span>Services</span>
-              </div>
-              <ChevronRight size={14} className="text-gray-600" />
-              <span className="text-[#F26522] font-medium">SEO Experts</span>
-            </motion.nav> */}
 
               {/* Badge */}
               <motion.div

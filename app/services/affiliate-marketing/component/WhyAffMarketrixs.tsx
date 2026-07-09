@@ -31,7 +31,7 @@ interface Industry {
 
 interface ValueProp {
   title: string;
-  desc: string;
+  desc: string | React.ReactNode;
   icon: React.ReactElement<LucideProps>;
 }
 
@@ -54,18 +54,6 @@ const features: Feature[] = [
   },
 ];
 
-const industries: Industry[] = [
-  { name: "E-commerce & Retail" },
-  { name: "Education & EdTech" },
-  { name: "Healthcare & Wellness" },
-  { name: "Finance & Insurance" },
-  { name: "Real Estate" },
-  { name: "Automotive" },
-  { name: "SaaS & Technology" },
-  { name: "Travel & Hospitality" },
-  { name: "Lifestyle & Fashion" },
-  { name: "B2B Services" },
-];
 
 const values: ValueProp[] = [
   {

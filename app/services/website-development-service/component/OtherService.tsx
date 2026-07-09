@@ -38,7 +38,7 @@ const services = [
     title: "Performance Marketing",
     desc: "Data-driven campaigns focused on measurable results and ROI.",
     icon: BarChart3,
-    link: "/services/performance-marketing",
+    link: "/services/performance-marketing-service",
   },
   {
     title: "Content Marketing",
@@ -80,7 +80,7 @@ const services = [
     title: "ORM",
     desc: "Protect and actively enhance your brand image across all digital platforms so your reputation always works in your favor.",
     icon: ShieldCheck,
-    link: "/services/orm",
+    link: "/services/online-reputation-management",
   },
   {
     title: "Affiliate Marketing",

@@ -13,6 +13,7 @@ import {
   Cpu,
 } from "lucide-react";
 import Popup from "@/app/component/website/Popup";
+import Link from "next/link";
 
 const features = [
   {
@@ -63,13 +64,11 @@ const PerformanceAbout = () => {
                   <span className="text-[#F26522]">We chase conversions.</span>
                 </h2>
 
-                <p className="text-gray-400 text-md md:text-lg leading-relaxed mb-10">
-                  Performance marketing is a results-oriented strategy where
-                  every campaign is optimized for real business outcomes leads,
-                  sales, app installs, and revenue. Unlike traditional
-                  advertising, we focus on ROI, audience targeting, data
-                  tracking, and continuous optimization so every marketing rupee
-                  delivers measurable business impact.
+                <p className="text-gray-400 text-md leading-relaxed mb-10">
+                  Performance marketing is a results-oriented strategy where every campaign is optimized for real business outcomes - leads, sales, app installs, and revenue. Unlike traditional advertising, we focus on ROI, audience targeting, data tracking, and continuous optimization so every marketing rupee delivers measurable business impact. For most brands, the fastest path to sustainable growth is to <Link href="/services/seo-service" className="text-[#F26522] hover:underline">
+                    combine with SEO for full-funnel growth
+                  </Link>{" "}
+                   - paid campaigns fill the pipeline today while organic rankings lower your cost per lead over time.
                 </p>
 
                 {/* Feature Grid - Inspired by the provided card layout */}

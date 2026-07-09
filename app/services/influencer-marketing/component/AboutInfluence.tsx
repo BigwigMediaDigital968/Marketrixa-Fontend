@@ -62,6 +62,10 @@ const AboutInfluence: React.FC = () => {
                 tools for brands to connect with present-day audiences. People
                 tend to believe in the words of those they follow and share,
                 making these partnerships essential for brand awareness.
+                It works best as an <Link href="/services/social-media-marketing" className="text-[#F26522] hover:underline">
+                  organic + influencer strategy
+                </Link>{" "}
+                - creator content spreads further when it's backed by a consistent posting and engagement plan on your own channels
               </p>
               <p className="border-l-2 border-[#f26522] pl-6 italic text-white/80 bg-gradient-to-r from-[#f26522]/5 to-transparent py-4 rounded-r-2xl">
                 Marketrixa provides step-by-step Influencer Marketing Services
