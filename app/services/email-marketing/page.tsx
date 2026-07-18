@@ -8,7 +8,7 @@ import WhyEmail from "./component/WhyEmail";
 import EmailProcess from "./component/EmailProcess";
 import { Metadata } from "next";
 import ContentService from "./component/ContentService";
-import OtherServices from "../website-development-service/component/OtherService";
+import OtherServices from "../website-development/component/OtherService";
 
 export const metadata: Metadata = {
   title: "Email Marketing Company in Ahmedabad | Marketrixa",

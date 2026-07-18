@@ -56,7 +56,7 @@ const SERVICES: ServiceItem[] = [
       "Performance Analytics"
     ],
     cta: "Scale Your Business",
-    link: "/services/performance-marketing-service",
+    link: "/services/performance-marketing",
     accent: "#f26522",
     imageUrl:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
@@ -138,7 +138,7 @@ const SERVICES: ServiceItem[] = [
       "Conversion Optimization"
     ],
     cta: "Build Your Website",
-    link: "/services/website-development-service",
+    link: "/services/website-development",
     accent: "#f26522",
     imageUrl:
       "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop"
@@ -166,7 +166,7 @@ const SERVICES: ServiceItem[] = [
       "Visual Identity"
     ],
     cta: "Elevate Your Brand",
-    link: "/services/graphic-design-service",
+    link: "/services/graphic-design",
     accent: "#f26522",
     imageUrl:
       "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop"
@@ -194,7 +194,7 @@ const SERVICES: ServiceItem[] = [
       "Organic Growth"
     ],
     cta: "Improve Your Rankings",
-    link: "/services/seo-service",
+    link: "/services/search-engine-optimization",
     accent: "#f26522",
     imageUrl:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop"

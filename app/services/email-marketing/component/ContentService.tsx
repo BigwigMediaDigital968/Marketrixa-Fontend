@@ -83,7 +83,7 @@ const services: ServiceType[] = [
       (<>
         Detailed reporting systems that measure {" "}
         <Link
-          href="/services/performance-marketing-service"
+          href="/services/performance-marketing"
           className="text-blue-600 hover:underline font-bold"
         >
           campaign engagement

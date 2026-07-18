@@ -5,7 +5,7 @@ import GraphicVideo from "./component/GraphicVideo";
 import FAQ from "@/app/component/website/FAQ";
 import { GraphicFaqs } from "@/app/data/faqData";
 import GraphicTestimonial from "./component/GraphicTestimonial";
-import OtherServices from "../website-development-service/component/OtherService";
+import OtherServices from "../website-development/component/OtherService";
 
 export const metadata: Metadata = {
   title: "Best Graphic Design Agency in Ahmedabad | Marketrixa",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.marketrixa.com/services/graphic-design-service",
+    canonical: "https://www.marketrixa.com/services/graphic-design",
   },
 
   openGraph: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description:
       "Looking for a graphic design company in Ahmedabad? Marketrixa offers logo design, branding & social media creatives. Get a free consultation!",
 
-    url: "https://www.marketrixa.com/services/graphic-design-service",
+    url: "https://www.marketrixa.com/services/graphic-design",
 
     siteName: "Marketrixa",
 
@@ -102,7 +102,7 @@ export default function GraphicVideoContent() {
 
     image: "https://www.marketrixa.com/graphic-og-image.png",
 
-    url: "https://www.marketrixa.com/services/graphic-design-service",
+    url: "https://www.marketrixa.com/services/graphic-design",
 
     category: "Graphic Design Agency",
   };
@@ -166,7 +166,7 @@ export default function GraphicVideoContent() {
 
         name: "Graphic Design Service",
 
-        item: "https://www.marketrixa.com/services/graphic-design-service",
+        item: "https://www.marketrixa.com/services/graphic-design",
       },
     ],
   };

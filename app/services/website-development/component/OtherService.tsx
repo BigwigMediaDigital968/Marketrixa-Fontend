@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Search,
   Share2,
@@ -17,8 +17,8 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { link } from "fs";
 import Link from "next/link";
+import { usePathname } from "next/navigation"; // 1. Import usePathname
 import Popup from "@/app/component/website/Popup";
 
 const services = [
@@ -26,7 +26,7 @@ const services = [
     title: "SEO",
     desc: " Improve your website rankings and drive consistent, high-quality organic traffic that converts into real business results.",
     icon: Search,
-    link: "/services/seo-service",
+    link: "/services/search-engine-optimization",
   },
   {
     title: "SMM",
@@ -38,7 +38,7 @@ const services = [
     title: "Performance Marketing",
     desc: "Data-driven campaigns focused on measurable results and ROI.",
     icon: BarChart3,
-    link: "/services/performance-marketing-service",
+    link: "/services/performance-marketing",
   },
   {
     title: "Content Marketing",
@@ -50,7 +50,7 @@ const services = [
     title: "Web Development",
     desc: "Modern, responsive websites built for performance and brand impact.",
     icon: Globe,
-    link: "/services/website-development-service",
+    link: "/services/website-development",
   },
   {
     title: "Email Marketing",
@@ -91,17 +91,28 @@ const services = [
 ];
 
 const OtherServices = () => {
+  const pathname = usePathname(); // 2. Get the current page URL path
   const [showPopup, setShowPopup] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
+  // 3. Filter out the service matching the current page link
+  const displayedServices = services.filter(
+    (service) => service.link !== pathname,
+  );
+
   const handleNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % services.length);
-  }, []);
+    if (displayedServices.length === 0) return;
+    setCurrentIndex((prev) => (prev + 1) % displayedServices.length);
+  }, [displayedServices.length]);
 
   const handlePrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
-  }, []);
+    if (displayedServices.length === 0) return;
+    setCurrentIndex(
+      (prev) =>
+        (prev - 1 + displayedServices.length) % displayedServices.length,
+    );
+  }, [displayedServices.length]);
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -109,13 +120,32 @@ const OtherServices = () => {
     return () => clearInterval(interval);
   }, [handleNext, isAutoPlaying]);
 
+  // Reset index out of bounds fallback if list shrinks drastically
+  useEffect(() => {
+    if (
+      currentIndex >= displayedServices.length &&
+      displayedServices.length > 0
+    ) {
+      setCurrentIndex(0);
+    }
+  }, [displayedServices.length, currentIndex]);
+
   // Helper to get relative index for positioning
   const getCardProps = (index: number) => {
-    const diff = (index - currentIndex + services.length) % services.length;
+    const total = displayedServices.length;
+    if (total === 0)
+      return {
+        position: 0,
+        isVisible: false,
+        isCenter: false,
+        isBlurry: false,
+      };
+
+    const diff = (index - currentIndex + total) % total;
 
     // Logic to make it look infinite
     let position = diff;
-    if (diff > services.length / 2) position = diff - services.length;
+    if (diff > total / 2) position = diff - total;
 
     const isVisible = Math.abs(position) <= 2;
     const isCenter = position === 0;
@@ -148,32 +178,34 @@ const OtherServices = () => {
             </div>
 
             {/* Navigation Controls */}
-            <div className="flex gap-4">
-              <button
-                onClick={() => {
-                  handlePrev();
-                  setIsAutoPlaying(false);
-                }}
-                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-[#F26522] hover:border-[#F26522] transition-all cursor-pointer"
-              >
-                <ChevronLeft size={24} />
-              </button>
-              <button
-                onClick={() => {
-                  handleNext();
-                  setIsAutoPlaying(false);
-                }}
-                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-[#F26522] hover:border-[#F26522] transition-all cursor-pointer"
-              >
-                <ChevronRight size={24} />
-              </button>
-            </div>
+            {displayedServices.length > 1 && (
+              <div className="flex gap-4">
+                <button
+                  onClick={() => {
+                    handlePrev();
+                    setIsAutoPlaying(false);
+                  }}
+                  className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-[#F26522] hover:border-[#F26522] transition-all cursor-pointer"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+                <button
+                  onClick={() => {
+                    handleNext();
+                    setIsAutoPlaying(false);
+                  }}
+                  className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-[#F26522] hover:border-[#F26522] transition-all cursor-pointer"
+                >
+                  <ChevronRight size={24} />
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Slider Container */}
           <div className="relative h-[450px] w-full flex items-center justify-center">
             <div className="absolute w-full flex items-center justify-center">
-              {services.map((service, index) => {
+              {displayedServices.map((service, index) => {
                 const { position, isVisible, isCenter, isBlurry } =
                   getCardProps(index);
 
@@ -181,7 +213,7 @@ const OtherServices = () => {
 
                 return (
                   <motion.div
-                    key={index}
+                    key={service.link} // Swapped to static link identifier for stable list diffing
                     initial={false}
                     animate={{
                       x: position * 340, // Distance between cards

@@ -180,7 +180,7 @@ const AboutInfluence: React.FC = () => {
             </div>
             <p className="text-white/50 text-sm md:text-base max-w-sm font-light">
               Marketrixa empowers businesses to create impactful <Link
-            href="/services/website-development-service"
+            href="/services/website-development"
             className="text-white/70 font-medium underline-offset-4 hover:text-blue-400 transition-colors duration-300"
           >digital presence</Link> by strategically connecting with creators to build trust, engagement, and sustainable brand growth.
             </p>

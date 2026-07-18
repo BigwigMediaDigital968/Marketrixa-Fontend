@@ -3,7 +3,7 @@ import Navbar from "@/app/component/website/Navbar";
 import UgcServicePage from "./Components/PageContent";
 import Hero from "./Components/Hero";
 import FAQ from "@/app/component/website/FAQ";
-import OtherServices from "../website-development-service/component/OtherService";
+import OtherServices from "../website-development/component/OtherService";
 
 export const UgcFaqs = [
     {

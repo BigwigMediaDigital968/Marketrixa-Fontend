@@ -95,7 +95,7 @@ const tools: Tool[] = [
         Our experts continuously monitor campaign performance, audience behavior,
         and engagement metrics while optimizing strategies alongside our{" "}
         <Link
-          href="/services/seo-service"
+          href="/services/search-engine-optimization"
           className="text-blue-600 hover:underline font-bold"
         >
           SEO services

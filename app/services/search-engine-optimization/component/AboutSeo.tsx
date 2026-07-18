@@ -61,7 +61,7 @@ const AboutSeo = () => {
               traffic into loyal, paying customers. As a results-driven search
               engine optimization company in Ahmedabad, we blend technical
               expertise with creative content strategy to ensure your brand does
-              not just appear in searches but dominates them. For businesses that need visibility now, not just in six months, we <Link href="https://www.marketrixa.com/services/performance-marketing-service" className="text-[#F26522] hover:underline">
+              not just appear in searches but dominates them. For businesses that need visibility now, not just in six months, we <Link href="https://www.marketrixa.com/services/performance-marketing" className="text-[#F26522] hover:underline">
                 pair SEO with paid ads </Link>
               so you capture leads immediately while your organic rankings build underneath.
 

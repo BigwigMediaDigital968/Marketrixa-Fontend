@@ -18,7 +18,7 @@ const MENU_DETAILS = {
   },
   {
     name: "Performance Marketing",
-    href: "/services/performance-marketing-service",
+    href: "/services/performance-marketing",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
     tag: "Marketing",
   },
@@ -36,7 +36,7 @@ const MENU_DETAILS = {
   },
   {
     name: "Search Engine Optimization",
-    href: "/services/seo-service",
+    href: "/services/search-engine-optimization",
     img: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&q=80&w=800",
     tag: "SEO",
   },
@@ -72,13 +72,13 @@ const MENU_DETAILS = {
   },
   {
     name: "Graphic Design",
-    href: "/services/graphic-design-service",
+    href: "/services/graphic-design",
     img: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800",
     tag: "Creative",
   },
   {
     name: "Website Development",
-    href: "/services/website-development-service",
+    href: "/services/website-development",
     img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
     tag: "Dev",
   },

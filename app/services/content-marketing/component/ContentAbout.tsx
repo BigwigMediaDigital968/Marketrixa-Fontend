@@ -39,7 +39,7 @@ const features: Feature[] = [
     title: "SEO-Based Optimization",
     description:
       (<>
-       Each asset is content <Link href="/services/seo-service" className="text-[#f26522] hover:underline">
+       Each asset is content <Link href="/services/search-engine-optimization" className="text-[#f26522] hover:underline">
          built for search visibility
        </Link>, created to increase organic reach and generate targeted traffic from the search engines.
       </>),

@@ -11,7 +11,7 @@ import SeoActivities from "./component/SeoActivities";
 import SeoClients from "./component/SeoClients";
 import SeoProjects from "./component/SeoProjects";
 import Script from "next/script";
-import OtherServices from "../website-development-service/component/OtherService";
+import OtherServices from "../website-development/component/OtherService";
 
 export const metadata = {
   title: "Best SEO Services in Ahmedabad | Marketrixa",
@@ -38,14 +38,14 @@ export const metadata = {
   metadataBase: new URL("https://www.marketrixa.com"),
 
   alternates: {
-    canonical: "/services/seo-service",
+    canonical: "/services/search-engine-optimization",
   },
 
   openGraph: {
     title: "Best SEO Services in Ahmedabad | Marketrixa",
     description:
       "Boost your Google rankings and grow your business with expert SEO services in Ahmedabad. Get a free audit today.",
-    url: "https://www.marketrixa.com/services/seo-service",
+    url: "https://www.marketrixa.com/services/search-engine-optimization",
     siteName: "Marketrixa",
     images: [
       {
@@ -136,7 +136,7 @@ export default function SeoPage() {
                 name: "Ahmedabad",
               },
               serviceType: "Search Engine Optimization",
-              url: "https://www.marketrixa.com/services/seo-service",
+              url: "https://www.marketrixa.com/services/search-engine-optimization",
             },
 
             // ✅ ARTICLE SCHEMA (for content authority)
@@ -159,7 +159,7 @@ export default function SeoPage() {
                 },
               },
               mainEntityOfPage:
-                "https://www.marketrixa.com/services/seo-service",
+                "https://www.marketrixa.com/services/search-engine-optimization",
             },
 
             // ✅ BREADCRUMB SCHEMA
@@ -183,7 +183,7 @@ export default function SeoPage() {
                   "@type": "ListItem",
                   position: 3,
                   name: "SEO Services",
-                  item: "https://www.marketrixa.com/services/seo-service",
+                  item: "https://www.marketrixa.com/services/search-engine-optimization",
                 },
               ],
             },

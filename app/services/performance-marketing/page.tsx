@@ -12,7 +12,7 @@ import PerformanceFeatures from "./component/PerformanceFeatures";
 
 import type { Metadata } from "next";
 import Script from "next/script";
-import OtherServices from "../website-development-service/component/OtherService";
+import OtherServices from "../website-development/component/OtherService";
 
 export const metadata: Metadata = {
   title: "Performance Marketing Solutions for Sales Growth | Marketrixa",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Performance Marketing Solutions for Sales Growth | Marketrixa",
     description:
       "Drive more leads and revenue with high-ROI Google Ads and Meta Ads campaigns.",
-    url: "https://www.marketrixa.com/services/performance-marketing-service",
+    url: "https://www.marketrixa.com/services/performance-marketing",
     siteName: "Marketrixa",
     images: [
       {
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 
   alternates: {
     canonical:
-      "https://www.marketrixa.com/services/performance-marketing-service",
+      "https://www.marketrixa.com/services/performance-marketing",
   },
 };
 

@@ -38,14 +38,14 @@ export const metadata = {
   metadataBase: new URL("https://www.marketrixa.com"),
 
   alternates: {
-    canonical: "/services/website-development-service",
+    canonical: "/services/website-development",
   },
 
   openGraph: {
     title: "Website Development Company in Ahmedabad | Marketrixa",
     description:
       "Build high-performance, SEO-ready websites with Marketrixa. Designed for speed, conversions, and growth.",
-    url: "https://www.marketrixa.com/services/website-development-service",
+    url: "https://www.marketrixa.com/services/website-development",
     siteName: "Marketrixa",
     images: [
       {
@@ -118,7 +118,7 @@ export default function SeoPage() {
                 name: "Ahmedabad",
               },
               serviceType: "Web Development",
-              url: "https://www.marketrixa.com/services/website-development-service",
+              url: "https://www.marketrixa.com/services/website-development",
             },
 
             // ✅ ARTICLE SCHEMA
@@ -142,7 +142,7 @@ export default function SeoPage() {
                 },
               },
               mainEntityOfPage:
-                "https://www.marketrixa.com/services/website-development-service",
+                "https://www.marketrixa.com/services/website-development",
             },
 
             // ✅ BREADCRUMB SCHEMA
@@ -166,7 +166,7 @@ export default function SeoPage() {
                   "@type": "ListItem",
                   position: 3,
                   name: "Web Development",
-                  item: "https://www.marketrixa.com/services/website-development-service",
+                  item: "https://www.marketrixa.com/services/website-development",
                 },
               ],
             },

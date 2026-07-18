@@ -35,19 +35,19 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.9,
   },
   {
-    url: `${BASE_URL}/services/website-development-service`,
+    url: `${BASE_URL}/services/website-development`,
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 0.9,
   },
   {
-    url: `${BASE_URL}/services/seo-service`,
+    url: `${BASE_URL}/services/search-engine-optimization`,
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 0.9,
   },
   {
-    url: `${BASE_URL}/services/performance-marketing-service`,
+    url: `${BASE_URL}/services/performance-marketing`,
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 0.9,
@@ -59,7 +59,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.9,
   },
   {
-    url: `${BASE_URL}/services/graphic-design-service`,
+    url: `${BASE_URL}/services/graphic-design`,
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 0.9,

@@ -21,7 +21,7 @@ const SERVICES: Service[] = [
     description:
       "We build fast, conversion-optimised websites that do more than look good; they generate leads, build trust, and scale with your business from day one.",
     bgImage: "/service-card.png",
-    href: "/services/website-development-service",
+    href: "/services/website-development",
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const SERVICES: Service[] = [
     description:
       "As a leading digital marketing company in Ahmedabad, we put your brand on page one where your customers are already searching. Data-backed, penalty-free, and built for long-term dominance.",
     bgImage: "https://images.unsplash.com/photo-1599658880436-c61792e70672",
-    href: "/services/seo-service",
+    href: "/services/search-engine-optimization",
   },
   {
     id: 4,
@@ -50,7 +50,7 @@ const SERVICES: Service[] = [
       "Every rupee tracked. Every ad is optimised. We run high-ROI campaigns across Google and Meta that turn ad spend into measurable, compounding revenue.",
     bgImage:
       "https://images.unsplash.com/photo-1770970716469-4b32abc0a577?q=80&w=880",
-    href: "/services/performance-marketing-service",
+    href: "/services/performance-marketing",
   },
   {
     id: 5,
@@ -59,7 +59,7 @@ const SERVICES: Service[] = [
     description:
       "Visual identity that commands attention. From brand kits to campaign creatives, we design assets that communicate your value before a single word is read.",
     bgImage: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d",
-    href: "/services/graphic-design-service",
+    href: "/services/graphic-design",
   },
 ];
 

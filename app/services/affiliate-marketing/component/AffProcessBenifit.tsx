@@ -129,7 +129,7 @@ const benefits: BenefitItem[] = [
       Industry-focused partnerships help businesses improve referral traffic through strategic
       {" "}
       <Link
-        href="/services/seo-service"
+        href="/services/search-engine-optimization"
         className="text-blue-600 hover:underline font-bold"
       >
         SEO services

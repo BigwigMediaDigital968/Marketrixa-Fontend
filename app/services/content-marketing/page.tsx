@@ -8,7 +8,7 @@ import { ContentFAQs } from "@/app/data/faqData";
 import ContentService from "./component/ContentService";
 import { Metadata } from "next";
 import WhyChooseMarketrixa from "./component/Whychoosemarketrixa";
-import OtherServices from "../website-development-service/component/OtherService";
+import OtherServices from "../website-development/component/OtherService";
 
 
 export const metadata: Metadata = {

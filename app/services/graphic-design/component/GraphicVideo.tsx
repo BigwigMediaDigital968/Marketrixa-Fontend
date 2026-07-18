@@ -311,7 +311,7 @@ const whyPoints = [
   {
     title: "End-to-End Design Capability",
     desc: (<>
-      From logo to campaign - we handle every visual touchpoint, and when you need <Link href="/services/website-development-service" className="text-[#d44f18] hover:underline">
+      From logo to campaign - we handle every visual touchpoint, and when you need <Link href="/services/website-development" className="text-[#d44f18] hover:underline">
         assets for your new website </Link>
       , we make sure they're ready to build with.
     </>),

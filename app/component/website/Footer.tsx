@@ -20,11 +20,11 @@ export default function Footer() {
       links: [
         {
           title: "Web Development",
-          href: "/services/website-development-service",
+          href: "/services/website-development",
         },
-        { title: "SEO Growth", href: "/services/seo-service" },
+        { title: "SEO Growth", href: "/services/search-engine-optimization" },
         { title: "Social Media", href: "/services/social-media-marketing" },
-        { title: "Graphic Design", href: "/services/graphic-design-service" },
+        { title: "Graphic Design", href: "/services/graphic-design" },
         {
           title: "Email Marketing",
           href: "/services/email-marketing",
@@ -51,20 +51,15 @@ export default function Footer() {
     {
       title: "Resources",
       links: [
-        // { title: "Case Studies", href: "/case-studies" },
         { title: "Blog", href: "/blogs" },
         { title: "Privacy Policy", href: "/privacy-policy" },
         { title: "Terms of Service", href: "/terms-of-service" },
-        // { title: "Sitemap", href: "/sitemap" },
       ],
     },
   ];
 
   const socialLinks = [
-    // {
-    //   icon: FaYoutube,
-    //   href: "https://youtube.com/@marketrixa",
-    // },
+   
     {
       icon: FaLinkedin,
       href: "https://linkedin.com/company/marketrixa",

@@ -10,7 +10,7 @@ import SmoWhy from "./Component/SmoWhy";
 import SmoPromise from "./Component/SmoPromise";
 import FAQ from "@/app/component/website/FAQ";
 import { SmoFaqs } from "@/app/data/faqData";
-import OtherServices from "../website-development-service/component/OtherService";
+import OtherServices from "../website-development/component/OtherService";
 
 export const metadata: Metadata = {
   title: "Social Media Optimization Company in Ahmedabad | Marketrixa",

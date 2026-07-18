@@ -38,7 +38,7 @@ const features: FeatureItem[] = [
     title: "Unique Brand Identity",
     shortDesc: (
       <>
-      <Link href="/services/graphic-design-service" className="text-[#F26522] hover:underline">
+      <Link href="/services/graphic-design" className="text-[#F26522] hover:underline">
         Get a matching visual identity
       </Link>{" "}
       with personality in every pixel.

@@ -10,7 +10,7 @@ import FAQ from "@/app/component/website/FAQ";
 import { ORMFaqs } from "@/app/data/faqData";
 import OrmStats from "./component/OrmStats";
 import OrmTestimonial from "./component/OrmTestimonial";
-import OtherServices from "../website-development-service/component/OtherService";
+import OtherServices from "../website-development/component/OtherService";
 
 export const metadata: Metadata = {
   title: "Online Reputation Management Services | Marketrixa",

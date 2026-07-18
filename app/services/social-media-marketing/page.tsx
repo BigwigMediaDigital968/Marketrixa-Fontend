@@ -12,7 +12,7 @@ import SmmClients from "./component/SmmClients";
 
 import type { Metadata } from "next";
 import Script from "next/script";
-import OtherServices from "../website-development-service/component/OtherService";
+import OtherServices from "../website-development/component/OtherService";
 
 export const metadata: Metadata = {
   title: "Social Media Marketing Agency in Ahmedabad | Marketrixa",

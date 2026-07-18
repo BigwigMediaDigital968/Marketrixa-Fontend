@@ -11,7 +11,7 @@ import AffProcessBenifit from "./component/AffProcessBenifit";
 import WhyAffMarketrixs from "./component/WhyAffMarketrixs";
 import Link from "next/link";
 import { Metadata } from "next";
-import OtherServices from "../website-development-service/component/OtherService";
+import OtherServices from "../website-development/component/OtherService";
 
 export const AffiliateFAQs: FAQItem[] = [
   {
