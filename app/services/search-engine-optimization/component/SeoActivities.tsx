@@ -77,7 +77,7 @@ const activities = [
     color: "bg-orange-500",
     summary:
       (<>
-        We build your website's authority outside your domain through quality link-building activities. Search itself keeps evolving too - <Link href="https://www.marketrixa.com/blog/ai-driven-seo" className="text-[#F26522] hover:underline">
+        We build your website's authority outside your domain through quality link-building activities. Search itself keeps evolving too - <Link href="https://www.marketrixa.com/blogs/top-digital-marketing-trends" className="text-[#F26522] hover:underline">
           see what's changing in AI-driven SEO </Link>
         to stay ahead of where rankings are headed next.
       </>),

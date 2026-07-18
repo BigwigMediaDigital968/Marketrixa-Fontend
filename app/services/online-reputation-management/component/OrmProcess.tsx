@@ -53,7 +53,7 @@ const processSteps: ProcessStep[] = [
     title: "Real-Time Monitoring & Response",
     desc: (
       <>
-      Our team monitors your brand around the clock. Every new review is responded to within 24 hours, and we <Link href="/services/online-reputation-management" className="text-[#f26522] hover:underline">
+      Our team monitors your brand around the clock. Every new review is responded to within 24 hours, and we <Link href="/services/social-media-marketing" className="text-[#f26522] hover:underline">
         respond to reviews on social
       </Link>
       . Every emerging mention - positive or negative - is flagged and acted upon. If a new reputation threat appears, we respond immediately, adjusting the strategy before a small issue becomes a large crisis. You receive weekly updates and monthly comprehensive reports throughout the engagement.

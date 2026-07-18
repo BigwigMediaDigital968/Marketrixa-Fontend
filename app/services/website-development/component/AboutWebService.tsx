@@ -55,7 +55,7 @@ const AboutWebService = () => {
     {
       title: "SEO Optimized",
       desc: (<>
-      We <Link href="/services/search-engine-optimization" className="text-[#F26522] hover:underline">
+      We <Link href="/services/seo-service" className="text-[#F26522] hover:underline">
         build SEO in from day one
       </Link>{" "}
       so your site is built to rank and perform in search engine landscapes.
