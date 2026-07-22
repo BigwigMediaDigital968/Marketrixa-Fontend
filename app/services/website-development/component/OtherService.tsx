@@ -65,12 +65,6 @@ const services = [
     link: "/services/social-media-optimization",
   },
   {
-    title: "Video Editing",
-    desc: "Creative visuals and high-quality video content that elevate identity.",
-    icon: Video,
-    link: "/services/video-editing",
-  },
-  {
     title: "Influencer Marketing",
     desc: "Collaborate with relevant, trusted influencers to expand your brand reach and build authentic credibility in your market.",
     icon: Users,
