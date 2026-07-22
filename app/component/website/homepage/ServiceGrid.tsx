@@ -25,30 +25,6 @@ const services = [
     icon: <Globe className="w-8 h-8" />,
     href: "/services/social-media-optimization",
   },
-  // {
-  //   title: "Website Development",
-  //   desc: "Build fast, scalable, and modern websites tailored to your business needs.",
-  //   icon: <Code2 className="w-8 h-8" />,
-  //   href: "/services/website-development-service",
-  // },
-  // {
-  //   title: "Search Engine Optimization",
-  //   desc: "Improve your search rankings and visibility to attract high-quality organic traffic.",
-  //   icon: <Search className="w-8 h-8" />,
-  //   href: "/services/seo-service",
-  // },
-  // {
-  //   title: "Performance Marketing",
-  //   desc: "Drive measurable growth with data-driven campaigns focused on ROI and conversions.",
-  //   icon: <TrendingUp className="w-8 h-8" />,
-  //   href: "/services/performance-marketing-service",
-  // },
-  // {
-  //   title: "Graphic Designing & Video Editing",
-  //   desc: "Create visually compelling designs and videos that capture attention and communicate effectively.",
-  //   icon: <PenTool className="w-8 h-8" />,
-  //   href: "/services/graphic-design-service",
-  // },
   {
     title: "Affiliate Marketing",
     desc: "Expand your reach without expanding your team. We build and manage affiliate networks that bring in qualified traffic and pay only for real results.",
@@ -68,12 +44,6 @@ const services = [
     icon: <Users2 className="w-8 h-8" />,
     href: "/services/influencer-marketing",
   },
-  // {
-  //   title: "Social Media Optimization",
-  //   desc: "Optimize your social profiles and content strategy for better reach and engagement.",
-  //   icon: <ThumbsUp className="w-8 h-8" />,
-  //   href: "/services/social-media-marketing",
-  // },
 
   {
     title: "Content Marketing",
