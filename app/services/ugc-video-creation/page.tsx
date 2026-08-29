@@ -4,6 +4,7 @@ import UgcServicePage from "./Components/PageContent";
 import Hero from "./Components/Hero";
 import FAQ from "@/app/component/website/FAQ";
 import OtherServices from "../website-development/component/OtherService";
+import { Metadata } from "next";
 
 export const UgcFaqs = [
     {
@@ -37,6 +38,55 @@ export const UgcFaqs = [
             "Book a free strategy call with Marketrixa's UGC team and walk away with a content plan built specifically for your brand and your audience in Ahmedabad. No fluff. No generic templates. Just a clear, data-backed UGC video strategy that delivers results.",
     },
 ];
+
+export const metadata : Metadata = {
+  title: "UGC Videos & Creator Content in Ahmedabad | Marketrixa",
+
+  description:
+    "Marketrixa creates authentic UGC videos & creator content in Ahmedabad that build trust and drive audience engagement.",
+
+  keywords: [
+    "UGC videos & creator content in Ahmedabad",
+    "UGC video production",
+    "creator content marketing",
+  ],
+
+  authors: [{ name: "Marketrixa" }],
+  creator: "Marketrixa",
+  publisher: "Marketrixa",
+
+  metadataBase: new URL("https://www.marketrixa.com"),
+
+  alternates: {
+    canonical:
+      "https://www.marketrixa.com/services/ugc-video-creation",
+  },
+
+  openGraph: {
+    title: "UGC Videos & Creator Content in Ahmedabad | Marketrixa",
+    description:
+      "Marketrixa creates authentic UGC videos & creator content in Ahmedabad that build trust and drive audience engagement.",
+    url: "https://www.marketrixa.com/services/ugc-video-creation",
+    siteName: "Marketrixa",
+    images: [
+      {
+        url: "/logo.jpg",
+        alt: "Marketrixa UGC Videos & Creator Content in Ahmedabad",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "UGC Videos & Creator Content in Ahmedabad | Marketrixa",
+    description:
+      "Marketrixa creates authentic UGC videos & creator content in Ahmedabad that build trust and drive audience engagement.",
+    images: ["/logo.jpg"],
+    creator: "@marketrixa",
+  },
+};
 
 export default function Page() {
     return (

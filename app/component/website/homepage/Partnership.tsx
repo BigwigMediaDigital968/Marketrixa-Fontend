@@ -391,6 +391,70 @@ function TikTokLogo() {
   );
 }
 
+function NextJsLogo() {
+  return (
+    <svg viewBox="0 0 90 40" xmlns="http://www.w3.org/2000/svg" className="h-8 md:h-10 w-auto">
+      <circle cx="20" cy="20" r="16" fill="white" />
+      <circle cx="20" cy="20" r="15" fill="black" />
+      <path d="M28 28 L17 14 H14 V26 H16 V17 L25 28 Z" fill="white" />
+      <rect x="27" y="14" width="2" height="12" fill="white" />
+      <text x="44" y="24" fontFamily="Arial,sans-serif" fontSize="15" fill="white" fontWeight="800">Next.js</text>
+    </svg>
+  );
+}
+
+function ReactLogo() {
+  return (
+    <svg viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg" className="h-8 md:h-10 w-auto">
+      <g transform="translate(18, 20)" stroke="#00d8ff" strokeWidth="1.5" fill="none">
+        <ellipse rx="16" ry="6" transform="rotate(0)" />
+        <ellipse rx="16" ry="6" transform="rotate(60)" />
+        <ellipse rx="16" ry="6" transform="rotate(120)" />
+        <circle cx="0" cy="0" r="2.5" fill="#00d8ff" />
+      </g>
+      <text x="44" y="24" fontFamily="Arial,sans-serif" fontSize="16" fill="white" fontWeight="800">React</text>
+    </svg>
+  );
+}
+
+function NodeJsLogo() {
+  return (
+    <svg viewBox="0 0 110 40" xmlns="http://www.w3.org/2000/svg" className="h-8 md:h-10 w-auto">
+      <path d="M18 6 L6 13 L6 27 L18 34 L30 27 L30 13 Z" fill="none" stroke="#6cc24a" strokeWidth="2" />
+      <path d="M18 6 L6 13 L18 20 L30 13 Z" fill="#6cc24a" opacity="0.3" />
+      <path d="M18 20 L18 34" stroke="#6cc24a" strokeWidth="2" />
+      <text x="38" y="24" fontFamily="Arial,sans-serif" fontSize="15" fill="white" fontWeight="800">Node.js</text>
+    </svg>
+  );
+}
+
+function FirebaseLogo() {
+  return (
+    <svg viewBox="0 0 115 40" xmlns="http://www.w3.org/2000/svg" className="h-8 md:h-10 w-auto">
+      <g transform="translate(2, 4)">
+        <path d="M4 26 L14 4 L19 14 Z" fill="#FFC107" />
+        <path d="M26 26 L16 2 L4 26 Z" fill="#FF8F00" />
+        <path d="M4 26 L23 26 L16 12 Z" fill="#FFCA28" />
+        <path d="M16 12 L4 26 L16 26 Z" fill="#F4B400" />
+      </g>
+      <text x="36" y="24" fontFamily="Arial,sans-serif" fontSize="15" fill="white" fontWeight="800">Firebase</text>
+    </svg>
+  );
+}
+
+function TwilioLogo() {
+  return (
+    <svg viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg" className="h-8 md:h-10 w-auto">
+      <circle cx="16" cy="20" r="12" fill="#F22F46" />
+      <circle cx="12" cy="16" r="2" fill="white" />
+      <circle cx="20" cy="16" r="2" fill="white" />
+      <circle cx="12" cy="24" r="2" fill="white" />
+      <circle cx="20" cy="24" r="2" fill="white" />
+      <text x="36" y="24" fontFamily="Arial,sans-serif" fontSize="15" fill="white" fontWeight="800">Twilio</text>
+    </svg>
+  );
+}
+
 // — Main component —
 
 function LogoItem({ Logo, name }: { Logo: () => JSX.Element; name: string }) {
