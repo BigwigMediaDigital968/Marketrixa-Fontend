@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import {
   FileText,
@@ -11,6 +9,51 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service | Marketrixa",
+  description:
+    "Review Marketrixa's Terms of Service to understand the rules, responsibilities, and conditions for using our website, platform, and digital marketing services.",
+
+  keywords: [
+    "Marketrixa terms of service",
+    "terms of service",
+    "terms and conditions",
+    "website terms of use",
+    "digital marketing terms",
+    "Marketrixa",
+  ],
+
+  alternates: {
+    canonical: "https://www.marketrixa.com/terms-of-service",
+  },
+
+  openGraph: {
+    title: "Terms of Service | Marketrixa",
+    description:
+      "Review Marketrixa's Terms of Service to understand the rules, responsibilities, and conditions for using our website and digital marketing services.",
+    url: "https://www.marketrixa.com/terms-of-service",
+    siteName: "Marketrixa",
+    type: "website",
+    images: [
+      {
+        url: "/logo-rec.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Marketrixa Terms of Service",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service | Marketrixa",
+    description:
+      "Review Marketrixa's terms, conditions, user responsibilities, and policies for using our website and digital marketing services.",
+    images: ["/logo-rec.jpg"],
+  },
+};
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },

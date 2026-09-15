@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: "Content Marketing Company in Ahmedabad | Marketrixa",
 
   description:
-    "Marketrixa is a leading content marketing Company in Ahmedabad providing SEO-driven content, blogs, website copy, and social media strategies to boost online growth. ",
+    "Marketrixa is a leading content marketing company in Ahmedabad, creating SEO-driven blogs and website copy for growth.",
 
   // keywords: [
   //   "social media optimization",

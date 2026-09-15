@@ -84,7 +84,7 @@ export default function OrmPageContant() {
     serviceType: "Online Reputation Management Services",
     name: "Online Reputation Management Services",
     description:
-      "Marketrixa provides expert online reputation management services to suppress negative content, monitor brand mentions, improve public perception, and build digital trust.",
+      "Marketrixa's ORM services protect your brand, suppress negative content, and build lasting trust. Get a free audit today.",
     provider: {
       "@type": "Organization",
       name: "Marketrixa",
