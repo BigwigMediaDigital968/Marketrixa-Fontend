@@ -7,7 +7,7 @@ import InternationalClient from "./component/InternationalClient";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "International Digital Marketing Agency | Marketrixa",
+  title: "Marketrixa International | Digital Marketing for Global Brands",
   description:
     "Expand your brand globally with Marketrixa's international digital marketing services. Reach new markets, attract global customers, and grow your business with data-driven strategies.",
 
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "International Digital Marketing Agency | Marketrixa",
+    title: "Marketrixa International | Digital Marketing for Global Brands",
     description:
       "Expand your brand globally with Marketrixa's international digital marketing services. Reach new markets, attract global customers, and grow your business with data-driven strategies.",
     url: "https://www.marketrixa.com/international",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "International Digital Marketing Agency | Marketrixa",
+    title: "Marketrixa International | Digital Marketing for Global Brands",
     description:
       "Expand your brand globally with Marketrixa's international digital marketing services and data-driven growth strategies.",
     images: ["/logo-rec.jpg"],
