@@ -10,7 +10,7 @@ import { industryFAQs } from "../data/faqData";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Industries We Serve | Digital Marketing Solutions | Marketrixa",
+  title: "Digital Marketing Solutions for Every Industry | Marketrixa",
   description:
     "Explore the industries Marketrixa serves with tailored digital marketing solutions for e-commerce, healthcare, real estate, education, finance, and more.",
 
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Industries We Serve | Digital Marketing Solutions | Marketrixa",
+    title: "Digital Marketing Solutions for Every Industry | Marketrixa",
     description:
       "Discover tailored digital marketing strategies from Marketrixa for e-commerce, healthcare, real estate, education, finance, and other industries.",
     url: "https://www.marketrixa.com/industry",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Industries We Serve | Digital Marketing Solutions | Marketrixa",
+    title: "Digital Marketing Solutions for Every Industry | Marketrixa",
     description:
       "Explore Marketrixa's tailored digital marketing solutions for e-commerce, healthcare, real estate, education, finance, and more.",
     images: ["/logo-rec.jpg"],
